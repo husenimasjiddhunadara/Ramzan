@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>રમઝાન મુબારક - 2027 | હુસેની મસ્જિદ, ઢુણાદરા</title>
+    
+    <!-- Premium Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Modern Icons (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Particles.js for Premium Interactive Background -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <style>
+        /* ========================================= */
+        /* PREMIUM GREEN & GOLD PALETTE              */
+        /* ========================================= */
+        :root {
+            --bg-main: #f4f8f5;           
+            --primary-dark: #011c14;      
+            --primary: #053b2a;           
+            --primary-light: #0b4635;     
+            
+            --gold-primary: #d4af37;      
+            --gold-light: #fef08a;        
+            --gold-dark: #b8972e;         
+            
+            --text-main: #1a1a1a;         
+            --text-muted: #555555;        
+            
+            --accent-red: #dc2626;        
+            --card-bg: #ffffff;           
+            
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 25px -3px rgba(11, 70, 53, 0.1);
+            --shadow-lg: 0 20px 40px -5px rgba(2, 43, 31, 0.3);
+            --shadow-glow: 0 0 25px rgba(212, 175, 55, 0.6);
+            
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Anek Gujarati', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            /* Soft Animated Body Background */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(11, 70, 53, 0.04), transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.05), transparent 30%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230b4635' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .fa-solid, .fa-regular { font-family: "Font Awesome 6 Free" !important; }
+
+        /* ========================================= */
+        /* 1. JORDAR PREMIUM LIVE HEADER             */
+        /* ========================================= */
+        header {
+            position: relative;
+            background: linear-gradient(-45deg, var(--primary-dark), var(--primary), var(--primary-light), #022017);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            padding: 60px 20px 110px 20px;
+            text-align: center;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            box-shadow: 0 20px 50px rgba(2, 43, 31, 0.7);
+            border-bottom: 5px solid var(--gold-primary);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Particles Container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Glowing Crescent Moon (Pure CSS) */
+        .crescent-moon {
+            position: absolute;
+            top: 15%;
+            left: 8%;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            box-shadow: inset 18px -18px 0 0 rgba(212, 175, 55, 0.7);
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.9));
+            animation: floatMoon 8s ease-in-out infinite;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        @keyframes floatMoon {
+            0%, 100% { transform: translateY(0) rotate(10deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
+        }
+
+        /* Background Glowing Stars */
+        .glowing-star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px 5px var(--gold-primary);
+            animation: pulseStar 3s infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulseStar {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.5); opacity: 1; box-shadow: 0 0 30px 10px var(--gold-light); }
+        }
+
+        .header-content { 
+            position: relative; 
+            z-index: 2; 
+            display: inline-block;
+        }
+
+        /* HIGHLY INTERACTIVE HEADING ANIMATION */
+        .animated-heading {
+            font-size: 4.2rem; 
+            font-weight: 800; 
+            margin-bottom: 5px;
+            display: inline-block;
+            background: linear-gradient(to right, var(--gold-primary) 0%, #ffffff 30%, var(--gold-light) 50%, #ffffff 70%, var(--gold-primary) 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: fastShimmer 4s linear infinite;
+            text-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            letter-spacing: 1.5px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+            cursor: default;
+        }
+
+        .animated-heading:hover {
+            transform: scale(1.07) translateY(-5px);
+            filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.8));
+            animation: fastShimmer 2s linear infinite;
+        }
+
+        @keyframes fastShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .subtitle { 
+            font-size: 2.2rem; color: var(--gold-light); font-weight: 700; 
+            margin-bottom: 25px; letter-spacing: 2px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        
+        .location-badge {
+            font-size: 1.2rem; font-weight: 600; color: #ffffff;
+            background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(212, 175, 55, 0.5);
+            display: inline-flex; align-items: center; gap: 10px; padding: 12px 35px; border-radius: 40px;
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+        .location-badge:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            border-color: var(--gold-light);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* DEVELOPER BADGE ANIMATION */
+        @keyframes glowingPulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+            70% { box-shadow: 0 0 20px 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        .dev-badge {
+            font-size: 1.05rem; color: var(--primary-dark); font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+            margin-top: 35px; display: inline-flex; align-items: center; gap: 8px; padding: 12px 30px;
+            border-radius: 40px; background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
+            border: 2px solid #fff;
+            animation: glowingPulse 2.5s infinite;
+            transition: var(--transition);
+            cursor: default;
+        }
+        .dev-badge:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #fff 0%, var(--gold-light) 100%);
+        }
+
+        /* ========================================= */
+        /* 2. STATUS BOXES                           */
+        /* ========================================= */
+        .live-status-container {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;
+            margin: -60px auto 50px auto; position: relative; z-index: 10; padding: 0 20px; max-width: 1000px;
+        }
+
+        .status-box {
+            background: rgba(255, 255, 255, 0.97); border-radius: 20px; padding: 25px 15px;
+            box-shadow: var(--shadow-md); text-align: center; transition: var(--transition);
+            border: 1px solid rgba(11, 70, 53, 0.1); position: relative; overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .status-box::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--gold-primary), var(--primary-light));
+            background-size: 200% auto;
+            animation: fastShimmer 4s linear infinite;
+        }
+
+        .status-box:hover { 
+            transform: translateY(-10px); 
+            box-shadow: var(--shadow-lg), var(--shadow-glow); 
+            border-color: var(--gold-primary); 
+        }
+        
+        .box-icon { font-size: 2.8rem; color: var(--primary); margin-bottom: 12px; display: block; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .box-icon.gold-icon { color: var(--gold-dark); }
+        .status-box:hover .box-icon { transform: scale(1.2) rotate(8deg); }
+        
+        .status-title { font-size: 1.15rem; color: var(--text-muted); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .status-value { font-size: 2.4rem; font-weight: 800; color: var(--primary-dark); font-family: 'Outfit', sans-serif;}
+
+        /* SLOW TIMER PULSE */
+        .timer-active { color: var(--accent-red); animation: pulseText 1.5s ease-in-out infinite; }
+        .timer-inactive { color: var(--text-muted); opacity: 0.7; }
+
+        @keyframes pulseText {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(0.96); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* ========================================= */
+        /* 3. ZAKAT ACTION BUTTON                    */
+        /* ========================================= */
+        .action-section { text-align: center; margin-bottom: 60px; padding: 0 20px; }
+
+        .main-zakat-btn {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+            color: var(--primary-dark);
+            border: none; padding: 20px 55px; font-size: 1.5rem; font-weight: 800; border-radius: 50px; cursor: pointer;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5); transition: var(--transition);
+            display: inline-flex; align-items: center; gap: 15px; border: 2px solid rgba(255,255,255,0.9);
+            position: relative; overflow: hidden;
+        }
+
+        .main-zakat-btn::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: rgba(255,255,255,0.5); transform: rotate(45deg); transition: 0.6s ease-in-out; opacity: 0;
+        }
+        .main-zakat-btn:hover::after { left: 100%; opacity: 1; }
+        .main-zakat-btn:hover { 
+            transform: translateY(-6px) scale(1.04); 
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.8); 
+        }
+
+        /* ========================================= */
+        /* 4. DUA CARDS                              */
+        /* ========================================= */
+        .dua-container {
+            max-width: 1200px; margin: 0 auto 50px auto; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px;
+        }
+
+        .dua-card {
+            background: var(--card-bg); border-radius: 20px; border: 1px solid rgba(11, 70, 53, 0.1); 
+            padding: 45px 35px; text-align: center; transition: var(--transition); box-shadow: var(--shadow-md);
+            position: relative; overflow: hidden;
+        }
+        .dua-card::after {
+            content: '\f683'; /* Mosque Icon as subtle background */
+            font-family: "Font Awesome 6 Free"; font-weight: 900;
+            position: absolute; right: -20px; bottom: -20px; font-size: 12rem;
+            color: rgba(212, 175, 55, 0.04); z-index: 0; pointer-events: none;
+            transition: var(--transition);
+        }
+        .dua-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+        .dua-card:hover::after { color: rgba(212, 175, 55, 0.08); transform: scale(1.1) rotate(-5deg); }
+
+        .dua-icon { font-size: 3.5rem; color: var(--gold-dark); margin-bottom: 25px; position: relative; z-index: 1;}
+
+        .dua-header { color: var(--primary); font-size: 1.7rem; font-weight: 800; margin-bottom: 18px; position: relative; display: inline-block; z-index: 1;}
+        .dua-header::after { content: ''; display: block; width: 50%; height: 4px; background: var(--gold-primary); margin: 10px auto 0 auto; border-radius: 5px; transition: width 0.4s ease;}
+        .dua-card:hover .dua-header::after { width: 100%; }
+
+        .dua-content { font-size: 1.5rem; line-height: 1.9; color: var(--text-main); font-weight: 600; position: relative; z-index: 1;}
+
+        /* ========================================= */
+        /* 5. TIMETABLE                              */
+        /* ========================================= */
+        .timetable-wrapper {
+            max-width: 1400px; margin: 0 auto 50px auto; padding: 0 20px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 35px;
+        }
+
+        .table-box { 
+            background: var(--card-bg); border-radius: 20px; box-shadow: var(--shadow-md); 
+            overflow: hidden; border: 1px solid rgba(11, 70, 53, 0.1); 
+        }
+
+        table { width: 100%; border-collapse: collapse; text-align: center; }
+        
+        thead { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: var(--gold-light); }
+        th { padding: 22px 10px; font-size: 1.2rem; font-weight: 800; border-bottom: 4px solid var(--gold-primary); }
+        th i { margin-right: 8px; color: var(--gold-primary); }
+        
+        td { padding: 18px 5px; font-size: 1.15rem; border-bottom: 1px solid #e2e8f0; color: var(--text-main); font-weight: 500; font-family: 'Outfit', sans-serif; transition: all 0.3s ease;}
+        td:nth-child(3) { font-family: 'Anek Gujarati', sans-serif; font-weight: 600;}
+        
+        tbody tr:nth-child(even) { background-color: #f8fafc; }
+        tbody tr:hover { 
+            background-color: #f0fdf4; 
+            transform: scale(1.02); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+            border-left: 5px solid var(--gold-primary);
+        }
+
+        .today-row { 
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.25)) !important; 
+            color: var(--primary-dark) !important; font-weight: 800 !important; 
+            border-left: 5px solid var(--gold-dark);
+        }
+        .today-row td { border-color: rgba(212, 175, 55, 0.4); color: var(--primary-dark); }
+
+        /* ========================================= */
+        /* 6. FOOTER                                 */
+        /* ========================================= */
+        footer {
+            text-align: center; padding: 40px 20px; background: var(--primary-dark);
+            color: var(--gold-light); border-top: 5px solid var(--gold-primary); font-size: 1.2rem; font-weight: 600;
+            position: relative; overflow: hidden;
+        }
+
+        /* ========================================= */
+        /* 7. ZAKAT MODAL (GLASSMORPHISM)            */
+        /* ========================================= */
+        .zakat-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(1, 28, 20, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            z-index: 2000; display: none; overflow-y: auto; opacity: 0;
+            transition: opacity 0.4s ease; padding-bottom: 40px;
+        }
+        .zakat-modal.show { display: block; opacity: 1; }
+
+        .zakat-modal-header {
+            position: sticky; top: 0; background: rgba(5, 59, 42, 0.95); backdrop-filter: blur(10px);
+            color: #fff; padding: 22px 30px; display: flex; justify-content: space-between; align-items: center; 
+            z-index: 2010; box-shadow: var(--shadow-md); border-bottom: 3px solid var(--gold-primary);
+        }
+
+        .zakat-modal-header h2 { font-size: 1.8rem; font-weight: 800; margin: 0; color: var(--gold-primary); display: flex; align-items: center; gap: 12px;}
+        
+        .close-btn {
+            background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.3); color: white;
+            font-size: 1.6rem; cursor: pointer; width: 45px; height: 45px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; transition: var(--transition);
+        }
+        .close-btn:hover { background: var(--accent-red); border-color: var(--accent-red); transform: rotate(90deg) scale(1.1); }
+
+        .zakat-inner-wrapper { max-width: 850px; margin: 40px auto; padding: 0 20px; animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUp { from { transform: translateY(50px) scale(0.98); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+
+        .zakat-note {
+            text-align: center; font-size: 1.2rem; color: #022b1f; margin-bottom: 30px; font-weight: 700;
+            background: linear-gradient(135deg, #fef08a, #d4af37); padding: 20px 25px; border-radius: 15px; 
+            border: 2px solid #fff; box-shadow: var(--shadow-md);
+        }
+        .zakat-note i { color: #022b1f; margin-right: 8px; font-size: 1.4rem;}
+
+        .zk-card { background: var(--card-bg); border-radius: 16px; border: 1px solid rgba(11, 70, 53, 0.1); overflow: hidden; margin-bottom: 25px; box-shadow: var(--shadow-md); transition: var(--transition); }
+        .zk-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        
+        .zk-header { padding: 18px 25px; color: #fff; font-size: 1.3rem; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+        .zk-header span.num { background: rgba(0,0,0,0.25); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1.2rem; font-family: 'Outfit'; border: 1px solid rgba(255,255,255,0.2);}
+        .zk-header.green-bg { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .zk-header.red-bg { background: linear-gradient(135deg, #b91c1c, #ef4444); }
+
+        .zk-body { padding: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .zk-input-group { display: flex; flex-direction: column; gap: 10px; }
+        .zk-input-group label { font-size: 1.1rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 10px;}
+        .zk-input-group label i { color: var(--primary); font-size: 1.2rem; width: 25px; text-align: center; opacity: 0.9;}
+        
+        .zk-input-group input { 
+            padding: 15px 18px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1.25rem; outline: none; 
+            transition: var(--transition); font-weight: 600; color: var(--primary-dark); font-family: 'Outfit', sans-serif; background: #f8fafc;
+            -moz-appearance: textfield; /* Firefox Fix */
+        }
+        .zk-input-group input:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 4px rgba(11, 70, 53, 0.1); transform: translateY(-2px);}
+        /* Chrome, Safari, Edge Fix */
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+        /* Total Section */
+        .zk-total-container { background: #f0fdf4; border: 2px solid #bbf7d0; border-radius: 16px; padding: 30px; box-shadow: var(--shadow-md);}
+        .zk-total-header { text-align: center; font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 25px; display: flex; justify-content: center; align-items: center; gap: 12px;}
+        
+        .zk-summary-boxes { display: flex; gap: 20px; margin-bottom: 25px; }
+        .zk-sum-box { flex: 1; background: #fff; padding: 25px; border-radius: 16px; text-align: center; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: var(--transition);}
+        .zk-sum-box:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+        .zk-sum-box p { font-size: 1.15rem; font-weight: 700; color: var(--text-muted); margin-bottom: 10px; }
+        .zk-sum-box h3 { font-size: 2.2rem; font-weight: 800; color: var(--primary); font-family: 'Outfit';}
+        .zk-sum-box.red-text h3 { color: var(--accent-red); }
+
+        .zk-final-row { display: flex; justify-content: space-between; align-items: center; background: #dcfce7; padding: 20px 30px; border-radius: 12px; margin-bottom: 15px; font-weight: 700; font-size: 1.3rem; color: var(--primary-dark); border: 1px solid #bbf7d0;}
+        .zk-final-amount { display: flex; justify-content: space-between; align-items: center; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--gold-light); padding: 25px 30px; border-radius: 16px; font-weight: 800; font-size: 1.4rem; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;}
+        .zk-final-amount::before { content: ''; position: absolute; top:0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent); transform: skewX(-20deg); animation: shineGlow 3s infinite;}
+        .zk-final-row span:last-child, .zk-final-amount span:last-child { font-family: 'Outfit'; font-size: 1.8rem;}
+
+        @keyframes shineGlow { 0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } }
+
+        /* ========================================= */
+        /* 8. RESPONSIVE DESIGN                      */
+        /* ========================================= */
+        @media (max-width: 992px) {
+            .timetable-wrapper { grid-template-columns: 1fr; }
+            .animated-heading { font-size: 3.5rem; }
+            .crescent-moon { width: 100px; height: 100px; left: 5%; }
+        }
+        
+        @media (max-width: 600px) {
+            header { padding: 50px 15px 80px 15px; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px;}
+            .crescent-moon { width: 80px; height: 80px; left: -5%; top: 5%; opacity: 0.5;}
+            .animated-heading { font-size: 2.8rem; }
+            .subtitle { font-size: 1.8rem; }
+            .location-badge { font-size: 1rem; padding: 10px 20px;}
+            
+            .live-status-container { gap: 15px; padding: 0 15px; margin-top: -40px;} 
+            .status-box { padding: 20px 10px; border-radius: 16px;}
+            .box-icon { font-size: 2.2rem; }
+            .status-title { font-size: 0.95rem; }
+            .status-value { font-size: 1.8rem; }
+
+            th, td { font-size: 1rem; padding: 12px 2px; }
+            .main-zakat-btn { font-size: 1.3rem; padding: 16px 25px; width: 90%; justify-content: center; }
+            
+            .dua-card { padding: 30px 20px; }
+            .dua-content { font-size: 1.3rem; }
+
+            .zk-body { grid-template-columns: 1fr; gap: 18px; padding: 20px;}
+            .zk-summary-boxes { flex-direction: column; gap: 12px;}
+            .zakat-modal-header h2 { font-size: 1.5rem; }
+            .zk-final-row, .zk-final-amount { flex-direction: column; text-align: center; gap: 12px; font-size: 1.2rem;}
+            .zk-final-row span:last-child, .zk-final-amount span:last-child { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. JORDAR PREMIUM LIVE HEADER -->
+    <header>
+        <!-- Interactive Golden Particles Background -->
+        <div id="particles-js"></div>
+        
+        <!-- Glowing Crescent Moon -->
+        <div class="crescent-moon"></div>
+        
+        <!-- Pulsing Stars -->
+        <div class="glowing-star" style="top: 25%; right: 15%; width: 5px; height: 5px;"></div>
+        <div class="glowing-star" style="top: 70%; left: 20%; width: 4px; height: 4px; animation-delay: 1s;"></div>
+        <div class="glowing-star" style="top: 40%; right: 35%; width: 3px; height: 3px; animation-delay: 2s;"></div>
+        <div class="glowing-star" style="top: 10%; left: 45%; width: 4px; height: 4px; animation-delay: 0.5s;"></div>
+
+        <div class="header-content">
+            <!-- Highly Interactive Animated Heading -->
+            <h1 class="animated-heading">હુસેની મસ્જિદ, ઢુણાદરા</h1>
+            <h2 class="subtitle">રમઝાન મુબારક - 2027</h2>
+            <div class="location-badge"><i class="fa-solid fa-map-location-dot"></i> માત્ર ઢુણાદરા અને આસપાસના વિસ્તારો માટે</div>
+            <br>
+            <!-- Animated Glowing Developer Name -->
+            <div class="dev-badge"><i class="fa-solid fa-laptop-code"></i> Developed By - Pathan Mahirkhan</div>
+        </div>
+    </header>
+
+    <!-- 2. LIVE STATUS BOXES -->
+    <div class="live-status-container">
+        <!-- Row 1: Saheri & Iftar Times -->
+        <div class="status-box">
+            <span class="box-icon gold-icon"><i class="fa-solid fa-star-and-crescent"></i></span>
+            <div class="status-title">ખત્મે સેહરી</div>
+            <div class="status-value" id="today-saheri">--:--</div>
+        </div>
+        <div class="status-box">
+            <span class="box-icon gold-icon"><i class="fa-solid fa-moon"></i></span>
+            <div class="status-title">વક્તે ઇફ્તાર</div>
+            <div class="status-value" id="today-iftar">--:--</div>
+        </div>
+
+        <!-- Row 2: Live Clock & Countdown Timer -->
+        <div class="status-box">
+            <span class="box-icon"><i class="fa-regular fa-clock"></i></span>
+            <div class="status-title">સમય</div>
+            <div class="status-value" id="live-clock">00:00:00</div>
+        </div>
+        <div class="status-box">
+            <span class="box-icon"><i class="fa-solid fa-hourglass-half"></i></span>
+            <div class="status-title" id="timer-label">બાકી સમય</div>
+            <div class="status-value timer-inactive" id="iftar-timer">00:00:00</div>
+        </div>
+    </div>
+
+    <!-- 3. PREMIUM ACTION BUTTON -->
+    <div class="action-section">
+        <button id="openZakatBtn" class="main-zakat-btn">
+            <i class="fa-solid fa-scale-balanced"></i> ઝકાત કેલ્ક્યુલેટર
+        </button>
+    </div>
+
+    <!-- 4. MODERN DUA CARDS (PROPER ISLAMIC TIME ICONS) -->
+    <div class="dua-container">
+        <div class="dua-card">
+            <!-- Saheri Time Icon (Dawn) -->
+            <div class="dua-icon"><i class="fa-solid fa-cloud-moon"></i></div>
+            <div class="dua-header">સહેરીની દુઆ</div>
+            <div class="dua-content">
+                નવયતુ અન્ અસૂમ ગદલ્ લિલ્લાહિ તઆલા મિન્ ફર્દિ રમઝાન હાઝા
+            </div>
+        </div>
+        <div class="dua-card">
+            <!-- Iftar Time Icon (Sunset) -->
+            <div class="dua-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+            <div class="dua-header">ઇફ્તારની દુઆ</div>
+            <div class="dua-content">
+                અલ્લાહુમ્મ લક સુમ્તુ વ બિક આમન્તુ વ અલયક તવક્કલતુ વ અલા રિઝકિક અફતરતુ ફતકબ્બલ મિન્ની.
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. SLEEK TIMETABLE -->
+    <div class="timetable-wrapper">
+        <div class="table-box">
+            <table id="table-left">
+                <thead>
+                    <tr>
+                        <th><i class="fa-solid fa-moon"></i> ચાંદ</th>
+                        <th><i class="fa-regular fa-calendar-days"></i> તારીખ</th>
+                        <th>વાર</th>
+                        <th><i class="fa-solid fa-star-and-crescent"></i> ખત્મે સેહરી</th>
+                        <th><i class="fa-solid fa-moon"></i> વક્તે ઇફ્તાર</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>12/09/2026</td><td>શનિવાર</td><td>05:05 AM</td><td>06:45 PM</td></tr>
+                    <tr><td>2</td><td>13/09/2026</td><td>રવિવાર</td><td>05:06 AM</td><td>06:44 PM</td></tr>
+                    <tr><td>3</td><td>14/09/2026</td><td>સોમવાર</td><td>05:06 AM</td><td>06:43 PM</td></tr>
+                    <tr><td>4</td><td>15/09/2026</td><td>મંગળવાર</td><td>05:07 AM</td><td>06:42 PM</td></tr>
+                    <tr><td>5</td><td>16/09/2026</td><td>બુધવાર</td><td>05:07 AM</td><td>06:41 PM</td></tr>
+                    <tr><td>6</td><td>17/09/2026</td><td>ગુરુવાર</td><td>05:08 AM</td><td>06:40 PM</td></tr>
+                    <tr><td>7</td><td>18/09/2026</td><td>શુક્રવાર</td><td>05:08 AM</td><td>06:39 PM</td></tr>
+                    <tr><td>8</td><td>19/09/2026</td><td>શનિવાર</td><td>05:09 AM</td><td>06:38 PM</td></tr>
+                    <tr><td>9</td><td>20/09/2026</td><td>રવિવાર</td><td>05:09 AM</td><td>06:37 PM</td></tr>
+                    <tr><td>10</td><td>21/09/2026</td><td>સોમવાર</td><td>05:10 AM</td><td>06:36 PM</td></tr>
+                    <tr><td>11</td><td>22/09/2026</td><td>મંગળવાર</td><td>05:10 AM</td><td>06:35 PM</td></tr>
+                    <tr><td>12</td><td>23/09/2026</td><td>બુધવાર</td><td>05:11 AM</td><td>06:34 PM</td></tr>
+                    <tr><td>13</td><td>24/09/2026</td><td>ગુરુવાર</td><td>05:11 AM</td><td>06:33 PM</td></tr>
+                    <tr><td>14</td><td>25/09/2026</td><td>શુક્રવાર</td><td>05:12 AM</td><td>06:32 PM</td></tr>
+                    <tr><td>15</td><td>26/09/2026</td><td>શનિવાર</td><td>05:12 AM</td><td>06:31 PM</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-box">
+            <table id="table-right">
+                <thead>
+                    <tr>
+                        <th><i class="fa-solid fa-moon"></i> ચાંદ</th>
+                        <th><i class="fa-regular fa-calendar-days"></i> તારીખ</th>
+                        <th>વાર</th>
+                        <th><i class="fa-solid fa-star-and-crescent"></i> ખત્મે સેહરી</th>
+                        <th><i class="fa-solid fa-moon"></i> વક્તે ઇફ્તાર</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>16</td><td>27/09/2026</td><td>રવિવાર</td><td>05:13 AM</td><td>06:30 PM</td></tr>
+                    <tr><td>17</td><td>28/09/2026</td><td>સોમવાર</td><td>05:13 AM</td><td>06:29 PM</td></tr>
+                    <tr><td>18</td><td>29/09/2026</td><td>મંગળવાર</td><td>05:14 AM</td><td>06:28 PM</td></tr>
+                    <tr><td>19</td><td>30/09/2026</td><td>બુધવાર</td><td>05:14 AM</td><td>06:27 PM</td></tr>
+                    <tr><td>20</td><td>01/10/2026</td><td>ગુરુવાર</td><td>05:15 AM</td><td>06:26 PM</td></tr>
+                    <tr><td>21</td><td>02/10/2026</td><td>શુક્રવાર</td><td>05:15 AM</td><td>06:25 PM</td></tr>
+                    <tr><td>22</td><td>03/10/2026</td><td>શનિવાર</td><td>05:16 AM</td><td>06:24 PM</td></tr>
+                    <tr><td>23</td><td>04/10/2026</td><td>રવિવાર</td><td>05:16 AM</td><td>06:23 PM</td></tr>
+                    <tr><td>24</td><td>05/10/2026</td><td>સોમવાર</td><td>05:17 AM</td><td>06:22 PM</td></tr>
+                    <tr><td>25</td><td>06/10/2026</td><td>મંગળવાર</td><td>05:17 AM</td><td>06:21 PM</td></tr>
+                    <tr><td>26</td><td>07/10/2026</td><td>બુધવાર</td><td>05:18 AM</td><td>06:20 PM</td></tr>
+                    <tr><td>27</td><td>08/10/2026</td><td>ગુરુવાર</td><td>05:18 AM</td><td>06:19 PM</td></tr>
+                    <tr><td>28</td><td>09/10/2026</td><td>શુક્રવાર</td><td>05:19 AM</td><td>06:18 PM</td></tr>
+                    <tr><td>29</td><td>10/10/2026</td><td>શનિવાર</td><td>05:19 AM</td><td>06:17 PM</td></tr>
+                    <tr><td>30</td><td>11/10/2026</td><td>રવિવાર</td><td>05:20 AM</td><td>06:16 PM</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 6. BOTTOM DUA -->
+    <div class="dua-container">
+        <div class="dua-card" style="grid-column: 1 / -1;">
+            <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
+            <div class="dua-header">તરાવીહની દુઆ</div>
+            <div class="dua-content" style="font-size: 1.5rem;">
+                "સુબ્હા-ન ઝિલ મુલ્કિ વલ્ મલકૂત, સુબ્હા-ન ઝિલ ઇઝ્ઝતિ વલ્ અઝ્મતિ વલ્ હય્બતિ વલ્ કુદ્રતિ વલ્ કિબ્રિયા-ઇ વલ્ જબરૂત.<br> સુબ્હા-નલ્ મલિકિલ્ હય્યિલ્ લઝી લા યનામુ વલા યમૂત, સુબ્બૂહુન્ કુદ્દૂસુન્ રબુન્ના વરબ્બુલ મલાઇકતિ વર્રૂહ.<br> અલ્લાહુમ્મ અજીરના મિનન્નાર, યા મુજીરુ યા મુજીરુ યા મુજીર."
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. CLEAN FOOTER -->
+    <footer>
+        © 2027 હુસેની મસ્જિદ, ઢુણાદરા | સર્વાધિકાર સુરક્ષિત.
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- 8. PRO ZAKAT CALCULATOR MODAL              -->
+    <!-- ========================================== -->
+    <div id="zakatModal" class="zakat-modal">
+        
+        <div class="zakat-modal-header">
+            <h2><i class="fa-solid fa-scale-balanced"></i> ઝકાત કેલ્ક્યુલેટર</h2>
+            <button id="closeZakatBtn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="zakat-inner-wrapper">
+            <p class="zakat-note"><i class="fa-solid fa-circle-info"></i> નોંધ: આ કેલ્ક્યુલેટર ફક્ત ગણતરી માટે છે. ઝકાત ફરજિયાત થવા માટે તમારી પાસે નિસાબ જેટલી સંપત્તિ હોવી જરૂરી છે.</p>
+            
+            <form id="zakat-form">
+                <!-- Assets -->
+                <div class="zk-card">
+                    <div class="zk-header green-bg"><span class="num">1</span> સંપત્તિ (Assets)</div>
+                    <div class="zk-body">
+                        <div class="zk-input-group"><label><i class="fa-solid fa-money-bill-wave"></i> રોકડ રકમ (Cash)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-coins"></i> સોનું (Gold)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-ring"></i> ચાંદી (Silver)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-building-columns"></i> બેંક બેલેન્સ (Bank)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-file-shield"></i> પોલીસી / FD</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-hand-holding-dollar"></i> આપેલ લોન</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-sack-dollar"></i> અન્ય સંપત્તિ</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                    </div>
+                </div>
+
+                <!-- Business Goods -->
+                <div class="zk-card">
+                    <div class="zk-header green-bg"><span class="num">2</span> વેપાર / ધંધાનો સામાન</div>
+                    <div class="zk-body">
+                        <div class="zk-input-group"><label><i class="fa-solid fa-box-open"></i> કાચો માલ (Raw)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-boxes-stacked"></i> તૈયાર માલ (Goods)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-shop"></i> પ્લોટ/મકાન (Trading)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-handshake"></i> ભાગીદારી (Partnership)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                    </div>
+                </div>
+
+                <!-- Liabilities -->
+                <div class="zk-card">
+                    <div class="zk-header red-bg"><span class="num">3</span> બાદ: દેવું (Liabilities)</div>
+                    <div class="zk-body">
+                        <div class="zk-input-group"><label><i class="fa-solid fa-credit-card"></i> લોન (Loan)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-regular fa-calendar-check"></i> હપ્તા (Installments)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-users-rectangle"></i> ચિટ ફંડ / કમિટી</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-file-invoice-dollar"></i> લાઈટ/ગેસ બિલ</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-file-invoice"></i> વેપારીઓને દેવા</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-money-check-dollar"></i> પગાર (Salaries)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-clock-rotate-left"></i> બાકી ઝકાત (Old)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                    </div>
+                </div>
+
+                <!-- Total -->
+                <div class="zk-total-container">
+                    <div class="zk-total-header"><i class="fa-solid fa-chart-pie"></i> ગણતરી (Total)</div>
+                    <div class="zk-summary-boxes">
+                        <div class="zk-sum-box"><p>કુલ સંપત્તિ</p><h3 id="display-total-assets">₹0</h3></div>
+                        <div class="zk-sum-box red-text"><p>બાદ: કુલ દેવું</p><h3 id="display-total-liab">- ₹0</h3></div>
+                    </div>
+                    <div class="zk-final-row"><span>ઝકાતપાત્ર રકમ:</span><span id="display-net-amount">₹0</span></div>
+                    <div class="zk-final-amount"><span>ચૂકવવાપાત્ર ઝકાત (2.5%):</span><span id="display-zakat-amount">₹0</span></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script Section -->
+    <script>
+        /* --- INITIALIZE PREMIUM PARTICLES.JS BACKGROUND --- */
+        document.addEventListener('DOMContentLoaded', function() {
+            if(window.particlesJS) {
+                particlesJS("particles-js", {
+                  "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": ["#d4af37", "#fef08a", "#ffffff"] },
+                    "shape": { "type": "circle" },
+                    "opacity": {
+                      "value": 0.8, "random": true,
+                      "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
+                    },
+                    "size": {
+                      "value": 4, "random": true,
+                      "anim": { "enable": true, "speed": 2, "size_min": 0.5, "sync": false }
+                    },
+                    "line_linked": { "enable": false }, /* Floating Dust Effect without lines */
+                    "move": {
+                      "enable": true, "speed": 1.5, "direction": "top", "random": true,
+                      "straight": false, "out_mode": "out", "bounce": false
+                    }
+                  },
+                  "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                      "onhover": { "enable": true, "mode": "bubble" },
+                      "onclick": { "enable": true, "mode": "repulse" },
+                      "resize": true
+                    },
+                    "modes": {
+                      "bubble": { "distance": 200, "size": 8, "duration": 2, "opacity": 1, "speed": 3 },
+                      "repulse": { "distance": 200, "duration": 0.4 }
+                    }
+                  },
+                  "retina_detect": true
+                });
+            }
+        });
+
+        /* --- ZAKAT MODAL LOGIC (Smooth Fade-in) --- */
+        const zakatModal = document.getElementById('zakatModal');
+        const openZakatBtn = document.getElementById('openZakatBtn');
+        const closeZakatBtn = document.getElementById('closeZakatBtn');
+
+        openZakatBtn.addEventListener('click', () => {
+            zakatModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; 
+        });
+
+        closeZakatBtn.addEventListener('click', () => {
+            zakatModal.classList.remove('show');
+            setTimeout(() => { document.body.style.overflow = 'auto'; }, 400); 
+        });
+
+        /* --- CLOCK & TIMER LOGIC --- */
+        function formatTimeNum(num) { return num < 10 ? '0' + num : num; }
+
+        function parseTimeStringToDate(timeStr, currentDate) {
+            // Robust Regex parsing: catches time even if user makes typing mistakes like "05 : 24AM" or "5:30 PM"
+            if (!timeStr) return new Date(0); 
+            
+            let match = timeStr.trim().match(/(\d+)\s*:\s*(\d+)\s*(AM|PM)/i);
+            if (!match) return new Date(0);
+            
+            let hours = parseInt(match[1]);
+            let minutes = parseInt(match[2]);
+            let modifier = match[3].toUpperCase();
+
+            if (modifier === 'PM' && hours < 12) hours += 12;
+            if (modifier === 'AM' && hours === 12) hours = 0;
+
+            let specificDate = new Date(currentDate);
+            specificDate.setHours(hours, minutes, 0, 0);
+            return specificDate;
+        }
+
+        function updateClockAndTimer() {
+            let now = new Date();
+            
+            // Live Clock
+            let h = now.getHours();
+            let m = now.getMinutes();
+            let s = now.getSeconds();
+            let ampm = h >= 12 ? 'PM' : 'AM';
+            let displayH = h % 12 || 12;
+            document.getElementById('live-clock').innerText = `${formatTimeNum(displayH)}:${formatTimeNum(m)}:${formatTimeNum(s)} ${ampm}`;
+
+            let allRows = document.querySelectorAll('tbody tr');
+            
+            // Reset all row highlights
+            allRows.forEach(row => row.classList.remove('today-row'));
+
+            // Parse entire timetable into a chronological array
+            let schedule = [];
+            allRows.forEach(row => {
+                let dateStr = row.cells[1].innerText.trim();
+                let parts = dateStr.split('/');
+                if(parts.length === 3) {
+                    let year = parseInt(parts[2]);
+                    let month = parseInt(parts[1]) - 1;
+                    let day = parseInt(parts[0]);
+                    let baseDate = new Date(year, month, day);
+                    
+                    schedule.push({
+                        row: row,
+                        saheriStr: row.cells[3].innerText,
+                        iftarStr: row.cells[4].innerText,
+                        saheriTime: parseTimeStringToDate(row.cells[3].innerText, baseDate),
+                        iftarTime: parseTimeStringToDate(row.cells[4].innerText, baseDate)
+                    });
+                }
+            });
+
+            let activeEntry = null;
+            let targetTime = null;
+            let timerLabel = document.getElementById('timer-label');
+            let timerElement = document.getElementById('iftar-timer');
+
+            // Find the NEXT upcoming event (Saheri or Iftar)
+            for (let i = 0; i < schedule.length; i++) {
+                let entry = schedule[i];
+                
+                if (now < entry.saheriTime) {
+                    activeEntry = entry;
+                    targetTime = entry.saheriTime;
+                    if(timerLabel) timerLabel.innerText = "સહેરીમાં બાકી સમય";
+                    break;
+                } else if (now < entry.iftarTime) {
+                    activeEntry = entry;
+                    targetTime = entry.iftarTime;
+                    if(timerLabel) timerLabel.innerText = "ઇફ્તારમાં બાકી સમય";
+                    break;
+                }
+            }
+
+            if (activeEntry) {
+                // Highlight the active day's row and update top boxes
+                activeEntry.row.classList.add('today-row');
+                document.getElementById('today-saheri').innerText = activeEntry.saheriStr;
+                document.getElementById('today-iftar').innerText = activeEntry.iftarStr;
+                
+                // Calculate time difference
+                let diffMs = targetTime - now;
+                let totalDiffHrs = Math.floor(diffMs / (1000 * 60 * 60)); // Can show > 24 hours
+                let diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+                let diffSecs = Math.floor((diffMs % (1000 * 60)) / 1000);
+                
+                timerElement.innerText = `${formatTimeNum(totalDiffHrs)}:${formatTimeNum(diffMins)}:${formatTimeNum(diffSecs)}`;
+                timerElement.classList.remove('timer-inactive');
+                timerElement.classList.add('timer-active');
+            } else {
+                // Ramadan has completely ended
+                document.getElementById('today-saheri').innerText = "--:-- --";
+                document.getElementById('today-iftar').innerText = "--:-- --";
+                timerElement.innerText = "00:00:00";
+                timerElement.classList.remove('timer-active');
+                timerElement.classList.add('timer-inactive');
+                if(timerLabel) timerLabel.innerText = "રમઝાન પૂર્ણ";
+            }
+        }
+
+        setInterval(updateClockAndTimer, 1000);
+        updateClockAndTimer(); 
+
+        /* --- ZAKAT CALCULATOR MATH LOGIC --- */
+        function calculateZakat() {
+            const assetInputs = document.querySelectorAll('.zk-asset');
+            const liabInputs = document.querySelectorAll('.zk-liab');
+            
+            let totalAssets = 0;
+            let totalLiab = 0;
+
+            assetInputs.forEach(input => {
+                let val = parseFloat(input.value);
+                if (!isNaN(val) && val > 0) totalAssets += val;
+            });
+
+            liabInputs.forEach(input => {
+                let val = parseFloat(input.value);
+                if (!isNaN(val) && val > 0) totalLiab += val;
+            });
+
+            let netAmount = totalAssets - totalLiab;
+            if (netAmount < 0) netAmount = 0;
+
+            let zakatAmount = netAmount * 0.025;
+            let formatOpt = { minimumFractionDigits: 0, maximumFractionDigits: 2 };
+            
+            // Safeguard against missing elements to prevent JS errors
+            const elAssets = document.getElementById('display-total-assets');
+            const elLiab = document.getElementById('display-total-liab');
+            const elNet = document.getElementById('display-net-amount');
+            const elZakat = document.getElementById('display-zakat-amount');
+
+            if (elAssets) elAssets.innerText = '₹ ' + totalAssets.toLocaleString('en-IN', formatOpt);
+            if (elLiab) elLiab.innerText = '- ₹ ' + totalLiab.toLocaleString('en-IN', formatOpt);
+            if (elNet) elNet.innerText = '₹ ' + netAmount.toLocaleString('en-IN', formatOpt);
+            if (elZakat) elZakat.innerText = '₹ ' + zakatAmount.toLocaleString('en-IN', formatOpt);
+        }
+
+        // Attach event listeners safely
+        document.querySelectorAll('.zk-asset, .zk-liab').forEach(input => {
+            input.addEventListener('input', calculateZakat);
+        });
+    </script>
+</body>
+</html>
