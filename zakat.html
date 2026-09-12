@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>રમઝાન મુબારક - 2027 | હુસેની મસ્જિદ, ઢુણાદરા</title>
+    
+    <!-- Premium Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Modern Icons (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Particles.js for Premium Interactive Background -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- DROP-DOWN MENU STRIP -->
+    <div class="custom-dropdown-menu">
+        <button class="menu-toggle-btn" id="menuToggleBtn">
+            <i class="fa-solid fa-bars"></i> મેનુ (Menu)
+        </button>
+        <div class="menu-items-container" id="menuItemsContainer">
+            <a href="index.html" class="dropdown-link"><i class="fa-solid fa-clock"></i> રમઝાન ટાઈમ ટેબલ</a>
+            <a href="zakat.html" class="dropdown-link active"><i class="fa-solid fa-scale-balanced"></i> ઝકાત કેલ્ક્યુલેટર</a>
+        </div>
+    </div>
+
+
+
+
+
+
+        <div id="zakatPage" class="zakat-page" style="padding: 40px 20px;">
+        
+        <div class="zakat-page-header" style="background: transparent; color: var(--primary-dark); box-shadow: none; border: none; justify-content: center; margin-bottom: 20px; display: flex;">
+            <h2 style="font-size: 2rem; font-weight: 800; display: flex; align-items: center; gap: 12px; color: var(--primary-dark);"><i class="fa-solid fa-scale-balanced"></i> ઝકાત કેલ્ક્યુલેટર</h2>
+        </div>
+
+        <div class="zakat-inner-wrapper" style="max-width: 850px; margin: 0 auto;">
+            <p class="zakat-note" style="text-align: center; font-size: 1.2rem; color: #022b1f; margin-bottom: 30px; font-weight: 700; background: linear-gradient(135deg, #fef08a, #d4af37); padding: 20px 25px; border-radius: 15px; border: 2px solid #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"><i class="fa-solid fa-circle-info"></i> નોંધ: આ કેલ્ક્યુલેટર ફક્ત ગણતરી માટે છે. ઝકાત ફરજિયાત થવા માટે તમારી પાસે નિસાબ જેટલી સંપત્તિ હોવી જરૂરી છે.</p>
+            
+            <form id="zakat-form">
+                <!-- Assets -->
+                <div class="zk-card">
+                    <div class="zk-header green-bg"><span class="num">1</span> સંપત્તિ (Assets)</div>
+                    <div class="zk-body">
+                        <div class="zk-input-group"><label><i class="fa-solid fa-money-bill-wave"></i> રોકડ રકમ (Cash)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-coins"></i> સોનું (Gold)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-ring"></i> ચાંદી (Silver)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-building-columns"></i> બેંક બેલેન્સ (Bank)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-file-shield"></i> પોલીસી / FD</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-hand-holding-dollar"></i> આપેલ લોન</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-sack-dollar"></i> અન્ય સંપત્તિ</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                    </div>
+                </div>
+
+                <!-- Business Goods -->
+                <div class="zk-card">
+                    <div class="zk-header green-bg"><span class="num">2</span> વેપાર / ધંધાનો સામાન</div>
+                    <div class="zk-body">
+                        <div class="zk-input-group"><label><i class="fa-solid fa-box-open"></i> કાચો માલ (Raw)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-boxes-stacked"></i> તૈયાર માલ (Goods)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-shop"></i> પ્લોટ/મકાન (Trading)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-handshake"></i> ભાગીદારી (Partnership)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
+                    </div>
+                </div>
+
+                <!-- Liabilities -->
+                <div class="zk-card">
+                    <div class="zk-header red-bg"><span class="num">3</span> બાદ: દેવું (Liabilities)</div>
+                    <div class="zk-body">
+                        <div class="zk-input-group"><label><i class="fa-solid fa-credit-card"></i> લોન (Loan)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-regular fa-calendar-check"></i> હપ્તા (Installments)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-users-rectangle"></i> ચિટ ફંડ / કમિટી</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-file-invoice-dollar"></i> લાઈટ/ગેસ બિલ</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-file-invoice"></i> વેપારીઓને દેવા</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-money-check-dollar"></i> પગાર (Salaries)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                        <div class="zk-input-group"><label><i class="fa-solid fa-clock-rotate-left"></i> બાકી ઝકાત (Old)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
+                    </div>
+                </div>
+
+                <!-- Total -->
+                <div class="zk-total-container">
+                    <div class="zk-total-header"><i class="fa-solid fa-chart-pie"></i> ગણતરી (Total)</div>
+                    <div class="zk-summary-boxes">
+                        <div class="zk-sum-box"><p>કુલ સંપત્તિ</p><h3 id="display-total-assets">₹0</h3></div>
+                        <div class="zk-sum-box red-text"><p>બાદ: કુલ દેવું</p><h3 id="display-total-liab">- ₹0</h3></div>
+                    </div>
+                    <div class="zk-final-row"><span>ઝકાતપાત્ર રકમ:</span><span id="display-net-amount">₹0</span></div>
+                    <div class="zk-final-amount"><span>ચૂકવવાપાત્ર ઝકાત (2.5%):</span><span id="display-zakat-amount">₹0</span></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <!-- Script Section -->
+    <script>
+
+        // Dropdown Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            const menuContainer = document.getElementById('menuItemsContainer');
+            if(toggleBtn && menuContainer) {
+                toggleBtn.addEventListener('click', () => {
+                    menuContainer.classList.toggle('show');
+                });
+            }
+        });
+
+            }
+        });
+
+        
+
+        function calculateZakat() {
+            let totalAssets = 0;
+            let totalLiab = 0;
+
+            const assetInputs = document.querySelectorAll('.zk-asset');
+            const liabInputs = document.querySelectorAll('.zk-liab');
+
+            assetInputs.forEach(input => {
+                let val = parseFloat(input.value);
+                if (!isNaN(val) && val > 0) totalAssets += val;
+            });
+
+            liabInputs.forEach(input => {
+                let val = parseFloat(input.value);
+                if (!isNaN(val) && val > 0) totalLiab += val;
+            });
+
+            let netAmount = totalAssets - totalLiab;
+            if (netAmount < 0) netAmount = 0;
+
+            let zakatAmount = netAmount * 0.025;
+            let formatOpt = { minimumFractionDigits: 0, maximumFractionDigits: 2 };
+            
+            const elAssets = document.getElementById('display-total-assets');
+            const elLiab = document.getElementById('display-total-liab');
+            const elNet = document.getElementById('display-net-amount');
+            const elZakat = document.getElementById('display-zakat-amount');
+
+            if (elAssets) elAssets.innerText = '₹ ' + totalAssets.toLocaleString('en-IN', formatOpt);
+            if (elLiab) elLiab.innerText = '- ₹ ' + totalLiab.toLocaleString('en-IN', formatOpt);
+            if (elNet) elNet.innerText = '₹ ' + netAmount.toLocaleString('en-IN', formatOpt);
+            if (elZakat) elZakat.innerText = '₹ ' + zakatAmount.toLocaleString('en-IN', formatOpt);
+        }
+
+        document.querySelectorAll('.zk-asset, .zk-liab').forEach(input => {
+            input.addEventListener('input', calculateZakat);
+        });
+
+    </script>
+</body>
+</html>
