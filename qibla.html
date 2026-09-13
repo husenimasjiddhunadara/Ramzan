@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>સ્માર્ટ કિબલા કંપાસ</title>
+    <!-- Google Fonts: Shrikhand for stylish title, Hind Vadodara for readable text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Hind+Vadodara:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Hind Vadodara', sans-serif;
+            /* Premium Islamic Dark Theme (Deep Sea/Emerald to Navy) */
+            background: linear-gradient(135deg, #09203f 0%, #104138 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+        /* Subtle Gold Pattern Overlay */
+        .bg-pattern {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.04;
+            background-image: radial-gradient(#d4af37 2px, transparent 2px);
+            background-size: 30px 30px;
+            z-index: -1;
+        }
+        h1 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 38px;
+            color: #d4af37; /* Gold */
+            margin-top: 40px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+            letter-spacing: 1px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 20px;
+            color: #e0f2f1;
+        }
+        
+        /* Compass UI Design */
+        .compass-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 40px auto;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 6px solid #d4af37;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 25px rgba(212, 175, 55, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Add a stylish inner ring */
+        .compass-container::before {
+            content: '';
+            position: absolute;
+            width: 270px;
+            height: 270px;
+            border-radius: 50%;
+            border: 1px dashed rgba(212, 175, 55, 0.5);
+        }
+
+        /* The Dial that rotates based on phone heading */
+        .compass-dial {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: transform 0.1s ease-out; /* Smooth rotation */
+        }
+        
+        /* Compass markings N, E, S, W */
+        .mark {
+            position: absolute;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgba(255,255,255,0.6);
+        }
+        .north { top: 10px; left: 50%; transform: translateX(-50%); color: #ff5252; font-size: 26px;}
+        .south { bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 22px;}
+        .east { top: 50%; right: 15px; transform: translateY(-50%); font-size: 22px;}
+        .west { top: 50%; left: 15px; transform: translateY(-50%); font-size: 22px;}
+
+        /* The Qibla Pointer Layer */
+        .qibla-pointer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Points to top initially */
+            padding-top: 30px; 
+            transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Gold Arrow & Kaaba SVG */
+        .kaaba-icon {
+            width: 45px;
+            height: auto;
+            filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.8));
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #d4af37, #f1c40f);
+            border: none;
+            color: #0f5132;
+            padding: 16px 40px;
+            font-size: 22px;
+            font-weight: bold;
+            font-family: 'Hind Vadodara', sans-serif;
+            border-radius: 40px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6);
+        }
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        #info {
+            margin-top: 25px;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px 25px;
+            border-radius: 12px;
+            display: none;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            max-width: 90%;
+        }
+        .warning {
+            color: #ffcc80;
+            font-size: 15px;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Subtle background pattern -->
+    <div class="bg-pattern"></div>
+    
+    <h1>કિબલા કંપાસ</h1>
+    <p>નમાઝ પઢવા માટે કિબલા (મક્કા) ની સાચી દિશા જાણો</p>
+
+    <!-- Compass UI -->
+    <div class="compass-container" id="compassContainer">
+        <!-- Rotating Dial (Keeps North pointing to real North) -->
+        <div class="compass-dial" id="dial">
+            <div class="mark north">N</div>
+            <div class="mark east">E</div>
+            <div class="mark south">S</div>
+            <div class="mark west">W</div>
+            
+            <!-- Qibla Pointer (Points to Kaaba relative to North) -->
+            <div class="qibla-pointer" id="qiblaPointer">
+                <svg class="kaaba-icon" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Pointing Arrow -->
+                    <polygon points="50,0 70,30 30,30" fill="#d4af37"/>
+                    <rect x="45" y="30" width="10" height="20" fill="#d4af37"/>
+                    <!-- Kaaba Box -->
+                    <rect x="25" y="50" width="50" height="50" fill="#111" stroke="#d4af37" stroke-width="2"/>
+                    <!-- Golden Door/Line on Kaaba -->
+                    <rect x="25" y="60" width="50" height="4" fill="#d4af37"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Button -->
+    <button class="btn" id="startBtn" onclick="initCompass()">કંપાસ ચાલુ કરો</button>
+
+    <!-- Information Panel -->
+    <div id="info">
+        <div id="qiblaAngleText">લોકેશન મેળવવામાં આવી રહ્યું છે...</div>
+        <div class="warning">
+            <b>નોંધ:</b> સચોટ દિશા માટે તમારા મોબાઈલને જમીન સમાંતર (આડો) સીધો પકડી રાખો. આ ફીચર મોબાઈલમાં જ કામ કરશે.
+        </div>
+    </div>
+
+    <script>
+        // ખાના-એ-કાબા (મક્કા) ના અક્ષાંશ અને રેખાંશ (Latitude & Longitude)
+        const MECCA_LAT = 21.422487;
+        const MECCA_LON = 39.826206;
+        let qiblaAngle = 0;
+
+        function initCompass() {
+            // બટન સંતાડી દો અને ઇન્ફો પેનલ બતાવો
+            document.getElementById('startBtn').style.display = 'none';
+            document.getElementById('info').style.display = 'block';
+
+            // ૧. યુઝરનું લોકેશન (GPS) મેળવો
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    let lat = position.coords.latitude;
+                    let lon = position.coords.longitude;
+                    
+                    // લોકેશન મળ્યા પછી કિબલાનો એંગલ ગણો
+                    calculateQibla(lat, lon);
+                    
+                    // સેન્સર (Gyroscope/Compass) ની પરવાનગી માંગો
+                    requestOrientation();
+                }, error => {
+                    alert("કૃપા કરીને મોબાઈલનું લોકેશન (GPS) ચાલુ કરો અને પરવાનગી આપો.");
+                    document.getElementById('startBtn').style.display = 'block';
+                    document.getElementById('info').style.display = 'none';
+                });
+            } else {
+                alert("તમારું બ્રાઉઝર લોકેશન સપોર્ટ કરતું નથી.");
+            }
+        }
+
+        // ૨. ગણિતના સૂત્ર (Formula) દ્વારા કિબલાની દિશા ગણો
+        function calculateQibla(lat, lon) {
+            const toRad = (deg) => (deg * Math.PI) / 180;
+            const toDeg = (rad) => (rad * 180) / Math.PI;
+
+            const latK = toRad(MECCA_LAT);
+            const lonK = toRad(MECCA_LON);
+            const latU = toRad(lat);
+            const lonU = toRad(lon);
+            
+            const deltaLon = lonK - lonU;
+
+            const y = Math.sin(deltaLon);
+            const x = Math.cos(latU) * Math.tan(latK) - Math.sin(latU) * Math.cos(deltaLon);
+
+            let qibla = toDeg(Math.atan2(y, x));
+            qibla = (qibla + 360) % 360; // 0 થી 360 ની વચ્ચે લાવો
+            
+            qiblaAngle = qibla;
+            document.getElementById('qiblaAngleText').innerHTML = "<b>તમારા લોકેશનથી કિબલાનો એંગલ: " + qibla.toFixed(0) + "°</b>";
+            
+            // સોય (Kaaba Pointer) ને કિબલા તરફ ફેરવો
+            document.getElementById('qiblaPointer').style.transform = `rotate(${qiblaAngle}deg)`;
+        }
+
+        // ૩. ફોનના સેન્સરની પરવાનગી (ખાસ iPhone / iOS 13+ માટે)
+        function requestOrientation() {
+            if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+                DeviceOrientationEvent.requestPermission()
+                    .then(permissionState => {
+                        if (permissionState === 'granted') {
+                            window.addEventListener('deviceorientation', handleOrientation, true);
+                        } else {
+                            alert("કંપાસ ચાલુ કરવા માટે સેન્સરની પરવાનગી આપવી જરૂરી છે.");
+                        }
+                    })
+                    .catch(console.error);
+            } else {
+                // એન્ડ્રોઇડ (Android) અને જૂના ફોન માટે
+                window.addEventListener('deviceorientationabsolute', handleOrientation, true);
+                window.addEventListener('deviceorientation', handleOrientation, true);
+            }
+        }
+
+        // ૪. ફોન ગોળ ફરે તેમ કંપાસનો ડાયલ ફેરવો
+        function handleOrientation(event) {
+            let compassHeading = null;
+            
+            // iOS (Apple) માટે
+            if (event.webkitCompassHeading) {
+                compassHeading = event.webkitCompassHeading;
+            } 
+            // Android માટે (Absolute orientation)
+            else if (event.absolute && event.alpha !== null) {
+                // event.alpha બતાવે છે કે ફોન ઉત્તરથી કેટલો ફર્યો છે (ઉલટી દિશામાં)
+                compassHeading = 360 - event.alpha; 
+            }
+            
+            if (compassHeading !== null) {
+                // ડાયલને ઊંધી દિશામાં ફેરવો જેથી લાલ રંગનો 'N' હંમેશા અસલી ઉત્તર દિશામાં જ રહે
+                document.getElementById('dial').style.transform = `rotate(${-compassHeading}deg)`;
+            }
+        }
+    </script>
+</body>
+</html>
+</div>
+    <script>
+        // Dropdown Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            const menuContainer = document.getElementById('menuItemsContainer');
+            if(toggleBtn && menuContainer) {
+                toggleBtn.addEventListener('click', () => {
+                    menuContainer.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
