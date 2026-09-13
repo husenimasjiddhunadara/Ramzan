@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>તરીકએ વુઝૂ</title>
+
+    <!-- Premium Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Modern Icons (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Design File -->
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body style="background: var(--bg-main);">
+
+   
+    <div style="max-width: 850px; margin: 40px auto; padding: 0 20px;">
+        
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h1 style="color: var(--primary-dark); font-weight: 800; font-size: 2rem;"> તરીકએ વુઝૂ</h1>
+        </div>
+            
+        <div class="dua-container" style="grid-template-columns: 1fr;">
+            
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>લાઇવ તસ્બીહ કાઉન્ટર | Live Tasbih Counter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4fdf4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L60 40 L90 50 L60 60 L50 90 L40 60 L10 50 L40 40 Z" fill="%23e0f2e0" opacity="0.5"/></svg>');
+        }
+        .counter-container {
+            background: linear-gradient(135deg, #0f5132, #198754);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: white;
+            width: 300px;
+            border: 4px solid #d4af37;
+        }
+        .title {
+            font-size: 26px;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .display {
+            background-color: #ffffff;
+            color: #0f5132;
+            font-size: 72px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);
+            border: 2px solid #a3cfbb;
+            user-select: none; 
+        }
+        .btn {
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            outline: none;
+            transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
+            user-select: none;
+        }
+        .btn:active {
+            transform: scale(0.92);
+            box-shadow: inset 0 3px 5px rgba(0,0,0,0.3);
+        }
+        .count-btn {
+            background-color: #d4af37; /* સોનેરી કલર */
+            color: #0f5132;
+            width: 130px;
+            height: 130px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+        .count-btn:hover {
+            background-color: #f1c40f;
+        }
+        .controls-wrapper {
+            position: relative;
+        }
+        .reset-btn {
+            background-color: #dc3545;
+            color: white;
+            width: 50px;
+            height: 50px;
+            font-size: 14px;
+            position: absolute;
+            right: 10px;
+            bottom: 0px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-weight: bold;
+        }
+        .reset-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="counter-container">
+    <div class="title">તસ્બીહ કાઉન્ટર</div>
+    <div class="display" id="counterDisplay">0</div>
+    
+    <div class="controls-wrapper">
+        <button class="btn count-btn" id="countBtn" onclick="increment()">ગણો<br>(Count)</button>
+        <button class="btn reset-btn" id="resetBtn" onclick="resetCounter()" title="Reset Counter">રિસેટ</button>
+    </div>
+</div>
+
+<script>
+    let count = 0;
+    const displayElement = document.getElementById('counterDisplay');
+
+    // પેજ લોડ થાય ત્યારે સેવ થયેલો ડેટા પાછો લાવવા માટે 
+    window.onload = function() {
+        let savedCount = localStorage.getItem('tasbihCount');
+        if (savedCount !== null) {
+            count = parseInt(savedCount);
+            displayElement.innerText = count;
+        }
+    };
+
+    // કાઉન્ટર વધારવા માટેનું ફંક્શન
+    function increment() {
+        count++;
+        updateDisplayAndSave();
+        
+        // જો મોબાઇલમાં સપોર્ટ કરતું હોય તો ગણતી વખતે નાનું વાઇબ્રેશન આપવા (Optional)
+        if (navigator.vibrate) {
+            navigator.vibrate(40);
+        }
+    }
+
+    // કાઉન્ટર રિસેટ કરવા માટેનું ફંક્શન
+    function resetCounter() {
+        // ભૂલથી દબાઈ જાય તો ડેટા ઉડી ન જાય તે માટે કન્ફર્મેશન 
+        if(confirm('શું તમે ખરેખર કાઉન્ટર ઝીરો (0) કરવા માંગો છો?')) {
+            count = 0;
+            updateDisplayAndSave();
+        }
+    }
+
+    // નંબર અપડેટ કરવા અને લોકલ સ્ટોરેજમાં સેવ કરવા 
+    function updateDisplayAndSave() {
+        displayElement.innerText = count;
+        localStorage.setItem('tasbihCount', count);
+    }
+</script>
+
+</body>
+</html></div>
+    <script>
+        // Dropdown Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            const menuContainer = document.getElementById('menuItemsContainer');
+            if(toggleBtn && menuContainer) {
+                toggleBtn.addEventListener('click', () => {
+                    menuContainer.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
