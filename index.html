@@ -6,7 +6,7 @@
     <title>રમઝાન મુબારક - 2027 | હુસેની મસ્જિદ, ઢુણાદરા</title>
     
     <!-- Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Modern Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,68 +14,41 @@
     <!-- Particles.js for Premium Interactive Background -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
-    <!-- ═══════════════════════════════════════════════ -->
-    <!-- 1. ULTRA-PREMIUM ISLAMIC HEADER                -->
-    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 1. PREMIUM HEADER -->
     <header>
-        <!-- Interactive Golden Particles Background -->
         <div id="particles-js"></div>
-
-        <!-- Islamic Geometric Overlay Pattern -->
         <div class="islamic-pattern-overlay"></div>
 
-        <!-- Glowing Crescent Moon with Star -->
         <div class="crescent-moon-wrapper">
             <div class="crescent-moon"></div>
             <div class="crescent-star">★</div>
         </div>
         
-        <!-- Pulsing Atmospheric Stars -->
         <div class="glowing-star" style="top: 20%; right: 12%; width: 5px; height: 5px;"></div>
         <div class="glowing-star" style="top: 65%; left: 18%; width: 4px; height: 4px; animation-delay: 1.2s;"></div>
         <div class="glowing-star" style="top: 35%; right: 30%; width: 3px; height: 3px; animation-delay: 2.4s;"></div>
         <div class="glowing-star" style="top: 12%; left: 40%; width: 4px; height: 4px; animation-delay: 0.6s;"></div>
-        <div class="glowing-star" style="top: 50%; right: 50%; width: 3px; height: 3px; animation-delay: 1.8s;"></div>
-        <div class="glowing-star" style="top: 80%; left: 60%; width: 2px; height: 2px; animation-delay: 3s;"></div>
 
-        <!-- Decorative Mosque Silhouette -->
         <div class="mosque-silhouette"></div>
 
         <div class="header-content">
-            <!-- Bismillah Arabic Opener -->
-            <div class="bismillah-text">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
-            
-            <!-- Highly Interactive Animated Heading -->
             <h1 class="animated-heading">હુસેની મસ્જિદ, ઢુણાદરા</h1>
-            
-            <!-- Golden Decorative Divider -->
-            <div class="header-divider">
-                <span class="divider-ornament">✦</span>
-                <span class="divider-line"></span>
-                <span class="divider-ornament">☪</span>
-                <span class="divider-line"></span>
-                <span class="divider-ornament">✦</span>
-            </div>
-
             <h2 class="subtitle">રમઝાન મુબારક - 2027</h2>
-            
             <div class="location-badge">
                 <i class="fa-solid fa-map-location-dot"></i> 
                 માત્ર ઢુણાદરા અને આસપાસના વિસ્તારો માટે
             </div>
             <br>
-            <!-- Animated Glowing Developer Name -->
             <div class="dev-badge">
                 <i class="fa-solid fa-laptop-code"></i> 
                 Developed By — Pathan Mahirkhan
             </div>
         </div>
 
-        <!-- Bottom Wave Separator -->
         <div class="header-wave">
             <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
                 <path d="M0,40 C360,120 720,0 1080,80 C1260,120 1380,60 1440,40 L1440,120 L0,120 Z" fill="var(--bg-main)"/>
@@ -83,47 +56,35 @@
         </div>
     </header>
 
-    <!-- ═══════════════════════════════════════════════ -->
-    <!-- 2. LIVE STATUS DASHBOARD                       -->
-    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 2. LIVE STATUS BOXES -->
     <div class="live-status-container">
-        <!-- Saheri Time -->
         <div class="status-box">
             <div class="status-box-glow"></div>
             <span class="box-icon gold-icon"><i class="fa-solid fa-star-and-crescent"></i></span>
             <div class="status-title">ખત્મે સેહરી</div>
             <div class="status-value" id="today-saheri">--:--</div>
-            <div class="status-sub">સવારની ખાવાનો સમય</div>
         </div>
-        <!-- Iftar Time -->
         <div class="status-box">
             <div class="status-box-glow"></div>
             <span class="box-icon gold-icon"><i class="fa-solid fa-moon"></i></span>
             <div class="status-title">વક્તે ઇફ્તાર</div>
             <div class="status-value" id="today-iftar">--:--</div>
-            <div class="status-sub">રોઝા ખોલવાનો સમય</div>
         </div>
-        <!-- Live Clock -->
         <div class="status-box">
             <div class="status-box-glow"></div>
             <span class="box-icon"><i class="fa-regular fa-clock"></i></span>
-            <div class="status-title">હાલનો સમય</div>
+            <div class="status-title">સમય</div>
             <div class="status-value" id="live-clock">00:00:00</div>
-            <div class="status-sub">લાઇવ ક્લોક</div>
         </div>
-        <!-- Countdown Timer -->
         <div class="status-box">
             <div class="status-box-glow"></div>
             <span class="box-icon"><i class="fa-solid fa-hourglass-half"></i></span>
             <div class="status-title" id="timer-label">બાકી સમય</div>
             <div class="status-value timer-inactive" id="iftar-timer">00:00:00</div>
-            <div class="status-sub" id="timer-sub">ઉલટી ગણતરી</div>
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════ -->
-    <!-- 3. COLLAPSIBLE NAVIGATION MENU                 -->
-    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 3. DROP-DOWN MENU -->
     <div class="custom-dropdown-menu">
         <button class="menu-toggle-btn" id="menuToggleBtn">
             <i class="fa-solid fa-bars"></i> 
@@ -155,15 +116,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════ -->
-    <!-- 4. PREMIUM DUA CARDS (SAHERI & IFTAR)          -->
-    <!-- ═══════════════════════════════════════════════ -->
-    <div class="section-heading">
-        <span class="section-heading-icon"><i class="fa-solid fa-hands-praying"></i></span>
-        <h3>રોઝાની દુઆઓ</h3>
-        <div class="section-heading-line"></div>
-    </div>
-
+    <!-- 4. DUA CARDS -->
     <div class="dua-container">
         <div class="dua-card">
             <div class="dua-card-accent saheri-accent"></div>
@@ -172,7 +125,6 @@
             <div class="dua-content">
                 નવયતુ અન્ અસૂમ ગદલ્ લિલ્લાહિ તઆલા મિન્ ફર્દિ રમઝાન હાઝા
             </div>
-            <div class="dua-time-badge"><i class="fa-solid fa-sun"></i> ફજ્ર પહેલાં</div>
         </div>
         <div class="dua-card">
             <div class="dua-card-accent iftar-accent"></div>
@@ -181,25 +133,12 @@
             <div class="dua-content">
                 અલ્લાહુમ્મ લક સુમ્તુ વ બિક આમન્તુ વ અલયક તવક્કલતુ વ અલા રિઝકિક અફતરતુ ફતકબ્બલ મિન્ની.
             </div>
-            <div class="dua-time-badge"><i class="fa-solid fa-moon"></i> મગરિબ સમયે</div>
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════ -->
-    <!-- 5. PREMIUM TIMETABLE                           -->
-    <!-- ═══════════════════════════════════════════════ -->
-    <div class="section-heading">
-        <span class="section-heading-icon"><i class="fa-solid fa-calendar-days"></i></span>
-        <h3>રમઝાન ટાઈમ ટેબલ 2027</h3>
-        <div class="section-heading-line"></div>
-    </div>
-
+    <!-- 5. TIMETABLE -->
     <div class="timetable-wrapper">
         <div class="table-box">
-            <!-- Table Top Ornament -->
-            <div class="table-top-ornament">
-                <span>☪</span> સંપૂર્ણ 30 દિવસ <span>☪</span>
-            </div>
             <div class="table-scroll-wrapper">
                 <table id="ramadan-table">
                     <thead>
@@ -248,56 +187,36 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════ -->
-    <!-- 6. TARAWEEH DUA CARD (FULL WIDTH)              -->
-    <!-- ═══════════════════════════════════════════════ -->
-    <div class="section-heading">
-        <span class="section-heading-icon"><i class="fa-solid fa-book-quran"></i></span>
-        <h3>તરાવીહની દુઆ</h3>
-        <div class="section-heading-line"></div>
-    </div>
-
+    <!-- 6. TARAWEEH DUA -->
     <div class="dua-container full-width-dua">
-        <div class="dua-card taraweeh-card">
+        <div class="dua-card taraweeh-card" style="grid-column: 1 / -1;">
             <div class="dua-card-accent taraweeh-accent"></div>
             <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-            <div class="dua-header">તરાવીહ પછીની દુઆ</div>
+            <div class="dua-header">તરાવીહની દુઆ</div>
             <div class="dua-content taraweeh-text">
                 "સુબ્હા-ન ઝિલ મુલ્કિ વલ્ મલકૂત, સુબ્હા-ન ઝિલ ઇઝ્ઝતિ વલ્ અઝ્મતિ વલ્ હય્બતિ વલ્ કુદ્રતિ વલ્ કિબ્રિયા-ઇ વલ્ જબરૂત.<br>
                 સુબ્હા-નલ્ મલિકિલ્ હય્યિલ્ લઝી લા યનામુ વલા યમૂત, સુબ્બૂહુન્ કુદ્દૂસુન્ રબુન્ના વરબ્બુલ મલાઇકતિ વર્રૂહ.<br>
                 અલ્લાહુમ્મ અજીરના મિનન્નાર, યા મુજીરુ યા મુજીરુ યા મુજીર."
             </div>
-            <div class="dua-time-badge"><i class="fa-solid fa-mosque"></i> તરાવીહ પછી</div>
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════ -->
-    <!-- 7. PREMIUM FOOTER                              -->
-    <!-- ═══════════════════════════════════════════════ -->
+    <!-- 7. FOOTER -->
     <div class="developer-credit-wrapper">
         <div class="developer-credit">
             <i class="fa-solid fa-code"></i> Developed by Pathan Mahirkhan
         </div>
     </div>
     <footer>
-        <div class="footer-content">
-            <div class="footer-islamic-art">☪</div>
-            <p>© 2027 હુસેની મસ્જિદ, ઢુણાદરા | સર્વાધિકાર સુરક્ષિત.</p>
-            <div class="footer-verse">
-                "إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا" — બેશક, મુશ્કેલી સાથે આસાની છે.
-            </div>
-        </div>
+        © 2027 હુસેની મસ્જિદ, ઢુણાદરા | સર્વાધિકાર સુરક્ષિત.
     </footer>
 
-    <!-- ═══════════════════════════════════════════════ -->
-    <!-- JAVASCRIPT — ALL LOGIC                         -->
-    <!-- ═══════════════════════════════════════════════ -->
+    <!-- JAVASCRIPT -->
     <script>
         /* --- DROPDOWN MENU TOGGLE --- */
         document.addEventListener('DOMContentLoaded', () => {
             const toggleBtn = document.getElementById('menuToggleBtn');
             const menuContainer = document.getElementById('menuItemsContainer');
-            const menuArrow = toggleBtn?.querySelector('.menu-arrow');
             
             if (toggleBtn && menuContainer) {
                 toggleBtn.addEventListener('click', () => {
@@ -305,7 +224,6 @@
                     toggleBtn.classList.toggle('active');
                 });
                 
-                // Close menu when clicking outside
                 document.addEventListener('click', (e) => {
                     if (!toggleBtn.contains(e.target) && !menuContainer.contains(e.target)) {
                         menuContainer.classList.remove('show');
@@ -315,25 +233,25 @@
             }
         });
 
-        /* --- INITIALIZE PREMIUM PARTICLES.JS BACKGROUND --- */
+        /* --- PARTICLES.JS --- */
         document.addEventListener('DOMContentLoaded', function() {
             if (window.particlesJS) {
                 particlesJS("particles-js", {
                     "particles": {
-                        "number": { "value": 90, "density": { "enable": true, "value_area": 900 } },
-                        "color": { "value": ["#d4af37", "#fef08a", "#ffffff", "#f5d06e"] },
+                        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                        "color": { "value": ["#d4af37", "#fef08a", "#ffffff"] },
                         "shape": { "type": "circle" },
                         "opacity": {
-                            "value": 0.7, "random": true,
-                            "anim": { "enable": true, "speed": 0.8, "opacity_min": 0.1, "sync": false }
+                            "value": 0.8, "random": true,
+                            "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
                         },
                         "size": {
-                            "value": 3.5, "random": true,
-                            "anim": { "enable": true, "speed": 1.5, "size_min": 0.3, "sync": false }
+                            "value": 4, "random": true,
+                            "anim": { "enable": true, "speed": 2, "size_min": 0.5, "sync": false }
                         },
                         "line_linked": { "enable": false },
                         "move": {
-                            "enable": true, "speed": 1, "direction": "top", "random": true,
+                            "enable": true, "speed": 1.5, "direction": "top", "random": true,
                             "straight": false, "out_mode": "out", "bounce": false
                         }
                     },
@@ -345,8 +263,8 @@
                             "resize": true
                         },
                         "modes": {
-                            "bubble": { "distance": 200, "size": 6, "duration": 2, "opacity": 1, "speed": 3 },
-                            "repulse": { "distance": 180, "duration": 0.4 }
+                            "bubble": { "distance": 200, "size": 8, "duration": 2, "opacity": 1, "speed": 3 },
+                            "repulse": { "distance": 200, "duration": 0.4 }
                         }
                     },
                     "retina_detect": true
@@ -354,9 +272,8 @@
             }
         });
 
-        /* --- SMOOTH REVEAL ON SCROLL --- */
+        /* --- SCROLL REVEAL --- */
         document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -364,9 +281,9 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-            document.querySelectorAll('.dua-card, .status-box, .section-heading, .table-box').forEach(el => {
+            document.querySelectorAll('.dua-card, .status-box, .table-box').forEach(el => {
                 el.classList.add('reveal-element');
                 observer.observe(el);
             });
@@ -395,7 +312,6 @@
         function updateClockAndTimer() {
             let now = new Date();
             
-            // Live Clock
             let h = now.getHours();
             let m = now.getMinutes();
             let s = now.getSeconds();
@@ -404,11 +320,8 @@
             document.getElementById('live-clock').innerText = `${formatTimeNum(displayH)}:${formatTimeNum(m)}:${formatTimeNum(s)} ${ampm}`;
 
             let allRows = document.querySelectorAll('#ramadan-table tbody tr');
-            
-            // Reset all row highlights
             allRows.forEach(row => row.classList.remove('today-row'));
 
-            // Parse entire timetable into a chronological array
             let schedule = [];
             allRows.forEach(row => {
                 let dateStr = row.cells[1].innerText.trim();
@@ -433,23 +346,19 @@
             let targetTime = null;
             let timerLabel = document.getElementById('timer-label');
             let timerElement = document.getElementById('iftar-timer');
-            let timerSub = document.getElementById('timer-sub');
 
-            // Find the NEXT upcoming event (Saheri or Iftar)
             for (let i = 0; i < schedule.length; i++) {
                 let entry = schedule[i];
                 
                 if (now < entry.saheriTime) {
                     activeEntry = entry;
                     targetTime = entry.saheriTime;
-                    if (timerLabel) timerLabel.innerText = "સહેરીમાં બાકી";
-                    if (timerSub) timerSub.innerText = "સહેરી સુધી";
+                    if (timerLabel) timerLabel.innerText = "સહેરીમાં બાકી સમય";
                     break;
                 } else if (now < entry.iftarTime) {
                     activeEntry = entry;
                     targetTime = entry.iftarTime;
-                    if (timerLabel) timerLabel.innerText = "ઇફ્તારમાં બાકી";
-                    if (timerSub) timerSub.innerText = "ઇફ્તાર સુધી";
+                    if (timerLabel) timerLabel.innerText = "ઇફ્તારમાં બાકી સમય";
                     break;
                 }
             }
@@ -474,14 +383,13 @@
                 timerElement.classList.remove('timer-active');
                 timerElement.classList.add('timer-inactive');
                 if (timerLabel) timerLabel.innerText = "રમઝાન પૂર્ણ";
-                if (timerSub) timerSub.innerText = "ઈદ મુબારક!";
             }
         }
 
         setInterval(updateClockAndTimer, 1000);
         updateClockAndTimer();
 
-        /* --- AUTO SCROLL TO TODAY'S ROW --- */
+        /* --- AUTO SCROLL TO TODAY --- */
         setTimeout(() => {
             const todayRow = document.querySelector('.today-row');
             if (todayRow) {
