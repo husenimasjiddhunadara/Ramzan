@@ -241,7 +241,6 @@
     <div class="card">
         <h1><i class="fa-solid fa-kaaba"></i> સ્માર્ટ કિબલા</h1>
         
-        <!-- Professional Instructions -->
         <div class="instructions" id="instructionBox">
             <p><i class="fa-solid fa-location-dot"></i> કૃપા કરીને તમારા ઉપકરણની લોકેશન (GPS) સેવા સક્રિય કરો.</p>
             <p><i class="fa-solid fa-mobile-screen"></i> ચોક્કસ પરિણામો માટે, ડિવાઇસને જમીન સમાંતર (Flat) સ્થિતિમાં રાખો.</p>
@@ -291,7 +290,7 @@
 
         function startCompass() {
             if (window.isSecureContext === false) {
-                showError("સુરક્ષા પ્રોટોકોલ ભૂલ: સેન્સર એક્સેસ કરવા માટે સુરક્ષિત કનેક્શન (HTTPS) આવશ્યક છે.");
+                showError("સુરક્ષા પ્રોટોકોલ ભૂલ: સેન્સર એક્સેસ કરવા માટે વેબસાઈટ સુરક્ષિત કનેક્શન (HTTPS) પર હોવી આવશ્યક છે.");
                 return;
             }
 
@@ -305,9 +304,9 @@
                     let lat = position.coords.latitude;
                     let lon = position.coords.longitude;
                     calculateQibla(lat, lon);
-                    requestSensor();
+                    initSensor();
                 }, error => {
-                    showError("જીઓલોકેશન (Geolocation) એક્સેસ નકારવામાં આવ્યો છે અથવા ઉપલબ્ધ નથી. કૃપા કરીને સેટિંગ્સ ચકાસો.");
+                    showError("જીઓલોકેશન એક્સેસ નિષ્ફળ! કૃપા કરીને મોબાઇલમાં લોકેશન (GPS) ચાલુ કરો અને બ્રાઉઝરને પરવાનગી આપો.");
                     document.getElementById('compassContainer').style.display = 'none';
                     document.getElementById('statusBox').style.display = 'none';
                     document.getElementById('startBtn').style.display = 'flex';
@@ -334,64 +333,86 @@
             document.getElementById('qiblaLayer').style.transform = `rotate(${qiblaAngle}deg)`;
         }
 
-        function requestSensor() {
-            // Apple iPhone
+        function applyHeading(heading) {
+            document.getElementById('dial').style.transform = `rotate(${-heading}deg)`;
+        }
+
+        function initSensor() {
+            // પદ્ધતિ 1: Modern Android Chrome (AbsoluteOrientationSensor API)
+            // આ સીધું હાર્ડવેર લેવલ પરથી મેગ્નેટોમીટર વાંચે છે. બ્રાઉઝરની ખામીઓને બાયપાસ કરે છે.
+            if ('AbsoluteOrientationSensor' in window) {
+                try {
+                    const sensor = new AbsoluteOrientationSensor({ frequency: 60 });
+                    sensor.addEventListener('reading', () => {
+                        isAbsolute = true;
+                        const q = sensor.quaternion;
+                        // Quaternion [X, Y, Z, W] ને Heading (Yaw) માં ફેરવવાનું ગણિત
+                        const x = q[0], y = q[1], z = q[2], w = q[3];
+                        let heading = Math.atan2(2 * (w * z + x * y), 1 - 2 * (y * y + z * z)) * (180 / Math.PI);
+                        
+                        if (heading < 0) heading += 360;
+                        applyHeading(heading);
+                    });
+                    sensor.addEventListener('error', (error) => {
+                        startLegacySensor(); 
+                    });
+                    sensor.start();
+                    return; 
+                } catch (e) {
+                    startLegacySensor();
+                }
+            } else {
+                startLegacySensor();
+            }
+        }
+
+        function startLegacySensor() {
+            // પદ્ધતિ 2: Apple iPhone (webkitCompassHeading)
             if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
                 DeviceOrientationEvent.requestPermission()
                     .then(state => {
                         if (state === 'granted') {
-                            window.addEventListener('deviceorientation', handleApple, true);
+                            window.addEventListener('deviceorientation', (event) => {
+                                if (event.webkitCompassHeading !== undefined) {
+                                    isAbsolute = true;
+                                    applyHeading(event.webkitCompassHeading);
+                                }
+                            }, true);
                         } else {
-                            showError("ડિવાઇસ ઓરિએન્ટેશન (Device Orientation) પરવાનગી નકારવામાં આવી છે.");
+                            showError("ડિવાઇસ ઓરિએન્ટેશન સેન્સરની પરવાનગી નકારવામાં આવી છે.");
                         }
                     })
                     .catch(err => showError(`સેન્સર એક્સેસ નિષ્ફળ: ${err}`));
             } 
-            // Android
+            // પદ્ધતિ 3: જૂના Android અને અન્ય બ્રાઉઝર
             else {
-                window.addEventListener('deviceorientationabsolute', handleAndroidAbsolute, true);
-                window.addEventListener('deviceorientation', handleAndroidRelative, true);
-                
-                setTimeout(() => {
-                    if (!isAbsolute && !(/iPhone|iPad|iPod/i.test(navigator.userAgent))) {
-                        showError("હાર્ડવેર મર્યાદા: મેગ્નેટોમીટર સેન્સર (Absolute Orientation) નો ડેટા પ્રાપ્ત થઈ રહ્યો નથી.");
+                window.addEventListener('deviceorientationabsolute', (event) => {
+                    if (event.alpha !== null) {
+                        isAbsolute = true;
+                        applyHeading(360 - event.alpha);
                     }
-                }, 3000);
-            }
-        }
+                }, true);
 
-        // iPhone
-        function handleApple(event) {
-            if (event.webkitCompassHeading !== undefined) {
-                isAbsolute = true;
-                let heading = event.webkitCompassHeading;
-                document.getElementById('dial').style.transform = `rotate(${-heading}deg)`;
-            }
-        }
-
-        // Android Absolute
-        function handleAndroidAbsolute(event) {
-            if (event.alpha !== null) {
-                isAbsolute = true;
-                let heading = 360 - event.alpha;
-                document.getElementById('dial').style.transform = `rotate(${-heading}deg)`;
-            }
-        }
-
-        // Android Relative
-        function handleAndroidRelative(event) {
-            if (isAbsolute) return; 
-            
-            if (event.absolute === true && event.alpha !== null) {
-                isAbsolute = true;
-                let heading = 360 - event.alpha;
-                document.getElementById('dial').style.transform = `rotate(${-heading}deg)`;
+                window.addEventListener('deviceorientation', (event) => {
+                    // જો absolute orientation સાચું હોય તો જ આ ડેટા લેવો
+                    if (!isAbsolute && event.absolute === true && event.alpha !== null) {
+                        isAbsolute = true;
+                        applyHeading(360 - event.alpha);
+                    }
+                }, true);
+                
+                // ટાઈમઆઉટ ચેક (જો બ્રાઉઝર મેગ્નેટિક સેન્સર બ્લોક કરતું હોય તો)
+                setTimeout(() => {
+                    if (!isAbsolute) {
+                        showError("હાર્ડવેર અથવા બ્રાઉઝર મર્યાદા: મેગ્નેટોમીટર (અસલી ઉત્તર દિશા) નો ડેટા પ્રાપ્ત થઈ રહ્યો નથી. કંપાસ ફરી નહિ શકે.");
+                    }
+                }, 4000);
             }
         }
     </script>
 </body>
 </html>
-    <script>
+
         // Dropdown Menu Logic
         document.addEventListener('DOMContentLoaded', () => {
             const toggleBtn = document.getElementById('menuToggleBtn');
