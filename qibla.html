@@ -3,290 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qibla Compass - Premium UI</title>
+    <title>સ્માર્ટ કિબલા કંપાસ - પ્રોફેશનલ</title>
     
-    <!-- Modern Minimalist Fonts: Anek Gujarati for text, Montserrat for numbers/English -->
+    <!-- Google Fonts: Baloo Bhai 2 (Gujarati), Poppins (English numbers) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;600;800&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-color: #0b0f19; /* Deep matte navy/black */
-            --card-bg: rgba(255, 255, 255, 0.03); /* Frosted glass */
-            --gold: #e2c073; /* Elegant Rose Gold / Champagne */
-            --gold-glow: rgba(226, 192, 115, 0.3);
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
+            --bg: #0f172a; 
+            --card: rgba(30, 41, 59, 0.7); 
+            --primary: #10b981; 
+            --gold: #fbbf24; 
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
-            font-family: 'Anek Gujarati', sans-serif;
-            background-color: var(--bg-color);
-            /* Soft glowing background effect */
-            background-image: 
-                radial-gradient(circle at 50% -20%, rgba(226, 192, 115, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 50% 120%, rgba(11, 15, 25, 1) 0%, transparent 100%);
-            color: var(--text-main);
-            min-height: 100vh;
+            font-family: 'Baloo Bhai 2', cursive, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            overflow: hidden;
+            align-items: center;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 50% 100%, rgba(251, 191, 36, 0.1) 0%, transparent 60%);
         }
-
-        /* Glassmorphism Card Design */
-        .glass-card {
-            background: var(--card-bg);
+        
+        .card {
+            background: var(--card);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 35px;
-            padding: 40px 30px;
+            padding: 35px 25px;
             width: 90%;
-            max-width: 380px;
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-        }
-
-        .header-title {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 2px;
-            letter-spacing: 0.5px;
-        }
-        .header-sub {
-            font-size: 15px;
-            color: var(--text-muted);
-            font-weight: 300;
-            margin-bottom: 45px;
-            letter-spacing: 1px;
-        }
-
-        /* The Compass Wrapper */
-        .compass-wrapper {
-            position: relative;
-            width: 260px;
-            height: 260px;
-            margin-bottom: 40px;
-        }
-
-        /* Minimal Phone Top Indicator */
-        .phone-indicator {
-            position: absolute;
-            top: -10px; left: 50%; transform: translateX(-50%);
-            width: 4px; height: 12px;
-            background: var(--gold);
-            border-radius: 4px;
-            box-shadow: 0 0 12px var(--gold-glow);
-            z-index: 10;
-        }
-
-        /* Outer Minimal Ring */
-        .compass-outer {
-            position: absolute;
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            border: 1px solid rgba(226, 192, 115, 0.15);
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.6);
-        }
-
-        /* Rotating Dial */
-        .compass-dial {
-            position: absolute;
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            transition: transform 0.15s linear;
-            will-change: transform;
-        }
-
-        /* Dotted Inner Ring */
-        .compass-dial::before {
-            content: '';
-            position: absolute;
-            top: 15px; left: 15px; right: 15px; bottom: 15px;
-            border-radius: 50%;
-            border: 1px dashed rgba(255, 255, 255, 0.15);
-        }
-
-        /* Elegant English Direction Letters */
-        .direction {
-            position: absolute;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.4);
-            letter-spacing: 1px;
-        }
-        .dir-n { top: 18px; left: 50%; transform: translateX(-50%); color: var(--gold); font-weight: 600; font-size: 22px; text-shadow: 0 0 10px var(--gold-glow);}
-        .dir-s { bottom: 18px; left: 50%; transform: translateX(-50%); }
-        .dir-e { top: 50%; right: 22px; transform: translateY(-50%); }
-        .dir-w { top: 50%; left: 22px; transform: translateY(-50%); }
-
-        /* Qibla Target (Kaaba SVG) */
-        .qibla-target {
-            position: absolute;
-            width: 100%; height: 100%;
-            /* Bouncy, premium animation feeling */
-            transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1); 
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
         }
         
-        .target-svg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-        }
-
-        /* Hollow / Transparent Start Button */
-        .start-btn {
-            background: rgba(226, 192, 115, 0.05);
-            border: 1px solid var(--gold);
+        h1 {
             color: var(--gold);
-            padding: 12px 40px;
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .instructions {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: left;
+            margin-bottom: 30px;
+            font-size: 19px;
+            line-height: 1.5;
+            color: #d1fae5;
+        }
+        .instructions p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .instructions p:last-child { margin-bottom: 0; }
+        .instructions i {
+            color: var(--primary);
             font-size: 18px;
-            font-weight: 500;
-            font-family: 'Anek Gujarati', sans-serif;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-            backdrop-filter: blur(5px);
-        }
-        .start-btn:hover {
-            background: var(--gold);
-            color: var(--bg-color);
-            box-shadow: 0 0 25px var(--gold-glow);
-        }
-        .start-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Info Display */
-        .status-panel {
-            display: none;
-            width: 100%;
+            margin-top: 6px;
+            margin-right: 15px;
+            width: 25px;
             text-align: center;
         }
-        .angle-display {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 32px;
-            font-weight: 300;
-            color: #fff;
-            margin-bottom: 0px;
+        
+        .compass-box {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 30px auto;
+            border-radius: 50%;
+            background: #0f172a;
+            border: 4px solid rgba(251, 191, 36, 0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 0 40px rgba(0,0,0,0.9);
+            display: none; 
         }
-        .angle-display span {
-            font-size: 15px;
-            font-family: 'Anek Gujarati', sans-serif;
+        
+        .phone-top {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--primary);
+            font-size: 30px;
+            z-index: 10;
+            filter: drop-shadow(0 -4px 8px rgba(16, 185, 129, 0.6));
+        }
+
+        .dial {
+            position: absolute;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            transition: transform 0.15s ease-out; 
+            will-change: transform;
+        }
+        
+        .dial::before {
+            content: '';
+            position: absolute;
+            top: 20px; left: 20px; right: 20px; bottom: 20px;
+            border: 2px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .dir {
+            position: absolute;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .n { top: 15px; left: 50%; transform: translateX(-50%); color: #ef4444; font-size: 28px; text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);}
+        .s { bottom: 15px; left: 50%; transform: translateX(-50%); }
+        .e { top: 50%; right: 20px; transform: translateY(-50%); }
+        .w { top: 50%; left: 20px; transform: translateY(-50%); }
+        
+        .qibla-layer {
+            position: absolute;
+            width: 100%; height: 100%;
+            transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1); 
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 35px;
+        }
+        
+        .kaaba-icon {
             color: var(--gold);
-            opacity: 0.8;
+            font-size: 45px;
+            filter: drop-shadow(0 8px 15px rgba(0,0,0,0.9));
+        }
+        
+        .glowing-line {
+            position: absolute;
+            top: 85px; left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 45px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            box-shadow: 0 0 8px var(--gold);
+            border-radius: 5px;
+        }
+        
+        .center-dot {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px; height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--gold);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary), #059669);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            font-size: 22px;
+            font-family: 'Baloo Bhai 2', sans-serif;
+            font-weight: 800;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.6);
+        }
+        .btn:active { transform: scale(0.95); }
+
+        .status-box { display: none; margin-top: 25px; }
+        .degree-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: -5px;
+            line-height: 1;
+        }
+        .degree-text span {
+            font-family: 'Baloo Bhai 2', sans-serif;
+            font-size: 19px;
+            color: var(--gold);
+            font-weight: 600;
+            display: block;
+            margin-top: 8px;
             letter-spacing: 0.5px;
         }
         
-        /* Debug Error Box */
-        #error-box {
-            display: none;
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
+        .error-box {
+            background: rgba(239, 68, 68, 0.15);
+            border: 2px solid #ef4444;
             color: #fca5a5;
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 14px;
+            padding: 18px;
+            border-radius: 15px;
+            font-size: 17px;
             margin-top: 20px;
+            display: none;
             text-align: left;
             line-height: 1.5;
         }
+        .error-box i { font-size: 22px; margin-right: 10px; color: #ef4444; }
     </style>
 </head>
 <body>
 
-    <div class="glass-card">
-        <h1 class="header-title">કિબલા દર્શન</h1>
-        <p class="header-sub">પ્રીમિયમ ડિજિટલ કંપાસ</p>
+    <div class="card">
+        <h1><i class="fa-solid fa-kaaba"></i> સ્માર્ટ કિબલા</h1>
+        
+        <!-- Professional Instructions -->
+        <div class="instructions" id="instructionBox">
+            <p><i class="fa-solid fa-location-dot"></i> કૃપા કરીને તમારા ઉપકરણની લોકેશન (GPS) સેવા સક્રિય કરો.</p>
+            <p><i class="fa-solid fa-mobile-screen"></i> ચોક્કસ પરિણામો માટે, ડિવાઇસને જમીન સમાંતર (Flat) સ્થિતિમાં રાખો.</p>
+            <p><i class="fa-solid fa-satellite-dish"></i> દિશા નિર્ધારણ પ્રક્રિયા શરૂ કરવા માટે નીચે આપેલ બટન પર ક્લિક કરો.</p>
+        </div>
 
-        <div class="compass-wrapper">
-            <!-- Indicator for top of the phone -->
-            <div class="phone-indicator"></div>
+        <div class="compass-box" id="compassContainer">
+            <i class="fa-solid fa-caret-up phone-top"></i>
             
-            <div class="compass-outer"></div>
-            
-            <!-- Dial that rotates to keep N at North -->
-            <div class="compass-dial" id="dial">
-                <div class="direction dir-n">N</div>
-                <div class="direction dir-e">E</div>
-                <div class="direction dir-s">S</div>
-                <div class="direction dir-w">W</div>
+            <div class="dial" id="dial">
+                <div class="dir n">N</div>
+                <div class="dir e">E</div>
+                <div class="dir s">S</div>
+                <div class="dir w">W</div>
                 
-                <!-- Minimalist Qibla Target relative to North -->
-                <div class="qibla-target" id="qiblaPointer">
-                    <svg class="target-svg" viewBox="0 0 260 260">
-                        <!-- Center glowing dot -->
-                        <circle cx="130" cy="130" r="4.5" fill="#e2c073" filter="drop-shadow(0 0 6px #e2c073)"/>
-                        
-                        <!-- Dotted line to Kaaba -->
-                        <line x1="130" y1="120" x2="130" y2="45" stroke="#e2c073" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5"/>
-                        
-                        <!-- Modern outline Kaaba Icon at the tip -->
-                        <rect x="117" y="16" width="26" height="26" fill="#0b0f19" stroke="#e2c073" stroke-width="1.5" rx="3"/>
-                        <rect x="117" y="24" width="26" height="1.5" fill="#e2c073"/>
-                    </svg>
+                <div class="qibla-layer" id="qiblaLayer">
+                    <i class="fa-solid fa-kaaba kaaba-icon"></i>
+                    <div class="glowing-line"></div>
                 </div>
             </div>
+            
+            <div class="center-dot"></div>
         </div>
 
-        <button class="start-btn" id="startBtn" onclick="initCompass()">ચાલુ કરો</button>
+        <button class="btn" id="startBtn" onclick="startCompass()">
+            <i class="fa-solid fa-compass"></i> સેન્સર સક્રિય કરો
+        </button>
 
-        <!-- Dynamic Data Text -->
-        <div class="status-panel" id="statusPanel">
-            <div class="angle-display" id="qiblaText">0.0° <br><span>કિબલા એંગલ</span></div>
+        <div class="status-box" id="statusBox">
+            <div class="degree-text" id="angleText">... <span>લોકેશન ડેટા પ્રોસેસિંગ...</span></div>
         </div>
 
-        <!-- Error Messages -->
-        <div id="error-box"></div>
+        <div class="error-box" id="errorBox"></div>
     </div>
 
     <script>
         const MECCA_LAT = 21.422487;
         const MECCA_LON = 39.826206;
         let qiblaAngle = 0;
+        let isAbsolute = false;
 
         function showError(msg) {
-            const dbg = document.getElementById('error-box');
-            dbg.style.display = 'block';
-            dbg.innerHTML = "<b>ક્ષમા કરશો:</b><br>" + msg;
+            const err = document.getElementById('errorBox');
+            err.style.display = 'block';
+            err.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <b>સિસ્ટમ એરર:</b> <br> ${msg}`;
         }
 
-        function initCompass() {
+        function startCompass() {
             if (window.isSecureContext === false) {
-                showError("મોબાઇલ સેન્સર વાપરવા માટે આ વેબસાઇટ સુરક્ષિત (HTTPS/SSL) હોવી ફરજિયાત છે.");
+                showError("સુરક્ષા પ્રોટોકોલ ભૂલ: સેન્સર એક્સેસ કરવા માટે સુરક્ષિત કનેક્શન (HTTPS) આવશ્યક છે.");
                 return;
             }
 
             document.getElementById('startBtn').style.display = 'none';
-            document.getElementById('statusPanel').style.display = 'block';
-            document.getElementById('qiblaText').innerHTML = "...<br><span>લોકેશન એક્સેસ ચેક થાય છે</span>";
+            document.getElementById('instructionBox').style.display = 'none';
+            document.getElementById('compassContainer').style.display = 'block';
+            document.getElementById('statusBox').style.display = 'block';
 
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
                     let lat = position.coords.latitude;
                     let lon = position.coords.longitude;
                     calculateQibla(lat, lon);
-                    requestOrientation();
+                    requestSensor();
                 }, error => {
-                    showError("તમારા મોબાઇલમાં લોકેશન (GPS) બંધ છે અથવા પરવાનગી નથી આપી.");
-                    document.getElementById('startBtn').style.display = 'block';
-                    document.getElementById('statusPanel').style.display = 'none';
+                    showError("જીઓલોકેશન (Geolocation) એક્સેસ નકારવામાં આવ્યો છે અથવા ઉપલબ્ધ નથી. કૃપા કરીને સેટિંગ્સ ચકાસો.");
+                    document.getElementById('compassContainer').style.display = 'none';
+                    document.getElementById('statusBox').style.display = 'none';
+                    document.getElementById('startBtn').style.display = 'flex';
                 }, { enableHighAccuracy: true });
             } else {
-                showError("લોકેશન સપોર્ટ નથી કરતું.");
+                showError("તમારું બ્રાઉઝર જીઓલોકેશન API ને સપોર્ટ કરતું નથી.");
             }
         }
 
@@ -303,41 +330,61 @@
             let qibla = Math.atan2(y, x) * (180 / PI);
             qiblaAngle = (qibla + 360) % 360;
             
-            document.getElementById('qiblaText').innerHTML = qiblaAngle.toFixed(1) + "° <br><span>તમારા લોકેશનથી મક્કાની દિશા</span>";
-            document.getElementById('qiblaPointer').style.transform = `rotate(${qiblaAngle}deg)`;
+            document.getElementById('angleText').innerHTML = `${qiblaAngle.toFixed(0)}° <span>કિબલા એંગલ (Qibla Angle)</span>`;
+            document.getElementById('qiblaLayer').style.transform = `rotate(${qiblaAngle}deg)`;
         }
 
-        function requestOrientation() {
+        function requestSensor() {
+            // Apple iPhone
             if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
                 DeviceOrientationEvent.requestPermission()
-                    .then(permissionState => {
-                        if (permissionState === 'granted') {
-                            window.addEventListener('deviceorientation', handleOrientation, true);
+                    .then(state => {
+                        if (state === 'granted') {
+                            window.addEventListener('deviceorientation', handleApple, true);
                         } else {
-                            showError("કંપાસ સેન્સર વાપરવાની પરવાનગી નકારી કાઢવામાં આવી છે.");
+                            showError("ડિવાઇસ ઓરિએન્ટેશન (Device Orientation) પરવાનગી નકારવામાં આવી છે.");
                         }
                     })
-                    .catch(err => showError(err));
-            } else {
-                if ('ondeviceorientationabsolute' in window) {
-                    window.addEventListener('deviceorientationabsolute', handleOrientation, true);
-                } else {
-                    window.addEventListener('deviceorientation', handleOrientation, true);
-                }
+                    .catch(err => showError(`સેન્સર એક્સેસ નિષ્ફળ: ${err}`));
+            } 
+            // Android
+            else {
+                window.addEventListener('deviceorientationabsolute', handleAndroidAbsolute, true);
+                window.addEventListener('deviceorientation', handleAndroidRelative, true);
+                
+                setTimeout(() => {
+                    if (!isAbsolute && !(/iPhone|iPad|iPod/i.test(navigator.userAgent))) {
+                        showError("હાર્ડવેર મર્યાદા: મેગ્નેટોમીટર સેન્સર (Absolute Orientation) નો ડેટા પ્રાપ્ત થઈ રહ્યો નથી.");
+                    }
+                }, 3000);
             }
         }
 
-        function handleOrientation(event) {
-            let heading = null;
+        // iPhone
+        function handleApple(event) {
             if (event.webkitCompassHeading !== undefined) {
-                heading = event.webkitCompassHeading;
-            } else if (event.absolute === true && event.alpha !== null) {
-                heading = 360 - event.alpha; 
-            } else if (event.alpha !== null) {
-                heading = 360 - event.alpha;
+                isAbsolute = true;
+                let heading = event.webkitCompassHeading;
+                document.getElementById('dial').style.transform = `rotate(${-heading}deg)`;
             }
+        }
+
+        // Android Absolute
+        function handleAndroidAbsolute(event) {
+            if (event.alpha !== null) {
+                isAbsolute = true;
+                let heading = 360 - event.alpha;
+                document.getElementById('dial').style.transform = `rotate(${-heading}deg)`;
+            }
+        }
+
+        // Android Relative
+        function handleAndroidRelative(event) {
+            if (isAbsolute) return; 
             
-            if (heading !== null) {
+            if (event.absolute === true && event.alpha !== null) {
+                isAbsolute = true;
+                let heading = 360 - event.alpha;
                 document.getElementById('dial').style.transform = `rotate(${-heading}deg)`;
             }
         }
