@@ -1,0 +1,413 @@
+﻿<!DOCTYPE html>
+<html lang="gu" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>પાંચ વકતોકી નમાઝોકી રકઅતોકા નકશા</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400;500;600;700&family=Rasa:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-body: #F4F6F6;
+      --islamic-teal: #0B4B55;
+      --islamic-gold: #C89F53;
+      --card-bg: #FFFFFF;
+      --text-dark: #1F2937;
+      --text-muted: #6B7280;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-dark);
+      font-family: 'Hind Vadodara', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .font-rasa { font-family: 'Rasa', serif; }
+
+    /* ── Premium Islamic Header ── */
+    .hero-header {
+      background-color: var(--islamic-teal);
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 15-15 15L15 15 30 0zm0 30l15 15-15 15-15-15 15-15z' fill='%23C89F53' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+      border-bottom: 4px solid var(--islamic-gold);
+    }
+
+    /* ── Cards ── */
+    .namaz-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(11, 75, 85, 0.04), 0 1px 3px rgba(0,0,0,0.02);
+      border: 1px solid rgba(11, 75, 85, 0.05);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      animation: fadeUp 0.6s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .namaz-card:hover {
+      box-shadow: 0 12px 32px rgba(11, 75, 85, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Subtle Arch Watermark inside Card */
+    .namaz-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 C20 40, 0 60, 0 100 L100 100 C100 60, 80 40, 50 0 Z' fill='%230B4B55' fill-opacity='0.02'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: top right;
+      pointer-events: none;
+    }
+
+    /* ── Rakaat Badges ── */
+    .badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 100px;
+      padding: 10px 8px;
+      border-radius: 14px;
+      text-align: center;
+      border: 1px solid transparent;
+      flex: 1;
+    }
+    .badge-num { font-family: 'Rasa', serif; font-size: 1.6rem; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+    .badge-lbl { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; }
+
+    .b-farz { background: #FEF2F2; border-color: #FEE2E2; color: #991B1B; }
+    .b-sunnah-m { background: #FFFBEB; border-color: #FEF3C7; color: #92400E; }
+    .b-sunnah-g { background: #F0FDF4; border-color: #DCFCE7; color: #166534; }
+    .b-nafl { background: #F0F9FF; border-color: #E0F2FE; color: #075985; }
+    .b-wajib { background: #FAF5FF; border-color: #F3E8FF; color: #6B21A8; }
+
+    /* ── Accordion UX ── */
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    
+    .qa-box {
+      border-left: 3px solid var(--islamic-gold);
+      background: linear-gradient(90deg, rgba(200,159,83,0.05) 0%, rgba(255,255,255,0) 100%);
+    }
+
+    .qa-icon { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    details[open] .qa-icon { transform: rotate(180deg); color: var(--islamic-gold); }
+    details[open] .qa-content { animation: slideDown 0.3s ease-out forwards; }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO HEADER ── -->
+  <header class="hero-header px-4 py-12 md:py-16 text-center shadow-md">
+    <div class="max-w-3xl mx-auto relative z-10">
+      <div class="text-[#C89F53] text-4xl mb-4 font-rasa">﷽</div>
+      <h1 class="font-rasa text-3xl md:text-5xl font-bold text-white leading-tight mb-2 text-shadow-sm">
+        પાંચ વકતોકી નમાઝોકી<br>રકઅતોકા નકશા ઔર વકત
+      </h1>
+    </div>
+  </header>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-6 md:space-y-8 relative -mt-8">
+
+    <!-- 1. FAJR -->
+    <article class="namaz-card p-6 md:p-8" style="animation-delay: 0.1s;">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="font-rasa text-3xl md:text-4xl font-bold text-[#0B4B55]">ફજર</h2>
+        <div class="px-4 py-1 rounded-full bg-[#0B4B55]/5 text-[#0B4B55] border border-[#0B4B55]/20 font-semibold">
+          ૪ રકઅતે
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 md:gap-4 items-center mb-6">
+        <div class="badge b-sunnah-m">
+          <span class="badge-num">૨</span><span class="badge-lbl">સુન્નતે મુઅક્કદહ</span>
+        </div>
+        <svg class="w-6 h-6 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        <div class="badge b-farz">
+          <span class="badge-num">૨</span><span class="badge-lbl">ફર્ઝ</span>
+        </div>
+      </div>
+
+      <details class="group cursor-pointer border-t border-gray-100 mt-4 pt-4">
+        <summary class="flex justify-between items-center text-[#4B5563] font-semibold hover:text-[#0B4B55] transition-colors outline-none">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-[#C89F53]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            વકત ઔર તફસીલ
+          </span>
+          <svg class="w-5 h-5 qa-icon text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="qa-content mt-4 qa-box p-4 rounded-r-lg text-[1.05rem]">
+          <p class="mb-2"><strong class="text-[#0B4B55]">સવાલ :</strong> ફજરકા વકત કબસે કબ તક હૈ ?</p>
+          <p class="text-gray-700"><strong class="text-[#0B4B55]">જવાબ :</strong> ઉજાલા હોનેસે ફજરકા વકત શુરૂ હોતા હૈ ઔર સૂરજ નિકલનેસે પહલે તક રહતા હૈ, લેકીન ખૂબ ઉજાલા રહને પર પઢના મુસ્તહબ હૈ.</p>
+          <p class="mt-3 text-sm text-[#C89F53] font-semibold">(દુર્રે મુખ્તાર, રદ્દુલ મુહતાર)</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- 2. ZOHR -->
+    <article class="namaz-card p-6 md:p-8" style="animation-delay: 0.2s;">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="font-rasa text-3xl md:text-4xl font-bold text-[#0B4B55]">ઝોહર</h2>
+        <div class="px-4 py-1 rounded-full bg-[#0B4B55]/5 text-[#0B4B55] border border-[#0B4B55]/20 font-semibold">
+          ૧૨ રકઅતે
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 items-center mb-6">
+        <div class="badge b-sunnah-m">
+          <span class="badge-num">૪</span><span class="badge-lbl">સુ. મુઅક્કદહ</span>
+        </div>
+        <svg class="w-6 h-6 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        <div class="badge b-farz">
+          <span class="badge-num">૪</span><span class="badge-lbl">ફર્ઝ</span>
+        </div>
+        <svg class="w-6 h-6 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        <div class="badge b-sunnah-m">
+          <span class="badge-num">૨</span><span class="badge-lbl">સુ. મુઅક્કદહ</span>
+        </div>
+        <svg class="w-6 h-6 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        <div class="badge b-nafl">
+          <span class="badge-num">૨</span><span class="badge-lbl">નફલ</span>
+        </div>
+      </div>
+
+      <details class="group cursor-pointer border-t border-gray-100 mt-4 pt-4">
+        <summary class="flex justify-between items-center text-[#4B5563] font-semibold hover:text-[#0B4B55] transition-colors outline-none">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-[#C89F53]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            વકત ઔર તફસીલ
+          </span>
+          <svg class="w-5 h-5 qa-icon text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="qa-content mt-4 qa-box p-4 rounded-r-lg text-[1.05rem]">
+          <p class="mb-2"><strong class="text-[#0B4B55]">સવાલ :</strong> ઝોહરકા વકત કબસે કબ તક હૈ ?</p>
+          <p class="text-gray-700"><strong class="text-[#0B4B55]">જવાબ :</strong> ઝોહરકા વકત સૂરજ ઢલનેકે બાદ શુરૂ હોતા હૈ ઔર ઠીક દો પહર કે વકત કિસી ચીઝકા સાયા દોગુના હો જાયે તો ઝોહરકા વકત ખત્મ હો જાતા હૈ, મગર છોટે દિનોંમેં અવ્વલ વકત ઔર બડે દિનોંમેં આખિર વકત પર પઢના મુસ્તહબ હૈં.</p>
+          <p class="mt-3 text-sm text-[#C89F53] font-semibold">(આલમગીરી, બહારે શરીઅત)</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- 3. ASR -->
+    <article class="namaz-card p-6 md:p-8" style="animation-delay: 0.3s;">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="font-rasa text-3xl md:text-4xl font-bold text-[#0B4B55]">અસર</h2>
+        <div class="px-4 py-1 rounded-full bg-[#0B4B55]/5 text-[#0B4B55] border border-[#0B4B55]/20 font-semibold">
+          ૮ રકઅતે
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 md:gap-4 items-center mb-6">
+        <div class="badge b-sunnah-g">
+          <span class="badge-num">૪</span><span class="badge-lbl">સુ. ગૈર મુઅક્કદહ</span>
+        </div>
+        <svg class="w-6 h-6 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        <div class="badge b-farz">
+          <span class="badge-num">૪</span><span class="badge-lbl">ફર્ઝ</span>
+        </div>
+      </div>
+
+      <details class="group cursor-pointer border-t border-gray-100 mt-4 pt-4">
+        <summary class="flex justify-between items-center text-[#4B5563] font-semibold hover:text-[#0B4B55] transition-colors outline-none">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-[#C89F53]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            વકત ઔર તફસીલ
+          </span>
+          <svg class="w-5 h-5 qa-icon text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="qa-content mt-4 qa-box p-4 rounded-r-lg text-[1.05rem]">
+          <p class="mb-2"><strong class="text-[#0B4B55]">સવાલ :</strong> અસરકા વકત કબ સે કબ તક રહેતા હૈ.</p>
+          <p class="text-gray-700 mb-3"><strong class="text-[#0B4B55]">જવાબ :</strong> ઝોહરકા વકત ખત્મ હો જાનેસે અસરકા વકત શુરૂ હો જાતા હૈ ઔર સૂરજ ડુબનેસે પહલે તક રહેતા હૈ, મગર અસરમાં તાખિર હમેશા મુસ્તહબ હૈ, લેકીન ન ઈતની તાખિર કરના કે સૂરજ કી ટીકીયાંમેં ઝર્દી આ જાએ યે મના હૈ.</p>
+          <p class="text-sm text-[#C89F53] font-semibold mb-4">(દુર્રે મુખ્તાર – બહારે શરીઅત)</p>
+          <div class="bg-red-50 border border-red-100 p-3 rounded-lg text-red-800 text-sm">
+            <strong class="font-bold text-red-900">નોટ :</strong> નમાઝે અસરમે જાનબુઝ કર ઈતની તાખિર કરના કે સૂરજ ગુરૂબ હોનેકા વકત આ જાયે હરામ હૈ.
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <!-- 4. MAGHRIB -->
+    <article class="namaz-card p-6 md:p-8" style="animation-delay: 0.4s;">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="font-rasa text-3xl md:text-4xl font-bold text-[#0B4B55]">મગરિબ</h2>
+        <div class="px-4 py-1 rounded-full bg-[#0B4B55]/5 text-[#0B4B55] border border-[#0B4B55]/20 font-semibold">
+          ૭ રકઅતે
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 items-center mb-6">
+        <div class="badge b-farz">
+          <span class="badge-num">૩</span><span class="badge-lbl">ફર્ઝ</span>
+        </div>
+        <svg class="w-6 h-6 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        <div class="badge b-sunnah-m">
+          <span class="badge-num">૨</span><span class="badge-lbl">સુ. મુઅક્કદહ</span>
+        </div>
+        <svg class="w-6 h-6 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        <div class="badge b-nafl">
+          <span class="badge-num">૨</span><span class="badge-lbl">નફલ</span>
+        </div>
+      </div>
+
+      <details class="group cursor-pointer border-t border-gray-100 mt-4 pt-4">
+        <summary class="flex justify-between items-center text-[#4B5563] font-semibold hover:text-[#0B4B55] transition-colors outline-none">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-[#C89F53]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            વકત ઔર તફસીલ
+          </span>
+          <svg class="w-5 h-5 qa-icon text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="qa-content mt-4 qa-box p-4 rounded-r-lg text-[1.05rem]">
+          <p class="mb-2"><strong class="text-[#0B4B55]">સવાલ :</strong> મગરીબકા વકત કબસે કબ તક રહેતા હૈ.</p>
+          <p class="text-gray-700"><strong class="text-[#0B4B55]">જવાબ :</strong> મગરીબકા વકત સૂરજ ડૂબનેકે બાદસે શુરૂ હો જાતા હૈ ઔર ઉત્તર, દક્ષિઅન ફૈલી હુઈ સફેદીકે ગાઈબ હોનેસે પહલે તક રહેતા હૈ મગર અવ્વલ વકત પઢના મુસ્તહબ ઔર તાખિર મકરૂહ હૈ.</p>
+          <p class="mt-3 text-sm text-[#C89F53] font-semibold">(આલમગીરી – બહારે શરીઅત)</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- 5. ISHA -->
+    <article class="namaz-card p-6 md:p-8" style="animation-delay: 0.5s;">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="font-rasa text-3xl md:text-4xl font-bold text-[#0B4B55]">ઈશા</h2>
+        <div class="px-4 py-1 rounded-full bg-[#0B4B55]/5 text-[#0B4B55] border border-[#0B4B55]/20 font-semibold">
+          ૧૭ રકઅતે
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 md:gap-3 items-center mb-6">
+        <div class="badge b-sunnah-g"><span class="badge-num">૪</span><span class="badge-lbl">સુ. ગૈર મુ.</span></div>
+        <svg class="w-4 h-4 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <div class="badge b-farz"><span class="badge-num">૪</span><span class="badge-lbl">ફર્ઝ</span></div>
+        <svg class="w-4 h-4 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <div class="badge b-sunnah-m"><span class="badge-num">૨</span><span class="badge-lbl">સુ. મુઅક્કદહ</span></div>
+        <svg class="w-4 h-4 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <div class="badge b-nafl"><span class="badge-num">૨</span><span class="badge-lbl">નફલ</span></div>
+        <svg class="w-4 h-4 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <div class="badge b-wajib"><span class="badge-num">૩</span><span class="badge-lbl">વાજિબુલ વિત્ર</span></div>
+        <svg class="w-4 h-4 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <div class="badge b-nafl"><span class="badge-num">૨</span><span class="badge-lbl">નફલ</span></div>
+      </div>
+
+      <details class="group cursor-pointer border-t border-gray-100 mt-4 pt-4">
+        <summary class="flex justify-between items-center text-[#4B5563] font-semibold hover:text-[#0B4B55] transition-colors outline-none">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-[#C89F53]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            વકત ઔર તફસીલ
+          </span>
+          <svg class="w-5 h-5 qa-icon text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="qa-content mt-4 qa-box p-4 rounded-r-lg text-[1.05rem]">
+          <p class="mb-2"><strong class="text-[#0B4B55]">સવાલ :</strong> ઈશાકા વકત કબ સે કબ તક રહેતા હૈ ?</p>
+          <p class="text-gray-700"><strong class="text-[#0B4B55]">જવાબ :</strong> ઈશાકા વકત ઉત્તર, દક્ષિઅન ફૈલી હુઈ સફેદી કે ગાઈબ હોનેસે શુરૂ હોતા હૈ, ઔર સુબહ ઉજાલા હોનેસે પહલે તક રહેતા હૈ, લેકીન તિહાઈ ૧/૩ તાખિર મુસ્તહબ ઔર આધી રાત તક મુબાહ, આધી સે ઝયાદહ મકરૂહ કે બાઈસે તકલીલે જમાઅત હૈ.</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- 6. JUMU'AH -->
+    <article class="namaz-card p-6 md:p-8" style="animation-delay: 0.6s;">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="font-rasa text-3xl md:text-4xl font-bold text-[#0B4B55]">જુમ્અહ</h2>
+        <div class="px-4 py-1 rounded-full bg-[#0B4B55]/5 text-[#0B4B55] border border-[#0B4B55]/20 font-semibold">
+          ૧૪ રકઅતે
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 md:gap-3 items-center mb-6">
+        <div class="badge b-sunnah-m"><span class="badge-num">૪</span><span class="badge-lbl">સુ. મુઅક્કદહ</span></div>
+        <svg class="w-4 h-4 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <div class="badge b-farz"><span class="badge-num">૨</span><span class="badge-lbl">ફર્ઝ</span></div>
+        <svg class="w-4 h-4 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <div class="badge b-sunnah-m"><span class="badge-num">૪</span><span class="badge-lbl">સુ. મુઅક્કદહ</span></div>
+        <svg class="w-4 h-4 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <div class="badge b-sunnah-m"><span class="badge-num">૨</span><span class="badge-lbl">સુ. મુઅક્કદહ</span></div>
+        <svg class="w-4 h-4 text-[#C89F53]/60 hidden md:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <div class="badge b-nafl"><span class="badge-num">૨</span><span class="badge-lbl">નફલ</span></div>
+      </div>
+
+      <details class="group cursor-pointer border-t border-gray-100 mt-4 pt-4">
+        <summary class="flex justify-between items-center text-[#4B5563] font-semibold hover:text-[#0B4B55] transition-colors outline-none">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-[#C89F53]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            વકત ઔર તફસીલ
+          </span>
+          <svg class="w-5 h-5 qa-icon text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="qa-content mt-4 qa-box p-4 rounded-r-lg text-[1.05rem]">
+          <p class="mb-2"><strong class="text-[#0B4B55]">સવાલ :</strong> જુમ્આકા વકત કબસે કબ તક રહેતા હૈ.</p>
+          <p class="text-gray-700"><strong class="text-[#0B4B55]">જવાબ :</strong> ઝોહરકા વકત હૈ વહી જુમ્આકા વકત હૈ.</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- 7. EIDAIN -->
+    <article class="namaz-card p-6 md:p-8" style="animation-delay: 0.7s;">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="font-rasa text-3xl md:text-4xl font-bold text-[#0B4B55]">ઈદૈન</h2>
+        <div class="px-4 py-1 rounded-full bg-[#0B4B55]/5 text-[#0B4B55] border border-[#0B4B55]/20 font-semibold">
+          ૨ રકઅતે
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 md:gap-4 items-center mb-6">
+        <div class="badge b-wajib max-w-[200px]">
+          <span class="badge-num">૨</span><span class="badge-lbl">વાજિબ</span>
+        </div>
+      </div>
+
+      <details class="group cursor-pointer border-t border-gray-100 mt-4 pt-4">
+        <summary class="flex justify-between items-center text-[#4B5563] font-semibold hover:text-[#0B4B55] transition-colors outline-none">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-[#C89F53]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            વકત ઔર તફસીલ
+          </span>
+          <svg class="w-5 h-5 qa-icon text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="qa-content mt-4 qa-box p-4 rounded-r-lg text-[1.05rem]">
+          <p class="mb-2"><strong class="text-[#0B4B55]">સવાલ :</strong> નમાઝે ઈદૈનકા વકત કબસે કબ તક રેહતા હૈ ?</p>
+          <p class="text-gray-700"><strong class="text-[#0B4B55]">જવાબ :</strong> રમઝાન ઈદ - બકરા ઈદકી નમાઝકા વકત એક નેઝા યાની એક ભાલા સૂરજ બુલંદ હોનેસે પહલે તક હૈ.</p>
+        </div>
+      </details>
+    </article>
+
+  </main>
+  
+  <div class="pb-12"></div>
+
+</body>
+</html>
+
+    <script>
+        // Dropdown Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            const menuContainer = document.getElementById('menuItemsContainer');
+            if(toggleBtn && menuContainer) {
+                toggleBtn.addEventListener('click', () => {
+                    menuContainer.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
