@@ -265,10 +265,10 @@ header {
     animation: shimmerText 4s linear infinite;
     letter-spacing: 1px;
     line-height: 1.5;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: -20px;
-    margin-bottom: -20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: -10px;
+    margin-bottom: -10px;
     transition: transform 0.4s var(--ease-bounce), filter 0.4s ease;
     cursor: default;
 }
