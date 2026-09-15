@@ -2,49 +2,68 @@
 <html lang="gu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#4A0E0E">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>રમઝાન મુબારક - 2027 | હુસેની મસ્જિદ, ઢુણાદરા</title>
     
     <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Modern Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Particles.js for Premium Interactive Background -->
+    <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
-    <!-- 1. JORDAR PREMIUM LIVE HEADER -->
+    <!-- LIVE ANIMATED BACKGROUND ORBS -->
+    <div class="live-bg-orbs" aria-hidden="true">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         1. PREMIUM HEADER
+         ═══════════════════════════════════════ -->
     <header>
-        <!-- Interactive Golden Particles Background -->
+        <!-- Interactive Particles Background -->
         <div id="particles-js"></div>
         
-        <!-- Glowing Crescent Moon -->
+        <!-- Crescent Moon -->
         <div class="crescent-moon"></div>
         
-        <!-- Pulsing Stars -->
-        <div class="glowing-star" style="top: 25%; right: 15%; width: 5px; height: 5px;"></div>
-        <div class="glowing-star" style="top: 70%; left: 20%; width: 4px; height: 4px; animation-delay: 1s;"></div>
-        <div class="glowing-star" style="top: 40%; right: 35%; width: 3px; height: 3px; animation-delay: 2s;"></div>
-        <div class="glowing-star" style="top: 10%; left: 45%; width: 4px; height: 4px; animation-delay: 0.5s;"></div>
+        <!-- Stars -->
+        <div class="glowing-star" style="top: 20%; right: 12%; width: 5px; height: 5px;"></div>
+        <div class="glowing-star" style="top: 65%; left: 18%; width: 4px; height: 4px; animation-delay: 1s;"></div>
+        <div class="glowing-star" style="top: 35%; right: 30%; width: 3px; height: 3px; animation-delay: 2s;"></div>
+        <div class="glowing-star" style="top: 8%; left: 40%; width: 4px; height: 4px; animation-delay: 0.5s;"></div>
 
         <div class="header-content">
-            <!-- Highly Interactive Animated Heading -->
             <h1 class="animated-heading">હુસેની મસ્જિદ, ઢુણાદરા</h1>
             <h2 class="subtitle">રમઝાન મુબારક - 2027</h2>
-            <div class="location-badge"><i class="fa-solid fa-map-location-dot"></i> માત્ર ઢુણાદરા અને આસપાસના વિસ્તારો માટે</div>
+            <div class="location-badge">
+                <i class="fa-solid fa-map-location-dot"></i> 
+                માત્ર ઢુણાદરા અને આસપાસના વિસ્તારો માટે
+            </div>
             <br>
-            <!-- Animated Glowing Developer Name -->
-            <div class="dev-badge"><i class="fa-solid fa-laptop-code"></i> Developed By - Pathan Mahirkhan</div>
+            <div class="dev-badge">
+                <i class="fa-solid fa-laptop-code"></i> Developed By - Pathan Mahirkhan
+            </div>
         </div>
     </header>
-    <!-- 2. LIVE STATUS BOXES -->
+
+    <!-- ═══════════════════════════════════════
+         2. LIVE STATUS BOXES
+         ═══════════════════════════════════════ -->
     <div class="live-status-container">
-        <!-- Row 1: Saheri & Iftar Times -->
         <div class="status-box">
             <span class="box-icon gold-icon"><i class="fa-solid fa-star-and-crescent"></i></span>
             <div class="status-title">ખત્મે સેહરી</div>
@@ -55,8 +74,6 @@
             <div class="status-title">વક્તે ઇફ્તાર</div>
             <div class="status-value" id="today-iftar">--:--</div>
         </div>
-
-        <!-- Row 2: Live Clock & Countdown Timer -->
         <div class="status-box">
             <span class="box-icon"><i class="fa-regular fa-clock"></i></span>
             <div class="status-title">સમય</div>
@@ -69,11 +86,9 @@
         </div>
     </div>
 
-    
-
-    
-
- <!-- 3. DROP-DOWN MENU -->
+    <!-- ═══════════════════════════════════════
+         3. DROPDOWN MENU (4 VISIBLE + SCROLL)
+         ═══════════════════════════════════════ -->
     <div class="custom-dropdown-menu">
         <button class="menu-toggle-btn" id="menuToggleBtn">
             <i class="fa-solid fa-bars"></i> 
@@ -105,10 +120,11 @@
         </div>
     </div>
 
-    <!-- 4. MODERN DUA CARDS (PROPER ISLAMIC TIME ICONS) -->
+    <!-- ═══════════════════════════════════════
+         4. DUA CARDS
+         ═══════════════════════════════════════ -->
     <div class="dua-container">
         <div class="dua-card">
-            <!-- Saheri Time Icon (Dawn) -->
             <div class="dua-icon"><i class="fa-solid fa-cloud-moon"></i></div>
             <div class="dua-header">સહેરીની દુઆ</div>
             <div class="dua-content">
@@ -116,7 +132,6 @@
             </div>
         </div>
         <div class="dua-card">
-            <!-- Iftar Time Icon (Sunset) -->
             <div class="dua-icon"><i class="fa-solid fa-cloud-sun"></i></div>
             <div class="dua-header">ઇફ્તારની દુઆ</div>
             <div class="dua-content">
@@ -125,7 +140,9 @@
         </div>
     </div>
 
-    <!-- 5. SLEEK TIMETABLE -->
+    <!-- ═══════════════════════════════════════
+         5. TIMETABLE
+         ═══════════════════════════════════════ -->
     <div class="timetable-wrapper">
         <div class="table-box">
             <table id="ramadan-table">
@@ -174,18 +191,22 @@
         </div>
     </div>
 
-    <!-- 6. BOTTOM DUA -->
+    <!-- ═══════════════════════════════════════
+         6. BOTTOM DUA (TARAWEEH)
+         ═══════════════════════════════════════ -->
     <div class="dua-container">
         <div class="dua-card" style="grid-column: 1 / -1;">
             <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
             <div class="dua-header">તરાવીહની દુઆ</div>
-            <div class="dua-content" style="font-size: 1.5rem;">
+            <div class="dua-content" style="font-size: 1.3rem;">
                 "સુબ્હા-ન ઝિલ મુલ્કિ વલ્ મલકૂત, સુબ્હા-ન ઝિલ ઇઝ્ઝતિ વલ્ અઝ્મતિ વલ્ હય્બતિ વલ્ કુદ્રતિ વલ્ કિબ્રિયા-ઇ વલ્ જબરૂત.<br> સુબ્હા-નલ્ મલિકિલ્ હય્યિલ્ લઝી લા યનામુ વલા યમૂત, સુબ્બૂહુન્ કુદ્દૂસુન્ રબુન્ના વરબ્બુલ મલાઇકતિ વર્રૂહ.<br> અલ્લાહુમ્મ અજીરના મિનન્નાર, યા મુજીરુ યા મુજીરુ યા મુજીર."
             </div>
         </div>
     </div>
 
-    <!-- 7. CLEAN FOOTER & DEVELOPER -->
+    <!-- ═══════════════════════════════════════
+         7. FOOTER
+         ═══════════════════════════════════════ -->
     <div class="developer-credit-wrapper">
         <div class="developer-credit">
             <i class="fa-solid fa-code"></i> Developed by Pathan
@@ -195,170 +216,202 @@
         © 2027 હુસેની મસ્જિદ, ઢુણાદરા | સર્વાધિકાર સુરક્ષિત.
     </footer>
 
-    <!-- ========================================== -->
-    
-
-    <!-- Script Section -->
+    <!-- ═══════════════════════════════════════
+         JAVASCRIPT
+         ═══════════════════════════════════════ -->
     <script>
+    (function() {
+        'use strict';
 
-        // Dropdown Menu Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menuToggleBtn');
-            const menuContainer = document.getElementById('menuItemsContainer');
-            if(toggleBtn && menuContainer) {
-                toggleBtn.addEventListener('click', () => {
-                    menuContainer.classList.toggle('show');
-                });
-            }
-        });
-        /* --- INITIALIZE PREMIUM PARTICLES.JS BACKGROUND --- */
-        document.addEventListener('DOMContentLoaded', function() {
-            if(window.particlesJS) {
-                particlesJS("particles-js", {
-                  "particles": {
-                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": ["#d4af37", "#fef08a", "#ffffff"] },
+        /* ─── DROPDOWN MENU ─── */
+        var toggleBtn = document.getElementById('menuToggleBtn');
+        var menuContainer = document.getElementById('menuItemsContainer');
+        var menuArrow = toggleBtn ? toggleBtn.querySelector('.menu-arrow') : null;
+
+        if (toggleBtn && menuContainer) {
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var isOpen = menuContainer.classList.toggle('show');
+                if (menuArrow) {
+                    menuArrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!toggleBtn.contains(e.target) && !menuContainer.contains(e.target)) {
+                    menuContainer.classList.remove('show');
+                    if (menuArrow) {
+                        menuArrow.style.transform = 'rotate(0deg)';
+                    }
+                }
+            });
+        }
+
+        /* ─── PARTICLES.JS (MAROON + GOLD THEME) ─── */
+        if (window.particlesJS) {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": ["#d4af37", "#fef08a", "#ffffff", "#f0d060"] },
                     "shape": { "type": "circle" },
                     "opacity": {
-                      "value": 0.8, "random": true,
-                      "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
+                        "value": 0.7, "random": true,
+                        "anim": { "enable": true, "speed": 0.8, "opacity_min": 0.1, "sync": false }
                     },
                     "size": {
-                      "value": 4, "random": true,
-                      "anim": { "enable": true, "speed": 2, "size_min": 0.5, "sync": false }
+                        "value": 3.5, "random": true,
+                        "anim": { "enable": true, "speed": 1.5, "size_min": 0.5, "sync": false }
                     },
-                    "line_linked": { "enable": false }, /* Floating Dust Effect without lines */
+                    "line_linked": { "enable": false },
                     "move": {
-                      "enable": true, "speed": 1.5, "direction": "top", "random": true,
-                      "straight": false, "out_mode": "out", "bounce": false
+                        "enable": true, "speed": 1.2, "direction": "top", "random": true,
+                        "straight": false, "out_mode": "out", "bounce": false
                     }
-                  },
-                  "interactivity": {
+                },
+                "interactivity": {
                     "detect_on": "canvas",
                     "events": {
-                      "onhover": { "enable": true, "mode": "bubble" },
-                      "onclick": { "enable": true, "mode": "repulse" },
-                      "resize": true
+                        "onhover": { "enable": true, "mode": "bubble" },
+                        "onclick": { "enable": true, "mode": "repulse" },
+                        "resize": true
                     },
                     "modes": {
-                      "bubble": { "distance": 200, "size": 8, "duration": 2, "opacity": 1, "speed": 3 },
-                      "repulse": { "distance": 200, "duration": 0.4 }
+                        "bubble": { "distance": 180, "size": 7, "duration": 2, "opacity": 1, "speed": 3 },
+                        "repulse": { "distance": 180, "duration": 0.4 }
                     }
-                  },
-                  "retina_detect": true
-                });
-            }
-        });
+                },
+                "retina_detect": true
+            });
+        }
 
-        /* --- CLOCK & TIMER LOGIC --- */
-        function formatTimeNum(num) { return num < 10 ? '0' + num : num; }
+        /* ─── CLOCK & TIMER LOGIC ─── */
+        function pad(num) {
+            return num < 10 ? '0' + num : String(num);
+        }
 
-        function parseTimeStringToDate(timeStr, currentDate) {
-            // Robust Regex parsing: catches time even if user makes typing mistakes like "05 : 24AM" or "5:30 PM"
-            if (!timeStr) return new Date(0); 
-            
-            let match = timeStr.trim().match(/(\d+)\s*:\s*(\d+)\s*(AM|PM)/i);
-            if (!match) return new Date(0);
-            
-            let hours = parseInt(match[1]);
-            let minutes = parseInt(match[2]);
-            let modifier = match[3].toUpperCase();
+        function parseTimeToDate(timeStr, baseDate) {
+            if (!timeStr) return null;
+            var match = timeStr.trim().match(/(\d+)\s*:\s*(\d+)\s*(AM|PM)/i);
+            if (!match) return null;
+
+            var hours = parseInt(match[1], 10);
+            var minutes = parseInt(match[2], 10);
+            var modifier = match[3].toUpperCase();
 
             if (modifier === 'PM' && hours < 12) hours += 12;
             if (modifier === 'AM' && hours === 12) hours = 0;
 
-            let specificDate = new Date(currentDate);
-            specificDate.setHours(hours, minutes, 0, 0);
-            return specificDate;
+            var d = new Date(baseDate);
+            d.setHours(hours, minutes, 0, 0);
+            return d;
+        }
+
+        // Cache DOM references
+        var clockEl = document.getElementById('live-clock');
+        var saheriEl = document.getElementById('today-saheri');
+        var iftarEl = document.getElementById('today-iftar');
+        var timerEl = document.getElementById('iftar-timer');
+        var timerLabelEl = document.getElementById('timer-label');
+        var allRows = document.querySelectorAll('#ramadan-table tbody tr');
+
+        // Pre-parse schedule once
+        var schedule = [];
+        for (var i = 0; i < allRows.length; i++) {
+            var row = allRows[i];
+            var dateStr = row.cells[1].innerText.trim();
+            var parts = dateStr.split('/');
+            if (parts.length === 3) {
+                var baseDate = new Date(
+                    parseInt(parts[2], 10),
+                    parseInt(parts[1], 10) - 1,
+                    parseInt(parts[0], 10)
+                );
+                var saheriTime = parseTimeToDate(row.cells[3].innerText, baseDate);
+                var iftarTime = parseTimeToDate(row.cells[4].innerText, baseDate);
+
+                if (saheriTime && iftarTime) {
+                    schedule.push({
+                        row: row,
+                        saheriStr: row.cells[3].innerText.trim(),
+                        iftarStr: row.cells[4].innerText.trim(),
+                        saheriTime: saheriTime,
+                        iftarTime: iftarTime
+                    });
+                }
+            }
         }
 
         function updateClockAndTimer() {
-            let now = new Date();
-            
+            var now = new Date();
+
             // Live Clock
-            let h = now.getHours();
-            let m = now.getMinutes();
-            let s = now.getSeconds();
-            let ampm = h >= 12 ? 'PM' : 'AM';
-            let displayH = h % 12 || 12;
-            document.getElementById('live-clock').innerText = `${formatTimeNum(displayH)}:${formatTimeNum(m)}:${formatTimeNum(s)} ${ampm}`;
+            var h = now.getHours();
+            var m = now.getMinutes();
+            var s = now.getSeconds();
+            var ampm = h >= 12 ? 'PM' : 'AM';
+            var displayH = h % 12 || 12;
+            clockEl.innerText = pad(displayH) + ':' + pad(m) + ':' + pad(s) + ' ' + ampm;
 
-            let allRows = document.querySelectorAll('tbody tr');
-            
-            // Reset all row highlights
-            allRows.forEach(row => row.classList.remove('today-row'));
+            // Clear all highlights
+            for (var i = 0; i < allRows.length; i++) {
+                allRows[i].classList.remove('today-row');
+            }
 
-            // Parse entire timetable into a chronological array
-            let schedule = [];
-            allRows.forEach(row => {
-                let dateStr = row.cells[1].innerText.trim();
-                let parts = dateStr.split('/');
-                if(parts.length === 3) {
-                    let year = parseInt(parts[2]);
-                    let month = parseInt(parts[1]) - 1;
-                    let day = parseInt(parts[0]);
-                    let baseDate = new Date(year, month, day);
-                    
-                    schedule.push({
-                        row: row,
-                        saheriStr: row.cells[3].innerText,
-                        iftarStr: row.cells[4].innerText,
-                        saheriTime: parseTimeStringToDate(row.cells[3].innerText, baseDate),
-                        iftarTime: parseTimeStringToDate(row.cells[4].innerText, baseDate)
-                    });
-                }
-            });
+            var activeEntry = null;
+            var targetTime = null;
 
-            let activeEntry = null;
-            let targetTime = null;
-            let timerLabel = document.getElementById('timer-label');
-            let timerElement = document.getElementById('iftar-timer');
+            // Find next upcoming event
+            for (var j = 0; j < schedule.length; j++) {
+                var entry = schedule[j];
 
-            // Find the NEXT upcoming event (Saheri or Iftar)
-            for (let i = 0; i < schedule.length; i++) {
-                let entry = schedule[i];
-                
                 if (now < entry.saheriTime) {
                     activeEntry = entry;
                     targetTime = entry.saheriTime;
-                    if(timerLabel) timerLabel.innerText = "સહેરીમાં બાકી સમય";
+                    timerLabelEl.innerText = "સહેરીમાં બાકી સમય";
                     break;
                 } else if (now < entry.iftarTime) {
                     activeEntry = entry;
                     targetTime = entry.iftarTime;
-                    if(timerLabel) timerLabel.innerText = "ઇફ્તારમાં બાકી સમય";
+                    timerLabelEl.innerText = "ઇફ્તારમાં બાકી સમય";
                     break;
                 }
             }
 
             if (activeEntry) {
-                // Highlight the active day's row and update top boxes
                 activeEntry.row.classList.add('today-row');
-                document.getElementById('today-saheri').innerText = activeEntry.saheriStr;
-                document.getElementById('today-iftar').innerText = activeEntry.iftarStr;
-                
-                // Calculate time difference
-                let diffMs = targetTime - now;
-                let totalDiffHrs = Math.floor(diffMs / (1000 * 60 * 60)); // Can show > 24 hours
-                let diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-                let diffSecs = Math.floor((diffMs % (1000 * 60)) / 1000);
-                
-                timerElement.innerText = `${formatTimeNum(totalDiffHrs)}:${formatTimeNum(diffMins)}:${formatTimeNum(diffSecs)}`;
-                timerElement.classList.remove('timer-inactive');
-                timerElement.classList.add('timer-active');
+                saheriEl.innerText = activeEntry.saheriStr;
+                iftarEl.innerText = activeEntry.iftarStr;
+
+                var diffMs = targetTime - now;
+                var totalHrs = Math.floor(diffMs / 3600000);
+                var diffMins = Math.floor((diffMs % 3600000) / 60000);
+                var diffSecs = Math.floor((diffMs % 60000) / 1000);
+
+                timerEl.innerText = pad(totalHrs) + ':' + pad(diffMins) + ':' + pad(diffSecs);
+                timerEl.className = 'status-value timer-active';
             } else {
-                // Ramadan has completely ended
-                document.getElementById('today-saheri').innerText = "--:-- --";
-                document.getElementById('today-iftar').innerText = "--:-- --";
-                timerElement.innerText = "00:00:00";
-                timerElement.classList.remove('timer-active');
-                timerElement.classList.add('timer-inactive');
-                if(timerLabel) timerLabel.innerText = "રમઝાન પૂર્ણ";
+                saheriEl.innerText = "--:-- --";
+                iftarEl.innerText = "--:-- --";
+                timerEl.innerText = "00:00:00";
+                timerEl.className = 'status-value timer-inactive';
+                timerLabelEl.innerText = "રમઝાન પૂર્ણ";
             }
         }
 
+        // Run immediately, then every second
+        updateClockAndTimer();
         setInterval(updateClockAndTimer, 1000);
-        updateClockAndTimer(); 
+
+        // Scroll today's row into view on load
+        setTimeout(function() {
+            var todayRow = document.querySelector('.today-row');
+            if (todayRow) {
+                todayRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 500);
+
+    })();
     </script>
 </body>
 </html>
