@@ -7,7 +7,13 @@
    DESIGN TOKENS (MAROON + GOLD PALETTE)
    ───────────────────────────────────────────── */
 :root {
-    /* Maroon Spectrum */
+    /* ===== MAROON + GOLD PALETTE ===== */
+    /* PRIMARY = MAROON (same names as before for backward compatibility) */
+    --primary-dark:   #2D0000;
+    --primary:        #6B1515;
+    --primary-light:  #8B1A1A;
+
+    /* Extra Maroon Shades */
     --maroon-deep:    #2D0000;
     --maroon-dark:    #4A0E0E;
     --maroon-primary: #6B1515;
