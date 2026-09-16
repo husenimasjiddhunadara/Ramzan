@@ -1,0 +1,729 @@
+﻿<!DOCTYPE html>
+<html lang="gu" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="author" content="Pathan Mhirkhan">
+    <title>મર્દ ઔર ઔરતકી નમાઝમેં ફર્ક | Developed by Pathan Mhirkhan</title>
+    
+    <!-- Premium Fonts: Rasa, Mukta Mahee, Amiri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Mukta+Mahee:wght@300;400;500;600;700&family=Rasa:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==========================================================================
+           PREMIUM GOLDEN + DARK LIGHT DESIGN SYSTEM
+           ========================================================================== */
+        :root {
+            /* Pure Dark to Light Dark Palette */
+            --bg-deep: #000000;      /* Pure Black */
+            --bg-surface: #0a0a0a;   /* Deep Dark */
+            --bg-card: #141414;      /* Light Dark / Elevated */
+            --bg-card-hover: #1c1c1c;
+            
+            /* Royal Gold Palette */
+            --gold-light: #fcf6ba;
+            --gold-primary: #d4af37;
+            --gold-dark: #aa771c;
+            --gold-glow: rgba(212, 175, 55, 0.4);
+            --gold-glow-subtle: rgba(212, 175, 55, 0.1);
+            
+            /* Text Colors */
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-gold: #e8c96d;
+
+            /* Borders */
+            --border-gold: rgba(212, 175, 55, 0.3);
+            
+            /* Typography */
+            --font-heading: 'Rasa', serif;
+            --font-body: 'Mukta Mahee', sans-serif;
+            --font-arabic: 'Amiri', serif;
+            
+            /* Metrics & Easings */
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --transition-base: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* ==========================================================================
+           RESET & BASE
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            
+            /* Dark Light Spotlights */
+            background-image: 
+                radial-gradient(circle at 50% 0%, var(--gold-glow-subtle) 0%, transparent 60%),
+                radial-gradient(circle at 50% 100%, var(--gold-glow-subtle) 0%, transparent 60%);
+        }
+
+        /* Custom Golden Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { 
+            background: var(--gold-dark); 
+            border-radius: 10px; 
+        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+
+        /* ==========================================================================
+           HEADER COMPONENT
+           ========================================================================== */
+        .app-header {
+            position: relative;
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-gold);
+            background: linear-gradient(to bottom, var(--bg-surface), transparent);
+        }
+
+        .header-icon {
+            font-size: 3rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 15px var(--gold-glow));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .bismillah {
+            font-family: var(--font-arabic);
+            font-size: 2.2rem;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeUp 1s forwards;
+        }
+
+        .main-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            /* Premium Gold Text Gradient */
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: gradientShine 4s linear infinite, fadeUp 1s 0.2s forwards;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        .sub-title {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeUp 1s 0.4s forwards;
+        }
+
+        /* ==========================================================================
+           TOOLBAR
+           ========================================================================== */
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeUp 1s 0.6s forwards;
+        }
+
+        .btn-gold {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-dark);
+            color: var(--text-gold);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition-base);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-primary);
+            color: var(--bg-deep);
+            border-color: var(--gold-light);
+            box-shadow: 0 0 20px var(--gold-glow);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           MAIN CONTENT & CARDS
+           ========================================================================== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .accordion-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-lg);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            overflow: hidden;
+            transition: var(--transition-base);
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        .accordion-item.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .accordion-item:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--gold-primary);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 15px var(--gold-glow-subtle);
+        }
+
+        /* Header */
+        .accordion-header {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+
+        .badge-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-deep);
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px var(--gold-glow);
+            border: 2px solid var(--gold-light);
+        }
+
+        .header-content {
+            flex-grow: 1;
+        }
+
+        .header-label {
+            font-size: 0.8rem;
+            color: var(--gold-primary);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .toggle-icon {
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+            transition: var(--transition-base);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+        }
+
+        .accordion-item.active .toggle-icon {
+            transform: rotate(180deg);
+            background: var(--gold-primary);
+            color: var(--bg-deep);
+        }
+
+        /* Body & Grid */
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+            opacity: 0;
+            border-top: 1px solid transparent;
+        }
+
+        .accordion-item.active .accordion-body {
+            opacity: 1;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .gender-card {
+            background: var(--bg-surface);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            position: relative;
+            transition: var(--transition-base);
+        }
+
+        .gender-card:hover {
+            background: #111;
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .gender-label {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--gold-primary);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .gender-label i {
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            filter: drop-shadow(0 0 5px var(--gold-glow));
+        }
+
+        .gender-text {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .gender-text ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .gender-text li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+        .gender-text li::before {
+            content: '\f105'; /* FontAwesome angle-right */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+            top: 0.1rem;
+        }
+
+        /* ==========================================================================
+           FOOTER & DEVELOPER CREDIT
+           ========================================================================== */
+        .app-footer {
+            padding: 4rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border-gold);
+            background: linear-gradient(to top, var(--bg-surface), transparent);
+        }
+
+        .dua-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .ameen-text {
+            font-family: var(--font-arabic);
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 3rem;
+            text-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        /* Golden Developer Badge */
+        .dev-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.2rem 3rem;
+            background: var(--bg-card);
+            border: 2px solid var(--gold-dark);
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px var(--gold-glow-subtle);
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .dev-badge::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+            transform: skewX(-20deg);
+            transition: var(--transition-base);
+        }
+
+        .dev-badge:hover {
+            border-color: var(--gold-light);
+            box-shadow: 0 10px 40px var(--gold-glow);
+            transform: translateY(-5px);
+        }
+        
+        .dev-badge:hover::before {
+            animation: glassShine 1.5s infinite;
+        }
+
+        .dev-label {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--gold-dark);
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .dev-name {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .dev-name i {
+            color: var(--gold-light);
+            font-size: 1.2rem;
+        }
+
+        /* ==========================================================================
+           ANIMATIONS
+           ========================================================================== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes gradientShine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes glassShine {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .app-header { padding: 3rem 1rem 2rem; }
+            .bismillah { font-size: 2rem; }
+            .dev-badge { padding: 1rem 2rem; }
+            .dev-name { font-size: 1.3rem; }
+            .badge-number { width: 40px; height: 40px; font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-icon">
+            <i class="fa-solid fa-mosque"></i>
+        </div>
+        <div class="bismillah">﷽</div>
+        <h1 class="main-title">મર્દ ઔર ઔરતકી નમાઝમેં ફર્ક</h1>
+    </header>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <button class="btn-gold" id="toggleAllBtn" onclick="appController.toggleAll()">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>બધા ખોલો</span>
+        </button>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="container" id="accordionContainer">
+        <!-- Rendered by JS -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p class="dua-text">અલ્લાહ તઆલા હમ સબ કો સહીહ તરીકે સે નમાઝ પઢને કી તૌફીક અતા ફરમાએ.</p>
+        <p class="ameen-text">آمين يا رب العالمين</p>
+        
+        <div class="dev-badge">
+            <span class="dev-label">DESIGNED & DEVELOPED BY</span>
+            <span class="dev-name">
+                <i class="fa-solid fa-code"></i>
+                Pathan Mhirkhan
+            </span>
+        </div>
+    </footer>
+
+    <!-- App Logic -->
+    <script>
+        const appData = [
+            {
+                id: 1,
+                context: "હાલતે કયામમેં",
+                male: "દોનોં કદમ કે બીચમેં થોડા સા ફાસલા રખેં.",
+                female: "દોનોં કદમ સાથમેં રખે."
+            },
+            {
+                id: 2,
+                context: "હાથ ઉઠાનેમેં",
+                male: "દોનોં હાથ કાન તક લે જાએ કે અંગૂઠે કાન કી લવ સે છુ જાયે, ઈસ હાલમેં કે હથેલીયાં કિબ્લા રૂખ હો.",
+                female: "દોનોં હાથ કાનોં તક ન ઉઠાએ બલ્કે મૂંઢોં તક ઉઠાયે."
+            },
+            {
+                id: 3,
+                context: "હાથ બાંધનેમેં",
+                male: "નાફકે નીચે બાંધે.",
+                female: "સીને કે ઉપર હાથ રખે, બાંધે નહી."
+            },
+            {
+                id: 4,
+                context: "હાથ બાંધનેકા તરીકા",
+                male: "બાંયે હાથકી હથેલીકી પીઠકે ઉપર સીધે હાથકી હથેલી રખે ઔર તીન ઉંગલિયાં હાથકી કલાઈ કે ઉપર રખે ઔર અંગૂઠા ઔર છોટી ઉંગલી સે કલાઈ પકડે.",
+                female: "ઔરત હાથ નાફકે નીચે ન બાંધે બલ્કે હથેલી સીને પર છાતીકે નીચે રખકર ઉસકી પીઠ પર સીધે હાથકી હથેલી રખે પકડે નહી."
+            },
+            {
+                id: 5,
+                context: "રૂકૂઅમેં",
+                male: "<ul><li>હાથકી ઉંગલિયોંકો ખુલી રખકર ઘૂટનોંકો પકડે.</li><li>બાઝૂઓંકો પસલિયોંસે અલગ રખે.</li></ul>",
+                female: "<ul><li>ઉંગલિયોં કો મિલાકર ઘૂટનોં પર રખે.</li><li>બાઝૂઓંકો પસલિયોંકે સાથ મિલા દે.</li></ul>"
+            },
+            {
+                id: 6,
+                context: "હાલતે સજદહમે જાનેકા તરીકા",
+                male: "<ul><li>ઝમીનકે ઉપર પહલે દોનોં ઘૂટને, ફિર દોનોં હાથ, ફિર નાક, ફિર પેશાની ઈસ તરહ રખે કે અંગૂઠેકે સામને આંખે રહે.</li><li>બાઝૂ પસલિયોં સે પેટ રાન સે, કોહનિયાં ઝમીનસે અલગ રખે, યા'ની ખૂબ ખુલકે સજદહ કરે.</li><li>દોનોં પેર ખડે રખે ઔર ઉંગલિયોંકા પેટ લગાતે હૂએ કિબ્લા તરફ રખે.</li></ul>",
+                female: "<ul><li>ઝમીનકે ઉપર પહલે દોનોં પેર કે ઘૂટને, ફિર નઝદીકમેં દોનોં હાથ, ફિર નાક, ફિર પેશાની ઈસ તરહ રખે કે અંગૂઠે કે સામને આંખ રહે.</li><li>બાઝૂ પસલિયોં સે, પેટ રાન સે, કોહનિયા ઝમીન સે મિલા દે, યા'ની સિમટકર સજદહ કરેં.</li><li>દોનોં પૈરોં કો સીધી (જમણી) સાઈડ નિકાલે.</li></ul>"
+            },
+            {
+                id: 7,
+                context: "હાલતે જલ્સા ઔર કાઈદહમે રહનેકા તરીકા",
+                male: "<ul><li>બાએં યા'ની (ડાબા) બાયેં પેર કી ઉપર બેઠે સીધા યા'ની દાયાં (જમણા) પેર ખડા રખે ઉસકી ઉંગલિયોંકો કિબ્લાકી જાનિબ રખે.</li><li>હાથકી ઉંગલિયા રાનોં પર ઉસકી હાલતમેં રખે.</li></ul>",
+                female: "<ul><li>દોનોં પૈરોં કો દાઈ જાનિબ યા'ની (જમણી સાઈડ) નિકાલ કર બેઠે.</li><li>હાથકી ઉંગલિયાં રાનોં પર ઉસકી હાલતમેં રખે.</li></ul>"
+            },
+            {
+                id: 8,
+                context: "હાલતે સજદહ સે ખડે હોનેકા તરીકા",
+                male: "પહલે પેશાની ઉઠાયે, ફિર નાક, ફિર હાથ ઘૂટને ઉસકે બાદ ઘૂટનોંકે ઉપર હાથ રખકર ખડે હો હાથ કો ઝમીન પર ન રખે. (હાલતે મજબૂરીમેં ચલ સકતા હૈ)",
+                female: "પહલે પેશાની ઉઠાયે ફિર નાક, ફિર હાથ, ફિર ઝુકકર હાથ ઘૂટનોંકે ઉપર રખકર ખડે હો યાદ રહે હાલત બદલને ન પાયે."
+            }
+        ];
+
+        class AppController {
+            constructor(data) {
+                this.data = data;
+                this.container = document.getElementById('accordionContainer');
+                this.isAllExpanded = false;
+                this.init();
+            }
+
+            init() {
+                this.renderCards();
+                this.setupIntersectionObserver();
+            }
+
+            renderCards() {
+                const fragment = document.createDocumentFragment();
+                
+                this.data.forEach((item, index) => {
+                    const el = document.createElement('div');
+                    el.className = 'accordion-item';
+                    el.style.transitionDelay = `${index * 0.1}s`;
+                    
+                    el.innerHTML = `
+                        <div class="accordion-header" onclick="appController.toggleCard(this)">
+                            <div class="badge-number">${this.toGujaratiNum(item.id)}</div>
+                            <div class="header-content">
+                                <div class="header-label"><i class="fa-solid fa-circle-dot"></i> હાલત</div>
+                                <div class="header-title">${item.context}</div>
+                            </div>
+                            <div class="toggle-icon">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="comparison-grid">
+                                <div class="gender-card male">
+                                    <div class="gender-label">
+                                        <i class="fa-solid fa-person"></i> મર્દ
+                                    </div>
+                                    <div class="gender-text">${item.male}</div>
+                                </div>
+                                <div class="gender-card female">
+                                    <div class="gender-label">
+                                        <i class="fa-solid fa-person-dress"></i> ઔરતેં
+                                    </div>
+                                    <div class="gender-text">${item.female}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    fragment.appendChild(el);
+                });
+                
+                this.container.appendChild(fragment);
+                
+                setTimeout(() => {
+                    const firstCard = this.container.querySelector('.accordion-header');
+                    if(firstCard) this.toggleCard(firstCard);
+                }, 500);
+            }
+
+            toGujaratiNum(num) {
+                const gujDigits = ['૦','૧','૨','૩','૪','૫','૬','૭','૮','૯'];
+                return num.toString().split('').map(d => gujDigits[d] || d).join('');
+            }
+
+            toggleCard(headerElement) {
+                const item = headerElement.parentElement;
+                const body = item.querySelector('.accordion-body');
+                const isOpen = item.classList.contains('active');
+                
+                if (isOpen) {
+                    item.classList.remove('active');
+                    body.style.maxHeight = '0px';
+                } else {
+                    item.classList.add('active');
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                }
+            }
+
+            toggleAll() {
+                this.isAllExpanded = !this.isAllExpanded;
+                const items = document.querySelectorAll('.accordion-item');
+                const btn = document.getElementById('toggleAllBtn');
+                const btnSpan = btn.querySelector('span');
+                const btnIcon = btn.querySelector('i');
+                
+                items.forEach(item => {
+                    const body = item.querySelector('.accordion-body');
+                    if (this.isAllExpanded) {
+                        item.classList.add('active');
+                        body.style.maxHeight = body.scrollHeight + 'px';
+                    } else {
+                        item.classList.remove('active');
+                        body.style.maxHeight = '0px';
+                    }
+                });
+
+                if (this.isAllExpanded) {
+                    btnSpan.textContent = 'બધા બંધ કરો';
+                    btnIcon.className = 'fa-solid fa-layer-group fa-flip-vertical';
+                } else {
+                    btnSpan.textContent = 'બધા ખોલો';
+                    btnIcon.className = 'fa-solid fa-layer-group';
+                }
+            }
+
+            setupIntersectionObserver() {
+                const options = { threshold: 0.1 };
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, options);
+
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    observer.observe(item);
+                });
+            }
+        }
+
+        const appController = new AppController(appData);
+
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.accordion-item.active .accordion-body').forEach(body => {
+                body.style.maxHeight = body.scrollHeight + 'px';
+            });
+        });
+    </script>
+</body>
+</html>
+
+    <script>
+        // Dropdown Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            const menuContainer = document.getElementById('menuItemsContainer');
+            if(toggleBtn && menuContainer) {
+                toggleBtn.addEventListener('click', () => {
+                    menuContainer.classList.toggle('show');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
