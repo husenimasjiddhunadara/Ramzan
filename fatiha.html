@@ -3,147 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ફાતિહા કા તરીકા</title>
+    <title>ફાતિહા કા તરીકા | Premium Light Edition</title>
 
     <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- Modern Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Main Design File -->
-    <link rel="stylesheet" href="style.css?v=2">
-</head>
-<body style="background: var(--bg-main);">
 
+    <!-- PREMIUM LIGHT THEME CSS -->
+    <style>
+        :root {
+            --bg-page: #F8FAF9; /* Very soft light tint */
+            --bg-card: #FFFFFF;
+            --primary: #0A5C36; /* Deep Elegant Emerald */
+            --primary-light: #158551;
+            --gold: #B8860B; /* Rich Dark Gold for readability */
+            --gold-light: #D4AF37;
+            --text-main: #1E293B; /* Slate dark */
+            --text-muted: #475569;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            --card-hover-shadow: 0 20px 40px rgba(10, 92, 54, 0.08);
+            --border-soft: rgba(10, 92, 54, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Anek Gujarati', 'Outfit', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.8;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Light Eye-Catching Background Pattern */
+        .bg-pattern {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            background-image: 
+                radial-gradient(var(--gold-light) 0.5px, transparent 0.5px), 
+                radial-gradient(var(--gold-light) 0.5px, var(--bg-page) 0.5px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+            opacity: 0.15;
+        }
+
+        /* Soft gradient blobs for visual appeal */
+        .glow-orb {
+            position: fixed; border-radius: 50%; filter: blur(90px); z-index: -1; opacity: 0.4;
+        }
+        .orb-1 { width: 50vw; height: 50vw; background: rgba(212, 175, 55, 0.15); top: -20%; left: -10%; }
+        .orb-2 { width: 40vw; height: 40vw; background: rgba(10, 92, 54, 0.1); bottom: -10%; right: -10%; }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        /* =========================================
+           FIXED HEADING (Responsive & Clean)
+           ========================================= */
+        .premium-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+            padding: 10px; /* Prevents shadow clipping */
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap; /* Allows wrapping on very small screens */
+        }
+
+        .header-icon {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--gold);
+            animation: gentleFloat 3s ease-in-out infinite;
+        }
+
+        .page-title {
+            /* clamp ensures it never cuts off on mobile screens */
+            font-size: clamp(2.2rem, 6vw, 4rem); 
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), #1A935D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.4;
+            padding-bottom: 5px; /* Prevent bottom cut-off */
+            margin: 0;
+            text-shadow: 0 4px 15px rgba(10, 92, 54, 0.15);
+        }
+
+        .header-divider {
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 20px auto 0;
+            border-radius: 10px;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* =========================================
+           ROYAL PLAQUE (Status Box)
+           ========================================= */
+        .royal-plaque {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-left: 6px solid var(--primary);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: var(--card-shadow);
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .status-arabic {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            margin-bottom: 12px;
+        }
+
+        .status-translation {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+        .status-translation strong { color: var(--gold); }
+
+        /* =========================================
+           EYE-CATCHING LIGHT CARDS
+           ========================================= */
+        .dua-container {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: 1fr;
+        }
+
+        .dua-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 20px;
+            padding: 35px;
+            position: relative;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(20px);
+            /* Elegant top border accent */
+            border-top: 4px solid var(--gold-light);
+        }
+
+        .dua-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-hover-shadow);
+            border-top-color: var(--primary);
+        }
+
+        .dua-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px; height: 50px;
+            background: rgba(10, 92, 54, 0.05);
+            color: var(--primary);
+            border-radius: 12px;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dua-card:hover .dua-icon {
+            background: var(--primary);
+            color: #fff;
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .dua-header {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed rgba(10, 92, 54, 0.15);
+        }
+
+        .dua-content {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* =========================================
+           PROFESSIONAL DEVELOPER BADGE
+           ========================================= */
+        .dev-footer {
+            margin-top: 80px;
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 1.2s forwards;
+            opacity: 0;
+        }
+
+        .dev-badge {
+            background: #fff;
+            border: 1px solid rgba(10, 92, 54, 0.1);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .dev-badge:hover {
+            box-shadow: 0 15px 35px rgba(10, 92, 54, 0.15);
+            transform: translateY(-3px);
+            border-color: var(--primary-light);
+        }
+
+        .dev-label {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 3px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .dev-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .dev-name i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* Keyframes */
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Animation Delays for smooth cascade load */
+        .dua-card:nth-child(1) { animation: fadeInUp 0.6s ease forwards 0.2s; }
+        .dua-card:nth-child(2) { animation: fadeInUp 0.6s ease forwards 0.3s; }
+        .dua-card:nth-child(3) { animation: fadeInUp 0.6s ease forwards 0.4s; }
+        .dua-card:nth-child(4) { animation: fadeInUp 0.6s ease forwards 0.5s; }
+        .dua-card:nth-child(5) { animation: fadeInUp 0.6s ease forwards 0.6s; }
+        .dua-card:nth-child(6) { animation: fadeInUp 0.6s ease forwards 0.7s; }
+        .dua-card:nth-child(7) { animation: fadeInUp 0.6s ease forwards 0.8s; }
+        .dua-card:nth-child(8) { animation: fadeInUp 0.6s ease forwards 0.9s; }
+        .dua-card:nth-child(9) { animation: fadeInUp 0.6s ease forwards 1.0s; }
+        .dua-card:nth-child(10) { animation: fadeInUp 0.6s ease forwards 1.1s; }
+        .dua-card:nth-child(11) { animation: fadeInUp 0.6s ease forwards 1.2s; }
+        .dua-card:nth-child(12) { animation: fadeInUp 0.6s ease forwards 1.3s; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Soft Light Pattern & Orbs -->
+    <div class="bg-pattern"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
    
-    <div style="max-width: 850px; margin: 40px auto; padding: 0 20px;">
+    <div class="container">
         
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: var(--primary-dark); font-weight: 800; font-size: 2rem;">ફાતિહા કા તરીકા</h1>
+        <!-- FIXED RESPONSIVE HEADER -->
+        <header class="premium-header">
+            <div class="header-flex">
+                <i class="fa-solid fa-book-open header-icon"></i>
+                <h1 class="page-title">ફાતિહા કા તરીકા</h1>
+                <i class="fa-solid fa-star-and-crescent header-icon"></i>
+            </div>
+            <div class="header-divider"></div>
+        </header>
+
+        <!-- INTRO PLAQUE -->
+        <div class="royal-plaque">
+            <div class="status-arabic">અઉઝુબિલ્લાહિ મિનશ્શૈતાનિર્રજીમ બિસ્મિલ્લાહિર્રહમાનિર્રહીમ</div>
+            <div class="status-translation"><strong>તરજુમા:</strong> પનાહ માંગતા હું મૈં અલ્લાહ કી શયતાન મરદૂદ સે. અલ્લાહ કે નામ સે શુરૂ જો નિહાયત મેહરબાન રહમ કરનેવાલા હૈ.</div>
+        </div>
+            
+        <!-- DUA CONTENT CARDS -->
+        <div class="dua-container">
+            
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
+                <div class="dua-header">દુરુદ શરીફ (3 બાર)</div>
+                <div class="dua-content">
+                    અલ્લાહુમ્મ સલ્લિ અલા સૈયિદિના મુહમ્મદિવ વ અલા આલિ સૈયિદિના મુહમ્મદિવ વ બારિક વ સલ્લિમ.
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
+                <div class="dua-header">સૂરએ કાફિરૂન (1 બાર)</div>
+                <div class="dua-content">
+                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br><br>
+                    કુલ યા અય્યુહલ્ કાફિરૂન. લા અઅબુદુ મા તઅબુદૂન. વલા અન્તુમ આબિદૂન મા અઅબુદ. વલા અના આબિદુમ્ મા અબત્તુમ. વલા અન્તુમ આબિદૂન મા અઅબુદ. લકુમ દીનુકુમ વલિય દીન.
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
+                <div class="dua-header">સૂરએ ઈખ્લાસ (3 બાર)</div>
+                <div class="dua-content">
+                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br><br>
+                    કુલ હુવલ્લાહુ અહદ. અલ્લાહુસ્ સમદ. લમ યલિદ વલમ યૂલદ. વલમ યકુલ્ લહૂ કુફુવન અહદ.
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
+                <div class="dua-header">સૂરએ ફલક (1 બાર)</div>
+                <div class="dua-content">
+                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br><br>
+                    કુલ અઉઝુ બિ રબ્બિલ ફલક. મિન શર્રિ મા ખલક. વ મિન શર્રિ ગાસિકિન ઇઝા વકબ. વ મિન શર્રિન્ નફ્ફાસાતિ ફિલ ઉકદ. વ મિન શર્રિ હાસિદિન ઇઝા હસદ.
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
+                <div class="dua-header">સૂરએ નાસ (1 બાર)</div>
+                <div class="dua-content">
+                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br><br>
+                    કુલ અઉઝુ બિ રબ્બિન્ નાસ. મલિકિન્ નાસ. ઇલાહિન્ નાસ. મિન શર્રિલ વસ્વાસિલ ખન્નાસ. અલ્લઝી યુવસ્વિસુ ફી સુદૂરિન્ નાસ. મિનલ્ જિન્નતિ વન્ નાસ.
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
+                <div class="dua-header">સૂરએ ફાતિહા (1 બાર)</div>
+                <div class="dua-content">
+                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br><br>
+                    અલ્હમ્દુ લિલ્લાહિ રબ્બિલ આલમીન. અર્રહમાનિ ર્રહીમ. માલિકિ યવમિદ્દીન. ઇય્યાક નઅબુદુ વ ઇય્યાક નસ્તઈન. ઇહદિનસ્ સિરાતલ મુસ્તકીમ. સિરાતલ્લઝીન અન્અમ્ત અલયહિમ ગયરિલ મગ્દૂબિ અલયહિમ વલદ્દ્વાલ્લીન. (આમીન)
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
+                <div class="dua-header">સૂરએ બકરહ (1 બાર)</div>
+                <div class="dua-content">
+                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ:<br><br>
+                    અલિફ લામ મીમ. ઝાલિકલ્ કિતાબુ લા રૈબ ફીહ. હુદલ્ લિલમુત્તકીન. અલ્લઝીન યુઅમિનૂન બિલ ગયબિ વ યુકીમૂનસ્ સલાત વ મિમ્મા રઝકનાહુમ યુન્ફિકૂન. વલ્લઝીન યુઅમિનૂન બિમા ઉન્ઝિલ ઇલૈક વમા ઉન્ઝિલ મિન્ કબ્લિક વ બિલ્ આખિરતિ હુમ યૂકિનૂન. ઉલાઇક અલા હુદમ્ મિર રબ્બિહિમ વ ઉલાઇક હુમુલ્ મુફલિહૂન.
+                    <br><br>
+                    વ ઇલાહુકુમ્ ઇલાહુવ્ વાહિદ, લાઇલા-હ ઇલ્લા હુવર્ રહમાનુર્રહીમ.
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-moon"></i></div>
+                <div class="dua-header">આયતુલ કુર્સી (1 બાર)</div>
+                <div class="dua-content">
+                    અલ્લાહુ લા-ઇલાહ ઇલ્લા હુવલ્હયુલ્ કય્યૂમ, લાતઅખુઝુહૂ સિનતુવ્ વલા નવ્મ, લહૂ મા ફિસ્સમાવાતિ વમા ફિલ અર્દ, મન ઝલ્લઝી યશ્ફઉ ઇન્દહૂ ઇલ્લા બિઇઝનિહી, યઅલમુ મા બૈન અય્દીહિમ વમા ખલ્ફહુમ વલા યુહીતૂન બિશયઇમ્ મિન્ ઇલ્મિહી ઇલ્લા બિમા શાઅ. વસિઅ કુરસિય્યુહુસ્ સમાવાતિ વલ અર્દ, વલા યઊદુહૂ હિફઝુહુમા વ હુવલ્ અલિય્યુલ અઝીમ.
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="dua-header">આમનર્રસૂલુ (1 બાર)</div>
+                <div class="dua-content">
+                    આમનર્રસૂલુ બિમા ઉન્ઝિલ ઇલૈહિ મિર રબ્બિહી વલમુઅમિનૂન, કુલ્લુન આમન બિલ્લાહિ વ મલાઇકતિહી વ કુતુબિહી વ રુસુલિહી, લા નુફર્રિકુ બય્-ન અહદિમ્ મિર રુસુલિહી વ કાલૂ સમિઅના વ અતઅના ગુફરાનક રબ્બના વ ઇલૈકલ્ મસીર. લા યુકલ્લિફુલ્લાહુ નફસન ઇલ્લા વુસ્અહા, લહા મા કસબત વઅલયહા મકતસબત, રબ્બના લા તુઆખિઝના ઇન્નસીના અવ અખ્તઅના, રબ્બના વલા તહમિલ અલયના ઇસ્રન કમા હમલ્તહૂ અલલ્લઝીન મિન્ કબ્લિના, રબ્બના વલા તુહમ્મિલના મા લાતાકત લના બિહ, વઅફુ અન્ના વગ્ફિરલના વરહમ્ના અન્ત મવલાના ફન્સરના અલલ્ કવ્મિલ કાફિરીન.
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-book-open"></i></div>
+                <div class="dua-header">સૂરએ અહઝાબ (1 બાર)</div>
+                <div class="dua-content">
+                    મા કાન મુહમ્મદુન અબા અહદિમ મિર્રિજાલિકુમ વલા કિર્રસૂલલ્લાહિ વ ખાતમન્નબિય્યીન, વ-કાનલ્લાહુ બિકુલ્લિ શયઇન અલીમા. ઇન્નલ્લાહ વ મલાઇકતહૂ યુસલ્લૂન અલન્નબિય્યિ યા અય્યુહલ્લઝીન આમનૂ સલ્લૂ અલયહિ વ સલ્લિમૂ તસ્લીમા.
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-hands-praying"></i></div>
+                <div class="dua-header">દુરુદ શરીફ ઔર દુઆ</div>
+                <div class="dua-content">
+                    વ સલ્લલ્લાહુ તઆલા અલા ખૈરિ ખલ્કિહી ન નૂરિ અર્શિહી સૈયિદના વ નબિય્યિના વ શફીઇના વ હબીબના વ મૌલાના મુહમ્મદિવ વઅલા આલિહી વ અસ્હાબિહી અજમઇન, બિરહમતિકા યા અર-હમર્રાહિમીન.
+                </div>
+            </div>
+
+            <div class="dua-card">
+                <div class="dua-icon"><i class="fa-solid fa-kaaba"></i></div>
+                <div class="dua-header">ઇસાલે સવાબકી દુઆ</div>
+                <div class="dua-content">
+                    યા અલ્લાહ! મૈંને જો કુછ પઢા યહ સબ તેરી ખુશ્નૂદી કે લિયે ઔર ખાસ તેરે હી લિયે પઢા, ઇસકો તેરી આલી બારગાહમેં કબૂલ ફરમા ઔર ઇસ પઢને મેં મેરી જો ખતા રહ ગઈ હો ઉસકો તેરે ફઝલસે મુઆફ ફરમા. ઔર ઇસકા જો તૂને સવાબ રખા હૈ વહ સવાબ હમારે દો જહાં કે સરદાર આકાએ નામદાર, સરવરે મવજૂદાત અહમદે મુજતબા મુહમ્મદ મુસ્તફા (ﷺ) કી રુહ મુબારક કો નઝર કિયા. ઔર સારે અંબિયા વ મુરસલીન ઔર તમામ આલ વ અવલાદ, અસ્હાબે કિરામ ઔર તમામ મોમિન વ મોમિનાત જિતને ભી દુનિયા સે ચલ બસે હૈં ઉન તમામ કી રુહોંકો ઇસકા સવાબ પહુંચા.
+                </div>
+            </div>
+
         </div>
 
-        <!-- Intro Boxes -->
-        <div style="display: grid; gap: 15px; margin-bottom: 30px;">
-            <div class="status-box" style="text-align: left; padding: 20px;">
-                <div style="color: var(--primary-dark); font-weight: 800; font-size: 1.2rem; margin-bottom: 5px;">અઉઝુબિલ્લાહિ મિનશ્શૈતાનિર્રજીમ બિસ્મિલ્લાહિર્રહમાનિર્રહીમ</div>
-                <div style="color: var(--text-muted); font-size: 1rem;"><strong>તરજુમા:</strong> પનાહ માંગતા હું મૈં અલ્લાહ કી શયતાન મરદૂદ સે.અલ્લાહ કે નામ સે શુરૂ જો નિહાયત મેહરબાન રહમ કરનેવાલા હૈ.</div>
+        <!-- PROFESSIONAL FOOTER -->
+        <footer class="dev-footer">
+            <div class="dev-badge">
+                <span class="dev-label">Designed & Developed By</span>
+                <span class="dev-name">
+                    Pathan Mahirkhan <i class="fa-solid fa-code"></i>
+                </span>
             </div>
-            
-        <div class="dua-container" style="grid-template-columns: 1fr;">
-            
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">દુરુદ શરીફ (3 બાર)</div>
-    <div class="dua-content">
-        અલ્લાહુમ્મ સલ્લિ અલા સૈયિદિના મુહમ્મદિવ વ અલા આલિ સૈયિદિના મુહમ્મદિવ વ બારિક વ સલ્લિમ.
-    </div>
-</div>
+        </footer>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">સૂરએ કાફિરૂન (1 બાર)</div>
-    <div class="dua-content">
-        બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br>
-        કુલ યા અય્યુહલ્ કાફિરૂન. લા અઅબુદુ મા તઅબુદૂન. વલા અન્તુમ આબિદૂન મા અઅબુદ. વલા અના આબિદુમ્ મા અબત્તુમ. વલા અન્તુમ આબિદૂન મા અઅબુદ. લકુમ દીનુકુમ વલિય દીન.
     </div>
-</div>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">સૂરએ ઈખ્લાસ  (3 બાર)</div>
-    <div class="dua-content">
-        બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br>
-        કુલ હુવલ્લાહુ અહદ. અલ્લાહુસ્ સમદ. લમ યલિદ વલમ યૂલદ. વલમ યકુલ્ લહૂ કુફુવન અહદ.
-    </div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">સૂરએ ફલક (1 બાર)</div>
-    <div class="dua-content">
-        બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br>
-        કુલ અઉઝુ બિ રબ્બિલ ફલક. મિન શર્રિ મા ખલક. વ મિન શર્રિ ગાસિકિન ઇઝા વકબ. વ મિન શર્રિન્ નફ્ફાસાતિ ફિલ ઉકદ. વ મિન શર્રિ હાસિદિન ઇઝા હસદ.
-    </div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">સૂરએ નાસ (1 બાર)</div>
-    <div class="dua-content">
-        બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br>
-        કુલ અઉઝુ બિ રબ્બિન્ નાસ. મલિકિન્ નાસ. ઇલાહિન્ નાસ. મિન શર્રિલ વસ્વાસિલ ખન્નાસ. અલ્લઝી યુવસ્વિસુ ફી સુદૂરિન્ નાસ. મિનલ્ જિન્નતિ વન્ નાસ.
-    </div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">સૂરએ ફાતિહા (1 બાર)</div>
-    <div class="dua-content">
-        બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br>
-        અલ્હમ્દુ લિલ્લાહિ રબ્બિલ આલમીન. અર્રહમાનિ ર્રહીમ. માલિકિ યવમિદ્દીન. ઇય્યાક નઅબુદુ વ ઇય્યાક નસ્તઈન. ઇહદિનસ્ સિરાતલ મુસ્તકીમ. સિરાતલ્લઝીન અન્અમ્ત અલયહિમ ગયરિલ મગ્દૂબિ અલયહિમ વલદ્દ્વાલ્લીન. (આમીન)
-    </div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header"> સૂરએ બકરહ (1 બાર)</div>
-    <div class="dua-content">
-        બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ:<br>
-        અલિફ લામ મીમ. ઝાલિકલ્ કિતાબુ લા રૈબ ફીહ. હુદલ્ લિલમુત્તકીન. અલ્લઝીન યુઅમિનૂન બિલ ગયબિ વ યુકીમૂનસ્ સલાત વ મિમ્મા રઝકનાહુમ યુન્ફિકૂન. વલ્લઝીન યુઅમિનૂન બિમા ઉન્ઝિલ ઇલૈક વમા ઉન્ઝિલ મિન્ કબ્લિક વ બિલ્ આખિરતિ હુમ યૂકિનૂન. ઉલાઇક અલા હુદમ્ મિર રબ્બિહિમ વ ઉલાઇક હુમુલ્ મુફલિહૂન.
-        <br><br>
-        વ ઇલાહુકુમ્ ઇલાહુવ્ વાહિદ, લાઇલા-હ ઇલ્લા હુવર્ રહમાનુર્રહીમ.
-    </div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">આયતુલ કુર્સી (1 બાર)</div>
-    <div class="dua-content">
-        અલ્લાહુ લા-ઇલાહ ઇલ્લા હુવલ્હયુલ્ કય્યૂમ, લાતઅખુઝુહૂ સિનતુવ્ વલા નવ્મ, લહૂ મા ફિસ્સમાવાતિ વમા ફિલ અર્દ, મન ઝલ્લઝી યશ્ફઉ ઇન્દહૂ ઇલ્લા બિઇઝનિહી, યઅલમુ મા બૈન અય્દીહિમ વમા ખલ્ફહુમ વલા યુહીતૂન બિશયઇમ્ મિન્ ઇલ્મિહી ઇલ્લા બિમા શાઅ. વસિઅ કુરસિય્યુહુસ્ સમાવાતિ વલ અર્દ, વલા યઊદુહૂ હિફઝુહુમા વ હુવલ્ અલિય્યુલ અઝીમ.
-    </div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">આમનર્રસૂલુ (1 બાર)</div>
-    <div class="dua-content">
-        આમનર્રસૂલુ બિમા ઉન્ઝિલ ઇલૈહિ મિર રબ્બિહી વલમુઅમિનૂન, કુલ્લુન આમન બિલ્લાહિ વ મલાઇકતિહી વ કુતુબિહી વ રુસુલિહી, લા નુફર્રિકુ બય્-ન અહદિમ્ મિર રુસુલિહી વ કાલૂ સમિઅના વ અતઅના ગુફરાનક રબ્બના વ ઇલૈકલ્ મસીર. લા યુકલ્લિફુલ્લાહુ નફસન ઇલ્લા વુસ્અહા, લહા મા કસબત વઅલયહા મકતસબત, રબ્બના લા તુઆખિઝના ઇન્નસીના અવ અખ્તઅના, રબ્બના વલા તહમિલ અલયના ઇસ્રન કમા હમલ્તહૂ અલલ્લઝીન મિન્ કબ્લિના, રબ્બના વલા તુહમ્મિલના મા લાતાકત લના બિહ, વઅફુ અન્ના વગ્ફિરલના વરહમ્ના અન્ત મવલાના ફન્સરના અલલ્ કવ્મિલ કાફિરીન.
-    </div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">સૂરએ અહઝાબ (1 બાર)</div>
-    <div class="dua-content">
-        મા કાન મુહમ્મદુન અબા અહદિમ મિર્રિજાલિકુમ વલા કિર્રસૂલલ્લાહિ વ ખાતમન્નબિય્યીન, વ-કાનલ્લાહુ બિકુલ્લિ શયઇન અલીમા. ઇન્નલ્લાહ વ મલાઇકતહૂ યુસલ્લૂન અલન્નબિય્યિ યા અય્યુહલ્લઝીન આમનૂ સલ્લૂ અલયહિ વ સલ્લિમૂ તસ્લીમા.
-    </div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header"> દુરુદ શરીફ ઔર દુઆ</div>
-    <div class="dua-content">
-        વ સલ્લલ્લાહુ તઆલા અલા ખૈરિ ખલ્કિહી ન નૂરિ અર્શિહી સૈયિદના વ નબિય્યિના વ શફીઇના વ હબીબના વ મૌલાના મુહમ્મદિવ વઅલા આલિહી વ અસ્હાબિહી અજમઇન, બિરહમતિકા યા અર-હમર્રાહિમીન.
-    </div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">ઇસાલે સવાબકી દુઆ (નઝર કરને કા તરીકા)</div>
-    <div class="dua-content">
-        યા અલ્લાહ! મૈંને જો કુછ પઢા યહ સબ તેરી ખુશ્નૂદી કે લિયે ઔર ખાસ તેરે હી લિયે પઢા, ઇસકો તેરી આલી બારગાહમેં કબૂલ ફરમા ઔર ઇસ પઢને મેં મેરી જો ખતા રહ ગઈ હો ઉસકો તેરે ફઝલસે મુઆફ ફરમા. ઔર ઇસકા જો તૂને સવાબ રખા હૈ વહ સવાબ હમારે દો જહાં કે સરદાર આકાએ નામદાર, સરવરે મવજૂદાત અહમદે મુજતબા મુહમ્મદ મુસ્તફા (ﷺ) કી રુહ મુબારક કો નઝર કિયા. ઔર સારે અંબિયા વ મુરસલીન ઔર તમામ આલ વ અવલાદ, અસ્હાબે કિરામ ઔર તમામ મોમિન વ મોમિનાત જિતને ભી દુનિયા સે ચલ બસે હૈં ઉન તમામ કી રુહોંકો ઇસકા સવાબ પહુંચા.
-    </div>
-</div>
-    <script>
-        // Dropdown Menu Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menuToggleBtn');
-            const menuContainer = document.getElementById('menuItemsContainer');
-            if(toggleBtn && menuContainer) {
-                toggleBtn.addEventListener('click', () => {
-                    menuContainer.classList.toggle('show');
-                });
-            }
-        });
-    </script>
 </body>
 </html>
