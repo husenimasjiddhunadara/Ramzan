@@ -1,118 +1,179 @@
-﻿<!DOCTYPE html>
-<html lang="gu">
+<!DOCTYPE html>
+<html lang="gu" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="સાત કલમે તરજુમે કે સાથ - Islamic Kalimas with translation in Gujarati script">
     <title>સાત કલમે તરજુમે કે સાથ</title>
 
+    <!-- Preload fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <!-- Premium Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Modern Icons (FontAwesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Main Design File -->
-    <link rel="stylesheet" href="style.css?v=2">
-</head>
-<body style="background: var(--bg-main);">
     
-  
-    <div style="max-width: 850px; margin: 40px auto; padding: 0 20px;">
+    <!-- Modern Icons (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Main Content Area -->
+    <main class="main-content container" id="home">
         
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: var(--primary-dark); font-weight: 800; font-size: 2rem;">સાત કલમે તરજુમે કે સાથ</h1>
-        </div>
+        <header class="page-header">
+            <h1 class="page-title">સાત કલમે તરજુમે કે સાથ</h1>
+        </header>
 
-        <!-- Intro Boxes -->
-        <div style="display: grid; gap: 15px; margin-bottom: 30px;">
-            <div class="status-box" style="text-align: left; padding: 20px;">
-                <div style="color: var(--primary-dark); font-weight: 800; font-size: 1.2rem; margin-bottom: 5px;">અઉઝુબિલ્લાહિ મિનશ્શૈતાનિર્રજીમ બિસ્મિલ્લાહિર્રહમાનિર્રહીમ</div>
-                <div style="color: var(--text-muted); font-size: 1rem;"><strong>તરજુમા:</strong> પનાહ માંગતા હું મૈં અલ્લાહ કી શયતાન મરદૂદ સે. અલ્લાહ કે નામ સે શુરૂ જો નિહાયત મેહરબાન રહમ કરનેવાલા હૈ.</div>
+        <!-- Intro Box -->
+        <section class="intro-section" aria-label="Introduction">
+            <div class="status-box">
+                <h2 class="status-title">અઉઝુબિલ્લાહિ મિનશ્શૈતાનિર્રજીમ બિસ્મિલ્લાહિર્રહમાનિર્રહીમ</h2>
+                <p class="status-text"><strong>તરજુમા:</strong> પનાહ માંગતા હું મૈં અલ્લાહ કી શયતાન મરદૂદ સે. અલ્લાહ કે નામ સે શુરૂ જો નિહાયત મેહરબાન રહમ કરનેવાલા હૈ.</p>
             </div>
+        </section>
 
-        <div class="dua-container" style="grid-template-columns: 1fr;">
+        <!-- Kalimas List -->
+        <section class="dua-container" id="kalimas" aria-label="Kalimas List">
             
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">1. પહેલા કલમા (તૈયબ)</div>
-                <div class="dua-content">
-                    <strong style="color: var(--primary);">અવ્વલ કલિમહ તૈયબ:</strong> લા ઈલાહ ઈલ્લલ્લાહુ મુહમ્મદુર્ર રસૂલુલ્લાહ (ﷺ)
-                    <br><br>
-                    <strong>તરજુમા:</strong> અલ્લાહ કે સિવા કોઈ મઅબૂદ નહીં, મુહંમદ (ﷺ) અલ્લાહ કે રસૂલ હૈ.
+            <!-- 1. Kalima Tayyab -->
+            <article class="dua-card">
+                <div class="dua-icon" aria-hidden="true">
+                    <i class="fa-solid fa-book-quran"></i>
                 </div>
-            </div>
+                <div class="dua-content-wrapper">
+                    <h2 class="dua-header">1. પહેલા કલમા (તૈયબ)</h2>
+                    <div class="dua-content">
+                        <p class="dua-arabic-transl">
+                            <strong class="highlight">અવ્વલ કલિમહ તૈયબ:</strong> લા ઈલાહ ઈલ્લલ્લાહુ મુહમ્મદુર્ર રસૂલુલ્લાહ (ﷺ)
+                        </p>
+                        <p class="dua-translation">
+                            <strong>તરજુમા:</strong> અલ્લાહ કે સિવા કોઈ મઅબૂદ નહીં, મુહંમદ (ﷺ) અલ્લાહ કે રસૂલ હૈ.
+                        </p>
+                    </div>
+                </div>
+            </article>
 
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">2. દૂસરા કલમા (શહાદત)</div>
-                <div class="dua-content">
-                    <strong style="color: var(--primary);">દુવમ કલિમહ શહાદત:</strong> અશહદુ અલ્લા ઈલાહ ઈલ્લલ્લાહુ વહદહુ લા શરીક લહુ વ અશહદુ અન્ન મુહમ્મદન અબ્દુહૂ વ રસૂલુહ (ﷺ)
-                    <br><br>
-                    <strong>તરજુમા:</strong> મૈં ગવાહી દેતા હું કે અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહીં, વો અકેલા હૈ ઉસકા કોઈ શરીક નહી ઔર મૈં ગવાહી દેતા હું કે બેશક મુહમ્મદ (ﷺ) અલ્લાહ તઆલા કે બંદે ઔર રસૂલ હૈ.
+            <!-- 2. Kalima Shahadat -->
+            <article class="dua-card">
+                <div class="dua-icon" aria-hidden="true">
+                    <i class="fa-solid fa-book-quran"></i>
                 </div>
-            </div>
+                <div class="dua-content-wrapper">
+                    <h2 class="dua-header">2. દૂસરા કલમા (શહાદત)</h2>
+                    <div class="dua-content">
+                        <p class="dua-arabic-transl">
+                            <strong class="highlight">દુવમ કલિમહ શહાદત:</strong> અશહદુ અલ્લા ઈલાહ ઈલ્લલ્લાહુ વહદહુ લા શરીક લહુ વ અશહદુ અન્ન મુહમ્મદન અબ્દુહૂ વ રસૂલુહ (ﷺ)
+                        </p>
+                        <p class="dua-translation">
+                            <strong>તરજુમા:</strong> મૈં ગવાહી દેતા હું કે અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહીં, વો અકેલા હૈ ઉસકા કોઈ શરીક નહી ઔર મૈં ગવાહી દેતા હું કે બેશક મુહમ્મદ (ﷺ) અલ્લાહ તઆલા કે બંદે ઔર રસૂલ હૈ.
+                        </p>
+                    </div>
+                </div>
+            </article>
 
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">3. તિસરા કલમા (તમ્જીદ)</div>
-                <div class="dua-content">
-                    <strong style="color: var(--primary);">સુવમ કલિમહ તમ્જીદ:</strong> સુબ્હાનલ્લાહિ વલ્હમ્દુલિલ્લાહિ વલા ઈલાહ ઈલ્લલ્લાહુ વલ્લાહુ અકબર વલા હૌલ વલા કુવ્વત ઈલ્લા બિલ્લાહિલ અલિય્યિલ અઝીમ.
-                    <br><br>
-                    <strong>તરજુમા:</strong> અલ્લાહ તઆલા પાક હૈ ઔર તમામ તારીફ અલ્લાહ તઆલા કે લિયે હૈ ઔર અલ્લાહ તઆલા કે સિવાય કોઈ મઅબૂદ નહી ઔર અલ્લાહ તઆલા બહુત બડા હૈ. ગુનાહો સે બચને કી તૌફીક ઔર નેકી કરને કી તાકત સિર્ફ અલ્લાહ તઆલા કી તરફ સે હૈ જો બુલંદ અઝમત વાલા હૈ.
+            <!-- 3. Kalima Tamjeed -->
+            <article class="dua-card">
+                <div class="dua-icon" aria-hidden="true">
+                    <i class="fa-solid fa-book-quran"></i>
                 </div>
-            </div>
+                <div class="dua-content-wrapper">
+                    <h2 class="dua-header">3. તિસરા કલમા (તમ્જીદ)</h2>
+                    <div class="dua-content">
+                        <p class="dua-arabic-transl">
+                            <strong class="highlight">સુવમ કલિમહ તમ્જીદ:</strong> સુબ્હાનલ્લાહિ વલ્હમ્દુલિલ્લાહિ વલા ઈલાહ ઈલ્લલ્લાહુ વલ્લાહુ અકબર વલા હૌલ વલા કુવ્વત ઈલ્લા બિલ્લાહિલ અલિય્યિલ અઝીમ.
+                        </p>
+                        <p class="dua-translation">
+                            <strong>તરજુમા:</strong> અલ્લાહ તઆલા પાક હૈ ઔર તમામ તારીફ અલ્લાહ તઆલા કે લિયે હૈ ઔર અલ્લાહ તઆલા કે સિવાય કોઈ મઅબૂદ નહી ઔર અલ્લાહ તઆલા બહુત બડા હૈ. ગુનાહો સે બચને કી તૌફીક ઔર નેકી કરને કી તાકત સિર્ફ અલ્લાહ તઆલા કી તરફ સે હૈ જો બુલંદ અઝમત વાલા હૈ.
+                        </p>
+                    </div>
+                </div>
+            </article>
 
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">4. ચોથા કલમા (તોહીદ)</div>
-                <div class="dua-content">
-                    <strong style="color: var(--primary);">ચહારૂમ કલિમહ તોહીદ:</strong> લા ઈલાહ ઈલ્લલ્લાહુ વહદહુ લા શરીક લહુ લહુલ મુલ્કુ વલહુલ હમ્દુ ચુહયી વ ચુમીતો બિયદિહિલ ખૈર, વ હુવ અલા કુલ્લિ શૈઈન કદીર.
-                    <br><br>
-                    <strong>તરજુમા:</strong> અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહી, વો અકેલા હૈ, ઉસકા કોઈ શરીક નહી, ઉસી કે લિયે બાદશાહી હૈ ઔર ઉસી કે લિયે તમામ તઅરીફેં હૈ, વહી ઝીંદા કરતા હૈ ઔર વહી મારતા હૈ, ઉસી કે દસ્તે કુદરત મેં ભલાઈ હૈ ઔર વોહ હર ચીઝ પર કાદિર હૈ.
+            <!-- 4. Kalima Tauheed -->
+            <article class="dua-card">
+                <div class="dua-icon" aria-hidden="true">
+                    <i class="fa-solid fa-book-quran"></i>
                 </div>
-            </div>
+                <div class="dua-content-wrapper">
+                    <h2 class="dua-header">4. ચોથા કલમા (તોહીદ)</h2>
+                    <div class="dua-content">
+                        <p class="dua-arabic-transl">
+                            <strong class="highlight">ચહારૂમ કલિમહ તોહીદ:</strong> લા ઈલાહ ઈલ્લલ્લાહુ વહદહુ લા શરીક લહુ લહુલ મુલ્કુ વલહુલ હમ્દુ ચુહયી વ ચુમીતો બિયદિહિલ ખૈર, વ હુવ અલા કુલ્લિ શૈઈન કદીર.
+                        </p>
+                        <p class="dua-translation">
+                            <strong>તરજુમા:</strong> અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહી, વો અકેલા હૈ, ઉસકા કોઈ શરીક નહી, ઉસી કે લિયે બાદશાહી હૈ ઔર ઉસી કે લિયે તમામ તઅરીફેં હૈ, વહી ઝીંદા કરતા હૈ ઔર વહી મારતા હૈ, ઉસી કે દસ્તે કુદરત મેં ભલાઈ હૈ ઔર વોહ હર ચીઝ પર કાદિર હૈ.
+                        </p>
+                    </div>
+                </div>
+            </article>
 
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">5. પાંચવા કલમા (રદ્દે કુફ્ર)</div>
-                <div class="dua-content">
-                    <strong style="color: var(--primary);">પંજૂમ કલિમહ રદ્દે કુફ્ર:</strong> અલ્લાહુમ્મ ઈન્ની અઉઝૂ બિક મિન અન્ ઉશારિક બિક શૈઅંવ વ અના અઅલમુ બિહી વ અસ્તગ્ફિરુક લિમા લા અઅલમુ બિહી તુબતુ અન્હુ વ તબર્રીતુ મિનલ કુફ્રે વશિર્કિ વલ કિઝબિ વલ ગીબતિ વન્નમિમતિ વલ ફવાહિશિ વલ બુહતાનિ વલ મઆસી કુલ્લિહા વ અસ્લમ્તુ વ આમન્તુ વ-અ-કુલુ લા ઈલાહ ઈલ્લલ્લાહુ મુહમ્મદુર્ર રસૂલુલ્લાહ (ﷺ)
-                    <br><br>
-                    <strong>તરજુમા:</strong> ઐય અલ્લાહ મેં તેરી પનાહ માંગતા હું ઈસ બાત સે કે મેં કિસી ચીઝ કો તેરા શરીક બનાઉં જાન બુઝકર, ઔર બખ્શિશ ચાહતા હું ઉન ગુનાહો કી જિસ્કા મુઝે ઈલ્મ નહી હૈ, મૈને ઉસસે તૌબા કી ઔર બેઝાર હુવા કુફ્ર સે, શિર્ક સે, જુઠ સે, ગીબત સે, ચુગલી સે, બેહયાઈયો સે, બોહતાન સે ઔર તમામ ગુનાહોં સે. મૈં ઈસ્લામ લાયા ઔર મૈં ઈમાન લાયા ઔર મૈં કહેતા હું કે અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહીં, મુહમ્મદ (ﷺ) અલ્લાહ કે રસૂલ હૈ.
+            <!-- 5. Kalima Radde Kufr -->
+            <article class="dua-card">
+                <div class="dua-icon" aria-hidden="true">
+                    <i class="fa-solid fa-book-quran"></i>
                 </div>
-            </div>
+                <div class="dua-content-wrapper">
+                    <h2 class="dua-header">5. પાંચવા કલમા (રદ્દે કુફ્ર)</h2>
+                    <div class="dua-content">
+                        <p class="dua-arabic-transl">
+                            <strong class="highlight">પંજૂમ કલિમહ રદ્દે કુફ્ર:</strong> અલ્લાહુમ્મ ઈન્ની અઉઝૂ બિક મિન અન્ ઉશારિક બિક શૈઅંવ વ અના અઅલમુ બિહી વ અસ્તગ્ફિરુક લિમા લા અઅલમુ બિહી તુબતુ અન્હુ વ તબર્રીતુ મિનલ કુફ્રે વશિર્કિ વલ કિઝબિ વલ ગીબતિ વન્નમિમતિ વલ ફવાહિશિ વલ બુહતાનિ વલ મઆસી કુલ્લિહા વ અસ્લમ્તુ વ આમન્તુ વ-અ-કુલુ લા ઈલાહ ઈલ્લલ્લાહુ મુહમ્મદુર્ર રસૂલુલ્લાહ (ﷺ)
+                        </p>
+                        <p class="dua-translation">
+                            <strong>તરજુમા:</strong> ઐય અલ્લાહ મેં તેરી પનાહ માંગતા હું ઈસ બાત સે કે મેં કિસી ચીઝ કો તેરા શરીક બનાઉં જાન બુઝકર, ઔર બખ્શિશ ચાહતા હું ઉન ગુનાહો કી જિસ્કા મુઝે ઈલ્મ નહી હૈ, મૈને ઉસસે તૌબા કી ઔર બેઝાર હુવા કુફ્ર સે, શિર્ક સે, જુઠ સે, ગીબત સે, ચુગલી સે, બેહયાઈયો સે, બોહતાન સે ઔર તમામ ગુનાહોં સે. મૈં ઈસ્લામ લાયા ઔર મૈં ઈમાન લાયા ઔર મૈં કહેતા હું કે અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહીં, મુહમ્મદ (ﷺ) અલ્લાહ કે રસૂલ હૈ.
+                        </p>
+                    </div>
+                </div>
+            </article>
 
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">6. ઈમાને મુજમલ</div>
-                <div class="dua-content">
-                    <strong style="color: var(--primary);">ઈમાને મુજમલ:</strong> આમન્તુ બિલ્લાહિ કમા હુવ બિ અસ્માઈહિ વ સિફાતિહી વ કબિલ્તુ જમીઅ અહકામિહી વ અર્કાનિહી ઈકરારુમ બિલ લિસાની વ તસદિકુમ બિલ કલ્બિ.
-                    <br><br>
-                    <strong>તરજુમા:</strong> મૈં ઈમાન લાયા અલ્લાહ તઆલા પર જૈસા કે વો અપને નામોં ઔર અપની સિફતોં કે સાથ હૈ ઔર મૈને ઉસકે તમામ અહકામ ઔર અરકાન કબૂલ કિયે ઝબાન સે ઈકરાર કરતે હુએ ઔર દીલ સે તસ્દીક કરતે હૂએ.
+            <!-- 6. Imaan-e-Mujmal -->
+            <article class="dua-card">
+                <div class="dua-icon" aria-hidden="true">
+                    <i class="fa-solid fa-book-quran"></i>
                 </div>
-            </div>
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">7. ઈમાને મુફસ્સલ</div>
-                <div class="dua-content">
-                    <strong style="color: var(--primary);">ઈમાને મુફસ્સલ:</strong> આમન્તુ બિલ્લાહિ વ મલાઈકતિહિ વ કુતુબિહી વ રુસૂલિહી વલ્ યૌમિલ આખિરિ વલ કદરિ ખૈરિહી વ શર્રિહી મિનલ્લાહિ તઆલા વલ્ બઅષિ બઅદલ્ મૌત.
-                    <br><br>
-                    <strong>તરજુમા:</strong> મૈં ઈમાન લાયા અલ્લાહ તઆલા પર ઔર ઉસકે ફરિશ્તોં પર ઔર ઉસકી કિતાબોં પર ઔર ઉસકે રસૂલોં પર ઔર કયામત કે દિન પર ઔર ઈસ પર કે અચ્છી - બુરી તકદીર કા ખાલિક અલ્લાહ તઆલા હૈ ઔર મૌત કે બાદ ઉઠાએ જાને પર.
+                <div class="dua-content-wrapper">
+                    <h2 class="dua-header">6. ઈમાને મુજમલ</h2>
+                    <div class="dua-content">
+                        <p class="dua-arabic-transl">
+                            <strong class="highlight">ઈમાને મુજમલ:</strong> આમન્તુ બિલ્લાહિ કમા હુવ બિ અસ્માઈહિ વ સિફાતિહી વ કબિલ્તુ જમીઅ અહકામિહી વ અર્કાનિહી ઈકરારુમ બિલ લિસાની વ તસદિકુમ બિલ કલ્બિ.
+                        </p>
+                        <p class="dua-translation">
+                            <strong>તરજુમા:</strong> મૈં ઈમાન લાયા અલ્લાહ તઆલા પર જૈસા કે વો અપને નામોં ઔર અપની સિફતોં કે સાથ હૈ ઔર મૈને ઉસકે તમામ અહકામ ઔર અરકાન કબૂલ કિયે ઝબાન સે ઈકરાર કરતે હુએ ઔર દીલ સે તસ્દીક કરતે હૂએ.
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </article>
 
+            <!-- 7. Imaan-e-Mufassal -->
+            <article class="dua-card">
+                <div class="dua-icon" aria-hidden="true">
+                    <i class="fa-solid fa-book-quran"></i>
+                </div>
+                <div class="dua-content-wrapper">
+                    <h2 class="dua-header">7. ઈમાને મુફસ્સલ</h2>
+                    <div class="dua-content">
+                        <p class="dua-arabic-transl">
+                            <strong class="highlight">ઈમાને મુફસ્સલ:</strong> આમન્તુ બિલ્લાહિ વ મલાઈકતિહિ વ કુતુબિહી વ રુસૂલિહી વલ્ યૌમિલ આખિરિ વલ કદરિ ખૈરિહી વ શર્રિહી મિનલ્લાહિ તઆલા વલ્ બઅષિ બઅદલ્ મૌત.
+                        </p>
+                        <p class="dua-translation">
+                            <strong>તરજુમા:</strong> મૈં ઈમાન લાયા અલ્લાહ તઆલા પર ઔર ઉસકે ફરિશ્તોં પર ઔર ઉસકી કિતાબોં પર ઔર ઉસકે રસૂલોં પર ઔર કયામત કે દિન પર ઔર ઈસ પર કે અચ્છી - બુરી તકદીર કા ખાલિક અલ્લાહ તઆલા હૈ ઔર મૌત કે બાદ ઉઠાએ જાને પર.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>DEVELOPED BY - <strong>Pathan Mahirkhan</strong></p>
         </div>
-    </div>
+    </footer>
 
-    <script>
-        // Dropdown Menu Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menuToggleBtn');
-            const menuContainer = document.getElementById('menuItemsContainer');
-            if(toggleBtn && menuContainer) {
-                toggleBtn.addEventListener('click', () => {
-                    menuContainer.classList.toggle('show');
-                });
-            }
-        });
-    </script>
 </body>
 </html>
