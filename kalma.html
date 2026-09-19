@@ -16,8 +16,233 @@
     <!-- Modern Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="style.css?v=3">
+    <!-- Internal Stylesheet -->
+    <style>
+:root {
+    /* Color Palette */
+    --primary-color: #0d9488;
+    --primary-dark: #115e59;
+    --primary-light: #ccfbf1;
+    --bg-main: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #475569;
+    --border-color: #e2e8f0;
+    
+    /* Shadows & Radii */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    
+    /* Typography */
+    --font-gu: 'Anek Gujarati', sans-serif;
+    --font-en: 'Outfit', sans-serif;
+    
+    /* Transitions */
+    --transition: all 0.25s ease-in-out;
+}
+
+/* Global Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-gu);
+    
+    /* Awesome Professional Background */
+    background-color: var(--bg-main);
+    background-image: 
+        radial-gradient(circle at 15% 20%, rgba(13, 148, 136, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(17, 94, 89, 0.08) 0%, transparent 40%),
+        radial-gradient(rgba(13, 148, 136, 0.12) 1.5px, transparent 1.5px);
+    background-size: 100vw 100vh, 100vw 100vh, 24px 24px;
+    background-attachment: fixed;
+    
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+/* Layout */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* Main Content */
+.main-content {
+    padding: 40px 0 60px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title {
+    color: var(--primary-dark);
+    font-weight: 800;
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    line-height: 1.4;
+    text-shadow: 2px 2px 4px rgba(13, 148, 136, 0.15);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    border-radius: 3px;
+}
+
+/* Status/Intro Box */
+.intro-section {
+    margin-bottom: 40px;
+}
+
+.status-box {
+    background: var(--card-bg);
+    border-left: 5px solid var(--primary-color);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.status-title {
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.status-text {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Dua Cards Grid */
+.dua-container {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+.dua-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    gap: 20px;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.dua-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.dua-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.dua-content-wrapper {
+    flex-grow: 1;
+}
+
+.dua-header {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dua-content {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.dua-arabic-transl {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.dua-translation {
+    line-height: 1.6;
+}
+
+.highlight {
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+/* Responsive Design */
+
+@media (max-width: 480px) {
+    .dua-card {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .dua-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .page-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    background: transparent;
+    border-top: 1px solid rgba(13, 148, 136, 0.15);
+}
+
+.site-footer p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.site-footer strong {
+    color: var(--primary-dark);
+    font-weight: 800;
+}
+    </style>
 </head>
 <body>
     
