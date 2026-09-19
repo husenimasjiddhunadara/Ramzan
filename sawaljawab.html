@@ -1,143 +1,710 @@
-
-    <!-- Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ઈસ્લામી સવાલ-જવાબ | Islamic Knowledge Platform</title>
+    
+    <!-- Premium Google Fonts: Anek Gujarati for proper typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- Modern Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Main Design File -->
-    <link rel="stylesheet" href="style.css?v=2">
-</head>
-<body style="background: var(--bg-main);">
+    
+    <style>
+        /* 1. CSS Variables for Clean Islamic Theme */
+        :root {
+            /* Primary Islamic Green colors */
+            --primary: #065f46; 
+            --primary-light: #d1fae5;
+            --primary-dark: #064e3b;
+            
+            /* Accent & Backgrounds */
+            --accent: #d97706; /* Subtle gold */
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            
+            /* Text Colors */
+            --text-heading: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            
+            /* Structural Variables */
+            --border: #e2e8f0;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --transition: all 0.3s ease;
+        }
 
-   
-    <div style="max-width: 850px; margin: 40px auto; padding: 0 20px;">
+        /* 2. Global Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Anek Gujarati', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-heading);
+            font-weight: 700;
+        }
+
+        /* 3. Header Section (Interactive) */
+        .site-header {
+            background: linear-gradient(-45deg, #022c22, #065f46, #0f766e, #047857);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 4rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border-bottom: 4px solid var(--accent);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Subtle Islamic geometric background pattern moving */
+        .site-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.07"><path d="M30 30L15 15H0v15h15l15 15h15v-15H30zM0 60h15V45H0v15zM60 0H45v15h15V0zM60 60H45V45h15v15z"/></g></g></svg>');
+            animation: movePattern 30s linear infinite;
+        }
+
+        @keyframes movePattern {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+            /* Interactive Gold Text Effect */
+            background: linear-gradient(to right, #fef3c7, #d97706, #fde68a, #d97706);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shineText 4s linear infinite;
+            text-shadow: 0px 4px 15px rgba(217, 119, 6, 0.4);
+            transition: transform 0.3s ease;
+            cursor: default;
+            display: inline-block;
+        }
+
+        .header-title:hover {
+            transform: scale(1.05);
+            text-shadow: 0px 6px 20px rgba(217, 119, 6, 0.6);
+        }
+
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        .header-subtitle {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            font-weight: 400;
+            color: #d1fae5;
+            letter-spacing: 0.5px;
+        }
+
+        /* 4. Main Layout Container */
+        .main-container {
+            max-width: 900px;
+            margin: -30px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* 5. Search UX */
+        .search-container {
+            background: var(--bg-card);
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .search-container:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .search-icon {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            margin-right: 12px;
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 1.15rem;
+            font-family: inherit;
+            color: var(--text-heading);
+            background: transparent;
+        }
+
+        .search-input::placeholder {
+            color: #94a3b8;
+        }
+
+        /* 6. Categories Navigation */
+        .category-filter {
+            display: flex;
+            overflow-x: auto;
+            gap: 12px;
+            padding-bottom: 12px;
+            margin-bottom: 2rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
         
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: var(--primary-dark); font-weight: 800; font-size: 2rem;">ઈસ્લામી સવાલ-જવાબ</h1>
+        .category-filter::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* 7. Question Cards Structure */
+        .qa-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .qa-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .qa-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #cbd5e1;
+        }
+
+        .qa-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            background: var(--bg-card);
+            user-select: none;
+        }
+
+        .qa-icon {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-top: 2px;
+            background: var(--primary-light);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .qa-title-wrapper {
+            flex-grow: 1;
+        }
+
+        .qa-category-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+            background: #f1f5f9;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+        }
+
+        .qa-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .qa-toggle-icon {
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+            margin-top: 8px;
+            font-size: 1.1rem;
+        }
+
+        .qa-card.open .qa-toggle-icon {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        /* 8. Answer Body */
+        .qa-body {
+            display: none;
+            padding: 0 1.5rem 1.75rem 4.75rem; /* Aligned with title text */
+            border-top: 1px solid #f1f5f9;
+            background: #fafaf9;
+        }
+
+        .qa-card.open .qa-body {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .answer-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .answer-content {
+            font-size: 1.1rem;
+            color: var(--text-body);
+        }
+
+        .answer-content ul {
+            margin-top: 0.75rem;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .answer-content li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.25rem;
+        }
+
+        .answer-content strong {
+            color: var(--text-heading);
+            font-weight: 700;
+        }
+
+        /* References / Source Styling */
+        .reference-box {
+            margin-top: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 0.95rem;
+            color: #166534;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 9. Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-title { font-size: 2rem; }
+            .site-header { padding: 2rem 1rem; }
+            .main-container { padding: 0 15px; margin-top: -20px; }
+            
+            .qa-header { padding: 1.25rem; gap: 1rem; }
+            .qa-icon { width: 32px; height: 32px; font-size: 1rem; }
+            .qa-body { padding: 0 1.25rem 1.5rem 1.25rem; } /* Removed deep indent for mobile */
+            .qa-title { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="header-content">
+            <h1 class="header-title">ઈસ્લામી સવાલ-જવાબ</h1>
+            <p class="header-subtitle">કુઆઁન ઔર હદીસકી રૌશની મેં સવાલોં કે સહી જવાબ</p>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <!-- Search Section -->
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="searchInput" class="search-input" placeholder="સવાલ તલાશ કરેં... (મસલન: નમાઝ, રોઝા, ઝકાત)">
         </div>
 
-<div class="dua-container" style="grid-template-columns: 1fr;">
+        <!-- Categories Navigation -->
+        <div class="category-filter" id="categoryFilter">
+            <button class="cat-btn active" data-filter="all">તમામ સવાલ</button>
+            <button class="cat-btn" data-filter="બુનિયાદ">ઈસ્લામકી બુનિયાદ</button>
+            <button class="cat-btn" data-filter="અકાઈદ">અકાઈદ</button>
+            <button class="cat-btn" data-filter="ઈદ">ઈદ / ત્યોહાર</button>
+            <button class="cat-btn" data-filter="ખલીફા">ખલીફા ઔર ઈમામ</button>
+        </div>
+
+        <!-- Q&A List -->
+        <div class="qa-list" id="qaList">
             
+            <!-- Card 1 -->
+            <article class="qa-card" data-category="બુનિયાદ">
+                <div class="qa-header">
+                    <div class="qa-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="qa-title-wrapper">
+                        <span class="qa-category-tag">ઈસ્લામકી બુનિયાદ</span>
+                        <h3 class="qa-title">૧. ઈસ્લામકી બુનિયાદ કિતની ચીઝોં પર હૈ ?</h3>
+                    </div>
+                    <div class="qa-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="qa-body">
+                    <div class="answer-header">
+                        <i class="fa-solid fa-pen-clip"></i> જવાબ:
+                    </div>
+                    <div class="answer-content">
+                        ઈસ્લામકી બુનિયાદ પાંચ ચીઝોં પર હૈ.
+                        <ul>
+                            <li>કલમા</li>
+                            <li>નમાઝ</li>
+                            <li>રોઝા</li>
+                            <li>ઝકાત</li>
+                            <li>હજ</li>
+                        </ul>
+                        <strong>ખુલાસા:</strong>
+                        <ul>
+                            <li><strong>કલમા :</strong> ઝબાન સે પઢના ઔર દિલસે ઈકરાર કરના.</li>
+                            <li><strong>નમાઝ :</strong> હર આકિલ, બાલિગ મર્દ ઔર ઔરત પર ફર્ઝ હૈ. વકતકી પાબંદીકે સાથ.</li>
+                            <li><strong>રોઝા :</strong> માહે રમઝાનકે રોઝે રખના હર આકિલ, બાલિગ મુસલમાન મર્દ - ઔરત પર ફર્ઝ હૈ.</li>
+                            <li><strong>ઝકાત :</strong> હર સાહિબે માલ પર ઝકાત દેના ફર્ઝ હૈ.</li>
+                            <li><strong>હજ :</strong> હર સાહિબે માલ પર ઝિંદગીમેં એક બાર હજ કરના ફર્ઝ હૈ.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">૧. ઈસ્લામકી બુનિયાદ કિતની ચીઝોં પર હૈ ?</div>
-    <div class="dua-content">
-        <strong>જવાબ:</strong> ઈસ્લામકી બુનિયાદ પાંચ ચીઝોં પર હૈ.
-        <ul>
-            <li>કલમા</li>
-            <li>નમાઝ</li>
-            <li>રોઝા</li>
-            <li>ઝકાત</li>
-            <li>હજ</li>
-        </ul>
-        <strong>ખુલાસા:</strong>
-        <ul>
-            <li><strong>કલમા :</strong> ઝબાન સે પઢના ઔર દિલસે ઈકરાર કરના.</li>
-            <li><strong>નમાઝ :</strong> હર આકિલ, બાલિગ મર્દ ઔર ઔરત પર ફર્ઝ હૈ. વકતકી પાબંદીકે સાથ.</li>
-            <li><strong>રોઝા :</strong> માહે રમઝાનકે રોઝે રખના હર આકિલ, બાલિગ મુસલમાન મર્દ - ઔરત પર ફર્ઝ હૈ.</li>
-            <li><strong>ઝકાત :</strong> હર સાહિબે માલ પર ઝકાત દેના ફર્ઝ હૈ.</li>
-            <li><strong>હજ :</strong> હર સાહિબે માલ પર ઝિંદગીમેં એક બાર હજ કરના ફર્ઝ હૈ.</li>
-        </ul>
-    </div>
-</div>
+            <!-- Card 2 -->
+            <article class="qa-card" data-category="બુનિયાદ">
+                <div class="qa-header">
+                    <div class="qa-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <div class="qa-title-wrapper">
+                        <span class="qa-category-tag">ઝકાત / માલ</span>
+                        <h3 class="qa-title">૨. સાહિબે માલ કિસે કહતે હૈ ?</h3>
+                    </div>
+                    <div class="qa-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="qa-body">
+                    <div class="answer-header">
+                        <i class="fa-solid fa-pen-clip"></i> જવાબ:
+                    </div>
+                    <div class="answer-content">
+                        સાહિબે માલ ઉસ ઈન્સાન કો કહતે હૈ કી જિસકે પાસ સાડે સાત તોલા (૭ II) સોના યા સાડે બાવન તોલા (૫૨ II) ચાંદી યા ઈતની મિલ્કિયત ઈન સબમેં સે કોઈ એક ચીઝ હો ઉસે સાહિબે માલ કહતે હૈ.
+                    </div>
+                </div>
+            </article>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">૨. સાહિબે માલ કિસે કહતે હૈ ?</div>
-    <div class="dua-content">
-        <strong>જવાબ:</strong> સાહિબે માલ ઉસ ઈન્સાન કો કહતે હૈ કી જિસકે પાસ સાડે સાત તોલા (૭ II) સોના યા સાડે બાવન તોલા (૫૨ II) ચાંદી યા ઈતની મિલ્કિયત ઈન સબમેં સે કોઈ એક ચીઝ હો ઉસે સાહિબે માલ કહતે હૈ.
-    </div>
-</div>
+            <!-- Card 3 -->
+            <article class="qa-card" data-category="અકાઈદ">
+                <div class="qa-header">
+                    <div class="qa-icon"><i class="fa-solid fa-book-quran"></i></div>
+                    <div class="qa-title-wrapper">
+                        <span class="qa-category-tag">અકાઈદ</span>
+                        <h3 class="qa-title">૩. આસ્માની મશહૂર કિતાબેં કિતની હૈ ઔર કિન કિન નબીયોં પર નાઝિલ હૂઈ ?</h3>
+                    </div>
+                    <div class="qa-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="qa-body">
+                    <div class="answer-header">
+                        <i class="fa-solid fa-pen-clip"></i> જવાબ:
+                    </div>
+                    <div class="answer-content">
+                        આસ્માની મશહૂર કિતાબેં ચાર હૈ.
+                        <ul>
+                            <li>૧. <strong>તૌરેત :</strong> જો હઝરતે મૂસા (અલૈ.) પર નાઝિલ હૂઈ.</li>
+                            <li>૨. <strong>ઝબૂર :</strong> જો હઝરતે દાઉદ (અલૈ.) પર નાઝિલ હૂઈ.</li>
+                            <li>૩. <strong>ઈન્જીલ :</strong> જો હઝરતે ઈસા (અલૈ.) પર નાઝિલ હૂઈ.</li>
+                            <li>૪. <strong>કુઆઁન શરીફ :</strong> જો હમારે પ્યારે નબી (સલ્લ.) પર નાઝિલ હુવા.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">૩. આસ્માની મશહૂર કિતાબેં કિતની હૈ ઔર કિન કિન નબીયોં પર નાઝિલ હૂઈ ?</div>
-    <div class="dua-content">
-        <strong>જવાબ:</strong> આસ્માની મશહૂર કિતાબેં ચાર હૈ.
-        <ul>
-            <li>૧. <strong>તૌરેત :</strong> જો હઝરતે મૂસા (અલૈ.) પર નાઝિલ હૂઈ.</li>
-            <li>૨. <strong>ઝબૂર :</strong> જો હઝરતે દાઉદ (અલૈ.) પર નાઝિલ હૂઈ.</li>
-            <li>૩. <strong>ઈન્જીલ :</strong> જો હઝરતે ઈસા (અલૈ.) પર નાઝિલ હૂઈ.</li>
-            <li>૪. <strong>કુઆઁન શરીફ :</strong> જો હમારે પ્યારે નબી (સલ્લ.) પર નાઝિલ હુવા.</li>
-        </ul>
-    </div>
-</div>
+            <!-- Card 4 -->
+            <article class="qa-card" data-category="અકાઈદ">
+                <div class="qa-header">
+                    <div class="qa-icon"><i class="fa-solid fa-feather"></i></div>
+                    <div class="qa-title-wrapper">
+                        <span class="qa-category-tag">અકાઈદ</span>
+                        <h3 class="qa-title">૪. આસ્માની મશહૂર ફરિશ્તે કિતને હૈ? ઉનકે નામ ઔર કિસ કામ પર મુકર્રર હૈ?</h3>
+                    </div>
+                    <div class="qa-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="qa-body">
+                    <div class="answer-header">
+                        <i class="fa-solid fa-pen-clip"></i> જવાબ:
+                    </div>
+                    <div class="answer-content">
+                        આસ્માની મશહૂર ફરિશ્તે ચાર હૈ.
+                        <ul>
+                            <li><strong>હઝરત જિબ્રઈલ (અલૈ.) :</strong> જો અલ્લાહ તઆલાકે એહકામ પયગમ્બરો તક પહોંચાતે થે.</li>
+                            <li><strong>હઝરત ઈસ્રાફીલ (અલૈ.) :</strong> જો કિયામતકે દિન સૂર ફૂકેંગે.</li>
+                            <li><strong>હઝરત મિકાઈલ (અલૈ.) :</strong> જો રોઝી પહોંચાને ઔર બારિશ બરસાને પર મુકર્રર હૈ.</li>
+                            <li><strong>હઝરત ઈઝરાઈલ (અલૈ.) :</strong> જો લોકોંકી રૂહ નિકાલને પર મુકર્રર હૈ, ઉનકો મલકુલ મૌત ભી કહતે હૈ.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">૪. આસ્માની મશહૂર ફરિશ્તે કિતને હૈ? ઉનકે નામ ઔર કિસ કામ પર મુકર્રર હૈ?</div>
-    <div class="dua-content">
-        <strong>જવાબ:</strong> આસ્માની મશહૂર ફરિશ્તે ચાર હૈ.
-        <ul>
-            <li><strong>હઝરત જિબ્રઈલ (અલૈ.) :</strong> જો અલ્લાહ તઆલાકે એહકામ પયગમ્બરો તક પહોંચાતે થે.</li>
-            <li><strong>હઝરત ઈસ્રાફીલ (અલૈ.) :</strong> જો કિયામતકે દિન સૂર ફૂકેંગે.</li>
-            <li><strong>હઝરત મિકાઈલ (અલૈ.) :</strong> જો રોઝી પહોંચાને ઔર બારિશ બરસાને પર મુકર્રર હૈ.</li>
-            <li><strong>હઝરત ઈઝરાઈલ (અલૈ.) :</strong> જો લોકોંકી રૂહ નિકાલને પર મુકર્રર હૈ, ઉનકો મલકુલ મૌત ભી કહતે હૈ.</li>
-        </ul>
-    </div>
-</div>
+            <!-- Card 5 -->
+            <article class="qa-card" data-category="ખલીફા">
+                <div class="qa-header">
+                    <div class="qa-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="qa-title-wrapper">
+                        <span class="qa-category-tag">ખલીફા</span>
+                        <h3 class="qa-title">૫. ઈસ્લામ કે મશહૂર ખલીફા કિતને હૈ ઔર ઉનકે નામ બતાઈયે?</h3>
+                    </div>
+                    <div class="qa-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="qa-body">
+                    <div class="answer-header">
+                        <i class="fa-solid fa-pen-clip"></i> જવાબ:
+                    </div>
+                    <div class="answer-content">
+                        ઈસ્લામકે મશહૂર ખલીફા ચાર હૈ.
+                        <ul>
+                            <li>૧. હઝરતે અબૂબક્ર સિદ્દીક (રદી.)</li>
+                            <li>૨. હઝરતે ઉમર ફારૂક (રદી.)</li>
+                            <li>૩. હઝરત ઉસ્માન ગની (રદી.)</li>
+                            <li>૪. હઝરત મૌલા અલી (કર્રમ.)</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">૫. ઈસ્લામ કે મશહૂર ખલીફા કિતને હૈ ઔર ઉનકે નામ બતાઈયે?</div>
-    <div class="dua-content">
-        <strong>જવાબ:</strong> ઈસ્લામકે મશહૂર ખલીફા ચાર હૈ.
-        <ul>
-            <li>૧. હઝરતે અબૂબક્ર સિદ્દીક (રદી.)</li>
-            <li>૨. હઝરતે ઉમર ફારૂક (રદી.)</li>
-            <li>૩. હઝરત ઉસ્માન ગની (રદી.)</li>
-            <li>૪. હઝરત મૌલા અલી (કર્રમ.)</li>
-        </ul>
-    </div>
-</div>
+            <!-- Card 6 -->
+            <article class="qa-card" data-category="ખલીફા">
+                <div class="qa-header">
+                    <div class="qa-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div class="qa-title-wrapper">
+                        <span class="qa-category-tag">મસ્લક ઔર ઈમામ</span>
+                        <h3 class="qa-title">૬. ઈસ્લામકે મસ્લક કિતને હૈ ઔર ઉન મસ્લક કે ઈમામ કે નામ ક્યા હૈ?</h3>
+                    </div>
+                    <div class="qa-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="qa-body">
+                    <div class="answer-header">
+                        <i class="fa-solid fa-pen-clip"></i> જવાબ:
+                    </div>
+                    <div class="answer-content">
+                        ઈસ્લામકે મસ્લક ચાર હૈ. (હનફી, શાફઈ, માલીકી, હમ્બલી)
+                        <ul>
+                            <li><strong>હનફી મસ્લકકે ઈમામકા નામ :</strong> ઈમામે આ'ઝમ અબૂ હનીફા નોઅમાન ઈબ્ને સાબિત (રહ.)</li>
+                            <li><strong>શાફઈ મસ્લકકે ઈમામ કા નામ :</strong> હઝરત મુહંમદ બિન ઈદ્રીસ (રહ.)</li>
+                            <li><strong>માલીકી મસ્લકકે ઈમામકા નામ :</strong> હઝરત માલિક બિન અનસ (રહ.)</li>
+                            <li><strong>હમ્બલી મસ્લકકે ઈમામકા નામ :</strong> હઝરતે અહમદ બિન હમ્બલ (રહ.)</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">૬. ઈસ્લામકે મસ્લક કિતને હૈ ઔર ઉન મસ્લક કે ઈમામ કે નામ ક્યા હૈ?</div>
-    <div class="dua-content">
-        <strong>જવાબ:</strong> ઈસ્લામકે મસ્લક ચાર હૈ. (હનફી, શાફઈ, માલીકી, હમ્બલી)
-        <ul>
-            <li><strong>હનફી મસ્લકકે ઈમામકા નામ :</strong> ઈમામે આ'ઝમ અબૂ હનીફા નોઅમાન ઈબ્ને સાબિત (રહ.)</li>
-            <li><strong>શાફઈ મસ્લકકે ઈમામ કા નામ :</strong> હઝરત મુહંમદ બિન ઈદ્રીસ (રહ.)</li>
-            <li><strong>માલીકી મસ્લકકે ઈમામકા નામ :</strong> હઝરત માલિક બિન અનસ (રહ.)</li>
-            <li><strong>હમ્બલી મસ્લકકે ઈમામકા નામ :</strong> હઝરતે અહમદ બિન હમ્બલ (રહ.)</li>
-        </ul>
-    </div>
-</div>
+            <!-- Card 7 -->
+            <article class="qa-card" data-category="ઈદ">
+                <div class="qa-header">
+                    <div class="qa-icon"><i class="fa-solid fa-moon"></i></div>
+                    <div class="qa-title-wrapper">
+                        <span class="qa-category-tag">ઈદ / ત્યોહાર</span>
+                        <h3 class="qa-title">૭. ઈદે મિલાદુન્નબી કિસે કહા જાતા હૈ ?</h3>
+                    </div>
+                    <div class="qa-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="qa-body">
+                    <div class="answer-header">
+                        <i class="fa-solid fa-pen-clip"></i> જવાબ:
+                    </div>
+                    <div class="answer-content">
+                        હમારે આકા હઝરત મુહમ્મદ મુસ્તફા (સલ્લ.) કી પેદાઈશ કે દિનકો ઈદે મિલાદુન્નબી કહા જાતા હૈ. ઈસી દિનકે સદકેમેં મોમિનોંકો ઝિંદગી જીનેકા તરીકા મિલા. આપને તશરીફ લાકર દુન્યા પર એહસાન કિયા, આપકે સદકેમેં ઝમીન, આસ્માન, ચાંદ, સૂરજ ઔર ઈન્સાન કો વુજૂદ મિલા. ઈસ લિયે ઈસ દિન કો મોમિન બહુત શાનસે મનાતા હૈ, જિસે ઈદે મિલાદુન્નબી કહા જાતા હૈ.
+                    </div>
+                </div>
+            </article>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">૭. ઈદે મિલાદુન્નબી કિસે કહા જાતા હૈ ?</div>
-    <div class="dua-content">
-        <strong>જવાબ:</strong> હમારે આકા હઝરત મુહમ્મદ મુસ્તફા (સલ્લ.) કી પેદાઈશ કે દિનકો ઈદે મિલાદુન્નબી કહા જાતા હૈ. ઈસી દિનકે સદકેમેં મોમિનોંકો ઝિંદગી જીનેકા તરીકા મિલા. આપને તશરીફ લાકર દુન્યા પર એહસાન કિયા, આપકે સદકેમેં ઝમીન, આસ્માન, ચાંદ, સૂરજ ઔર ઈન્સાન કો વુજૂદ મિલા. ઈસ લિયે ઈસ દિન કો મોમિન બહુત શાનસે મનાતા હૈ, જિસે ઈદે મિલાદુન્નબી કહા જાતા હૈ.
-    </div>
-</div>
+            <!-- Card 8 -->
+            <article class="qa-card" data-category="ઈદ">
+                <div class="qa-header">
+                    <div class="qa-icon"><i class="fa-solid fa-star-and-crescent"></i></div>
+                    <div class="qa-title-wrapper">
+                        <span class="qa-category-tag">ઈદ / ત્યોહાર</span>
+                        <h3 class="qa-title">૮. ઈદુલ ફિત્ર કિસે કહા જાતા હૈ ?</h3>
+                    </div>
+                    <div class="qa-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="qa-body">
+                    <div class="answer-header">
+                        <i class="fa-solid fa-pen-clip"></i> જવાબ:
+                    </div>
+                    <div class="answer-content">
+                        ઈદુલ ફિત્ર ઉસ દિન કો કહા જાતા હૈ કે માહે રમઝાનકે રોઝે પૂરે કરકે શવ્વાલ કે પહલે ચાંદકો મુસલમાન ખુશીકા દિન મનાતે હૈં ઔર તમામ મહીને કી મઝદૂરીકા બદલા ઉસ દિન અલ્લાહ તઆલા અપને બંદેકો અતા કરતા હૈ. ઈસ મુબારક દિન કો ઈદુલ ફિત્ર યા રમઝાન ઈદ કહતે હૈં.
+                    </div>
+                </div>
+            </article>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">૮. ઈદુલ ફિત્ર કિસે કહા જાતા હૈ ?</div>
-    <div class="dua-content">
-        <strong>જવાબ:</strong> ઈદુલ ફિત્ર ઉસ દિન કો કહા જાતા હૈ કે માહે રમઝાનકે રોઝે પૂરે કરકે શવ્વાલ કે પહલે ચાંદકો મુસલમાન ખુશીકા દિન મનાતે હૈં ઔર તમામ મહીને કી મઝદૂરીકા બદલા ઉસ દિન અલ્લાહ તઆલા અપને બંદેકો અતા કરતા હૈ. ઈસ મુબારક દિન કો ઈદુલ ફિત્ર યા રમઝાન ઈદ કહતે હૈં.
-    </div>
-</div>
+            <!-- Card 9 -->
+            <article class="qa-card" data-category="ઈદ">
+                <div class="qa-header">
+                    <div class="qa-icon"><i class="fa-solid fa-kaaba"></i></div>
+                    <div class="qa-title-wrapper">
+                        <span class="qa-category-tag">ઈદ / ત્યોહાર</span>
+                        <h3 class="qa-title">૯. ઈદુલ અદહા કિસે કહતે હૈ ?</h3>
+                    </div>
+                    <div class="qa-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                </div>
+                <div class="qa-body">
+                    <div class="answer-header">
+                        <i class="fa-solid fa-pen-clip"></i> જવાબ:
+                    </div>
+                    <div class="answer-content">
+                        ઈદુલ અદહા ૧૦ ઝિલ હજ્જ કે દિન કો કહા જાતા હૈ, ઈસ મહીનેમેં હાજીયોંકી હજ્જ ભી હોતી હૈ ઔર ઈસી દિન કો બકરી ઈદકે નામ સે ભી જાના જાતા હૈ, ક્યૂંકે ઈસ દિન હઝરત ઈબ્રાહીમ ખલિલુલ્લાહ (અલૈ.) ને અપને ફરઝંદકી કુરબાની અલ્લાહ કી બારગાહમેં પેશ કી. ખુદા તઆલાકી બારગાહમેં યે અદા મકબૂલ હૂઈ ઔર ફરઝંદકી જગહ જન્નતી (દુંબા) લાકર રખ દિયા. ઈસ દિન ઈદે કુર્બાં કહા જાતા હૈ, ઔર યે સુન્નત ઉમ્મતે મુહમ્મદી (સલ્લ.) કે સાહિબે માલ પર ફર્ઝ કી ગઈ, તારીખ ૧૦ ઝિલહજ્જ કે સુબહ સે લેકર બારહ ઝિલ હજ્જ કી અસર તક યહ અમલ કિયા જા સકતા હૈ, ઈન દિનોં બારગાહે ઈલાહીમેં ઈસ અમલ સે ઝયાદહ ઔર કોઈ અમલ મકબૂલ નહીં ઈસ દિન કો બકરી ઈદ યા ઈદુઝુહા કહા જાતા હૈ.
+                    </div>
+                </div>
+            </article>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">૯. ઈદુલ અદહા કિસે કહતે હૈ ?</div>
-    <div class="dua-content">
-        <strong>જવાબ:</strong> ઈદુલ અદહા ૧૦ ઝિલ હજ્જ કે દિન કો કહા જાતા હૈ, ઈસ મહીનેમેં હાજીયોંકી હજ્જ ભી હોતી હૈ ઔર ઈસી દિન કો બકરી ઈદકે નામ સે ભી જાના જાતા હૈ, ક્યૂંકે ઈસ દિન હઝરત ઈબ્રાહીમ ખલિલુલ્લાહ (અલૈ.) ને અપને ફરઝંદકી કુરબાની અલ્લાહ કી બારગાહમેં પેશ કી. ખુદા તઆલાકી બારગાહમેં યે અદા મકબૂલ હૂઈ ઔર ફરઝંદકી જગહ જન્નતી (દુંબા) લાકર રખ દિયા. ઈસ દિન ઈદે કુર્બાં કહા જાતા હૈ, ઔર યે સુન્નત ઉમ્મતે મુહમ્મદી (સલ્લ.) કે સાહિબે માલ પર ફર્ઝ કી ગઈ, તારીખ ૧૦ ઝિલહજ્જ કે સુબહ સે લેકર બારહ ઝિલ હજ્જ કી અસર તક યહ અમલ કિયા જા સકતા હૈ, ઈન દિનોં બારગાહે ઈલાહીમેં ઈસ અમલ સે ઝયાદહ ઔર કોઈ અમલ મકબૂલ નહીં ઈસ દિન કો બકરી ઈદ યા ઈદુઝુહા કહા જાતા હૈ.
-    </div>
-</div>
+        </div>
+
+        <div id="noResults" class="no-results">
+            <i class="fa-solid fa-folder-open" style="font-size: 2rem; margin-bottom: 1rem; color: #cbd5e1;"></i><br>
+            કોઈ સવાલ નહીં મિલા. બરાએ મહેરબાની દૂસરા લફ્ઝ લિખ કર તલાશ કરેં.
+        </div>
+    </main>
+
+    <!-- JavaScript for UI Interactions -->
     <script>
-        // Dropdown Menu Logic
         document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menuToggleBtn');
-            const menuContainer = document.getElementById('menuItemsContainer');
-            if(toggleBtn && menuContainer) {
-                toggleBtn.addEventListener('click', () => {
-                    menuContainer.classList.toggle('show');
+            const searchInput = document.getElementById('searchInput');
+            const catButtons = document.querySelectorAll('.cat-btn');
+            const qaCards = document.querySelectorAll('.qa-card');
+            const noResults = document.getElementById('noResults');
+
+            // 1. Accordion Toggle Logic
+            qaCards.forEach(card => {
+                const header = card.querySelector('.qa-header');
+                header.addEventListener('click', () => {
+                    const isOpen = card.classList.contains('open');
+                    
+                    // Close all other cards
+                    qaCards.forEach(c => c.classList.remove('open'));
+                    
+                    if (!isOpen) {
+                        card.classList.add('open');
+                    }
                 });
-            }
+            });
+
+            // 2. Search Logic
+            const performSearch = () => {
+                const query = searchInput.value.toLowerCase().trim();
+                const activeCategory = document.querySelector('.cat-btn.active').getAttribute('data-filter');
+                let visibleCount = 0;
+
+                qaCards.forEach(card => {
+                    const question = card.querySelector('.qa-title').innerText.toLowerCase();
+                    const answer = card.querySelector('.answer-content').innerText.toLowerCase();
+                    const category = card.getAttribute('data-category');
+                    
+                    const matchesSearch = question.includes(query) || answer.includes(query);
+                    const matchesCategory = activeCategory === 'all' || category === activeCategory;
+
+                    if (matchesSearch && matchesCategory) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('open'); // Close hidden cards
+                    }
+                });
+
+                noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+            };
+
+            searchInput.addEventListener('input', performSearch);
+
+            // 3. Category Filtering
+            catButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active state
+                    catButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Trigger search/filter update
+                    performSearch();
+                });
+            });
         });
     </script>
 </body>
