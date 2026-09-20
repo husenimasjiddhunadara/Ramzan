@@ -2,115 +2,397 @@
 <html lang="gu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>લાઇવ તસ્બીહ કાઉન્ટર | Live Tasbih Counter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4a84b;
+            --gold-light: #f5d98a;
+            --gold-dark: #b8922e;
+            --green-deep: #0a3d22;
+            --green-mid: #145a34;
+            --green-light: #1a7a48;
+            --bg-dark: #061a0e;
+            --white: #ffffff;
+            --white-10: rgba(255,255,255,0.10);
+            --white-05: rgba(255,255,255,0.05);
+            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.5);
+            --shadow-glow: 0 0 40px rgba(212,168,75,0.15);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4fdf4;
+            font-family: 'Outfit', 'Anek Gujarati', 'Segoe UI', sans-serif;
+            background-color: var(--bg-dark);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 L60 40 L90 50 L60 60 L50 90 L40 60 L10 50 L40 40 Z" fill="%23e0f2e0" opacity="0.5"/></svg>');
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
         }
+
+        /* ───── Animated Background Pattern ───── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(26,122,72,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(212,168,75,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(20,90,52,0.12) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        /* Geometric pattern overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 8L48 32L72 40L48 48L40 72L32 48L8 40L32 32Z' fill='%23d4a84b' /%3E%3C/svg%3E");
+            background-size: 80px 80px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ───── Main Container ───── */
         .counter-container {
-            background: linear-gradient(135deg, #0f5132, #198754);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            width: 340px;
+            max-width: 92vw;
+            background: linear-gradient(165deg, var(--green-deep) 0%, var(--green-mid) 50%, var(--green-light) 100%);
+            border-radius: 28px;
+            padding: 36px 32px 28px;
             text-align: center;
-            color: white;
-            width: 300px;
-            border: 4px solid #d4af37;
+            color: var(--white);
+            border: 1.5px solid rgba(212,168,75,0.35);
+            box-shadow: 
+                var(--shadow-heavy),
+                var(--shadow-glow),
+                inset 0 1px 0 rgba(255,255,255,0.08);
         }
+
+        /* Subtle inner glass highlight */
+        .counter-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            border-radius: 28px 28px 0 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* ───── Top Decorative Line ───── */
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .ornament-line {
+            height: 1px;
+            width: 50px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .ornament-diamond {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        /* ───── Title ───── */
         .title {
-            font-size: 26px;
-            margin-bottom: 25px;
-            font-weight: bold;
-            color: #ffd700;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-family: 'Anek Gujarati', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 28px;
+            letter-spacing: 0.5px;
+            position: relative;
         }
+
+        /* ───── Counter Display ───── */
+        .display-wrapper {
+            position: relative;
+            margin-bottom: 36px;
+        }
+
         .display {
-            background-color: #ffffff;
-            color: #0f5132;
+            font-family: 'Outfit', sans-serif;
+            background: var(--white);
+            color: var(--green-deep);
             font-size: 72px;
-            font-weight: bold;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);
-            border: 2px solid #a3cfbb;
-            user-select: none; 
+            font-weight: 800;
+            padding: 18px 20px;
+            border-radius: 18px;
+            box-shadow: 
+                inset 0 4px 12px rgba(0,0,0,0.08),
+                0 4px 16px rgba(0,0,0,0.2);
+            border: 2px solid rgba(212,168,75,0.3);
+            user-select: none;
+            -webkit-user-select: none;
+            line-height: 1.1;
+            position: relative;
+            transition: transform 0.1s ease;
         }
+
+        .display.pop {
+            transform: scale(1.03);
+        }
+
+        /* Subtle corner accents */
+        .display::before,
+        .display::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-color: var(--gold);
+            border-style: solid;
+        }
+
+        .display::before {
+            top: 8px;
+            left: 8px;
+            border-width: 2px 0 0 2px;
+            border-radius: 4px 0 0 0;
+        }
+
+        .display::after {
+            bottom: 8px;
+            right: 8px;
+            border-width: 0 2px 2px 0;
+            border-radius: 0 0 4px 0;
+        }
+
+        /* ───── Buttons Area ───── */
+        .controls-wrapper {
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
         .btn {
             border: none;
             border-radius: 50%;
             cursor: pointer;
             outline: none;
-            transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
             user-select: none;
-        }
-        .btn:active {
-            transform: scale(0.92);
-            box-shadow: inset 0 3px 5px rgba(0,0,0,0.3);
-        }
-        .count-btn {
-            background-color: #d4af37; /* સોનેરી કલર */
-            color: #0f5132;
-            width: 130px;
-            height: 130px;
-            font-size: 24px;
-            font-weight: bold;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-        }
-        .count-btn:hover {
-            background-color: #f1c40f;
-        }
-        .controls-wrapper {
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.2s ease;
             position: relative;
         }
-        .reset-btn {
-            background-color: #dc3545;
-            color: white;
-            width: 50px;
-            height: 50px;
-            font-size: 14px;
-            position: absolute;
-            right: 10px;
-            bottom: 0px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            font-weight: bold;
+
+        .btn:active {
+            transform: scale(0.92) !important;
         }
+
+        /* ───── Main Count Button ───── */
+        .count-btn {
+            width: 130px;
+            height: 130px;
+            background: linear-gradient(145deg, var(--gold-light), var(--gold), var(--gold-dark));
+            color: var(--green-deep);
+            font-family: 'Anek Gujarati', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 
+                0 8px 28px rgba(0,0,0,0.35),
+                0 0 0 4px rgba(212,168,75,0.15),
+                inset 0 2px 0 rgba(255,255,255,0.3);
+        }
+
+        .count-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 
+                0 12px 36px rgba(0,0,0,0.4),
+                0 0 0 4px rgba(212,168,75,0.25),
+                inset 0 2px 0 rgba(255,255,255,0.3);
+        }
+
+        .count-btn:active {
+            box-shadow: 
+                0 4px 12px rgba(0,0,0,0.3),
+                inset 0 3px 8px rgba(0,0,0,0.2) !important;
+        }
+
+        .count-btn .label-gu {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .count-btn .label-en {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+
+        /* Pulse ring on tap */
+        .count-btn::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            opacity: 0;
+            transition: none;
+        }
+
+        .count-btn.pulse::after {
+            animation: pulseRing 0.4s ease-out;
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.18); opacity: 0; }
+        }
+
+        /* ───── Reset Button ───── */
+        .reset-btn {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(145deg, #e04858, #c0313f);
+            color: var(--white);
+            font-family: 'Anek Gujarati', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            position: absolute;
+            right: 8px;
+            bottom: 0;
+            box-shadow: 
+                0 4px 14px rgba(192,49,63,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+            letter-spacing: 0.3px;
+        }
+
         .reset-btn:hover {
-            background-color: #c82333;
+            transform: scale(1.08);
+            background: linear-gradient(145deg, #e8525f, #d43a4a);
+        }
+
+        .reset-btn:active {
+            box-shadow: inset 0 3px 6px rgba(0,0,0,0.3) !important;
+        }
+
+        /* ───── Bottom Ornament ───── */
+        .bottom-ornament {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* ───── Developer Credit ───── */
+        .credit {
+            margin-top: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ───── Ripple Effect ───── */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            transform: scale(0);
+            animation: rippleAnim 0.5s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes rippleAnim {
+            to { transform: scale(3); opacity: 0; }
+        }
+
+        /* ───── Responsive ───── */
+        @media (max-height: 600px) {
+            .counter-container {
+                padding: 24px 24px 20px;
+            }
+            .display {
+                font-size: 56px;
+                padding: 14px 16px;
+            }
+            .count-btn {
+                width: 110px;
+                height: 110px;
+            }
+            .display-wrapper {
+                margin-bottom: 24px;
+            }
         }
     </style>
-     <!-- Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="counter-container">
+    <!-- Top Ornament -->
+    <div class="ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-diamond"></span>
+        <span class="ornament-line"></span>
+    </div>
+
     <div class="title">તસ્બીહ કાઉન્ટર</div>
-    <div class="display" id="counterDisplay">0</div>
-    
+
+    <div class="display-wrapper">
+        <div class="display" id="counterDisplay">0</div>
+    </div>
+
     <div class="controls-wrapper">
-        <button class="btn count-btn" id="countBtn" onclick="increment()">ગણો<br>(Count)</button>
+        <button class="btn count-btn" id="countBtn" onclick="increment()">
+            <span class="label-gu">ગણો</span>
+            <span class="label-en">(Count)</span>
+        </button>
         <button class="btn reset-btn" id="resetBtn" onclick="resetCounter()" title="Reset Counter">રિસેટ</button>
     </div>
+
+    <!-- Bottom Ornament -->
+    <div class="bottom-ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-diamond"></span>
+        <span class="ornament-line"></span>
+    </div>
+
+    <div class="credit">Developed by — Pathan Mahirkhan</div>
 </div>
 
 <script>
     let count = 0;
     const displayElement = document.getElementById('counterDisplay');
+    const countBtn = document.getElementById('countBtn');
 
-    // પેજ લોડ થાય ત્યારે સેવ થયેલો ડેટા પાછો લાવવા માટે 
+    // પેજ લોડ થાય ત્યારે સેવ થયેલો ડેટા પાછો લાવવા માટે
     window.onload = function() {
         let savedCount = localStorage.getItem('tasbihCount');
         if (savedCount !== null) {
@@ -123,8 +405,17 @@
     function increment() {
         count++;
         updateDisplayAndSave();
-        
-        // જો મોબાઇલમાં સપોર્ટ કરતું હોય તો ગણતી વખતે નાનું વાઇબ્રેશન આપવા (Optional)
+
+        // Display pop animation
+        displayElement.classList.add('pop');
+        setTimeout(function() { displayElement.classList.remove('pop'); }, 120);
+
+        // Button pulse ring
+        countBtn.classList.remove('pulse');
+        void countBtn.offsetWidth; // reflow trick
+        countBtn.classList.add('pulse');
+
+        // જો મોબાઇલમાં સપોર્ટ કરતું હોય તો ગણતી વખતે નાનું વાઇબ્રેશન આપવા
         if (navigator.vibrate) {
             navigator.vibrate(40);
         }
@@ -132,33 +423,18 @@
 
     // કાઉન્ટર રિસેટ કરવા માટેનું ફંક્શન
     function resetCounter() {
-        // ભૂલથી દબાઈ જાય તો ડેટા ઉડી ન જાય તે માટે કન્ફર્મેશન 
-        if(confirm('શું તમે ખરેખર કાઉન્ટર ઝીરો (0) કરવા માંગો છો?')) {
+        if (confirm('શું તમે ખરેખર કાઉન્ટર ઝીરો (0) કરવા માંગો છો?')) {
             count = 0;
             updateDisplayAndSave();
         }
     }
 
-    // નંબર અપડેટ કરવા અને લોકલ સ્ટોરેજમાં સેવ કરવા 
+    // નંબર અપડેટ કરવા અને લોકલ સ્ટોરેજમાં સેવ કરવા
     function updateDisplayAndSave() {
         displayElement.innerText = count;
         localStorage.setItem('tasbihCount', count);
     }
 </script>
 
-</body>
-</html></div>
-    <script>
-        // Dropdown Menu Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menuToggleBtn');
-            const menuContainer = document.getElementById('menuItemsContainer');
-            if(toggleBtn && menuContainer) {
-                toggleBtn.addEventListener('click', () => {
-                    menuContainer.classList.toggle('show');
-                });
-            }
-        });
-    </script>
 </body>
 </html>
