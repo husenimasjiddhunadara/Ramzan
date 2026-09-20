@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="gu">
 <head>
     <meta charset="UTF-8">
@@ -9,90 +9,310 @@
     <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Modern Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Main Design File -->
-    <link rel="stylesheet" href="style.css?v=2">
+    
+    <!-- Next Level UI/UX Styles -->
+    <style>
+        :root {
+            --primary: #045c4a; /* Deep Emerald Green */
+            --primary-light: #e6f4f1;
+            --accent: #d4af37; /* Premium Gold */
+            --bg-main: #f4f9f7;
+            --card-bg: #ffffff;
+            --text-dark: #1f2937;
+            --text-muted: #4b5563;
+        }
+
+        body {
+            font-family: 'Anek Gujarati', 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #f4f9f7 0%, #e5eff1 100%);
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* Page Header Style */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .page-title {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin: 0;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            width: 60%;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Card Design */
+        .dua-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dua-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+            border-left-color: var(--accent);
+        }
+
+        /* Card Header & Icon */
+        .dua-header-wrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+            border-bottom: 2px dashed #f3f4f6;
+            padding-bottom: 15px;
+        }
+
+        .dua-icon {
+            background: var(--primary-light);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 18px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .dua-card:hover .dua-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        .dua-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        /* Content Typography */
+        .dua-content {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-align: justify;
+        }
+
+        .dua-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .dua-content ul li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+        }
+
+        .dua-content ul li::before {
+            content: '\f058'; /* Check-circle icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        strong {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* Special Notice Box */
+        .note-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #92400e;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .dua-card {
+                padding: 20px;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+            .dua-header {
+                font-size: 1.3rem;
+            }
+            .dua-content {
+                font-size: 1.05rem;
+            }
+            .dua-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
-<body style="background: var(--bg-main);">
-      <div style="max-width: 850px; margin: 40px auto; padding: 0 20px;">
+<body>
+
+    <div class="container">
         
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: var(--primary-dark); font-weight: 800; font-size: 2rem;">તરીકએ વુઝૂ</h1>
+        <!-- Header -->
+        <div class="page-header">
+            <h1 class="page-title">તરીકએ વુઝૂ</h1>
         </div>
         
+        <!-- Card 1: Niyyat -->
+        <div class="dua-card">
+            <div class="dua-header-wrapper">
+                <div class="dua-icon"><i class="fa-solid fa-hand-holding-droplet"></i></div>
+                <h2 class="dua-header">વુઝૂકી નિય્યત</h2>
+            </div>
+            <div class="dua-content">
+                નવયતુ અન અ-તવદ્દઅ લિરફઇલ- હદષિ અઉઝૂ બિલ્લાહિ મિનશ્શૈતાનિર્રજીમ, બિસ્મિલ્લાહિ ર્રહમાનિર્રહીમ, બિસ્મિલ્લાહિલ્ અઝીમી વલ્હમ્દુ લિલ્લાહિ અલા દીનિલ ઈસ્લામ.
+            </div>
+        </div>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">વુઝૂકી નિય્યત</div>
-    <div class="dua-content">નવયતુ અન અ-તવદ્દઅ લિરફઇલ- હદષિ અઉઝૂ બિલ્લાહિ મિનશ્શૈતાનિર્રજીમ, બિસ્મિલ્લાહિ ર્રહમાનિર્રહીમ, બિસ્મિલ્લાહિલ્ અઝીમી વલ્હમ્દુ લિલ્લાહિ અલા દીનિલ ઈસ્લામ.</div>
-</div>
+        <!-- Card 2: Faraiz -->
+        <div class="dua-card">
+            <div class="dua-header-wrapper">
+                <div class="dua-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                <h2 class="dua-header">વુઝૂમેં ચાર ફર્ઝ હૈં</h2>
+            </div>
+            <div class="dua-content">
+                <ul>
+                    <li><strong>(૧) મુંહ ધોના :</strong> પેશાનીકે બાલસે લેકર થોળી કે નીચે તક, એક કાનકી લવ સે દૂસરે કાનકી લવ તક.</li>
+                    <li><strong>(૨)</strong> દોનોં હાથોંકો કોહનિયોં સમેત ધોના.</li>
+                    <li><strong>(૩)</strong> સરકે ચૌથે હિસ્સેકા મસહ કરના.</li>
+                    <li><strong>(૪)</strong> દોનોં પૈરો કો ટખ્નોં તક ધોના.</li>
+                </ul>
+                
+                <div class="note-box">
+                    <i class="fa-solid fa-circle-info"></i>
+                    નોટ : ફર્ઝમેં એક બાલ બરાબર ભી જગહ સુખી રહેગી તો વુઝૂ નહીં હોગા.
+                </div>
+            </div>
+        </div>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">વુઝૂમેં ચાર ફર્ઝ હૈં</div>
-    <div class="dua-content">
-        <ul>
-            <li><strong>(૧) મુંહ ધોના :</strong> પેશાનીકે બાલસે લેકર થોળી કે નીચે તક, એક કાનકી લવ સે દૂસરે કાનકી લવ તક.</li>
-            <li><strong>(૨)</strong> દોનોં હાથોંકો કોહનિયોં સમેત ધોના.</li>
-            <li><strong>(૩)</strong> સરકે ચૌથે હિસ્સેકા મસહ કરના.</li>
-            <li><strong>(૪)</strong> દોનોં પૈરો કો ટખ્નોં તક ધોના.</li>
-        </ul>
+        <!-- Card 3: Sunnat -->
+        <div class="dua-card">
+            <div class="dua-header-wrapper">
+                <div class="dua-icon"><i class="fa-solid fa-star-and-crescent"></i></div>
+                <h2 class="dua-header">વુઝૂકી સુન્નતેં</h2>
+            </div>
+            <div class="dua-content">
+                <ul>
+                    <li>(૧) નિય્યત કરના.</li>
+                    <li>(૨) દોનોં હાથોંકો તીન બાર કલાઈયોં તક ધોના.</li>
+                    <li>(૩) મિસ્વાક કરના.</li>
+                    <li>(૪) તીન બાર કુલ્લી કરના.</li>
+                    <li>(૫) તીન બાર નાકમેં પાની ડાલ કર સાફ કરના.</li>
+                    <li>(૬) દાઢીકા ખિલાલ કરના.</li>
+                    <li>(૭) હાથ પેરકી ઊંગલીયોંકા ખિલાલ કરના.</li>
+                    <li>(૮) પૂરે સરકા મસહ કરના.</li>
+                    <li>(૯) કાનકા મસહ કરના.</li>
+                    <li>(૧૦) સભી અઅઝાકો તીન બાર ધોના.</li>
+                    <li>(૧૧) તરતીબસે વુઝૂ કરના.</li>
+                    <li>(૧૨) હર ઉઝવકો ફવરન ધોના, એક ઉઝવ સુખને સે પહલે દૂસરા ઉઝવ ધોના.</li>
+                    <li>(૧૩) સભી મકરૂહ ઔર ગલત તરીકો સે બચના.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 4: Tariqa -->
+        <div class="dua-card">
+            <div class="dua-header-wrapper">
+                <div class="dua-icon"><i class="fa-solid fa-faucet-drip"></i></div>
+                <h2 class="dua-header">વુઝૂ કા તરીકા</h2>
+            </div>
+            <div class="dua-content">
+                પહલે બિસ્મિલ્લાહિર્રહમાનિર્રહીમ પઢે ઔર ફિર દોનોં હાથોંકો ગટ્ટોં તક તીન બાર ધોએ. ફિર મિસ્વાક કરેં. ફિર દાહને (સીધે) હાથસે તીન બાર કુલ્લી કરેં, ફિર દાહને હાથસે તીન બાર નાકમેં પાની ચઢાએ ઔર બાએ (ઉલ્ટે) હાથસે નાક સાફ કરેં. ફિર પૂરા ચેહરા યાની પેશાની પર બાલ ઉગને કી જગહસે થોળી કે નીચે તક ઔર એક કાનકી લવ સે દૂસરે કાનકી લવ તક હર હિસ્સે પર તીન બાર પાની બહાએ. ફિર દોનોં હાથ કોહનિયોં સમેત તીન બાર ધોએ. ઉગલિયોંકી તરફસે કોહનિયોંકે ઉપર તક પાની ડાલેં, કોહનિયોંકી તરફસે ન ડાલેં. ફિર એક બાર દોનોં હાથોંસે પૂરે સરકા મસહ કરેં. ફિર કાનોં કા ઔર ગરદનકા મસહ કરેં. ફિર દોનોં પાંવ ટખ્નોં સમેત તીન બાર ધુએ.
+            </div>
+        </div>
+
+        <!-- Card 5: Dua -->
+        <div class="dua-card">
+            <div class="dua-header-wrapper">
+                <div class="dua-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+                <h2 class="dua-header">વુઝૂકે બાદકી દુઆ</h2>
+            </div>
+            <div class="dua-content" style="text-align: center; line-height: 2.2;">
+                અલ્લાહુમ્મજઅલ્ની મિનત્તવ્વાબીન વજઅલ્ની મિનલ મુતતહિહરીન<br>
+                અશ્હદુ અલ્લા ઈલાહ ઈલ્લલ્લાહુ વઅશ્હદુ અન્ન મુહંમદન અબ્દુહૂ વ રસૂલૂહ.
+            </div>
+        </div>
+
+        <!-- Card 6: Nullifiers -->
+        <div class="dua-card">
+            <div class="dua-header-wrapper">
+                <div class="dua-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <h2 class="dua-header">વુઝૂ તોડનેવાલી ચીઝેં</h2>
+            </div>
+            <div class="dua-content">
+                <ul>
+                    <li>(૧) પેશાબ - પાખાના કરના યા ઉસ રાસ્તેસે દૂસરીકોઈ ચીઝ નિકલના.</li>
+                    <li>(૨) પાખાનેકી જગહસે હવા ખારિજ હોના.</li>
+                    <li>(૩) ખુન યા પિપ નિકલ કર ઉસ જગહ પર બેહના જો જગહ વુઝૂ યા ગુસ્લમેં ધોના ફર્ઝ હૈ.</li>
+                    <li>(૪) અનાજ યા પાની કી મુંહ ભરકે કય (ઉલ્ટી) હોના.</li>
+                    <li>(૫) ઈસ તરહ સોના કે શરીરકા જોડ ઢીલા પડ જાયે યા ટેક લગા કે સો જાના.</li>
+                    <li>(૬) બેહોશ હો જાના.</li>
+                    <li>(૭) મજનૂં બન જાના યાને કે પાગલ હો જના.</li>
+                    <li>(૮) રૂકૂઅ ઔર સજદેવાલી નમાઝમેં ઝોરસે હસના.</li>
+                    <li>(૯) દુઃખતી આંખમેં સે દર્દ સાથ પાની નિકલના.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 40px; padding: 20px 0; border-top: 2px dashed var(--primary-light); color: var(--text-muted); font-size: 1.05rem; font-weight: 500;">
+            DEVELOPED BY - <span style="color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">Pathan Mahirkhan</span>
+        </div>
+
     </div>
-    <div class="dua-content">નોટ : ફર્ઝમેં એક બાલ બરાબર ભી જગહ સુખી રહેગી તો વુઝૂ નહીં હોગા.</div>
-</div>
 
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">વુઝૂકી સુન્નતેં</div>
-    <div class="dua-content">
-        <ul>
-            <li>(૧) નિય્યત કરના.</li>
-            <li>(૨) દોનોં હાથોંકો તીન બાર કલાઈયોં તક ધોના.</li>
-            <li>(૩) મિસ્વાક કરના.</li>
-            <li>(૪) તીન બાર કુલ્લી કરના.</li>
-            <li>(૫) તીન બાર નાકમેં પાની ડાલ કર સાફ કરના.</li>
-            <li>(૬) દાઢીકા ખિલાલ કરના.</li>
-            <li>(૭) હાથ પેરકી ઊંગલીયોંકા ખિલાલ કરના.</li>
-            <li>(૮) પૂરે સરકા મસહ કરના.</li>
-            <li>(૯) કાનકા મસહ કરના.</li>
-            <li>(૧૦) સભી અઅઝાકો તીન બાર ધોના.</li>
-            <li>(૧૧) તરતીબસે વુઝૂ કરના.</li>
-            <li>(૧૨) હર ઉઝવકો ફવરન ધોના, એક ઉઝવ સુખને સે પહલે દૂસરા ઉઝવ ધોના.</li>
-            <li>(૧૩) સભી મકરૂહ ઔર ગલત તરીકો સે બચના.</li>
-        </ul>
-    </div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">વુઝૂ કા તરીકા</div>
-    <div class="dua-content">પહલે બિસ્મિલ્લાહિર્રહમાનિર્રહીમ પઢે ઔર ફિર દોનોં હાથોંકો ગટ્ટોં તક તીન બાર ધોએ. ફિર મિસ્વાક કરેં. ફિર દાહને (સીધે) હાથસે તીન બાર કુલ્લી કરેં, ફિર દાહને હાથસે તીન બાર નાકમેં પાની ચઢાએ ઔર બાએ (ઉલ્ટે) હાથસે નાક સાફ કરેં. ફિર પૂરા ચેહરા યાની પેશાની પર બાલ ઉગને કી જગહસે થોળી કે નીચે તક ઔર એક કાનકી લવ સે દૂસરે કાનકી લવ તક હર હિસ્સે પર તીન બાર પાની બહાએ. ફિર દોનોં હાથ કોહનિયોં સમેત તીન બાર ધોએ. ઉગલિયોંકી તરફસે કોહનિયોંકે ઉપર તક પાની ડાલેં, કોહનિયોંકી તરફસે ન ડાલેં. ફિર એક બાર દોનોં હાથોંસે પૂરે સરકા મસહ કરેં. ફિર કાનોં કા ઔર ગરદનકા મસહ કરેં. ફિર દોનોં પાંવ ટખ્નોં સમેત તીન બાર ધુએ.</div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">વુઝૂકે બાદકી દુઆ</div>
-    <div class="dua-content">અલ્લાહુમ્મજઅલ્ની મિનત્તવ્વાબીન વજઅલ્ની મિનલ મુતતહિહરીન<br>અશ્હદુ અલ્લા ઈલાહ ઈલ્લલ્લાહુ વઅશ્હદુ અન્ન મુહંમદન અબ્દુહૂ વ રસૂલૂહ.</div>
-</div>
-
-<div class="dua-card">
-    <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-    <div class="dua-header">વુઝૂ તોડનેવાલી ચીઝેં</div>
-    <div class="dua-content">
-        <ul>
-            <li>(૧) પેશાબ - પાખાના કરના યા ઉસ રાસ્તેસે દૂસરીકોઈ ચીઝ નિકલના.</li>
-            <li>(૨) પાખાનેકી જગહસે હવા ખારિજ હોના.</li>
-            <li>(૩) ખુન યા પિપ નિકલ કર ઉસ જગહ પર બેહના જો જગહ વુઝૂ યા ગુસ્લમેં ધોના ફર્ઝ હૈ.</li>
-            <li>(૪) અનાજ યા પાની કી મુંહ ભરકે કય (ઉલ્ટી) હોના.</li>
-            <li>(૫) ઈસ તરહ સોના કે શરીરકા જોડ ઢીલા પડ જાયે યા ટેક લગા કે સો જાના.</li>
-            <li>(૬) બેહોશ હો જાના.</li>
-            <li>(૭) મજનૂં બન જાના યાને કે પાગલ હો જના.</li>
-            <li>(૮) રૂકૂઅ ઔર સજદેવાલી નમાઝમેં ઝોરસે હસના.</li>
-            <li>(૯) દુઃખતી આંખમેં સે દર્દ સાથ પાની નિકલના.</li>
-        </ul>
-    </div>
-</div>
+    <!-- Dropdown Menu Logic -->
     <script>
-        // Dropdown Menu Logic
         document.addEventListener('DOMContentLoaded', () => {
             const toggleBtn = document.getElementById('menuToggleBtn');
             const menuContainer = document.getElementById('menuItemsContainer');
