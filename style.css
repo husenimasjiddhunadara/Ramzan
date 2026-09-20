@@ -318,22 +318,25 @@ header {
 
 /* Developer Badge */
 .dev-badge {
-    font-size: 0.95rem;
+    font-size: 11px;
     color: var(--maroon-deep);
     font-weight: 800;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     margin-top: 28px;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 26px;
+    gap: 6px;
+    padding: 5px 14px;
     border-radius: var(--radius-pill);
     background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-pale) 100%);
     border: 2px solid rgba(255,255,255,0.7);
     animation: glowBadge 2.5s infinite;
     transition: var(--transition);
     cursor: default;
+   white-space: nowrap;      
+    width: fit-content;      
+    max-width: 95%;   
 }
 
 .dev-badge:hover {
