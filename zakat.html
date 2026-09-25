@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="gu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>રમઝાન મુબારક - 2027 | હુસેની મસ્જિદ, ઢુણાદરા</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ઝકાત કેલ્ક્યુલેટર | જદીદ ઔર પ્રોફેશનલ</title>
     
     <!-- Premium Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,148 +11,659 @@
     <!-- Modern Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Particles.js for Premium Interactive Background -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
-    <link rel="stylesheet" href="style.css?v=2">
-</head>
-<body>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- DROP-DOWN MENU STRIP -->
-    <div class="custom-dropdown-menu">
-        <button class="menu-toggle-btn" id="menuToggleBtn">
-            <i class="fa-solid fa-bars"></i> મેનુ (Menu)
-        </button>
-        <div class="menu-items-container" id="menuItemsContainer">
-            <a href="index.html" class="dropdown-link"><i class="fa-solid fa-clock"></i> રમઝાન ટાઈમ ટેબલ</a>
-            <a href="zakat.html" class="dropdown-link active"><i class="fa-solid fa-scale-balanced"></i> ઝકાત કેલ્ક્યુલેટર</a>
-            <a href="kalma.html" class="dropdown-link"><i class="fa-solid fa-book-open"></i> ૫ કલમા</a>
-        </div>
-    </div>
-
-
-
-
-
-
-        <div id="zakatPage" class="zakat-page" style="padding: 40px 20px;">
-        
-        <div class="zakat-page-header" style="background: transparent; color: var(--primary-dark); box-shadow: none; border: none; justify-content: center; margin-bottom: 20px; display: flex;">
-            <h2 style="font-size: 2rem; font-weight: 800; display: flex; align-items: center; gap: 12px; color: var(--primary-dark);"><i class="fa-solid fa-scale-balanced"></i> ઝકાત કેલ્ક્યુલેટર</h2>
-        </div>
-
-        <div class="zakat-inner-wrapper" style="max-width: 850px; margin: 0 auto;">
-            <p class="zakat-note" style="text-align: center; font-size: 1.2rem; color: #022b1f; margin-bottom: 30px; font-weight: 700; background: linear-gradient(135deg, #fef08a, #d4af37); padding: 20px 25px; border-radius: 15px; border: 2px solid #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"><i class="fa-solid fa-circle-info"></i> નોંધ: આ કેલ્ક્યુલેટર ફક્ત ગણતરી માટે છે. ઝકાત ફરજિયાત થવા માટે તમારી પાસે નિસાબ જેટલી સંપત્તિ હોવી જરૂરી છે.</p>
-            
-            <form id="zakat-form">
-                <!-- Assets -->
-                <div class="zk-card">
-                    <div class="zk-header green-bg"><span class="num">1</span> સંપત્તિ (Assets)</div>
-                    <div class="zk-body">
-                        <div class="zk-input-group"><label><i class="fa-solid fa-money-bill-wave"></i> રોકડ રકમ (Cash)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-coins"></i> સોનું (Gold)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-ring"></i> ચાંદી (Silver)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-building-columns"></i> બેંક બેલેન્સ (Bank)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-file-shield"></i> પોલીસી / FD</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-hand-holding-dollar"></i> આપેલ લોન</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-sack-dollar"></i> અન્ય સંપત્તિ</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                    </div>
-                </div>
-
-                <!-- Business Goods -->
-                <div class="zk-card">
-                    <div class="zk-header green-bg"><span class="num">2</span> વેપાર / ધંધાનો સામાન</div>
-                    <div class="zk-body">
-                        <div class="zk-input-group"><label><i class="fa-solid fa-box-open"></i> કાચો માલ (Raw)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-boxes-stacked"></i> તૈયાર માલ (Goods)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-shop"></i> પ્લોટ/મકાન (Trading)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-handshake"></i> ભાગીદારી (Partnership)</label><input type="number" class="zk-asset" placeholder="0" min="0"></div>
-                    </div>
-                </div>
-
-                <!-- Liabilities -->
-                <div class="zk-card">
-                    <div class="zk-header red-bg"><span class="num">3</span> બાદ: દેવું (Liabilities)</div>
-                    <div class="zk-body">
-                        <div class="zk-input-group"><label><i class="fa-solid fa-credit-card"></i> લોન (Loan)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-regular fa-calendar-check"></i> હપ્તા (Installments)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-users-rectangle"></i> ચિટ ફંડ / કમિટી</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-file-invoice-dollar"></i> લાઈટ/ગેસ બિલ</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-file-invoice"></i> વેપારીઓને દેવા</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-money-check-dollar"></i> પગાર (Salaries)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
-                        <div class="zk-input-group"><label><i class="fa-solid fa-clock-rotate-left"></i> બાકી ઝકાત (Old)</label><input type="number" class="zk-liab" placeholder="0" min="0"></div>
-                    </div>
-                </div>
-
-                <!-- Total -->
-                <div class="zk-total-container">
-                    <div class="zk-total-header"><i class="fa-solid fa-chart-pie"></i> ગણતરી (Total)</div>
-                    <div class="zk-summary-boxes">
-                        <div class="zk-sum-box"><p>કુલ સંપત્તિ</p><h3 id="display-total-assets">₹0</h3></div>
-                        <div class="zk-sum-box red-text"><p>બાદ: કુલ દેવું</p><h3 id="display-total-liab">- ₹0</h3></div>
-                    </div>
-                    <div class="zk-final-row"><span>ઝકાતપાત્ર રકમ:</span><span id="display-net-amount">₹0</span></div>
-                    <div class="zk-final-amount"><span>ચૂકવવાપાત્ર ઝકાત (2.5%):</span><span id="display-zakat-amount">₹0</span></div>
-                </div>
-            </form>
-        </div>
-    </div>
-    
-
-    <!-- Script Section -->
+    <!-- Custom CSS Configuration -->
     <script>
-
-        // Dropdown Menu Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menuToggleBtn');
-            const menuContainer = document.getElementById('menuItemsContainer');
-            if(toggleBtn && menuContainer) {
-                toggleBtn.addEventListener('click', () => {
-                    menuContainer.classList.toggle('show');
-                });
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f2fbf5',
+                            100: '#e1f6e8',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        gold: {
+                            400: '#facc15',
+                            500: '#eab308',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Anek Gujarati"', '"Outfit"', 'sans-serif'],
+                    }
+                }
             }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            overscroll-behavior-y: none; 
+            padding-bottom: 180px;
+            scroll-behavior: smooth;
+        }
+        @media (min-width: 768px) {
+            body { padding-bottom: 0; }
+        }
+
+        /* Smooth Reveal Animation on Load */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: revealUpAnim 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        
+        @keyframes revealUpAnim {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* High-Interactive Input Groups */
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 1.15rem;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy transition */
+            pointer-events: none;
+        }
+
+        .custom-input {
+            width: 100%;
+            padding: 1.1rem 1.1rem 1.1rem 3.5rem;
+            background-color: #ffffff;
+            border: 2px solid #f1f5f9;
+            border-radius: 1.2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .custom-input:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+        }
+
+        .custom-input:focus {
+            border-color: #15803d;
+            box-shadow: 0 0 0 5px rgba(21, 128, 61, 0.15), 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            outline: none;
+            transform: translateY(-2px);
+        }
+
+        /* Icon Animation on Focus & Value */
+        .custom-input:focus + .input-icon,
+        .custom-input:not(:placeholder-shown) + .input-icon {
+            color: #15803d;
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        /* Liability Inputs specifically Red */
+        .custom-input.liab-input:focus {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.15);
+        }
+        .custom-input.liab-input:focus + .input-icon,
+        .custom-input.liab-input:not(:placeholder-shown) + .input-icon {
+            color: #ef4444;
+        }
+
+        .custom-input::placeholder {
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        /* Number Update Flash Animation */
+        .value-flash {
+            animation: flashText 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes flashText {
+            0% { transform: scale(1); filter: brightness(1); }
+            30% { transform: scale(1.1); filter: brightness(1.5); text-shadow: 0 0 15px rgba(250, 204, 21, 0.8); }
+            100% { transform: scale(1); filter: brightness(1); }
+        }
+        
+        .glow-text-live {
+            animation: liveGlow 2s ease-in-out infinite alternate;
+        }
+        @keyframes liveGlow {
+            from { text-shadow: 0 0 10px rgba(250, 204, 21, 0.3); }
+            to { text-shadow: 0 0 20px rgba(250, 204, 21, 0.7); }
+        }
+
+        /* Sticky Bottom Calculation Bar */
+        .sticky-calc-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, rgba(22, 101, 52, 0.95), rgba(20, 83, 45, 0.98));
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            box-shadow: 0 -15px 40px rgba(20, 83, 45, 0.3);
+            z-index: 40;
+            transform: translateY(120%);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Spring effect */
+        }
+        .sticky-calc-bar.show {
+            transform: translateY(0);
+        }
+        @media (min-width: 768px) {
+            .sticky-calc-bar { display: none; }
+        }
+
+        /* Bottom Sheet Modal for Mobile */
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            background-color: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(6px);
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content {
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @media (min-width: 768px) {
+            .modal-content {
+                transform: scale(0.9);
+                opacity: 0;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .modal-overlay.active .modal-content {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .modal-overlay.active .modal-content-mobile {
+            transform: translateY(0);
+        }
+
+        /* Hide arrows on number inputs */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        input[type=number] { -moz-appearance: textfield; }
+        
+        /* Interactive Reset Button */
+        .btn-press:active { transform: scale(0.95); }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- Top App Bar -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-30 shadow-sm border-b border-slate-100 reveal-up">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-brand-100 to-brand-200 rounded-full flex items-center justify-center text-brand-700 text-xl shadow-inner border border-brand-50">
+                    <i class="fa-solid fa-moon"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black text-slate-800 leading-tight tracking-tight">ઝકાત કેલ્ક્યુલેટર</h1>
+                    <p class="text-xs sm:text-sm text-brand-600 font-bold">જદીદ ઔર શરઈ હિસાબ</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="resetCalculator()" class="btn-press w-10 h-10 sm:w-auto sm:px-4 sm:py-2 text-red-500 bg-red-50 hover:bg-red-100 rounded-full font-bold transition-all flex items-center justify-center gap-2" title="Reset All">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span class="hidden sm:inline">રિસેટ</span>
+                </button>
+                <button onclick="openModal()" class="btn-press w-10 h-10 sm:w-auto sm:px-5 sm:py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold transition-all shadow-md shadow-brand-500/30 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-question text-lg sm:text-base"></i>
+                    <span class="hidden sm:inline">રહનુમાઈ (Guide)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+        
+        <!-- Instruction Card -->
+        <div class="bg-gradient-to-r from-brand-50 to-emerald-50 border border-brand-200 rounded-3xl p-5 sm:p-6 mb-8 flex gap-4 items-center shadow-sm reveal-up delay-100 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-brand-600 text-2xl shrink-0 shadow-sm border border-brand-100">
+                <i class="fa-solid fa-circle-info animate-pulse"></i>
+            </div>
+            <div>
+                <h3 class="font-bold text-slate-800 text-base sm:text-lg">નોટ: યહ કેલ્ક્યુલેટર સિર્ફ હિસાબ કરને કે લિયે હૈ.</h3>
+                <p class="text-slate-600 text-sm sm:text-base mt-0.5 font-medium">ઝકાત ફર્ઝ હોને કે લિયે આપકે પાસ નિસાબ કે બરાબર માલ હોના ઝરૂરી હૈ.</p>
+            </div>
+        </div>
+
+        <form id="zakatForm">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 reveal-up delay-200">
+                
+                <!-- 1. Assets Section -->
+                <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-brand-200 transition-colors">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center font-black text-xl shadow-inner border border-white">1</div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">કુલ અસાસે (Assets)</h2>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">નકદ રકમ (Cash)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input zk-asset" placeholder=" ">
+                            <i class="fa-solid fa-money-bill-wave input-icon"></i>
+                        </div>
+                        
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">સોના (Gold)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input zk-asset" placeholder=" ">
+                            <i class="fa-solid fa-coins input-icon"></i>
+                        </div>
+
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">ચાંદી (Silver)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input zk-asset" placeholder=" ">
+                            <i class="fa-solid fa-ring input-icon"></i>
+                        </div>
+
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">બેંક બેલેન્સ (Bank)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input zk-asset" placeholder=" ">
+                            <i class="fa-solid fa-building-columns input-icon"></i>
+                        </div>
+
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">પોલિસી / ફિક્સડ ડિપોઝિટ (FD)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input zk-asset" placeholder=" ">
+                            <i class="fa-solid fa-file-shield input-icon"></i>
+                        </div>
+
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">દિયા ગયા કરઝ (Loan Given)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input zk-asset" placeholder=" ">
+                            <i class="fa-solid fa-hand-holding-dollar input-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Business Goods Section -->
+                <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-brand-200 transition-colors">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center font-black text-xl shadow-inner border border-white">2</div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">તિજારતી માલ (Business)</h2>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">કચ્ચા માલ (Raw Material)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input zk-asset" placeholder=" ">
+                            <i class="fa-solid fa-box-open input-icon"></i>
+                        </div>
+
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">તૈયાર માલ (Finished Goods)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input zk-asset" placeholder=" ">
+                            <i class="fa-solid fa-boxes-stacked input-icon"></i>
+                        </div>
+
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">તિજારતી પ્લોટ / મકાન (Trading)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input zk-asset" placeholder=" ">
+                            <i class="fa-solid fa-shop input-icon"></i>
+                        </div>
+
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">શિરાકતદારી (Partnership)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input zk-asset" placeholder=" ">
+                            <i class="fa-solid fa-handshake input-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 3. Liabilities Section -->
+            <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 mt-6 sm:mt-8 border-t-[6px] border-t-red-500 reveal-up delay-200 relative overflow-hidden hover:border-red-200 transition-colors">
+                <!-- Soft background pattern -->
+                <i class="fa-solid fa-file-invoice absolute -right-10 -top-10 text-[180px] text-red-50 opacity-50 rotate-12 pointer-events-none"></i>
+                
+                <div class="flex items-center gap-4 mb-8 relative z-10">
+                    <div class="w-12 h-12 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center font-black text-xl shadow-inner border border-white">3</div>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">વાજિબુલ અદા / દેવું (Liabilities)</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 gap-y-2 relative z-10">
+                    <div>
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">લિયા ગયા કરઝ (Loan Taken)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input liab-input zk-liab" placeholder=" ">
+                            <i class="fa-solid fa-credit-card input-icon"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">કિશ્તેં (Installments)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input liab-input zk-liab" placeholder=" ">
+                            <i class="fa-regular fa-calendar-check input-icon"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">કમિટી યા ચિટ ફંડ (Committee)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input liab-input zk-liab" placeholder=" ">
+                            <i class="fa-solid fa-users-rectangle input-icon"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">બિલ (બિજલી / ગેસ / દીગર)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input liab-input zk-liab" placeholder=" ">
+                            <i class="fa-solid fa-file-invoice-dollar input-icon"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">તાજિરોં કા બકાયા (Suppliers Dues)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input liab-input zk-liab" placeholder=" ">
+                            <i class="fa-solid fa-file-invoice input-icon"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm sm:text-base font-bold text-slate-600 mb-1.5 ml-2">મુલાઝિમોં કી તનખ્વાહ (Salaries)</label>
+                        <div class="input-group">
+                            <input type="number" class="custom-input liab-input zk-liab" placeholder=" ">
+                            <i class="fa-solid fa-money-check-dollar input-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Calculation Section -->
+            <div class="hidden md:block bg-gradient-to-br from-brand-800 to-brand-900 rounded-[2.5rem] p-8 lg:p-12 mt-12 shadow-2xl relative overflow-hidden text-white reveal-up delay-200 border border-brand-700">
+                <!-- Animated Background Icon -->
+                <i class="fa-solid fa-scale-balanced absolute -right-10 -bottom-10 text-[200px] text-brand-600 opacity-20 transform -rotate-12 transition-transform duration-1000 ease-in-out hover:scale-110"></i>
+                
+                <h2 class="text-3xl lg:text-4xl font-black mb-10 flex items-center gap-4 relative z-10 tracking-tight">
+                    <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-md border border-white/20">
+                        <i class="fa-solid fa-calculator text-gold-400"></i>
+                    </div>
+                    નતીજા (Final Calculation)
+                </h2>
+                
+                <div class="grid grid-cols-2 gap-8 mb-10 relative z-10">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 shadow-inner transition-transform hover:-translate-y-1">
+                        <p class="text-brand-100 font-semibold mb-2 text-lg">કુલ અસાસે (Total Assets)</p>
+                        <h3 id="deskTotalAssets" data-val="0" data-prefix="₹ " class="text-4xl font-black tracking-tight font-sans">₹ 0</h3>
+                    </div>
+                    <div class="bg-red-950/40 backdrop-blur-md border border-red-500/30 rounded-3xl p-6 shadow-inner transition-transform hover:-translate-y-1">
+                        <p class="text-red-200 font-semibold mb-2 text-lg">કુલ કરઝદાત (Liabilities)</p>
+                        <h3 id="deskTotalLiab" data-val="0" data-prefix="- ₹ " class="text-4xl font-black text-red-100 tracking-tight font-sans">- ₹ 0</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative z-10 text-slate-800 transform transition-all">
+                    <div class="flex justify-between items-center mb-6 border-b-2 border-slate-100 pb-6">
+                        <span class="text-xl font-bold text-slate-500">ઝકાત કે લાયક રકમ (Net Amount):</span>
+                        <span id="deskNetAmount" data-val="0" data-prefix="₹ " class="text-3xl font-black text-slate-800 tracking-tight font-sans">₹ 0</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <div>
+                            <span class="text-3xl font-black text-brand-700 tracking-tight">અદા કરને વાલી ઝકાત</span>
+                            <span class="bg-gradient-to-r from-gold-400 to-gold-500 text-slate-900 text-sm font-black px-4 py-1.5 rounded-full ml-4 inline-block shadow-sm">2.5%</span>
+                        </div>
+                        <span id="deskZakatAmount" data-val="0" data-prefix="₹ " class="text-6xl font-black text-brand-600 tracking-tight font-sans glow-text-live">₹ 0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Extra space on mobile for scroll -->
+            <div class="h-10 md:hidden"></div>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-slate-500 font-semibold md:mb-0 mb-6 text-sm sm:text-base">
+        Developed with <i class="fa-solid fa-heart text-red-500 mx-1"></i> by <span class="font-black text-brand-700 tracking-tight">Pathan Mahir</span>
+    </footer>
+
+    <!-- MOBILE STICKY BOTTOM CALCULATION BAR -->
+    <div id="mobileBottomBar" class="sticky-calc-bar px-6 py-5 md:hidden" onclick="document.getElementById('guideModal').classList.toggle('active')">
+        <div class="flex justify-between items-end mb-3">
+            <div>
+                <p class="text-brand-100/90 text-sm font-bold mb-1">નેટ રકમ: <span id="mobNetAmount" data-val="0" data-prefix="₹ " class="text-white">₹ 0</span></p>
+                <h3 class="text-white font-black text-xl tracking-tight">ચૂકવવાપાત્ર ઝકાત (2.5%)</h3>
+            </div>
+            <div class="text-right">
+                <h2 id="mobZakatAmount" data-val="0" data-prefix="₹ " class="text-4xl font-black text-gold-400 tracking-tight font-sans glow-text-live">₹ 0</h2>
+            </div>
+        </div>
+        <!-- Expand details toggle -->
+        <div class="border-t border-brand-500/50 pt-3 mt-1 flex justify-between text-sm text-brand-100 font-semibold">
+            <span>અસાસે: <span id="mobTotalAssets" data-val="0" data-prefix="₹ " class="font-black text-white">₹ 0</span></span>
+            <span class="text-red-300">દેવું: <span id="mobTotalLiab" data-val="0" data-prefix="₹ " class="font-black">₹ 0</span></span>
+        </div>
+        <!-- Little drag handle hint -->
+        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-10 h-1 bg-white/20 rounded-full"></div>
+    </div>
+
+    <!-- Instructions Guide Modal (Bottom Sheet on Mobile, Pop-Up on Desktop) -->
+    <div id="guideModal" class="modal-overlay fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4">
+        
+        <div class="modal-content modal-content-mobile w-full sm:max-w-2xl bg-white rounded-t-[2.5rem] sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            
+            <!-- Mobile Drag Handle -->
+            <div class="w-full flex justify-center py-4 sm:hidden bg-white cursor-pointer" onclick="closeModal()">
+                <div class="w-16 h-1.5 bg-slate-200 rounded-full"></div>
+            </div>
+
+            <!-- Modal Header -->
+            <div class="bg-white sm:bg-brand-50 border-b border-slate-100 p-6 sm:p-8 flex justify-between items-center shrink-0">
+                <h3 class="text-2xl sm:text-3xl font-black flex items-center gap-3 text-slate-800 tracking-tight">
+                    <div class="w-10 h-10 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    ઇસ્તેમાલ કા તરીકા
+                </h3>
+                <button onclick="closeModal()" class="w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center hover:bg-slate-200 hover:text-slate-800 transition-all btn-press">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6 sm:p-8 overflow-y-auto space-y-8 text-slate-700 text-base sm:text-lg">
+                <div class="bg-brand-50 border border-brand-200 rounded-2xl p-5 shadow-inner text-center">
+                    <p class="font-black text-xl sm:text-2xl text-brand-800 tracking-tight">અસ્સલામુ અલયકુમ! 👋</p>
+                    <p class="font-semibold text-base sm:text-lg text-brand-700 mt-2">ઇસ જદીદ ઔર પ્રોફેશનલ ઝકાત કેલ્ક્યુલેટર મેં આપકા ઇસ્તિકબાલ હૈ.</p>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="flex gap-5 items-start group">
+                        <div class="bg-white border-2 border-brand-100 text-brand-600 w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl shrink-0 mt-0.5 shadow-sm group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition-all">1</div>
+                        <div>
+                            <h4 class="font-black text-slate-800 text-lg mb-1">અસાસે (Assets) દર્જ કરેં</h4>
+                            <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">અપની તમામ મિલકિયત જૈસે કે નકદ રકમ, સોના, ચાંદી ઔર બેંક બેલેન્સ કી આજ કી માલિયત (Value) લિખેં.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-5 items-start group">
+                        <div class="bg-white border-2 border-brand-100 text-brand-600 w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl shrink-0 mt-0.5 shadow-sm group-hover:bg-brand-600 group-hover:text-white group-hover:border-brand-600 transition-all">2</div>
+                        <div>
+                            <h4 class="font-black text-slate-800 text-lg mb-1">તિજારતી માલ (Business)</h4>
+                            <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">અગર આપકા કોઈ કારોબાર હૈ, તો ઉસમેં મૌજૂદ કચ્ચા ઔર તૈયાર માલ કી રકમ દર્જ કરેં.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-5 items-start group">
+                        <div class="bg-white border-2 border-red-100 text-red-500 w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl shrink-0 mt-0.5 shadow-sm group-hover:bg-red-500 group-hover:text-white group-hover:border-red-500 transition-all">3</div>
+                        <div>
+                            <h4 class="font-black text-slate-800 text-lg mb-1">વાજિબુલ અદા / દેવું (Liabilities)</h4>
+                            <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">જો કરઝ યા ઉધાર આપકે ઝિમ્મે બાકી હૈ, ઉસે યહાં લિખેં. યહ રકમ કુલ અસાસે મેં સે બાદ (Minus) હોગી.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-5 items-start group">
+                        <div class="bg-gradient-to-br from-gold-400 to-gold-500 text-white w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl shrink-0 mt-0.5 shadow-md shadow-gold-500/40">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-black text-slate-800 text-lg mb-1">નતીજા ઔર ઝકાત (Result)</h4>
+                            <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">સિસ્ટમ ખુદ-બ-ખુદ હિસાબ કર કે <span class="font-bold text-slate-900 bg-gold-100 px-2 py-0.5 rounded-lg border border-gold-200">2.5%</span> કે મુતાબિક આપકી અદા કરને વાલી ઝકાત બતા દેગા.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="p-5 sm:p-6 border-t border-slate-100 bg-white shrink-0 pb-8 sm:pb-6">
+                <button onclick="closeModal()" class="w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-2xl font-black text-xl transition-all shadow-xl shadow-slate-900/20 btn-press">
+                    સમઝ ગયા / શુરૂ કરેં (Start)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const assetInputs = document.querySelectorAll('.zk-asset');
+        const liabInputs = document.querySelectorAll('.zk-liab');
+        const allInputs = document.querySelectorAll('.custom-input');
+        
+        // Output Elements Array [desktop_el, mobile_el]
+        const outputs = {
+            totalAssets: [document.getElementById('deskTotalAssets'), document.getElementById('mobTotalAssets')],
+            totalLiab: [document.getElementById('deskTotalLiab'), document.getElementById('mobTotalLiab')],
+            netAmount: [document.getElementById('deskNetAmount'), document.getElementById('mobNetAmount')],
+            zakatAmount: [document.getElementById('deskZakatAmount'), document.getElementById('mobZakatAmount')]
+        };
+        
+        const mobileBottomBar = document.getElementById('mobileBottomBar');
+        const guideModal = document.getElementById('guideModal');
+
+        // Modal Logic
+        function openModal() {
+            guideModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeModal() {
+            guideModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        window.addEventListener('load', () => setTimeout(openModal, 600));
+        guideModal.addEventListener('click', (e) => {
+            if (e.target === guideModal) closeModal();
         });
 
-        
+        // Advanced Number Animation Function (Live Count Effect)
+        function animateValue(elements, endVal) {
+            elements.forEach(obj => {
+                if(!obj) return;
+                const startVal = parseFloat(obj.dataset.val) || 0;
+                if (startVal === endVal) return;
+                
+                const prefix = obj.dataset.prefix || '';
+                const duration = 400; // ms
+                let startTimestamp = null;
+                
+                // Add flash effect class
+                obj.classList.remove('value-flash');
+                void obj.offsetWidth; // trigger reflow
+                obj.classList.add('value-flash');
 
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    
+                    // easeOutQuart
+                    const easeProgress = 1 - Math.pow(1 - progress, 4);
+                    const current = Math.floor(easeProgress * (endVal - startVal) + startVal);
+                    
+                    obj.innerText = prefix + current.toLocaleString('en-IN', {maximumFractionDigits: 0});
+                    
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        obj.innerText = prefix + endVal.toLocaleString('en-IN', {maximumFractionDigits: 2});
+                        obj.dataset.val = endVal;
+                    }
+                };
+                window.requestAnimationFrame(step);
+            });
+        }
+
+        // Core Calculation
         function calculateZakat() {
             let totalAssets = 0;
             let totalLiab = 0;
+            let hasInput = false;
 
-            const assetInputs = document.querySelectorAll('.zk-asset');
-            const liabInputs = document.querySelectorAll('.zk-liab');
-
+            // Calculate Sums
             assetInputs.forEach(input => {
                 let val = parseFloat(input.value);
-                if (!isNaN(val) && val > 0) totalAssets += val;
+                if (!isNaN(val) && val > 0) { totalAssets += val; hasInput = true; }
             });
-
             liabInputs.forEach(input => {
                 let val = parseFloat(input.value);
-                if (!isNaN(val) && val > 0) totalLiab += val;
+                if (!isNaN(val) && val > 0) { totalLiab += val; hasInput = true; }
             });
 
+            // Logic
             let netAmount = totalAssets - totalLiab;
             if (netAmount < 0) netAmount = 0;
-
             let zakatAmount = netAmount * 0.025;
-            let formatOpt = { minimumFractionDigits: 0, maximumFractionDigits: 2 };
-            
-            const elAssets = document.getElementById('display-total-assets');
-            const elLiab = document.getElementById('display-total-liab');
-            const elNet = document.getElementById('display-net-amount');
-            const elZakat = document.getElementById('display-zakat-amount');
 
-            if (elAssets) elAssets.innerText = '₹ ' + totalAssets.toLocaleString('en-IN', formatOpt);
-            if (elLiab) elLiab.innerText = '- ₹ ' + totalLiab.toLocaleString('en-IN', formatOpt);
-            if (elNet) elNet.innerText = '₹ ' + netAmount.toLocaleString('en-IN', formatOpt);
-            if (elZakat) elZakat.innerText = '₹ ' + zakatAmount.toLocaleString('en-IN', formatOpt);
+            // Animate to new values
+            animateValue(outputs.totalAssets, totalAssets);
+            animateValue(outputs.totalLiab, totalLiab);
+            animateValue(outputs.netAmount, netAmount);
+            animateValue(outputs.zakatAmount, zakatAmount);
+
+            // Manage Mobile Sticky Bar visibility
+            if (hasInput && window.innerWidth < 768) {
+                mobileBottomBar.classList.add('show');
+            } else if (!hasInput) {
+                mobileBottomBar.classList.remove('show');
+            }
         }
 
-        document.querySelectorAll('.zk-asset, .zk-liab').forEach(input => {
-            input.addEventListener('input', calculateZakat);
+        // Clear and Reset Function
+        function resetCalculator() {
+            allInputs.forEach(input => input.value = '');
+            calculateZakat();
+            // Scroll to top smoothly
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Window resize handler for Sticky bar
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) mobileBottomBar.classList.remove('show');
+            else calculateZakat();
         });
 
+        // Event Listeners for inputs
+        allInputs.forEach(input => {
+            input.addEventListener('input', calculateZakat);
+        });
     </script>
 </body>
 </html>
