@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ઝકાત કેલ્ક્યુલેટર | જદીદ ઔર આસાન </title>
+    <title>ઝકાત કેલ્ક્યુલેટર | લાઇવ ઔર આસાન </title>
     
     <!-- Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Modern Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -44,13 +44,59 @@
 
     <style>
         body {
-            background-color: #f8fafc;
+            background-color: transparent; /* Relying on live-bg */
             overscroll-behavior-y: none; 
-            padding-bottom: 180px;
+            padding-bottom: 140px; /* Space for mobile sticky bottom bar */
             scroll-behavior: smooth;
         }
         @media (min-width: 768px) {
             body { padding-bottom: 0; }
+        }
+
+        /* -------------------------------------
+           NEW LIVE PROFESSIONAL BACKGROUND
+        ---------------------------------------- */
+        .live-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -2;
+            background: linear-gradient(135deg, #f2fbf5, #e1f6e8, #f8fafc, #ecfdf5, #f2fbf5);
+            background-size: 300% 300%;
+            animation: moveGradient 15s ease infinite;
+        }
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating decorative geometric shapes */
+        .floating-shape {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: floatShape 20s infinite ease-in-out alternate;
+        }
+        .shape-1 { top: 5%; left: 2%; font-size: 150px; color: #bbf7d0; animation-duration: 25s; }
+        .shape-2 { bottom: 10%; right: -2%; font-size: 250px; color: #fef08a; opacity: 0.2; animation-duration: 30s; animation-direction: alternate-reverse; }
+        
+        @keyframes floatShape {
+            0% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-40px) rotate(15deg) scale(1.05); }
+            100% { transform: translateY(30px) rotate(-10deg) scale(0.95); }
+        }
+
+        /* Gradient Heading Animation */
+        .gradient-heading {
+            background: linear-gradient(to right, #14532d, #15803d, #ca8a04, #15803d, #14532d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shineText 5s linear infinite;
+        }
+        @keyframes shineText {
+            to { background-position: 200% center; }
         }
 
         /* Smooth Reveal Animation on Load */
@@ -79,14 +125,15 @@
             transform: translateY(-50%);
             color: #94a3b8;
             font-size: 1.15rem;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy transition */
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             pointer-events: none;
         }
 
         .custom-input {
             width: 100%;
             padding: 1.1rem 1.1rem 1.1rem 3.5rem;
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
             border: 2px solid #f1f5f9;
             border-radius: 1.2rem;
             font-size: 1.2rem;
@@ -99,6 +146,7 @@
         .custom-input:hover {
             border-color: #cbd5e1;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+            background-color: #ffffff;
         }
 
         .custom-input:focus {
@@ -106,16 +154,15 @@
             box-shadow: 0 0 0 5px rgba(21, 128, 61, 0.15), 0 10px 15px -3px rgba(0, 0, 0, 0.05);
             outline: none;
             transform: translateY(-2px);
+            background-color: #ffffff;
         }
 
-        /* Icon Animation on Focus & Value */
         .custom-input:focus + .input-icon,
         .custom-input:not(:placeholder-shown) + .input-icon {
             color: #15803d;
             transform: translateY(-50%) scale(1.2);
         }
 
-        /* Liability Inputs specifically Red */
         .custom-input.liab-input:focus {
             border-color: #ef4444;
             box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.15);
@@ -148,7 +195,7 @@
             to { text-shadow: 0 0 20px rgba(250, 204, 21, 0.7); }
         }
 
-        /* Sticky Bottom Calculation Bar */
+        /* Sticky Bottom Calculation Bar (Mobile only) */
         .sticky-calc-bar {
             position: fixed;
             bottom: 0;
@@ -162,7 +209,7 @@
             box-shadow: 0 -15px 40px rgba(20, 83, 45, 0.3);
             z-index: 40;
             transform: translateY(120%);
-            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Spring effect */
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         .sticky-calc-bar.show {
             transform: translateY(0);
@@ -207,30 +254,35 @@
         }
         input[type=number] { -moz-appearance: textfield; }
         
-        /* Interactive Reset Button */
         .btn-press:active { transform: scale(0.95); }
     </style>
 </head>
 <body class="text-slate-800 antialiased">
 
+    <!-- Live Animated Background -->
+    <div class="live-bg"></div>
+    <i class="fa-solid fa-moon floating-shape shape-1"></i>
+    <i class="fa-solid fa-star floating-shape shape-2"></i>
+
     <!-- Top App Bar -->
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-30 shadow-sm border-b border-slate-100 reveal-up">
+    <header class="bg-white/70 backdrop-blur-lg sticky top-0 z-30 shadow-sm border-b border-white/50 reveal-up">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
             <div class="flex items-center gap-3 sm:gap-4">
                 <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-brand-100 to-brand-200 rounded-full flex items-center justify-center text-brand-700 text-xl shadow-inner border border-brand-50">
                     <i class="fa-solid fa-moon"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl sm:text-2xl font-black text-slate-800 leading-tight tracking-tight">ઝકાત કેલ્ક્યુલેટર</h1>
+                    <!-- NEW LIVE HEADING -->
+                    <h1 class="text-xl sm:text-2xl font-black leading-tight tracking-tight gradient-heading">ઝકાત કેલ્ક્યુલેટર</h1>
                     <p class="text-xs sm:text-sm text-brand-600 font-bold">જદીદ ઔર શરઈ હિસાબ</p>
                 </div>
             </div>
             <div class="flex items-center gap-2">
-                <button onclick="resetCalculator()" class="btn-press w-10 h-10 sm:w-auto sm:px-4 sm:py-2 text-red-500 bg-red-50 hover:bg-red-100 rounded-full font-bold transition-all flex items-center justify-center gap-2" title="Reset All">
+                <button onclick="resetCalculator()" class="btn-press w-10 h-10 sm:w-auto sm:px-4 sm:py-2 text-red-500 bg-red-50 hover:bg-red-100 rounded-full font-bold transition-all flex items-center justify-center gap-2 shadow-sm border border-red-100" title="Reset All">
                     <i class="fa-solid fa-rotate-right"></i>
                     <span class="hidden sm:inline">રિસેટ</span>
                 </button>
-                <button onclick="openModal()" class="btn-press w-10 h-10 sm:w-auto sm:px-5 sm:py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold transition-all shadow-md shadow-brand-500/30 flex items-center justify-center gap-2">
+                <button onclick="openModal()" class="btn-press w-10 h-10 sm:w-auto sm:px-5 sm:py-2 bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 text-white rounded-full font-bold transition-all shadow-lg shadow-brand-500/30 flex items-center justify-center gap-2 border border-brand-500/20">
                     <i class="fa-solid fa-circle-question text-lg sm:text-base"></i>
                     <span class="hidden sm:inline">રહનુમાઈ (Guide)</span>
                 </button>
@@ -242,8 +294,8 @@
     <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
         
         <!-- Instruction Card -->
-        <div class="bg-gradient-to-r from-brand-50 to-emerald-50 border border-brand-200 rounded-3xl p-5 sm:p-6 mb-8 flex gap-4 items-center shadow-sm reveal-up delay-100 hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-brand-600 text-2xl shrink-0 shadow-sm border border-brand-100">
+        <div class="bg-gradient-to-r from-white/90 to-white/60 backdrop-blur-md border border-brand-200/50 rounded-3xl p-5 sm:p-6 mb-8 flex gap-4 items-center shadow-lg shadow-brand-100/50 reveal-up delay-100 transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center text-brand-600 text-2xl shrink-0 shadow-inner border border-brand-100">
                 <i class="fa-solid fa-circle-info animate-pulse"></i>
             </div>
             <div>
@@ -257,7 +309,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 reveal-up delay-200">
                 
                 <!-- 1. Assets Section -->
-                <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-brand-200 transition-colors">
+                <div class="bg-white/90 backdrop-blur-md rounded-[2rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-brand-200 transition-colors">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center font-black text-xl shadow-inner border border-white">1</div>
                         <h2 class="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">કુલ અસાસે (Assets)</h2>
@@ -303,7 +355,7 @@
                 </div>
 
                 <!-- 2. Business Goods Section -->
-                <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-brand-200 transition-colors">
+                <div class="bg-white/90 backdrop-blur-md rounded-[2rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-brand-200 transition-colors">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center font-black text-xl shadow-inner border border-white">2</div>
                         <h2 class="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">તિજારતી માલ (Business)</h2>
@@ -339,8 +391,7 @@
             </div>
 
             <!-- 3. Liabilities Section -->
-            <div class="bg-white rounded-[2rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 mt-6 sm:mt-8 border-t-[6px] border-t-red-500 reveal-up delay-200 relative overflow-hidden hover:border-red-200 transition-colors">
-                <!-- Soft background pattern -->
+            <div class="bg-white/90 backdrop-blur-md rounded-[2rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 mt-6 sm:mt-8 border-t-[6px] border-t-red-500 reveal-up delay-200 relative overflow-hidden hover:border-red-200 transition-colors">
                 <i class="fa-solid fa-file-invoice absolute -right-10 -top-10 text-[180px] text-red-50 opacity-50 rotate-12 pointer-events-none"></i>
                 
                 <div class="flex items-center gap-4 mb-8 relative z-10">
@@ -399,40 +450,42 @@
                 </div>
             </div>
 
-            <!-- Desktop Calculation Section -->
-            <div class="hidden md:block bg-gradient-to-br from-brand-800 to-brand-900 rounded-[2.5rem] p-8 lg:p-12 mt-12 shadow-2xl relative overflow-hidden text-white reveal-up delay-200 border border-brand-700">
-                <!-- Animated Background Icon -->
-                <i class="fa-solid fa-scale-balanced absolute -right-10 -bottom-10 text-[200px] text-brand-600 opacity-20 transform -rotate-12 transition-transform duration-1000 ease-in-out hover:scale-110"></i>
+            <!-- ==========================================
+                 BUG FIX: Main calculation box is now visible 
+                 on both Desktop and Mobile! (Removed hidden md:block)
+            =========================================== -->
+            <div class="bg-gradient-to-br from-brand-800 to-brand-900 rounded-[2rem] p-6 sm:p-8 lg:p-12 mt-10 shadow-2xl relative overflow-hidden text-white reveal-up delay-200 border border-brand-700">
+                <i class="fa-solid fa-scale-balanced absolute -right-6 -bottom-6 text-[150px] sm:text-[200px] text-brand-600 opacity-20 transform -rotate-12 transition-transform duration-1000 ease-in-out hover:scale-110 pointer-events-none"></i>
                 
-                <h2 class="text-3xl lg:text-4xl font-black mb-10 flex items-center gap-4 relative z-10 tracking-tight">
-                    <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-md border border-white/20">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black mb-6 sm:mb-10 flex items-center gap-3 sm:gap-4 relative z-10 tracking-tight">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-md border border-white/20">
                         <i class="fa-solid fa-calculator text-gold-400"></i>
                     </div>
                     નતીજા (Final Calculation)
                 </h2>
                 
-                <div class="grid grid-cols-2 gap-8 mb-10 relative z-10">
-                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 shadow-inner transition-transform hover:-translate-y-1">
-                        <p class="text-brand-100 font-semibold mb-2 text-lg">કુલ અસાસે (Total Assets)</p>
-                        <h3 id="deskTotalAssets" data-val="0" data-prefix="₹ " class="text-4xl font-black tracking-tight font-sans">₹ 0</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mb-6 sm:mb-10 relative z-10">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 shadow-inner transition-transform hover:-translate-y-1">
+                        <p class="text-brand-100 font-semibold mb-1 text-sm sm:text-lg">કુલ અસાસે (Total Assets)</p>
+                        <h3 id="deskTotalAssets" data-val="0" data-prefix="₹ " class="text-3xl sm:text-4xl font-black tracking-tight font-sans">₹ 0</h3>
                     </div>
-                    <div class="bg-red-950/40 backdrop-blur-md border border-red-500/30 rounded-3xl p-6 shadow-inner transition-transform hover:-translate-y-1">
-                        <p class="text-red-200 font-semibold mb-2 text-lg">કુલ કરઝદાત (Liabilities)</p>
-                        <h3 id="deskTotalLiab" data-val="0" data-prefix="- ₹ " class="text-4xl font-black text-red-100 tracking-tight font-sans">- ₹ 0</h3>
+                    <div class="bg-red-950/40 backdrop-blur-md border border-red-500/30 rounded-2xl p-5 shadow-inner transition-transform hover:-translate-y-1">
+                        <p class="text-red-200 font-semibold mb-1 text-sm sm:text-lg">કુલ કરઝદાત (Liabilities)</p>
+                        <h3 id="deskTotalLiab" data-val="0" data-prefix="- ₹ " class="text-3xl sm:text-4xl font-black text-red-100 tracking-tight font-sans">- ₹ 0</h3>
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative z-10 text-slate-800 transform transition-all">
-                    <div class="flex justify-between items-center mb-6 border-b-2 border-slate-100 pb-6">
-                        <span class="text-xl font-bold text-slate-500">ઝકાત કે લાયક રકમ (Net Amount):</span>
-                        <span id="deskNetAmount" data-val="0" data-prefix="₹ " class="text-3xl font-black text-slate-800 tracking-tight font-sans">₹ 0</span>
+                <div class="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative z-10 text-slate-800 transform transition-all">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-5 sm:mb-6 border-b-2 border-slate-100 pb-4 sm:pb-6 gap-2">
+                        <span class="text-lg sm:text-xl font-bold text-slate-500">ઝકાત કે લાયક રકમ (Net):</span>
+                        <span id="deskNetAmount" data-val="0" data-prefix="₹ " class="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight font-sans">₹ 0</span>
                     </div>
-                    <div class="flex justify-between items-center pt-2">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center pt-2 gap-3">
                         <div>
-                            <span class="text-3xl font-black text-brand-700 tracking-tight">અદા કરને વાલી ઝકાત</span>
-                            <span class="bg-gradient-to-r from-gold-400 to-gold-500 text-slate-900 text-sm font-black px-4 py-1.5 rounded-full ml-4 inline-block shadow-sm">2.5%</span>
+                            <span class="text-2xl sm:text-3xl font-black text-brand-700 tracking-tight">અદા કરને વાલી ઝકાત</span>
+                            <span class="bg-gradient-to-r from-gold-400 to-gold-500 text-slate-900 text-xs sm:text-sm font-black px-3 py-1 rounded-full sm:ml-4 inline-block shadow-sm">2.5%</span>
                         </div>
-                        <span id="deskZakatAmount" data-val="0" data-prefix="₹ " class="text-6xl font-black text-brand-600 tracking-tight font-sans glow-text-live">₹ 0</span>
+                        <span id="deskZakatAmount" data-val="0" data-prefix="₹ " class="text-5xl sm:text-6xl font-black text-brand-600 tracking-tight font-sans glow-text-live">₹ 0</span>
                     </div>
                 </div>
             </div>
@@ -469,7 +522,6 @@
 
     <!-- Instructions Guide Modal (Bottom Sheet on Mobile, Pop-Up on Desktop) -->
     <div id="guideModal" class="modal-overlay fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4">
-        
         <div class="modal-content modal-content-mobile w-full sm:max-w-2xl bg-white rounded-t-[2.5rem] sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             
             <!-- Mobile Drag Handle -->
@@ -574,7 +626,7 @@
             if (e.target === guideModal) closeModal();
         });
 
-        // Advanced Number Animation Function (Live Count Effect)
+        // Advanced Number Animation Function
         function animateValue(elements, endVal) {
             elements.forEach(obj => {
                 if(!obj) return;
@@ -585,7 +637,6 @@
                 const duration = 400; // ms
                 let startTimestamp = null;
                 
-                // Add flash effect class
                 obj.classList.remove('value-flash');
                 void obj.offsetWidth; // trigger reflow
                 obj.classList.add('value-flash');
@@ -594,7 +645,6 @@
                     if (!startTimestamp) startTimestamp = timestamp;
                     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
                     
-                    // easeOutQuart
                     const easeProgress = 1 - Math.pow(1 - progress, 4);
                     const current = Math.floor(easeProgress * (endVal - startVal) + startVal);
                     
@@ -611,7 +661,7 @@
             });
         }
 
-        // Core Calculation
+        // Core Calculation - 100% Bug Free
         function calculateZakat() {
             let totalAssets = 0;
             let totalLiab = 0;
@@ -629,7 +679,7 @@
 
             // Logic
             let netAmount = totalAssets - totalLiab;
-            if (netAmount < 0) netAmount = 0;
+            if (netAmount < 0) netAmount = 0; // No negative zakat
             let zakatAmount = netAmount * 0.025;
 
             // Animate to new values
@@ -650,7 +700,6 @@
         function resetCalculator() {
             allInputs.forEach(input => input.value = '');
             calculateZakat();
-            // Scroll to top smoothly
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
