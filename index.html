@@ -19,6 +19,141 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <link rel="stylesheet" href="style.css?v=3">
+
+    <!-- ═══════════════════════════════════════
+         POPUP CSS (PROFESSIONAL DESIGN)
+         ═══════════════════════════════════════ -->
+    <style>
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .popup-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-content {
+            background: linear-gradient(145deg, #3a0a0a, #4a0e0e);
+            border: 2px solid #d4af37;
+            border-radius: 20px;
+            padding: 30px 25px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.4);
+            transform: translateY(50px) scale(0.9);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .popup-overlay.show .popup-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: #d4af37;
+            border: 3px solid #4a0e0e;
+            color: #4a0e0e;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .close-btn:hover {
+            background: #fff;
+            color: #d4af37;
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .popup-icon {
+            font-size: 3.5rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+        }
+
+        .popup-bounce {
+            animation: popupBounce 2s infinite;
+        }
+
+        @keyframes popupBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        .popup-title {
+            color: #d4af37;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-family: 'Anek Gujarati', sans-serif;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .popup-text {
+            color: #f1f1f1;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-family: 'Anek Gujarati', sans-serif;
+            font-weight: 500;
+        }
+
+        .popup-text .highlight {
+            color: #d4af37;
+            font-weight: 700;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            border: 2px solid transparent;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+            border: 2px solid #fff;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
 
@@ -87,7 +222,7 @@
     </div>
 
     <!-- ═══════════════════════════════════════
-         3. DROPDOWN MENU (4 VISIBLE + SCROLL)
+         3. DROPDOWN MENU
          ═══════════════════════════════════════ -->
     <div class="custom-dropdown-menu">
         <button class="menu-toggle-btn" id="menuToggleBtn">
@@ -102,7 +237,7 @@
             <a href="zakat.html" class="dropdown-link">
                 <i class="fa-solid fa-scale-balanced"></i> ઝકાત કેલ્ક્યુલેટર
             </a>
-                   <a href="sawaljawab.html" class="dropdown-link">
+            <a href="sawaljawab.html" class="dropdown-link">
                 <i class="fa-solid fa-question-circle"></i> ઈસ્લામી સવાલ-જવાબ
             </a>
             <a href="kalma.html" class="dropdown-link">
@@ -126,8 +261,6 @@
             <a href="qibla.html" class="dropdown-link">
                 <i class="fa-solid fa-kaaba"></i> સ્માર્ટ કિબલા ફાઈન્ડર
             </a>
-          
-            
         </div>
     </div>
 
@@ -216,7 +349,29 @@
     </div>
 
     <!-- ═══════════════════════════════════════
-         7. FOOTER
+         7. DISCLAIMER POPUP (NEW)
+         ═══════════════════════════════════════ -->
+    <div id="disclaimer-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button id="close-popup" class="close-btn" title="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup-icon">
+                <i class="fa-solid fa-circle-exclamation popup-bounce"></i>
+            </div>
+            <h3 class="popup-title">ઝરૂરી ઇત્તેલા 📢</h3>
+            <p class="popup-text">
+                તમામ માલૂમાત મુકમ્મલ એહતિયાત કે સાથ તય્યાર કી ગઈ હૈ. ઇસકે બાવજૂદ અગર કિસી કિસ્મ કી <span class="highlight">ગલતી યા ખામી ⚠️</span> નઝર આયે, તો ઇસ્લાહ (સુધારા) કે લિયે બરાયે મહેરબાની નીચે આપેલ નંબર પર રાબતા કરેં. 🙏
+            </p>
+            <div class="contact-number">
+                <!-- Direct WhatsApp Link -->
+                <a href="https://wa.me/919638730186?text=અસ્સલામુ%20અલયકુમ,%20" target="_blank" class="contact-btn">
+                    <i class="fa-brands fa-whatsapp"></i> +91 96387 30186
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         8. FOOTER
          ═══════════════════════════════════════ -->
     <div class="developer-credit-wrapper">
         <div class="developer-credit">
@@ -248,13 +403,35 @@
                 }
             });
 
-            // Close menu when clicking outside
             document.addEventListener('click', function(e) {
                 if (!toggleBtn.contains(e.target) && !menuContainer.contains(e.target)) {
                     menuContainer.classList.remove('show');
                     if (menuArrow) {
                         menuArrow.style.transform = 'rotate(0deg)';
                     }
+                }
+            });
+        }
+
+        /* ─── DISCLAIMER POPUP LOGIC ─── */
+        var popup = document.getElementById('disclaimer-popup');
+        var closePopupBtn = document.getElementById('close-popup');
+
+        if (popup && closePopupBtn) {
+            // વેબસાઈટ લોડ થયાના 1 સેકન્ડ પછી પોપ-અપ દેખાશે
+            setTimeout(function() {
+                popup.classList.add('show');
+            }, 1000);
+
+            // 'X' બટન પર ક્લિક કરવાથી પોપ-અપ બંધ થશે
+            closePopupBtn.addEventListener('click', function() {
+                popup.classList.remove('show');
+            });
+
+            // પોપ-અપની બહાર (બ્લેક એરિયા) માં ક્લિક કરવાથી પણ બંધ થશે
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    popup.classList.remove('show');
                 }
             });
         }
@@ -318,7 +495,6 @@
             return d;
         }
 
-        // Cache DOM references
         var clockEl = document.getElementById('live-clock');
         var saheriEl = document.getElementById('today-saheri');
         var iftarEl = document.getElementById('today-iftar');
@@ -326,7 +502,6 @@
         var timerLabelEl = document.getElementById('timer-label');
         var allRows = document.querySelectorAll('#ramadan-table tbody tr');
 
-        // Pre-parse schedule once
         var schedule = [];
         for (var i = 0; i < allRows.length; i++) {
             var row = allRows[i];
@@ -356,7 +531,6 @@
         function updateClockAndTimer() {
             var now = new Date();
 
-            // Live Clock
             var h = now.getHours();
             var m = now.getMinutes();
             var s = now.getSeconds();
@@ -364,7 +538,6 @@
             var displayH = h % 12 || 12;
             clockEl.innerText = pad(displayH) + ':' + pad(m) + ':' + pad(s) + ' ' + ampm;
 
-            // Clear all highlights
             for (var i = 0; i < allRows.length; i++) {
                 allRows[i].classList.remove('today-row');
             }
@@ -372,7 +545,6 @@
             var activeEntry = null;
             var targetTime = null;
 
-            // Find next upcoming event
             for (var j = 0; j < schedule.length; j++) {
                 var entry = schedule[j];
 
@@ -410,11 +582,9 @@
             }
         }
 
-        // Run immediately, then every second
         updateClockAndTimer();
         setInterval(updateClockAndTimer, 1000);
 
-          // Scroll today's row into view on load
         setTimeout(function() {
             var todayRow = document.querySelector('.today-row');
             if (todayRow) {
@@ -423,8 +593,6 @@
         }, 500);
 
     })();
-
-      
     </script>
 </body>
 </html>
