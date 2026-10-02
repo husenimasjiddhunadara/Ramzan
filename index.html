@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="theme-color" content="#4A0E0E">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="હુસેની મસ્જિદ, ઢુણાદરા - રમઝાન 2027 સેહરી ઇફ્તાર ટાઈમ ટેબલ, દુઆ, ઝકાત કેલ્ક્યુલેટર">
     <title>રમઝાન મુબારક - 2027 | હુસેની મસ્જિદ, ઢુણાદરા</title>
     
     <!-- Premium Google Fonts -->
@@ -18,10 +19,12 @@
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
 
     <!-- ═══════════════════════════════════════
          POPUP CSS (PROFESSIONAL DESIGN)
+         Uses .popup-close-btn to avoid conflict
+         with .close-btn in style.css (zakat modal)
          ═══════════════════════════════════════ -->
     <style>
         .popup-overlay {
@@ -32,6 +35,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -64,7 +68,9 @@
             transform: translateY(0) scale(1);
         }
 
-        .close-btn {
+        /* BUG FIX: Renamed from .close-btn to .popup-close-btn
+           to prevent CSS conflict with zakat modal's .close-btn */
+        .popup-close-btn {
             position: absolute;
             top: -15px;
             right: -15px;
@@ -85,7 +91,7 @@
             z-index: 2;
         }
 
-        .close-btn:hover {
+        .popup-close-btn:hover {
             background: #fff;
             color: #d4af37;
             transform: rotate(90deg) scale(1.1);
@@ -222,47 +228,71 @@
     </div>
 
     <!-- ═══════════════════════════════════════
-         3. DROPDOWN MENU
+         3. PROFESSIONAL DROPDOWN MENU
          ═══════════════════════════════════════ -->
-    <div class="custom-dropdown-menu">
-        <button class="menu-toggle-btn" id="menuToggleBtn">
-            <i class="fa-solid fa-bars"></i> 
-            <span>મેનુ (Menu)</span>
+    <nav class="custom-dropdown-menu" role="navigation" aria-label="Main navigation">
+        <button class="menu-toggle-btn" id="menuToggleBtn" aria-expanded="false" aria-controls="menuItemsContainer">
+            <span class="menu-toggle-icon">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </span>
+            <span class="menu-toggle-text">મેનુ (Menu)</span>
             <i class="fa-solid fa-chevron-down menu-arrow"></i>
         </button>
-        <div class="menu-items-container" id="menuItemsContainer">
-            <a href="index.html" class="dropdown-link active">
-                <i class="fa-solid fa-clock"></i> રમઝાન ટાઈમ ટેબલ
+        <div class="menu-items-container" id="menuItemsContainer" role="menu">
+            <a href="index.html" class="dropdown-link active" role="menuitem">
+                <span class="link-icon"><i class="fa-solid fa-clock"></i></span>
+                <span class="link-text">રમઝાન ટાઈમ ટેબલ</span>
+                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
-            <a href="zakat.html" class="dropdown-link">
-                <i class="fa-solid fa-scale-balanced"></i> ઝકાત કેલ્ક્યુલેટર
+            <a href="zakat.html" class="dropdown-link" role="menuitem">
+                <span class="link-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+                <span class="link-text">ઝકાત કેલ્ક્યુલેટર</span>
+                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
-            <a href="sawaljawab.html" class="dropdown-link">
-                <i class="fa-solid fa-question-circle"></i> ઈસ્લામી સવાલ-જવાબ
+            <a href="sawaljawab.html" class="dropdown-link" role="menuitem">
+                <span class="link-icon"><i class="fa-solid fa-question-circle"></i></span>
+                <span class="link-text">ઈસ્લામી સવાલ-જવાબ</span>
+                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
-            <a href="kalma.html" class="dropdown-link">
-                <i class="fa-solid fa-braille"></i> 7 કલમા
+            <a href="kalma.html" class="dropdown-link" role="menuitem">
+                <span class="link-icon"><i class="fa-solid fa-braille"></i></span>
+                <span class="link-text">7 કલમા</span>
+                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
-            <a href="fatiha.html" class="dropdown-link">
-                <i class="fa-solid fa-book-open"></i> ફાતિહા કા તરિકા
+            <a href="fatiha.html" class="dropdown-link" role="menuitem">
+                <span class="link-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="link-text">ફાતિહા કા તરિકા</span>
+                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
-            <a href="wuzu.html" class="dropdown-link">
-                <i class="fa-solid fa-water"></i> વૂઝૂ કા તરિકા
+            <a href="wuzu.html" class="dropdown-link" role="menuitem">
+                <span class="link-icon"><i class="fa-solid fa-water"></i></span>
+                <span class="link-text">વૂઝૂ કા તરિકા</span>
+                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
-            <a href="namaj.html" class="dropdown-link">
-                <i class="fa-solid fa-mosque"></i> પંજગાના નમાઝ
+            <a href="namaj.html" class="dropdown-link" role="menuitem">
+                <span class="link-icon"><i class="fa-solid fa-mosque"></i></span>
+                <span class="link-text">પંજગાના નમાઝ</span>
+                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
-            <a href="namajfark.html" class="dropdown-link">
-                <i class="fa-solid fa-list-check"></i> મર્દ ઔર ઔરતકી નમાઝમેં ફર્ક
+            <a href="namajfark.html" class="dropdown-link" role="menuitem">
+                <span class="link-icon"><i class="fa-solid fa-list-check"></i></span>
+                <span class="link-text">મર્દ ઔર ઔરતકી નમાઝમેં ફર્ક</span>
+                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
-            <a href="tasbih.html" class="dropdown-link">
-                <i class="fa-solid fa-list-ol"></i> તસ્બીહ કાઉન્ટર
+            <a href="tasbih.html" class="dropdown-link" role="menuitem">
+                <span class="link-icon"><i class="fa-solid fa-list-ol"></i></span>
+                <span class="link-text">તસ્બીહ કાઉન્ટર</span>
+                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
-            <a href="qibla.html" class="dropdown-link">
-                <i class="fa-solid fa-kaaba"></i> સ્માર્ટ કિબલા ફાઈન્ડર
+            <a href="qibla.html" class="dropdown-link" role="menuitem">
+                <span class="link-icon"><i class="fa-solid fa-kaaba"></i></span>
+                <span class="link-text">સ્માર્ટ કિબલા ફાઈન્ડર</span>
+                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
         </div>
-    </div>
+    </nav>
 
     <!-- ═══════════════════════════════════════
          4. DUA CARDS
@@ -349,11 +379,12 @@
     </div>
 
     <!-- ═══════════════════════════════════════
-         7. DISCLAIMER POPUP (NEW)
+         7. DISCLAIMER POPUP
+         BUG FIX: Changed close-btn → popup-close-btn
          ═══════════════════════════════════════ -->
     <div id="disclaimer-popup" class="popup-overlay">
         <div class="popup-content">
-            <button id="close-popup" class="close-btn" title="Close"><i class="fa-solid fa-xmark"></i></button>
+            <button id="close-popup" class="popup-close-btn" title="Close"><i class="fa-solid fa-xmark"></i></button>
             <div class="popup-icon">
                 <i class="fa-solid fa-circle-exclamation popup-bounce"></i>
             </div>
@@ -362,8 +393,7 @@
                 ✨તમામ માલૂમાત મુકમ્મલ એહતિયાત કે સાથ તય્યાર કી ગઈ હૈ. ઇસકે બાવજૂદ અગર કિસી કિસ્મ કી <span class="highlight">ગલતી યા ખામી ⚠️</span> નઝર આયે, તો ઇસ્લાહ (સુધારા) કે લિયે બરાયે મહેરબાની નીચે દિયે ગયે નંબર પર રાબતા કરેં.🌸
             </p>
             <div class="contact-number">
-                <!-- Direct WhatsApp Link -->
-                <a href="https://wa.me/919638730186?text=અસ્સલામુ%20અલયકુમ,%20" target="_blank" class="contact-btn">
+                <a href="https://wa.me/919638730186?text=અસ્સલામુ%20અલયકુમ,%20" target="_blank" rel="noopener noreferrer" class="contact-btn">
                     <i class="fa-brands fa-whatsapp"></i> +91 96387 30186
                 </a>
             </div>
@@ -383,32 +413,58 @@
     </footer>
 
     <!-- ═══════════════════════════════════════
-         JAVASCRIPT
+         JAVASCRIPT — ALL BUGS FIXED
          ═══════════════════════════════════════ -->
     <script>
     (function() {
         'use strict';
 
-        /* ─── DROPDOWN MENU ─── */
+        /* ─── PROFESSIONAL DROPDOWN MENU ─── */
         var toggleBtn = document.getElementById('menuToggleBtn');
         var menuContainer = document.getElementById('menuItemsContainer');
         var menuArrow = toggleBtn ? toggleBtn.querySelector('.menu-arrow') : null;
 
+        function openMenu() {
+            menuContainer.classList.add('show');
+            toggleBtn.classList.add('active');
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            if (menuArrow) {
+                menuArrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function closeMenu() {
+            menuContainer.classList.remove('show');
+            toggleBtn.classList.remove('active');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            if (menuArrow) {
+                menuArrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
         if (toggleBtn && menuContainer) {
             toggleBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                var isOpen = menuContainer.classList.toggle('show');
-                if (menuArrow) {
-                    menuArrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+                var isOpen = menuContainer.classList.contains('show');
+                if (isOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
                 }
             });
 
+            // Close on outside click
             document.addEventListener('click', function(e) {
                 if (!toggleBtn.contains(e.target) && !menuContainer.contains(e.target)) {
-                    menuContainer.classList.remove('show');
-                    if (menuArrow) {
-                        menuArrow.style.transform = 'rotate(0deg)';
-                    }
+                    closeMenu();
+                }
+            });
+
+            // BUG FIX: Close on Escape key press
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && menuContainer.classList.contains('show')) {
+                    closeMenu();
+                    toggleBtn.focus();
                 }
             });
         }
@@ -417,21 +473,30 @@
         var popup = document.getElementById('disclaimer-popup');
         var closePopupBtn = document.getElementById('close-popup');
 
+        function closePopup() {
+            popup.classList.remove('show');
+        }
+
         if (popup && closePopupBtn) {
-            // વેબસાઈટ લોડ થયાના 1 સેકન્ડ પછી પોપ-અપ દેખાશે
+            // Show popup after 1 second
             setTimeout(function() {
                 popup.classList.add('show');
             }, 1000);
 
-            // 'X' બટન પર ક્લિક કરવાથી પોપ-અપ બંધ થશે
-            closePopupBtn.addEventListener('click', function() {
-                popup.classList.remove('show');
-            });
+            // Close on X button click
+            closePopupBtn.addEventListener('click', closePopup);
 
-            // પોપ-અપની બહાર (બ્લેક એરિયા) માં ક્લિક કરવાથી પણ બંધ થશે
+            // Close on overlay click
             popup.addEventListener('click', function(e) {
                 if (e.target === popup) {
-                    popup.classList.remove('show');
+                    closePopup();
+                }
+            });
+
+            // BUG FIX: Close on Escape key press
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && popup.classList.contains('show')) {
+                    closePopup();
                 }
             });
         }
