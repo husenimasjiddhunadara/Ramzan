@@ -3,46 +3,1030 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="theme-color" content="#4A0E0E">
+    <meta name="theme-color" content="#3B080E">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="description" content="હુસેની મસ્જિદ, ઢુણાદરા - રમઝાન 2027 સેહરી ઇફ્તાર ટાઈમ ટેબલ, દુઆ, ઝકાત કેલ્ક્યુલેટર">
     <title>રમઝાન મુબારક - 2027 | હુસેની મસ્જિદ, ઢુણાદરા</title>
-    
+
     <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Modern Icons (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
-    <link rel="stylesheet" href="style.css?v=4">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
 
-    <!-- ═══════════════════════════════════════
-         POPUP CSS (PROFESSIONAL DESIGN)
-         Uses .popup-close-btn to avoid conflict
-         with .close-btn in style.css (zakat modal)
-         ═══════════════════════════════════════ -->
     <style>
-        .popup-overlay {
+        /* ==============================================================
+           ROYAL MAROON & METALLIC GOLD ISLAMIC DESIGN SYSTEM (2027)
+           Single-File Production Build | Mobile-First | Zero-Overflow
+           ============================================================== */
+
+        :root {
+            /* Royal Maroon Spectrum */
+            --maroon-950: #1D0306;
+            --maroon-900: #33060B;
+            --maroon-800: #4E0B13;
+            --maroon-700: #6B121C;
+            --maroon-600: #871B26;
+            --maroon-100: #FDF2F3;
+
+            /* Metallic Gold Spectrum */
+            --gold-700: #8E6914;
+            --gold-600: #B38728;
+            --gold-500: #D4AF37;
+            --gold-400: #EAC961;
+            --gold-200: #FBF0B7;
+            --gold-100: #FEF9E2;
+
+            /* Warm Alabaster Surfaces & Ink */
+            --bg-canvas: #FAF6F1;
+            --surface-card: #FFFFFF;
+            --surface-tinted: #FFFBF7;
+            --ink-primary: #1F0A0C;
+            --ink-secondary: #4E2D30;
+            --ink-muted: #7C5B5E;
+            --border-subtle: rgba(107, 18, 28, 0.09);
+            --border-gold: rgba(212, 175, 55, 0.35);
+
+            /* Semantic */
+            --danger: #D92D20;
+            --whatsapp-1: #25D366;
+            --whatsapp-2: #128C7E;
+
+            /* Elevation Shadows */
+            --shadow-xs: 0 2px 6px rgba(29, 3, 6, 0.04);
+            --shadow-sm: 0 6px 18px rgba(29, 3, 6, 0.06);
+            --shadow-md: 0 12px 32px rgba(29, 3, 6, 0.10);
+            --shadow-lg: 0 20px 50px rgba(29, 3, 6, 0.16);
+            --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.28);
+
+            /* Radius & Motion */
+            --radius-sm: 12px;
+            --radius-md: 18px;
+            --radius-lg: 24px;
+            --radius-pill: 999px;
+            --max-width: 960px;
+            --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ─── GLOBAL RESET ─── */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Anek Gujarati', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--ink-primary);
+            line-height: 1.65;
+            overflow-x: hidden;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body.popup-open {
+            overflow: hidden;
+        }
+
+        /* Subtle Islamic Geometric Background Texture */
+        body::before {
+            content: '';
             position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 12% 18%, rgba(212, 175, 55, 0.08), transparent 42%),
+                radial-gradient(circle at 88% 72%, rgba(107, 18, 28, 0.06), transparent 45%),
+                url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%236B121C' stroke-opacity='0.04' stroke-width='1'%3E%3Cpath d='M32 4 L40 24 L60 32 L40 40 L32 60 L24 40 L4 32 L24 24 Z'/%3E%3Ccircle cx='32' cy='32' r='6'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        a, button {
+            font-family: inherit;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid var(--gold-500);
+            outline-offset: 3px;
+        }
+
+        /* ─── AMBIENT FLOATING ORBS ─── */
+        .live-bg-orbs {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .live-bg-orbs .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(85px);
+            opacity: 0.14;
+            will-change: transform;
+            animation: floatOrb 22s ease-in-out infinite;
+        }
+
+        .live-bg-orbs .orb:nth-child(1) {
+            width: 340px; height: 340px;
+            background: var(--gold-500);
+            top: 8%; left: -8%;
+        }
+
+        .live-bg-orbs .orb:nth-child(2) {
+            width: 300px; height: 300px;
+            background: var(--maroon-700);
+            top: 55%; right: -10%;
+            animation-duration: 19s;
+            animation-delay: -5s;
+        }
+
+        .live-bg-orbs .orb:nth-child(3) {
+            width: 220px; height: 220px;
+            background: var(--gold-400);
+            bottom: 8%; left: 22%;
+            animation-duration: 26s;
+            animation-delay: -10s;
+        }
+
+        .live-bg-orbs .orb:nth-child(4) {
+            width: 180px; height: 180px;
+            background: var(--maroon-600);
+            top: 28%; right: 18%;
+            animation-duration: 29s;
+            animation-delay: -14s;
+        }
+
+        @keyframes floatOrb {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+            33%      { transform: translate3d(26px, -32px, 0) scale(1.08); }
+            66%      { transform: translate3d(-18px, 22px, 0) scale(0.95); }
+        }
+
+        /* ==============================================================
+           1. ROYAL ARCHITECTURAL HEADER
+           ============================================================== */
+        header {
+            position: relative;
+            background:
+                radial-gradient(ellipse 80% 70% at 50% 0%, rgba(212, 175, 55, 0.16), transparent 65%),
+                linear-gradient(135deg, var(--maroon-950) 0%, var(--maroon-900) 35%, var(--maroon-800) 70%, var(--maroon-700) 100%);
+            background-size: 200% 200%;
+            animation: royalGradient 16s ease infinite;
+            padding: 46px 16px 96px 16px;
+            text-align: center;
+            border-bottom-left-radius: 36px;
+            border-bottom-right-radius: 36px;
+            box-shadow: 0 18px 50px rgba(29, 3, 6, 0.34);
+            border-bottom: 3px solid var(--gold-500);
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        /* Subtle Islamic Arch Lattice Inside Header */
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23EAC961' stroke-opacity='0.07' stroke-width='1'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3Ccircle cx='40' cy='40' r='16'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Inner Gold Hairline Accent Above Bottom Border */
+        header::after {
+            content: '';
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            bottom: 8px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(251, 240, 183, 0.5), transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes royalGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50%      { background-position: 100% 50%; }
+        }
+
+        #particles-js {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        /* Crescent Moon */
+        .crescent-moon {
+            position: absolute;
+            top: 14%;
+            left: 6%;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            box-shadow: inset 12px -12px 0 0 rgba(234, 201, 97, 0.78);
+            filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.65));
+            animation: floatMoon 8s ease-in-out infinite;
+            z-index: 1;
+            opacity: 0.85;
+            pointer-events: none;
+        }
+
+        @keyframes floatMoon {
+            0%, 100% { transform: translateY(0) rotate(10deg); }
+            50%      { transform: translateY(-12px) rotate(16deg); }
+        }
+
+        /* Twinkling Stars */
+        .glowing-star {
+            position: absolute;
+            background: #FFFDF5;
+            border-radius: 50%;
+            box-shadow: 0 0 12px 3px var(--gold-500);
+            animation: pulseStar 3.2s ease-in-out infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes pulseStar {
+            0%, 100% { transform: scale(1); opacity: 0.45; }
+            50%      { transform: scale(1.7); opacity: 1; box-shadow: 0 0 22px 6px var(--gold-200); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* Gold Shimmer Main Title */
+        .animated-heading {
+            font-size: clamp(1.95rem, 6.2vw, 3.6rem);
+            font-weight: 800;
+            display: inline-block;
+            background: linear-gradient(
+                100deg,
+                var(--gold-500) 0%,
+                var(--gold-200) 25%,
+                #FFFFFF 50%,
+                var(--gold-200) 75%,
+                var(--gold-500) 100%
+            );
+            background-size: 220% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmerText 5s linear infinite;
+            letter-spacing: 0.5px;
+            line-height: 1.42;
+            padding: 6px 4px;
+            filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
+            transition: transform 0.4s var(--ease-spring);
+        }
+
+        .animated-heading:hover {
+            transform: scale(1.03);
+        }
+
+        @keyframes shimmerText {
+            0%   { background-position: -220% center; }
+            100% { background-position: 220% center; }
+        }
+
+        .subtitle {
+            font-size: clamp(1.25rem, 3.8vw, 2rem);
+            color: var(--gold-200);
+            font-weight: 700;
+            margin-top: 2px;
+            margin-bottom: 18px;
+            letter-spacing: 1.5px;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
+        }
+
+        .header-badges {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .location-badge {
+            font-size: clamp(0.88rem, 2.5vw, 1.02rem);
+            font-weight: 600;
+            color: #FFFDF9;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(234, 201, 97, 0.42);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 20px;
+            border-radius: var(--radius-pill);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+            transition: transform 0.3s var(--ease-smooth), border-color 0.3s ease, background 0.3s ease;
+            max-width: 96%;
+        }
+
+        .location-badge i {
+            color: var(--gold-400);
+        }
+
+        .location-badge:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.16);
+            border-color: var(--gold-200);
+        }
+
+        .dev-badge {
+            font-size: 0.72rem;
+            color: var(--maroon-950);
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 15px;
+            border-radius: var(--radius-pill);
+            background: linear-gradient(135deg, var(--gold-400) 0%, var(--gold-200) 50%, var(--gold-500) 100%);
+            border: 1.5px solid rgba(255, 255, 255, 0.75);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.32);
+            animation: badgeGlow 3s ease-in-out infinite;
+            transition: transform 0.3s var(--ease-spring);
+            white-space: nowrap;
+        }
+
+        .dev-badge:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes badgeGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(234, 201, 97, 0.45), 0 6px 20px rgba(0, 0, 0, 0.25); }
+            50%      { box-shadow: 0 0 0 10px rgba(234, 201, 97, 0), 0 6px 20px rgba(0, 0, 0, 0.25); }
+        }
+
+        /* ==============================================================
+           2. LIVE STATUS DASHBOARD (BENTO CARDS)
+           ============================================================== */
+        .live-status-container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin: -56px auto 28px auto;
+            position: relative;
+            z-index: 20;
+            padding: 0 14px;
+            max-width: var(--max-width);
+        }
+
+        .status-box {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: var(--radius-md);
+            padding: 18px 10px 16px 10px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: transform 0.35s var(--ease-smooth), box-shadow 0.35s var(--ease-smooth), border-color 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .status-box::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            height: 3.5px;
+            background: linear-gradient(90deg, var(--maroon-700), var(--gold-500), var(--maroon-700));
+            background-size: 200% auto;
+            animation: shimmerText 5s linear infinite;
+        }
+
+        .status-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg), 0 0 24px rgba(212, 175, 55, 0.2);
+            border-color: var(--gold-500);
+        }
+
+        .box-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: linear-gradient(145deg, var(--maroon-100), #FFFFFF);
+            border: 1px solid rgba(107, 18, 28, 0.1);
+            font-size: 1.25rem;
+            color: var(--maroon-700);
+            margin-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xs);
+            transition: transform 0.4s var(--ease-spring), background 0.3s ease;
+        }
+
+        .box-icon.gold-icon {
+            background: linear-gradient(145deg, var(--gold-100), #FFFFFF);
+            border-color: rgba(212, 175, 55, 0.3);
+            color: var(--gold-700);
+        }
+
+        .status-box:hover .box-icon {
+            transform: scale(1.1) rotate(6deg);
+        }
+
+        .status-title {
+            font-size: 0.82rem;
+            color: var(--ink-muted);
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+        }
+
+        .status-value {
+            font-size: clamp(1.22rem, 4.3vw, 1.65rem);
+            font-weight: 800;
+            color: var(--maroon-950);
+            font-family: 'Outfit', sans-serif;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+
+        .timer-active {
+            color: var(--danger);
+            animation: pulseTimer 1.6s ease-in-out infinite;
+        }
+
+        .timer-inactive {
+            color: var(--ink-muted);
+            opacity: 0.65;
+        }
+
+        @keyframes pulseTimer {
+            0%, 100% { opacity: 1; }
+            50%      { opacity: 0.7; }
+        }
+
+        /* ==============================================================
+           3. PROFESSIONAL NAVIGATION DROPDOWN MENU
+           ============================================================== */
+        .custom-dropdown-menu {
+            max-width: var(--max-width);
+            margin: 0 auto 28px auto;
+            padding: 0 14px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .menu-toggle-btn {
             width: 100%;
+            background: var(--surface-card);
+            color: var(--maroon-800);
+            border: 1.5px solid rgba(107, 18, 28, 0.14);
+            padding: 15px 20px;
+            font-size: 1.08rem;
+            font-weight: 700;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.32s var(--ease-smooth);
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .menu-toggle-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 55%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.14), transparent);
+            transform: skewX(-22deg);
+            transition: left 0.65s ease;
+            pointer-events: none;
+        }
+
+        .menu-toggle-btn:hover::before {
+            left: 160%;
+        }
+
+        .menu-toggle-btn:hover {
+            background: linear-gradient(135deg, var(--maroon-900), var(--maroon-700));
+            color: var(--gold-200);
+            border-color: var(--gold-500);
+            box-shadow: var(--shadow-md);
+        }
+
+        .menu-toggle-btn:active {
+            transform: scale(0.99);
+        }
+
+        .menu-toggle-btn.active {
+            background: linear-gradient(135deg, var(--maroon-950), var(--maroon-700));
+            color: var(--gold-200);
+            border-color: var(--gold-500);
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Animated Hamburger Icon */
+        .menu-toggle-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 22px;
+            height: 18px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 20px;
+            height: 2.3px;
+            background: currentColor;
+            border-radius: 4px;
+            transition: all 0.32s var(--ease-smooth);
+            position: absolute;
+        }
+
+        .hamburger-line:nth-child(1) { top: 1px; }
+        .hamburger-line:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger-line:nth-child(3) { bottom: 1px; }
+
+        .menu-toggle-btn.active .hamburger-line:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .menu-toggle-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-8px);
+        }
+
+        .menu-toggle-btn.active .hamburger-line:nth-child(3) {
+            bottom: auto;
+            top: 50%;
+            transform: translateY(-50%) rotate(-45deg);
+        }
+
+        .menu-toggle-text {
+            flex: 1;
+            text-align: left;
+            letter-spacing: 0.3px;
+        }
+
+        .menu-arrow {
+            transition: transform 0.35s var(--ease-smooth);
+            font-size: 0.85rem;
+            opacity: 0.8;
+            flex-shrink: 0;
+        }
+
+        .menu-toggle-btn.active .menu-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Container */
+        .menu-items-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            background: var(--surface-card);
+            border-radius: 0 0 var(--radius-md) var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            border: 1.5px solid var(--gold-500);
+            border-top: none;
+            position: absolute;
+            top: calc(100% - 2px);
+            left: 14px;
+            right: 14px;
+            z-index: 200;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition:
+                max-height 0.42s var(--ease-smooth),
+                opacity 0.28s ease,
+                transform 0.32s var(--ease-smooth),
+                visibility 0.3s ease;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold-500) rgba(107, 18, 28, 0.04);
+        }
+
+        .menu-items-container.show {
+            max-height: 430px;
+            overflow-y: auto;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .menu-items-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .menu-items-container::-webkit-scrollbar-track {
+            background: rgba(107, 18, 28, 0.04);
+        }
+
+        .menu-items-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--gold-500), var(--gold-700));
+            border-radius: 10px;
+        }
+
+        .dropdown-link {
+            padding: 13px 16px;
+            color: var(--ink-primary);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(107, 18, 28, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            transition: background 0.25s ease, color 0.25s ease, padding-left 0.25s var(--ease-smooth);
+            position: relative;
+        }
+
+        .dropdown-link:last-child {
+            border-bottom: none;
+        }
+
+        .link-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: var(--maroon-100);
+            color: var(--maroon-700);
+            font-size: 0.95rem;
+            transition: all 0.28s var(--ease-smooth);
+            flex-shrink: 0;
+        }
+
+        .link-text {
+            flex: 1;
+            line-height: 1.35;
+        }
+
+        .link-arrow {
+            font-size: 0.72rem;
+            color: var(--ink-muted);
+            opacity: 0.35;
+            transform: translateX(-4px);
+            transition: all 0.28s var(--ease-smooth);
+            flex-shrink: 0;
+        }
+
+        .dropdown-link:hover {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.03));
+            color: var(--maroon-700);
+        }
+
+        .dropdown-link:hover .link-icon {
+            background: linear-gradient(135deg, var(--maroon-700), var(--maroon-900));
+            color: var(--gold-200);
+            transform: scale(1.06);
+        }
+
+        .dropdown-link:hover .link-arrow {
+            opacity: 1;
+            transform: translateX(2px);
+            color: var(--gold-700);
+        }
+
+        .dropdown-link.active {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.16), rgba(212, 175, 55, 0.04));
+            box-shadow: inset 4px 0 0 var(--gold-500);
+        }
+
+        .dropdown-link.active .link-icon {
+            background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+            color: var(--maroon-950);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.32);
+        }
+
+        .dropdown-link.active .link-text {
+            color: var(--maroon-800);
+            font-weight: 800;
+        }
+
+        .dropdown-link.active .link-arrow {
+            opacity: 1;
+            transform: translateX(0);
+            color: var(--gold-600);
+        }
+
+        /* ==============================================================
+           4. ILLUMINATED DUA CARDS
+           ============================================================== */
+        .dua-container {
+            max-width: var(--max-width);
+            margin: 0 auto 28px auto;
+            padding: 0 14px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .dua-card {
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--surface-tinted) 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(212, 175, 55, 0.32);
+            padding: 28px 20px;
+            text-align: center;
+            transition: transform 0.35s var(--ease-smooth), box-shadow 0.35s var(--ease-smooth), border-color 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative Gold Top Accent */
+        .dua-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-600), var(--gold-400), var(--gold-600));
+            border-radius: 0 0 8px 8px;
+            transition: width 0.4s var(--ease-smooth);
+        }
+
+        /* Subtle Mosque Watermark */
+        .dua-card::after {
+            content: '\f683';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: -14px;
+            bottom: -18px;
+            font-size: 7.5rem;
+            color: rgba(212, 175, 55, 0.06);
+            z-index: 0;
+            pointer-events: none;
+            transition: transform 0.5s var(--ease-smooth), color 0.4s ease;
+        }
+
+        .dua-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md), 0 0 24px rgba(212, 175, 55, 0.14);
+            border-color: var(--gold-500);
+        }
+
+        .dua-card:hover::before {
+            width: 150px;
+        }
+
+        .dua-card:hover::after {
+            transform: scale(1.08) rotate(-4deg);
+            color: rgba(212, 175, 55, 0.1);
+        }
+
+        .dua-icon {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 14px auto;
+            border-radius: 18px;
+            background: linear-gradient(145deg, var(--maroon-900), var(--maroon-700));
+            color: var(--gold-200);
+            font-size: 1.55rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(78, 11, 19, 0.24);
+            border: 1.5px solid rgba(234, 201, 97, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .dua-header {
+            color: var(--maroon-800);
+            font-size: clamp(1.2rem, 3.8vw, 1.45rem);
+            font-weight: 800;
+            margin-bottom: 14px;
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+
+        .dua-header::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-600), var(--gold-400), var(--gold-600));
+            margin: 6px auto 0 auto;
+            border-radius: 6px;
+            transition: width 0.35s var(--ease-smooth);
+        }
+
+        .dua-card:hover .dua-header::after {
+            width: 100%;
+        }
+
+        .dua-content {
+            font-size: clamp(1.06rem, 3.2vw, 1.24rem);
+            line-height: 1.92;
+            color: var(--ink-primary);
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .dua-card.taraweeh-card {
+            grid-column: 1 / -1;
+            background:
+                radial-gradient(circle at top center, rgba(212, 175, 55, 0.1), transparent 55%),
+                linear-gradient(180deg, #FFFFFF 0%, var(--surface-tinted) 100%);
+            border: 1.5px solid rgba(212, 175, 55, 0.45);
+        }
+
+        .dua-card.taraweeh-card .dua-content {
+            font-size: clamp(1.08rem, 3.3vw, 1.28rem);
+            line-height: 2;
+        }
+
+        /* ==============================================================
+           5. EXECUTIVE-GRADE RESPONSIVE TIMETABLE
+           ============================================================== */
+        .timetable-wrapper {
+            max-width: var(--max-width);
+            margin: 0 auto 30px auto;
+            padding: 0 14px;
+        }
+
+        .table-box {
+            background: var(--surface-card);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .table-scroll {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold-500) transparent;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--maroon-950), var(--maroon-800) 60%, var(--maroon-700));
+            color: var(--gold-200);
+        }
+
+        th {
+            padding: 14px 6px;
+            font-size: clamp(0.76rem, 2.5vw, 1rem);
+            font-weight: 700;
+            border-bottom: 3px solid var(--gold-500);
+            white-space: nowrap;
+            letter-spacing: 0.2px;
+        }
+
+        th i {
+            margin-right: 4px;
+            color: var(--gold-400);
+            font-size: 0.85em;
+        }
+
+        td {
+            padding: 12px 5px;
+            font-size: clamp(0.78rem, 2.6vw, 1rem);
+            border-bottom: 1px solid rgba(107, 18, 28, 0.07);
+            color: var(--ink-primary);
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        /* Chand Number Pill */
+        tbody td:first-child {
+            font-weight: 800;
+            color: var(--maroon-800);
+        }
+
+        /* Day Name Column */
+        td:nth-child(3) {
+            font-family: 'Anek Gujarati', sans-serif;
+            font-weight: 600;
+            color: var(--ink-secondary);
+        }
+
+        /* Sehri & Iftar Subtle Visual Accent */
+        td:nth-child(4) {
+            color: var(--maroon-700);
+            font-weight: 700;
+        }
+
+        td:nth-child(5) {
+            color: var(--gold-700);
+            font-weight: 700;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #FCF8F4;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Active Today Row Highlight */
+        .today-row {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.26), rgba(251, 240, 183, 0.45), rgba(212, 175, 55, 0.2)) !important;
+            box-shadow: inset 5px 0 0 var(--maroon-700), inset -5px 0 0 var(--gold-600);
+        }
+
+        .today-row td {
+            color: var(--maroon-950) !important;
+            font-weight: 800 !important;
+            border-top: 1.5px solid var(--gold-500);
+            border-bottom: 1.5px solid var(--gold-500);
+        }
+
+        /* ==============================================================
+           6. DISCLAIMER POPUP (ROYAL GLASS MODAL)
+           ============================================================== */
+        .popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 2, 5, 0.76);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
             z-index: 99999;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.4s ease;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
         }
 
         .popup-overlay.show {
@@ -51,113 +1035,282 @@
         }
 
         .popup-content {
-            background: linear-gradient(145deg, #3a0a0a, #4a0e0e);
-            border: 2px solid #d4af37;
-            border-radius: 20px;
-            padding: 30px 25px;
-            width: 90%;
+            background:
+                radial-gradient(circle at top center, rgba(212, 175, 55, 0.16), transparent 60%),
+                linear-gradient(155deg, var(--maroon-950) 0%, var(--maroon-800) 100%);
+            border: 2px solid var(--gold-500);
+            border-radius: var(--radius-lg);
+            padding: 34px 24px 28px 24px;
+            width: 100%;
             max-width: 420px;
             text-align: center;
             position: relative;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.4);
-            transform: translateY(50px) scale(0.9);
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 32px rgba(212, 175, 55, 0.28);
+            transform: translateY(36px) scale(0.94);
+            transition: transform 0.45s var(--ease-spring);
         }
 
         .popup-overlay.show .popup-content {
             transform: translateY(0) scale(1);
         }
 
-        /* BUG FIX: Renamed from .close-btn to .popup-close-btn
-           to prevent CSS conflict with zakat modal's .close-btn */
         .popup-close-btn {
             position: absolute;
             top: -15px;
-            right: -15px;
-            background: #d4af37;
-            border: 3px solid #4a0e0e;
-            color: #4a0e0e;
-            width: 40px;
-            height: 40px;
+            right: -12px;
+            background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+            border: 3px solid var(--maroon-900);
+            color: var(--maroon-950);
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
+            font-size: 1.15rem;
+            font-weight: 800;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+            transition: transform 0.3s var(--ease-spring), background 0.25s ease;
             z-index: 2;
         }
 
         .popup-close-btn:hover {
-            background: #fff;
-            color: #d4af37;
-            transform: rotate(90deg) scale(1.1);
+            background: #FFFFFF;
+            color: var(--maroon-800);
+            transform: rotate(90deg) scale(1.08);
         }
 
         .popup-icon {
-            font-size: 3.5rem;
-            color: #d4af37;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+            font-size: 3.1rem;
+            color: var(--gold-400);
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.5));
         }
 
         .popup-bounce {
-            animation: popupBounce 2s infinite;
+            animation: popupBounce 2.2s ease-in-out infinite;
         }
 
         @keyframes popupBounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-15px); }
-            60% { transform: translateY(-7px); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
 
         .popup-title {
-            color: #d4af37;
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            font-family: 'Anek Gujarati', sans-serif;
+            color: var(--gold-200);
+            font-size: 1.5rem;
+            margin-bottom: 14px;
             font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
         }
 
         .popup-text {
-            color: #f1f1f1;
-            font-size: 1.15rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            font-family: 'Anek Gujarati', sans-serif;
+            color: #F6EFEF;
+            font-size: 1.06rem;
+            line-height: 1.72;
+            margin-bottom: 24px;
             font-weight: 500;
         }
 
         .popup-text .highlight {
-            color: #d4af37;
+            color: var(--gold-400);
             font-weight: 700;
         }
 
         .contact-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 30px;
+            background: linear-gradient(135deg, var(--whatsapp-1), var(--whatsapp-2));
+            color: #FFFFFF;
+            padding: 13px 26px;
+            border-radius: var(--radius-pill);
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-            border: 2px solid transparent;
+            font-size: 1.12rem;
+            font-family: 'Outfit', sans-serif;
+            transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.38);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            position: relative;
+            overflow: hidden;
         }
 
         .contact-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
-            border: 2px solid #fff;
-            color: #fff;
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.55);
+            border-color: #FFFFFF;
+        }
+
+        /* ==============================================================
+           7. DEVELOPER CREDIT & ROYAL FOOTER
+           ============================================================== */
+        .developer-credit-wrapper {
+            text-align: center;
+            width: 100%;
+            padding: 6px 16px 26px 16px;
+        }
+
+        .developer-credit {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 20px;
+            background: var(--surface-card);
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--ink-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            box-shadow: var(--shadow-xs);
+            transition: all 0.3s var(--ease-smooth);
+        }
+
+        .developer-credit:hover {
+            border-color: var(--gold-500);
+            color: var(--maroon-800);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .developer-credit i {
+            color: var(--gold-600);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 16px;
+            background: linear-gradient(135deg, var(--maroon-950), var(--maroon-800));
+            color: var(--gold-200);
+            border-top: 3px solid var(--gold-500);
+            font-size: clamp(0.9rem, 2.6vw, 1.02rem);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(234, 201, 97, 0.1), transparent);
+            transform: skewX(-20deg);
+            animation: footerShine 7s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes footerShine {
+            0%   { left: -100%; }
+            28%  { left: 200%; }
+            100% { left: 200%; }
+        }
+
+        /* ==============================================================
+           8. RESPONSIVE BREAKPOINTS (MOBILE-FIRST SCALING UP)
+           ============================================================== */
+
+        /* Ultra-small devices (<= 360px) */
+        @media (max-width: 360px) {
+            .live-status-container { gap: 9px; padding: 0 10px; }
+            .status-box { padding: 14px 6px; }
+            .box-icon { width: 38px; height: 38px; font-size: 1.05rem; }
+            th, td { padding: 10px 3px; font-size: 0.72rem; }
+            th i { display: none; }
+            .popup-content { padding: 28px 18px 22px 18px; }
+        }
+
+        /* Medium & Tablet (>= 640px) */
+        @media (min-width: 640px) {
+            header {
+                padding: 58px 24px 112px 24px;
+                border-bottom-left-radius: 46px;
+                border-bottom-right-radius: 46px;
+            }
+
+            .crescent-moon { width: 92px; height: 92px; }
+
+            .live-status-container {
+                gap: 16px;
+                padding: 0 20px;
+                margin-top: -64px;
+                margin-bottom: 34px;
+            }
+
+            .custom-dropdown-menu { padding: 0 20px; margin-bottom: 34px; }
+
+            /* 2-Column Smart Menu Grid on Tablet/Desktop */
+            .menu-items-container {
+                grid-template-columns: repeat(2, 1fr);
+                left: 20px;
+                right: 20px;
+            }
+
+            .menu-items-container.show { max-height: 460px; }
+
+            .dropdown-link {
+                border-right: 1px solid rgba(107, 18, 28, 0.06);
+                padding: 15px 18px;
+            }
+
+            .dropdown-link:nth-child(2n) { border-right: none; }
+            .dropdown-link:nth-last-child(-n+2) { border-bottom: none; }
+
+            .dua-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 0 20px;
+                margin-bottom: 34px;
+            }
+
+            .dua-card { padding: 34px 26px; }
+
+            .timetable-wrapper { padding: 0 20px; margin-bottom: 34px; }
+            th { padding: 17px 12px; }
+            td { padding: 14px 10px; }
+        }
+
+        /* Desktop (>= 860px) */
+        @media (min-width: 860px) {
+            header {
+                padding: 68px 32px 122px 32px;
+                border-bottom-left-radius: 56px;
+                border-bottom-right-radius: 56px;
+            }
+
+            .crescent-moon { width: 112px; height: 112px; left: 8%; }
+
+            /* 4-Column Single-Row Executive Live Dashboard */
+            .live-status-container {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 18px;
+                margin-top: -68px;
+            }
+
+            .status-box { padding: 24px 14px; border-radius: var(--radius-lg); }
+            .box-icon { width: 52px; height: 52px; font-size: 1.4rem; }
+            .status-title { font-size: 0.9rem; }
+            .status-value { font-size: 1.55rem; }
+
+            .menu-toggle-btn { padding: 17px 24px; font-size: 1.15rem; }
+            th { padding: 18px 14px; font-size: 1.05rem; }
+            td { padding: 15px 12px; font-size: 1.02rem; }
+        }
+
+        /* Accessibility: Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
     </style>
 </head>
@@ -175,28 +1328,25 @@
          1. PREMIUM HEADER
          ═══════════════════════════════════════ -->
     <header>
-        <!-- Interactive Particles Background -->
-        <div id="particles-js"></div>
-        
-        <!-- Crescent Moon -->
-        <div class="crescent-moon"></div>
-        
-        <!-- Stars -->
-        <div class="glowing-star" style="top: 20%; right: 12%; width: 5px; height: 5px;"></div>
-        <div class="glowing-star" style="top: 65%; left: 18%; width: 4px; height: 4px; animation-delay: 1s;"></div>
-        <div class="glowing-star" style="top: 35%; right: 30%; width: 3px; height: 3px; animation-delay: 2s;"></div>
-        <div class="glowing-star" style="top: 8%; left: 40%; width: 4px; height: 4px; animation-delay: 0.5s;"></div>
+        <div id="particles-js" aria-hidden="true"></div>
+        <div class="crescent-moon" aria-hidden="true"></div>
+
+        <div class="glowing-star" aria-hidden="true" style="top: 20%; right: 12%; width: 5px; height: 5px;"></div>
+        <div class="glowing-star" aria-hidden="true" style="top: 65%; left: 18%; width: 4px; height: 4px; animation-delay: 1s;"></div>
+        <div class="glowing-star" aria-hidden="true" style="top: 35%; right: 30%; width: 3px; height: 3px; animation-delay: 2s;"></div>
+        <div class="glowing-star" aria-hidden="true" style="top: 10%; left: 40%; width: 4px; height: 4px; animation-delay: 0.5s;"></div>
 
         <div class="header-content">
             <h1 class="animated-heading">હુસેની મસ્જિદ, ઢુણાદરા</h1>
             <h2 class="subtitle">રમઝાન મુબારક - 2027</h2>
-            <div class="location-badge">
-                <i class="fa-solid fa-map-location-dot"></i> 
-                માત્ર ઢુણાદરા અને આસપાસના વિસ્તારો માટે
-            </div>
-            <br>
-            <div class="dev-badge">
-                <i class="fa-solid fa-laptop-code"></i> Developed By - Pathan Mahirkhan
+            <div class="header-badges">
+                <div class="location-badge">
+                    <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+                    માત્ર ઢુણાદરા અને આસપાસના વિસ્તારો માટે
+                </div>
+                <div class="dev-badge">
+                    <i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Developed By - Pathan Mahirkhan
+                </div>
             </div>
         </div>
     </header>
@@ -204,92 +1354,92 @@
     <!-- ═══════════════════════════════════════
          2. LIVE STATUS BOXES
          ═══════════════════════════════════════ -->
-    <div class="live-status-container">
+    <section class="live-status-container" aria-label="Live Ramadan Status">
         <div class="status-box">
-            <span class="box-icon gold-icon"><i class="fa-solid fa-star-and-crescent"></i></span>
+            <span class="box-icon gold-icon" aria-hidden="true"><i class="fa-solid fa-star-and-crescent"></i></span>
             <div class="status-title">ખત્મે સેહરી</div>
             <div class="status-value" id="today-saheri">--:--</div>
         </div>
         <div class="status-box">
-            <span class="box-icon gold-icon"><i class="fa-solid fa-moon"></i></span>
+            <span class="box-icon gold-icon" aria-hidden="true"><i class="fa-solid fa-moon"></i></span>
             <div class="status-title">વક્તે ઇફ્તાર</div>
             <div class="status-value" id="today-iftar">--:--</div>
         </div>
         <div class="status-box">
-            <span class="box-icon"><i class="fa-regular fa-clock"></i></span>
+            <span class="box-icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></span>
             <div class="status-title">સમય</div>
             <div class="status-value" id="live-clock">00:00:00</div>
         </div>
         <div class="status-box">
-            <span class="box-icon"><i class="fa-solid fa-hourglass-half"></i></span>
+            <span class="box-icon" aria-hidden="true"><i class="fa-solid fa-hourglass-half"></i></span>
             <div class="status-title" id="timer-label">બાકી સમય</div>
             <div class="status-value timer-inactive" id="iftar-timer">00:00:00</div>
         </div>
-    </div>
+    </section>
 
     <!-- ═══════════════════════════════════════
          3. PROFESSIONAL DROPDOWN MENU
          ═══════════════════════════════════════ -->
     <nav class="custom-dropdown-menu" role="navigation" aria-label="Main navigation">
-        <button class="menu-toggle-btn" id="menuToggleBtn" aria-expanded="false" aria-controls="menuItemsContainer">
-            <span class="menu-toggle-icon">
+        <button type="button" class="menu-toggle-btn" id="menuToggleBtn" aria-expanded="false" aria-controls="menuItemsContainer">
+            <span class="menu-toggle-icon" aria-hidden="true">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </span>
             <span class="menu-toggle-text">મેનુ (Menu)</span>
-            <i class="fa-solid fa-chevron-down menu-arrow"></i>
+            <i class="fa-solid fa-chevron-down menu-arrow" aria-hidden="true"></i>
         </button>
         <div class="menu-items-container" id="menuItemsContainer" role="menu">
             <a href="index.html" class="dropdown-link active" role="menuitem">
-                <span class="link-icon"><i class="fa-solid fa-clock"></i></span>
+                <span class="link-icon" aria-hidden="true"><i class="fa-solid fa-clock"></i></span>
                 <span class="link-text">રમઝાન ટાઈમ ટેબલ</span>
-                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="link-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
             <a href="zakat.html" class="dropdown-link" role="menuitem">
-                <span class="link-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+                <span class="link-icon" aria-hidden="true"><i class="fa-solid fa-scale-balanced"></i></span>
                 <span class="link-text">ઝકાત કેલ્ક્યુલેટર</span>
-                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="link-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
             <a href="sawaljawab.html" class="dropdown-link" role="menuitem">
-                <span class="link-icon"><i class="fa-solid fa-question-circle"></i></span>
+                <span class="link-icon" aria-hidden="true"><i class="fa-solid fa-question-circle"></i></span>
                 <span class="link-text">ઈસ્લામી સવાલ-જવાબ</span>
-                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="link-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
             <a href="kalma.html" class="dropdown-link" role="menuitem">
-                <span class="link-icon"><i class="fa-solid fa-braille"></i></span>
+                <span class="link-icon" aria-hidden="true"><i class="fa-solid fa-braille"></i></span>
                 <span class="link-text">7 કલમા</span>
-                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="link-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
             <a href="fatiha.html" class="dropdown-link" role="menuitem">
-                <span class="link-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="link-icon" aria-hidden="true"><i class="fa-solid fa-book-open"></i></span>
                 <span class="link-text">ફાતિહા કા તરિકા</span>
-                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="link-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
             <a href="wuzu.html" class="dropdown-link" role="menuitem">
-                <span class="link-icon"><i class="fa-solid fa-water"></i></span>
+                <span class="link-icon" aria-hidden="true"><i class="fa-solid fa-water"></i></span>
                 <span class="link-text">વૂઝૂ કા તરિકા</span>
-                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="link-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
             <a href="namaj.html" class="dropdown-link" role="menuitem">
-                <span class="link-icon"><i class="fa-solid fa-mosque"></i></span>
+                <span class="link-icon" aria-hidden="true"><i class="fa-solid fa-mosque"></i></span>
                 <span class="link-text">પંજગાના નમાઝ</span>
-                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="link-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
             <a href="namajfark.html" class="dropdown-link" role="menuitem">
-                <span class="link-icon"><i class="fa-solid fa-list-check"></i></span>
+                <span class="link-icon" aria-hidden="true"><i class="fa-solid fa-list-check"></i></span>
                 <span class="link-text">મર્દ ઔર ઔરતકી નમાઝમેં ફર્ક</span>
-                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="link-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
             <a href="tasbih.html" class="dropdown-link" role="menuitem">
-                <span class="link-icon"><i class="fa-solid fa-list-ol"></i></span>
+                <span class="link-icon" aria-hidden="true"><i class="fa-solid fa-list-ol"></i></span>
                 <span class="link-text">તસ્બીહ કાઉન્ટર</span>
-                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="link-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
             <a href="qibla.html" class="dropdown-link" role="menuitem">
-                <span class="link-icon"><i class="fa-solid fa-kaaba"></i></span>
+                <span class="link-icon" aria-hidden="true"><i class="fa-solid fa-kaaba"></i></span>
                 <span class="link-text">સ્માર્ટ કિબલા ફાઈન્ડર</span>
-                <span class="link-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="link-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
             </a>
         </div>
     </nav>
@@ -297,104 +1447,107 @@
     <!-- ═══════════════════════════════════════
          4. DUA CARDS
          ═══════════════════════════════════════ -->
-    <div class="dua-container">
+    <section class="dua-container" aria-label="Sehri and Iftar Duas">
         <div class="dua-card">
-            <div class="dua-icon"><i class="fa-solid fa-cloud-moon"></i></div>
+            <div class="dua-icon" aria-hidden="true"><i class="fa-solid fa-cloud-moon"></i></div>
             <div class="dua-header">સહેરીની દુઆ</div>
             <div class="dua-content">
                 નવયતુ અન્ અસૂમ ગદલ્ લિલ્લાહિ તઆલા મિન્ ફર્દિ રમઝાન હાઝા
             </div>
         </div>
         <div class="dua-card">
-            <div class="dua-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+            <div class="dua-icon" aria-hidden="true"><i class="fa-solid fa-cloud-sun"></i></div>
             <div class="dua-header">ઇફ્તારની દુઆ</div>
             <div class="dua-content">
                 અલ્લાહુમ્મ લક સુમ્તુ વ બિક આમન્તુ વ અલયક તવક્કલતુ વ અલા રિઝકિક અફતરતુ ફતકબ્બલ મિન્ની.
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- ═══════════════════════════════════════
          5. TIMETABLE
          ═══════════════════════════════════════ -->
-    <div class="timetable-wrapper">
+    <main class="timetable-wrapper">
         <div class="table-box">
-            <table id="ramadan-table">
-                <thead>
-                    <tr>
-                        <th><i class="fa-solid fa-moon"></i> ચાંદ</th>
-                        <th><i class="fa-regular fa-calendar-days"></i> તારીખ</th>
-                        <th>વાર</th>
-                        <th><i class="fa-solid fa-star-and-crescent"></i> ખત્મે સેહરી</th>
-                        <th><i class="fa-solid fa-moon"></i> વક્તે ઇફ્તાર</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>21/10/2026</td><td>શનિવાર</td><td>05:05 AM</td><td>06:45 PM</td></tr>
-                    <tr><td>2</td><td>22/10/2026</td><td>રવિવાર</td><td>05:06 AM</td><td>06:44 PM</td></tr>
-                    <tr><td>3</td><td>23/10/2026</td><td>સોમવાર</td><td>05:06 AM</td><td>06:43 PM</td></tr>
-                    <tr><td>4</td><td>24/10/2026</td><td>મંગળવાર</td><td>05:07 AM</td><td>06:42 PM</td></tr>
-                    <tr><td>5</td><td>25/10/2026</td><td>બુધવાર</td><td>05:07 AM</td><td>06:41 PM</td></tr>
-                    <tr><td>6</td><td>26/10/2026</td><td>ગુરુવાર</td><td>05:08 AM</td><td>06:40 PM</td></tr>
-                    <tr><td>7</td><td>27/10/2026</td><td>શુક્રવાર</td><td>05:08 AM</td><td>06:39 PM</td></tr>
-                    <tr><td>8</td><td>28/10/2026</td><td>શનિવાર</td><td>05:09 AM</td><td>06:38 PM</td></tr>
-                    <tr><td>9</td><td>29/10/2026</td><td>રવિવાર</td><td>05:09 AM</td><td>06:37 PM</td></tr>
-                    <tr><td>10</td><td>30/10/2026</td><td>સોમવાર</td><td>05:10 AM</td><td>06:36 PM</td></tr>
-                    <tr><td>11</td><td>31/10/2026</td><td>મંગળવાર</td><td>05:10 AM</td><td>06:35 PM</td></tr>
-                    <tr><td>12</td><td>01/11/2026</td><td>બુધવાર</td><td>05:11 AM</td><td>06:34 PM</td></tr>
-                    <tr><td>13</td><td>02/11/2026</td><td>ગુરુવાર</td><td>05:11 AM</td><td>06:33 PM</td></tr>
-                    <tr><td>14</td><td>03/11/2026</td><td>શુક્રવાર</td><td>05:12 AM</td><td>06:32 PM</td></tr>
-                    <tr><td>15</td><td>04/11/2026</td><td>શનિવાર</td><td>05:12 AM</td><td>06:31 PM</td></tr>
-                    <tr><td>16</td><td>05/11/2026</td><td>રવિવાર</td><td>05:13 AM</td><td>06:30 PM</td></tr>
-                    <tr><td>17</td><td>06/11/2026</td><td>સોમવાર</td><td>05:13 AM</td><td>06:29 PM</td></tr>
-                    <tr><td>18</td><td>07/11/2026</td><td>મંગળવાર</td><td>05:14 AM</td><td>06:28 PM</td></tr>
-                    <tr><td>19</td><td>08/11/2026</td><td>બુધવાર</td><td>05:14 AM</td><td>06:27 PM</td></tr>
-                    <tr><td>20</td><td>09/11/2026</td><td>ગુરુવાર</td><td>05:15 AM</td><td>06:26 PM</td></tr>
-                    <tr><td>21</td><td>10/11/2026</td><td>શુક્રવાર</td><td>05:15 AM</td><td>06:25 PM</td></tr>
-                    <tr><td>22</td><td>11/11/2026</td><td>શનિવાર</td><td>05:16 AM</td><td>06:24 PM</td></tr>
-                    <tr><td>23</td><td>12/11/2026</td><td>રવિવાર</td><td>05:16 AM</td><td>06:23 PM</td></tr>
-                    <tr><td>24</td><td>13/11/2026</td><td>સોમવાર</td><td>05:17 AM</td><td>06:22 PM</td></tr>
-                    <tr><td>25</td><td>14/11/2026</td><td>મંગળવાર</td><td>05:17 AM</td><td>06:21 PM</td></tr>
-                    <tr><td>26</td><td>15/11/2026</td><td>બુધવાર</td><td>05:18 AM</td><td>06:20 PM</td></tr>
-                    <tr><td>27</td><td>16/11/2026</td><td>ગુરુવાર</td><td>05:18 AM</td><td>06:19 PM</td></tr>
-                    <tr><td>28</td><td>17/11/2026</td><td>શુક્રવાર</td><td>05:19 AM</td><td>06:18 PM</td></tr>
-                    <tr><td>29</td><td>18/11/2026</td><td>શનિવાર</td><td>05:19 AM</td><td>06:17 PM</td></tr>
-                    <tr><td>30</td><td>19/11/2026</td><td>રવિવાર</td><td>05:20 AM</td><td>06:16 PM</td></tr>
-                </tbody>
-            </table>
+            <div class="table-scroll">
+                <table id="ramadan-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fa-solid fa-moon" aria-hidden="true"></i> ચાંદ</th>
+                            <th><i class="fa-regular fa-calendar-days" aria-hidden="true"></i> તારીખ</th>
+                            <th>વાર</th>
+                            <th><i class="fa-solid fa-star-and-crescent" aria-hidden="true"></i> ખત્મે સેહરી</th>
+                            <th><i class="fa-solid fa-moon" aria-hidden="true"></i> વક્તે ઇફ્તાર</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>21/10/2026</td><td>શનિવાર</td><td>05:05 AM</td><td>06:45 PM</td></tr>
+                        <tr><td>2</td><td>22/10/2026</td><td>રવિવાર</td><td>05:06 AM</td><td>06:44 PM</td></tr>
+                        <tr><td>3</td><td>23/10/2026</td><td>સોમવાર</td><td>05:06 AM</td><td>06:43 PM</td></tr>
+                        <tr><td>4</td><td>24/10/2026</td><td>મંગળવાર</td><td>05:07 AM</td><td>06:42 PM</td></tr>
+                        <tr><td>5</td><td>25/10/2026</td><td>બુધવાર</td><td>05:07 AM</td><td>06:41 PM</td></tr>
+                        <tr><td>6</td><td>26/10/2026</td><td>ગુરુવાર</td><td>05:08 AM</td><td>06:40 PM</td></tr>
+                        <tr><td>7</td><td>27/10/2026</td><td>શુક્રવાર</td><td>05:08 AM</td><td>06:39 PM</td></tr>
+                        <tr><td>8</td><td>28/10/2026</td><td>શનિવાર</td><td>05:09 AM</td><td>06:38 PM</td></tr>
+                        <tr><td>9</td><td>29/10/2026</td><td>રવિવાર</td><td>05:09 AM</td><td>06:37 PM</td></tr>
+                        <tr><td>10</td><td>30/10/2026</td><td>સોમવાર</td><td>05:10 AM</td><td>06:36 PM</td></tr>
+                        <tr><td>11</td><td>31/10/2026</td><td>મંગળવાર</td><td>05:10 AM</td><td>06:35 PM</td></tr>
+                        <tr><td>12</td><td>01/11/2026</td><td>બુધવાર</td><td>05:11 AM</td><td>06:34 PM</td></tr>
+                        <tr><td>13</td><td>02/11/2026</td><td>ગુરુવાર</td><td>05:11 AM</td><td>06:33 PM</td></tr>
+                        <tr><td>14</td><td>03/11/2026</td><td>શુક્રવાર</td><td>05:12 AM</td><td>06:32 PM</td></tr>
+                        <tr><td>15</td><td>04/11/2026</td><td>શનિવાર</td><td>05:12 AM</td><td>06:31 PM</td></tr>
+                        <tr><td>16</td><td>05/11/2026</td><td>રવિવાર</td><td>05:13 AM</td><td>06:30 PM</td></tr>
+                        <tr><td>17</td><td>06/11/2026</td><td>સોમવાર</td><td>05:13 AM</td><td>06:29 PM</td></tr>
+                        <tr><td>18</td><td>07/11/2026</td><td>મંગળવાર</td><td>05:14 AM</td><td>06:28 PM</td></tr>
+                        <tr><td>19</td><td>08/11/2026</td><td>બુધવાર</td><td>05:14 AM</td><td>06:27 PM</td></tr>
+                        <tr><td>20</td><td>09/11/2026</td><td>ગુરુવાર</td><td>05:15 AM</td><td>06:26 PM</td></tr>
+                        <tr><td>21</td><td>10/11/2026</td><td>શુક્રવાર</td><td>05:15 AM</td><td>06:25 PM</td></tr>
+                        <tr><td>22</td><td>11/11/2026</td><td>શનિવાર</td><td>05:16 AM</td><td>06:24 PM</td></tr>
+                        <tr><td>23</td><td>12/11/2026</td><td>રવિવાર</td><td>05:16 AM</td><td>06:23 PM</td></tr>
+                        <tr><td>24</td><td>13/11/2026</td><td>સોમવાર</td><td>05:17 AM</td><td>06:22 PM</td></tr>
+                        <tr><td>25</td><td>14/11/2026</td><td>મંગળવાર</td><td>05:17 AM</td><td>06:21 PM</td></tr>
+                        <tr><td>26</td><td>15/11/2026</td><td>બુધવાર</td><td>05:18 AM</td><td>06:20 PM</td></tr>
+                        <tr><td>27</td><td>16/11/2026</td><td>ગુરુવાર</td><td>05:18 AM</td><td>06:19 PM</td></tr>
+                        <tr><td>28</td><td>17/11/2026</td><td>શુક્રવાર</td><td>05:19 AM</td><td>06:18 PM</td></tr>
+                        <tr><td>29</td><td>18/11/2026</td><td>શનિવાર</td><td>05:19 AM</td><td>06:17 PM</td></tr>
+                        <tr><td>30</td><td>19/11/2026</td><td>રવિવાર</td><td>05:20 AM</td><td>06:16 PM</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    </main>
 
     <!-- ═══════════════════════════════════════
          6. BOTTOM DUA (TARAWEEH)
          ═══════════════════════════════════════ -->
-    <div class="dua-container">
-        <div class="dua-card" style="grid-column: 1 / -1;">
-            <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
+    <section class="dua-container" aria-label="Taraweeh Dua">
+        <div class="dua-card taraweeh-card">
+            <div class="dua-icon" aria-hidden="true"><i class="fa-solid fa-book-quran"></i></div>
             <div class="dua-header">તરાવીહની દુઆ</div>
-            <div class="dua-content" style="font-size: 1.3rem;">
+            <div class="dua-content">
                 "સુબ્હા-ન ઝિલ મુલ્કિ વલ્ મલકૂત, સુબ્હા-ન ઝિલ ઇઝ્ઝતિ વલ્ અઝ્મતિ વલ્ હય્બતિ વલ્ કુદ્રતિ વલ્ કિબ્રિયા-ઇ વલ્ જબરૂત.<br> સુબ્હા-નલ્ મલિકિલ્ હય્યિલ્ લઝી લા યનામુ વલા યમૂત, સુબ્બૂહુન્ કુદ્દૂસુન્ રબુન્ના વરબ્બુલ મલાઇકતિ વર્રૂહ.<br> અલ્લાહુમ્મ અજીરના મિનન્નાર, યા મુજીરુ યા મુજીરુ યા મુજીર."
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- ═══════════════════════════════════════
          7. DISCLAIMER POPUP
-         BUG FIX: Changed close-btn → popup-close-btn
          ═══════════════════════════════════════ -->
-    <div id="disclaimer-popup" class="popup-overlay">
+    <div id="disclaimer-popup" class="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
         <div class="popup-content">
-            <button id="close-popup" class="popup-close-btn" title="Close"><i class="fa-solid fa-xmark"></i></button>
-            <div class="popup-icon">
+            <button type="button" id="close-popup" class="popup-close-btn" title="Close" aria-label="Close">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="popup-icon" aria-hidden="true">
                 <i class="fa-solid fa-circle-exclamation popup-bounce"></i>
             </div>
-            <h3 class="popup-title">ઝરૂરી ઇત્તેલા 📢</h3>
+            <h3 id="popupTitle" class="popup-title">ઝરૂરી ઇત્તેલા 📢</h3>
             <p class="popup-text">
                 ✨તમામ માલૂમાત મુકમ્મલ એહતિયાત કે સાથ તય્યાર કી ગઈ હૈ. ઇસકે બાવજૂદ અગર કિસી કિસ્મ કી <span class="highlight">ગલતી યા ખામી ⚠️</span> નઝર આયે, તો ઇસ્લાહ (સુધારા) કે લિયે બરાયે મહેરબાની નીચે દિયે ગયે નંબર પર રાબતા કરેં.🌸
             </p>
             <div class="contact-number">
                 <a href="https://wa.me/919638730186?text=અસ્સલામુ%20અલયકુમ,%20" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                    <i class="fa-brands fa-whatsapp"></i> +91 96387 30186
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> +91 96387 30186
                 </a>
             </div>
         </div>
@@ -405,7 +1558,7 @@
          ═══════════════════════════════════════ -->
     <div class="developer-credit-wrapper">
         <div class="developer-credit">
-            <i class="fa-solid fa-code"></i> Developed by Pathan Mahirkhan
+            <i class="fa-solid fa-code" aria-hidden="true"></i> Developed by Pathan Mahirkhan
         </div>
     </div>
     <footer>
@@ -413,54 +1566,46 @@
     </footer>
 
     <!-- ═══════════════════════════════════════
-         JAVASCRIPT — ALL BUGS FIXED
+         JAVASCRIPT — OPTIMIZED & BUG-FREE
          ═══════════════════════════════════════ -->
     <script>
     (function() {
         'use strict';
 
-        /* ─── PROFESSIONAL DROPDOWN MENU ─── */
+        /* ─── 1. PROFESSIONAL DROPDOWN MENU ─── */
         var toggleBtn = document.getElementById('menuToggleBtn');
         var menuContainer = document.getElementById('menuItemsContainer');
-        var menuArrow = toggleBtn ? toggleBtn.querySelector('.menu-arrow') : null;
 
         function openMenu() {
             menuContainer.classList.add('show');
             toggleBtn.classList.add('active');
             toggleBtn.setAttribute('aria-expanded', 'true');
-            if (menuArrow) {
-                menuArrow.style.transform = 'rotate(180deg)';
-            }
         }
 
         function closeMenu() {
             menuContainer.classList.remove('show');
             toggleBtn.classList.remove('active');
             toggleBtn.setAttribute('aria-expanded', 'false');
-            if (menuArrow) {
-                menuArrow.style.transform = 'rotate(0deg)';
-            }
         }
 
         if (toggleBtn && menuContainer) {
             toggleBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                var isOpen = menuContainer.classList.contains('show');
-                if (isOpen) {
+                if (menuContainer.classList.contains('show')) {
                     closeMenu();
                 } else {
                     openMenu();
                 }
             });
 
-            // Close on outside click
             document.addEventListener('click', function(e) {
-                if (!toggleBtn.contains(e.target) && !menuContainer.contains(e.target)) {
+                if (menuContainer.classList.contains('show') &&
+                    !toggleBtn.contains(e.target) &&
+                    !menuContainer.contains(e.target)) {
                     closeMenu();
                 }
             });
 
-            // BUG FIX: Close on Escape key press
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && menuContainer.classList.contains('show')) {
                     closeMenu();
@@ -469,31 +1614,31 @@
             });
         }
 
-        /* ─── DISCLAIMER POPUP LOGIC ─── */
+        /* ─── 2. DISCLAIMER POPUP LOGIC ─── */
         var popup = document.getElementById('disclaimer-popup');
         var closePopupBtn = document.getElementById('close-popup');
 
+        function openPopup() {
+            popup.classList.add('show');
+            document.body.classList.add('popup-open');
+        }
+
         function closePopup() {
             popup.classList.remove('show');
+            document.body.classList.remove('popup-open');
         }
 
         if (popup && closePopupBtn) {
-            // Show popup after 1 second
-            setTimeout(function() {
-                popup.classList.add('show');
-            }, 1000);
+            setTimeout(openPopup, 1000);
 
-            // Close on X button click
             closePopupBtn.addEventListener('click', closePopup);
 
-            // Close on overlay click
             popup.addEventListener('click', function(e) {
                 if (e.target === popup) {
                     closePopup();
                 }
             });
 
-            // BUG FIX: Close on Escape key press
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && popup.classList.contains('show')) {
                     closePopup();
@@ -501,44 +1646,53 @@
             });
         }
 
-        /* ─── PARTICLES.JS (MAROON + GOLD THEME) ─── */
-        if (window.particlesJS) {
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": ["#d4af37", "#fef08a", "#ffffff", "#f0d060"] },
-                    "shape": { "type": "circle" },
-                    "opacity": {
-                        "value": 0.7, "random": true,
-                        "anim": { "enable": true, "speed": 0.8, "opacity_min": 0.1, "sync": false }
+        /* ─── 3. PARTICLES.JS (SAFE DEFERRED INIT) ─── */
+        window.addEventListener('load', function() {
+            if (typeof window.particlesJS === 'function') {
+                window.particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 55, density: { enable: true, value_area: 850 } },
+                        color: { value: ['#D4AF37', '#FBF0B7', '#FFFFFF', '#EAC961'] },
+                        shape: { type: 'circle' },
+                        opacity: {
+                            value: 0.65,
+                            random: true,
+                            anim: { enable: true, speed: 0.8, opacity_min: 0.1, sync: false }
+                        },
+                        size: {
+                            value: 3.2,
+                            random: true,
+                            anim: { enable: true, speed: 1.4, size_min: 0.5, sync: false }
+                        },
+                        line_linked: { enable: false },
+                        move: {
+                            enable: true,
+                            speed: 1.0,
+                            direction: 'top',
+                            random: true,
+                            straight: false,
+                            out_mode: 'out',
+                            bounce: false
+                        }
                     },
-                    "size": {
-                        "value": 3.5, "random": true,
-                        "anim": { "enable": true, "speed": 1.5, "size_min": 0.5, "sync": false }
+                    interactivity: {
+                        detect_on: 'canvas',
+                        events: {
+                            onhover: { enable: true, mode: 'bubble' },
+                            onclick: { enable: true, mode: 'repulse' },
+                            resize: true
+                        },
+                        modes: {
+                            bubble: { distance: 160, size: 6, duration: 2, opacity: 1, speed: 3 },
+                            repulse: { distance: 160, duration: 0.4 }
+                        }
                     },
-                    "line_linked": { "enable": false },
-                    "move": {
-                        "enable": true, "speed": 1.2, "direction": "top", "random": true,
-                        "straight": false, "out_mode": "out", "bounce": false
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": { "enable": true, "mode": "bubble" },
-                        "onclick": { "enable": true, "mode": "repulse" },
-                        "resize": true
-                    },
-                    "modes": {
-                        "bubble": { "distance": 180, "size": 7, "duration": 2, "opacity": 1, "speed": 3 },
-                        "repulse": { "distance": 180, "duration": 0.4 }
-                    }
-                },
-                "retina_detect": true
-            });
-        }
+                    retina_detect: true
+                });
+            }
+        });
 
-        /* ─── CLOCK & TIMER LOGIC ─── */
+        /* ─── 4. LIVE CLOCK & RAMADAN COUNTDOWN LOGIC ─── */
         function pad(num) {
             return num < 10 ? '0' + num : String(num);
         }
@@ -555,7 +1709,7 @@
             if (modifier === 'PM' && hours < 12) hours += 12;
             if (modifier === 'AM' && hours === 12) hours = 0;
 
-            var d = new Date(baseDate);
+            var d = new Date(baseDate.getTime());
             d.setHours(hours, minutes, 0, 0);
             return d;
         }
@@ -570,7 +1724,9 @@
         var schedule = [];
         for (var i = 0; i < allRows.length; i++) {
             var row = allRows[i];
-            var dateStr = row.cells[1].innerText.trim();
+            if (row.cells.length < 5) continue;
+
+            var dateStr = row.cells[1].textContent.trim();
             var parts = dateStr.split('/');
             if (parts.length === 3) {
                 var baseDate = new Date(
@@ -578,20 +1734,24 @@
                     parseInt(parts[1], 10) - 1,
                     parseInt(parts[0], 10)
                 );
-                var saheriTime = parseTimeToDate(row.cells[3].innerText, baseDate);
-                var iftarTime = parseTimeToDate(row.cells[4].innerText, baseDate);
+                var saheriStr = row.cells[3].textContent.trim();
+                var iftarStr = row.cells[4].textContent.trim();
+                var saheriTime = parseTimeToDate(saheriStr, baseDate);
+                var iftarTime = parseTimeToDate(iftarStr, baseDate);
 
                 if (saheriTime && iftarTime) {
                     schedule.push({
                         row: row,
-                        saheriStr: row.cells[3].innerText.trim(),
-                        iftarStr: row.cells[4].innerText.trim(),
+                        saheriStr: saheriStr,
+                        iftarStr: iftarStr,
                         saheriTime: saheriTime,
                         iftarTime: iftarTime
                     });
                 }
             }
         }
+
+        var lastHighlightedRow = null;
 
         function updateClockAndTimer() {
             var now = new Date();
@@ -601,49 +1761,53 @@
             var s = now.getSeconds();
             var ampm = h >= 12 ? 'PM' : 'AM';
             var displayH = h % 12 || 12;
-            clockEl.innerText = pad(displayH) + ':' + pad(m) + ':' + pad(s) + ' ' + ampm;
-
-            for (var i = 0; i < allRows.length; i++) {
-                allRows[i].classList.remove('today-row');
-            }
+            clockEl.textContent = pad(displayH) + ':' + pad(m) + ':' + pad(s) + ' ' + ampm;
 
             var activeEntry = null;
             var targetTime = null;
 
             for (var j = 0; j < schedule.length; j++) {
                 var entry = schedule[j];
-
                 if (now < entry.saheriTime) {
                     activeEntry = entry;
                     targetTime = entry.saheriTime;
-                    timerLabelEl.innerText = "સહેરીમાં બાકી સમય";
+                    timerLabelEl.textContent = 'સહેરીમાં બાકી સમય';
                     break;
                 } else if (now < entry.iftarTime) {
                     activeEntry = entry;
                     targetTime = entry.iftarTime;
-                    timerLabelEl.innerText = "ઇફ્તારમાં બાકી સમય";
+                    timerLabelEl.textContent = 'ઇફ્તારમાં બાકી સમય';
                     break;
                 }
             }
 
-            if (activeEntry) {
-                activeEntry.row.classList.add('today-row');
-                saheriEl.innerText = activeEntry.saheriStr;
-                iftarEl.innerText = activeEntry.iftarStr;
+            if (lastHighlightedRow && (!activeEntry || lastHighlightedRow !== activeEntry.row)) {
+                lastHighlightedRow.classList.remove('today-row');
+                lastHighlightedRow = null;
+            }
 
-                var diffMs = targetTime - now;
+            if (activeEntry) {
+                if (lastHighlightedRow !== activeEntry.row) {
+                    activeEntry.row.classList.add('today-row');
+                    lastHighlightedRow = activeEntry.row;
+                }
+
+                saheriEl.textContent = activeEntry.saheriStr;
+                iftarEl.textContent = activeEntry.iftarStr;
+
+                var diffMs = Math.max(0, targetTime - now);
                 var totalHrs = Math.floor(diffMs / 3600000);
                 var diffMins = Math.floor((diffMs % 3600000) / 60000);
                 var diffSecs = Math.floor((diffMs % 60000) / 1000);
 
-                timerEl.innerText = pad(totalHrs) + ':' + pad(diffMins) + ':' + pad(diffSecs);
+                timerEl.textContent = pad(totalHrs) + ':' + pad(diffMins) + ':' + pad(diffSecs);
                 timerEl.className = 'status-value timer-active';
             } else {
-                saheriEl.innerText = "--:-- --";
-                iftarEl.innerText = "--:-- --";
-                timerEl.innerText = "00:00:00";
+                saheriEl.textContent = '--:-- --';
+                iftarEl.textContent = '--:-- --';
+                timerEl.textContent = '00:00:00';
                 timerEl.className = 'status-value timer-inactive';
-                timerLabelEl.innerText = "રમઝાન પૂર્ણ";
+                timerLabelEl.textContent = 'રમઝાન પૂર્ણ';
             }
         }
 
