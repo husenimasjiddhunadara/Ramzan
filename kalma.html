@@ -1,404 +1,1389 @@
+```html
 <!DOCTYPE html>
-<html lang="gu" dir="ltr">
+<html lang="gu" dir="ltr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="સાત કલમે તરજુમે કે સાથ - Islamic Kalimas with translation in Gujarati script">
+    <meta name="description" content="સાત કલમે તરજુમે કે સાથ - 7 Islamic Kalimas with translation in Gujarati script, memorization tracker, dark mode, and reading controls.">
+    <meta name="theme-color" content="#0f766e">
     <title>સાત કલમે તરજુમે કે સાથ</title>
 
-    <!-- Preload fonts for performance -->
+    <!-- Preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Modern Icons (FontAwesome) -->
+
+    <!-- Premium Fonts: Anek Gujarati & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6.4 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
-    <!-- Internal Stylesheet -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Custom Design Tokens -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        gu: ['"Anek Gujarati"', 'sans-serif'],
+                        en: ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        ivory: '#f7f9f9',
+                        midnight: {
+                            bg: '#0b1116',
+                            card: '#111b22',
+                            elevated: '#16232c',
+                            border: '#1f313d',
+                        },
+                        emeraldLux: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#064e3b',
+                        },
+                        goldLux: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(6, 78, 59, 0.06), 0 2px 6px -2px rgba(6, 78, 59, 0.04)',
+                        'card-hover': '0 14px 32px -6px rgba(13, 148, 136, 0.14), 0 4px 12px -4px rgba(13, 148, 136, 0.08)',
+                        'dark-card': '0 10px 30px -6px rgba(0, 0, 0, 0.45)',
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Early Theme Bootstrapper (Prevents Flash of Unstyled Theme) -->
+    <script>
+        (function () {
+            try {
+                const savedTheme = localStorage.getItem('kalima_app_theme');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {
+                // Safe fallback if storage is blocked in iframe
+            }
+        })();
+    </script>
+
+    <!-- Minimal Utility Styles for Dynamic Font Scaling, Scrollbars & Reduced Motion -->
     <style>
-:root {
-    /* Color Palette */
-    --primary-color: #0d9488;
-    --primary-dark: #115e59;
-    --primary-light: #ccfbf1;
-    --bg-main: #f8fafc;
-    --card-bg: #ffffff;
-    --text-main: #1e293b;
-    --text-muted: #475569;
-    --border-color: #e2e8f0;
-    
-    /* Shadows & Radii */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    
-    /* Typography */
-    --font-gu: 'Anek Gujarati', sans-serif;
-    --font-en: 'Outfit', sans-serif;
-    
-    /* Transitions */
-    --transition: all 0.25s ease-in-out;
-}
+        :root {
+            --kalima-scale: 1;
+        }
 
-/* Global Reset */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+        /* Dynamic Typography Scaling for Kalima & Translation Blocks */
+        .kalima-text-scale {
+            font-size: calc(1.175rem * var(--kalima-scale));
+            line-height: 1.9;
+        }
 
-body {
-    font-family: var(--font-gu);
-    
-    /* Awesome Professional Background */
-    background-color: var(--bg-main);
-    background-image: 
-        radial-gradient(circle at 15% 20%, rgba(13, 148, 136, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 80%, rgba(17, 94, 89, 0.08) 0%, transparent 40%),
-        radial-gradient(rgba(13, 148, 136, 0.12) 1.5px, transparent 1.5px);
-    background-size: 100vw 100vh, 100vw 100vh, 24px 24px;
-    background-attachment: fixed;
-    
-    color: var(--text-main);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-}
+        .translation-text-scale {
+            font-size: calc(1.03rem * var(--kalima-scale));
+            line-height: 1.8;
+        }
 
-/* Layout */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        .bismillah-title-scale {
+            font-size: calc(1.3rem * var(--kalima-scale));
+            line-height: 1.65;
+        }
 
+        /* Hide Scrollbar cleanly on Horizontal Quick-Jump Pill Bar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
-/* Main Content */
-.main-content {
-    padding: 40px 0 60px;
-}
+        /* Subtle Dot Texture Background */
+        .bg-editorial-dots {
+            background-image: radial-gradient(rgba(13, 148, 136, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .dark .bg-editorial-dots {
+            background-image: radial-gradient(rgba(20, 184, 166, 0.08) 1px, transparent 1px);
+        }
 
-.page-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
+        /* Smooth Card Reveal Transition */
+        @keyframes cardFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-card-in {
+            animation: cardFadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
 
-.page-title {
-    color: var(--primary-dark);
-    font-weight: 800;
-    font-size: clamp(2rem, 6vw, 2.75rem);
-    line-height: 1.4;
-    text-shadow: 2px 2px 4px rgba(13, 148, 136, 0.15);
-    position: relative;
-    display: inline-block;
-    padding-bottom: 15px;
-}
-
-.page-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 5px;
-    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-    border-radius: 3px;
-}
-
-/* Status/Intro Box */
-.intro-section {
-    margin-bottom: 40px;
-}
-
-.status-box {
-    background: var(--card-bg);
-    border-left: 5px solid var(--primary-color);
-    padding: 24px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-}
-
-.status-title {
-    color: var(--primary-dark);
-    font-weight: 700;
-    font-size: 1.35rem;
-    margin-bottom: 12px;
-    line-height: 1.4;
-}
-
-.status-text {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-}
-
-/* Dua Cards Grid */
-.dua-container {
-    display: grid;
-    gap: 24px;
-    grid-template-columns: 1fr;
-}
-
-.dua-card {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    box-shadow: var(--shadow-md);
-    display: flex;
-    gap: 20px;
-    transition: var(--transition);
-    border: 1px solid var(--border-color);
-}
-
-.dua-card:hover {
-    box-shadow: var(--shadow-hover);
-    transform: translateY(-2px);
-}
-
-.dua-icon {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    background: var(--primary-light);
-    color: var(--primary-dark);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-}
-
-.dua-content-wrapper {
-    flex-grow: 1;
-}
-
-.dua-header {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-main);
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dua-content {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-}
-
-.dua-arabic-transl {
-    margin-bottom: 12px;
-    line-height: 1.6;
-}
-
-.dua-translation {
-    line-height: 1.6;
-}
-
-.highlight {
-    color: var(--primary-dark);
-    font-weight: 700;
-}
-
-/* Responsive Design */
-
-@media (max-width: 480px) {
-    .dua-card {
-        flex-direction: column;
-        gap: 16px;
-    }
-    
-    .dua-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
-    }
-    
-    .page-title {
-        font-size: 1.75rem;
-    }
-}
-
-/* Footer */
-.site-footer {
-    text-align: center;
-    padding: 30px 20px;
-    margin-top: 50px;
-    background: transparent;
-    border-top: 1px solid rgba(13, 148, 136, 0.15);
-}
-
-.site-footer p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-}
-
-.site-footer strong {
-    color: var(--primary-dark);
-    font-weight: 800;
-}
+        /* Respect User Reduced Motion Preference */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto !important;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
-<body>
-    
-    <!-- Main Content Area -->
-    <main class="main-content container" id="home">
-        
-        <header class="page-header">
-            <h1 class="page-title">સાત કલમે તરજુમે કે સાથ</h1>
-        </header>
 
-        <!-- Intro Box -->
-        <section class="intro-section" aria-label="Introduction">
-            <div class="status-box">
-                <h2 class="status-title">અઉઝુબિલ્લાહિ મિનશ્શૈતાનિર્રજીમ બિસ્મિલ્લાહિર્રહમાનિર્રહીમ</h2>
-                <p class="status-text"><strong>તરજુમા:</strong> પનાહ માંગતા હું મૈં અલ્લાહ કી શયતાન મરદૂદ સે. અલ્લાહ કે નામ સે શુરૂ જો નિહાયત મેહરબાન રહમ કરનેવાલા હૈ.</p>
+<body class="font-gu bg-ivory dark:bg-midnight-bg text-slate-800 dark:text-slate-100 antialiased overflow-x-hidden min-h-screen flex flex-col bg-editorial-dots transition-colors duration-300 selection:bg-emeraldLux-600 selection:text-white">
+
+    <!-- 1. Fixed Top Reading Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-[3.5px] bg-slate-200/60 dark:bg-slate-800/80 z-50 pointer-events-none" aria-hidden="true">
+        <div id="readingProgressBar" class="h-full w-0 bg-gradient-to-r from-emeraldLux-600 via-emerald-400 to-goldLux-500 transition-[width] duration-75 ease-out rounded-r-full"></div>
+    </div>
+
+    <!-- 2. Sticky Glassmorphic Control Navbar -->
+    <header class="sticky top-[3.5px] z-40 w-full backdrop-blur-xl bg-white/85 dark:bg-midnight-bg/85 border-b border-slate-200/80 dark:border-midnight-border transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2">
+            <!-- Brand / App Logo -->
+            <a href="#top" class="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emeraldLux-600 rounded-xl p-1 -ml-1 min-w-0">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emeraldLux-900 to-emeraldLux-600 dark:from-emeraldLux-700 dark:to-emeraldLux-500 flex items-center justify-center text-amber-300 shadow-sm shrink-0 group-hover:scale-105 transition-transform">
+                    <!-- Custom 8-Point Islamic Star Icon -->
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 1.5l2.6 4.4 5.1-.5-1.4 4.9 4.2 2.7-4.2 2.7 1.4 4.9-5.1-.5L12 22.5l-2.6-4.4-5.1.5 1.4-4.9L1.5 11l4.2-2.7-1.4-4.9 5.1.5L12 1.5zm0 5.5a4 4 0 100 8 4 4 0 000-8z"/>
+                    </svg>
+                </div>
+                <div class="min-w-0">
+                    <span class="block font-extrabold text-sm sm:text-base text-emeraldLux-900 dark:text-emerald-300 leading-tight truncate">સાત કલમે</span>
+                    <span class="hidden sm:block text-[11px] font-en font-medium tracking-wider uppercase text-slate-500 dark:text-slate-400">7 Kalimas Guide</span>
+                </div>
+            </a>
+
+            <!-- Control Toolbar -->
+            <div class="flex items-center gap-1.5 sm:gap-2 shrink-0" role="toolbar" aria-label="વાંચન સેટિંગ્સ">
+                <!-- Font Size Stepper -->
+                <div class="flex items-center bg-slate-100/90 dark:bg-midnight-card border border-slate-200/80 dark:border-midnight-border rounded-xl p-0.5" role="group" aria-label="અક્ષરનું કદ બદલો">
+                    <button
+                        type="button"
+                        id="fontDecreaseBtn"
+                        class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center font-en font-semibold text-xs sm:text-sm text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-midnight-elevated hover:text-emeraldLux-700 dark:hover:text-emerald-400 active:scale-95 transition-all disabled:opacity-35 disabled:pointer-events-none"
+                        aria-label="અક્ષરો નાના કરો"
+                        title="અક્ષરો નાના કરો (A-)"
+                    >A-</button>
+                    <button
+                        type="button"
+                        id="fontResetBtn"
+                        class="px-1.5 sm:px-2 h-8 sm:h-9 rounded-lg flex items-center justify-center font-en font-semibold text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 hover:bg-white dark:hover:bg-midnight-elevated hover:text-emeraldLux-700 dark:hover:text-emerald-400 active:scale-95 transition-all"
+                        aria-label="અક્ષરોનું કદ રીસેટ કરો"
+                        title="ડિફોલ્ટ કદ (100%)"
+                    ><span id="fontScaleIndicator">100%</span></button>
+                    <button
+                        type="button"
+                        id="fontIncreaseBtn"
+                        class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center font-en font-semibold text-xs sm:text-sm text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-midnight-elevated hover:text-emeraldLux-700 dark:hover:text-emerald-400 active:scale-95 transition-all disabled:opacity-35 disabled:pointer-events-none"
+                        aria-label="અક્ષરો મોટા કરો"
+                        title="અક્ષરો મોટા કરો (A+)"
+                    >A+</button>
+                </div>
+
+                <!-- Translation Toggle Button (Memorization Mode) -->
+                <button
+                    type="button"
+                    id="toggleTranslationBtn"
+                    aria-pressed="true"
+                    class="h-9 sm:h-10 px-2.5 sm:px-3.5 rounded-xl border text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-all active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emeraldLux-600"
+                    title="તરજુમા છુપાવો / બતાવો (યાદ કરવા માટે)"
+                >
+                    <i id="translationToggleIcon" class="fa-solid fa-eye text-xs" aria-hidden="true"></i>
+                    <span>તરજુમા</span>
+                </button>
+
+                <!-- Theme Toggle Button -->
+                <button
+                    type="button"
+                    id="themeToggleBtn"
+                    aria-label="ડાર્ક અને લાઇટ થીમ બદલો"
+                    title="થીમ બદલો"
+                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100/90 dark:bg-midnight-card border border-slate-200/80 dark:border-midnight-border text-slate-700 dark:text-amber-300 hover:bg-white dark:hover:bg-midnight-elevated hover:border-emeraldLux-500/40 flex items-center justify-center transition-all active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emeraldLux-600"
+                >
+                    <i id="themeIcon" class="fa-solid fa-moon text-sm sm:text-base transition-transform duration-300" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Application Content -->
+    <main id="top" class="flex-1 w-full max-w-4xl mx-auto px-3.5 sm:px-6 pt-5 sm:pt-8 pb-16">
+
+        <!-- 3. Hero Header Banner + Memorization Progress Widget -->
+        <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emeraldLux-900 via-emeraldLux-700 to-emeraldLux-600 dark:from-[#062c25] dark:via-[#0b443c] dark:to-[#0c564d] text-white shadow-xl border border-emerald-500/20 mb-6 sm:mb-8" aria-label="મુખ્ય પરિચય અને પ્રગતિ">
+            <!-- Lightweight Inline SVG Islamic Geometric Pattern Background -->
+            <svg class="absolute inset-0 w-full h-full opacity-[0.08] pointer-events-none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <pattern id="islamic-geo-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+                        <path d="M30 0 L37.5 22.5 L60 30 L37.5 37.5 L30 60 L22.5 37.5 L0 30 L22.5 22.5 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+                        <circle cx="30" cy="30" r="9" fill="none" stroke="currentColor" stroke-width="0.9"/>
+                        <path d="M0 0 L15 15 M60 0 L45 15 M0 60 L15 45 M60 60 L45 45" stroke="currentColor" stroke-width="0.8"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#islamic-geo-pattern)"/>
+            </svg>
+
+            <!-- Soft Ambient Gold/Teal Glows -->
+            <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-goldLux-400/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute -bottom-24 -left-16 w-64 h-64 rounded-full bg-emerald-300/15 blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+            <div class="relative z-10 px-5 py-7 sm:px-9 sm:py-10 text-center">
+                <!-- Subtle Gold Top Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-amber-300/30 text-amber-200 text-xs sm:text-sm font-medium mb-4">
+                    <i class="fa-solid fa-star-and-crescent text-amber-300 text-xs" aria-hidden="true"></i>
+                    <span>ઈસ્લામી બુનિયાદી કલમા</span>
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-2xl sm:text-4xl md:text-[2.6rem] font-extrabold tracking-tight leading-snug text-white drop-shadow-sm">
+                    સાત કલમે તરજુમે કે સાથ
+                </h1>
+
+                <!-- Gold Ornamental Divider -->
+                <div class="flex items-center justify-center gap-3 my-4" aria-hidden="true">
+                    <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-r from-transparent to-amber-300/80 rounded-full"></span>
+                    <svg class="w-4 h-4 text-amber-300" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2z"/>
+                    </svg>
+                    <span class="h-[1.5px] w-14 sm:w-20 bg-gradient-to-l from-transparent to-amber-300/80 rounded-full"></span>
+                </div>
+
+                <p class="text-emerald-50/90 text-sm sm:text-base max-w-xl mx-auto mb-6">
+                    સરળ ગુજરાતી લિપિમાં સાતેય કલમા, તેના તરજુમા અને યાદ કરવાની સુવિધા સાથે
+                </p>
+
+                <!-- Memorization Progress Widget -->
+                <div class="max-w-lg mx-auto bg-black/20 dark:bg-black/30 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 text-left">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                        <div class="flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-amber-400/20 border border-amber-300/30 text-amber-300 flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-award" aria-hidden="true"></i>
+                            </span>
+                            <div>
+                                <p class="text-xs text-emerald-100/80 font-medium">તમારી યાદ કરવાની પ્રગતિ</p>
+                                <p class="text-sm sm:text-base font-bold text-white" id="progressSummaryText">0 / 7 યાદ કરેલા</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <span id="progressPercentBadge" class="font-en font-bold text-xs sm:text-sm px-2.5 py-1 rounded-lg bg-white/15 text-amber-200 border border-white/10">0%</span>
+                            <!-- Safe Two-Step Reset Button (Hidden when 0 learned) -->
+                            <button
+                                type="button"
+                                id="resetProgressBtn"
+                                class="hidden text-xs px-2.5 py-1 rounded-lg bg-white/10 hover:bg-rose-500/80 text-white/90 hover:text-white border border-white/15 transition-colors cursor-pointer"
+                                title="પ્રગતિ રીસેટ કરો"
+                            >રીસેટ</button>
+                        </div>
+                    </div>
+
+                    <!-- Animated Progress Track -->
+                    <div class="w-full h-2.5 bg-white/15 rounded-full overflow-hidden" role="progressbar" id="memorizationProgressBar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-label="યાદ કરેલા કલમાની પ્રગતિ">
+                        <div id="memorizationProgressFill" class="h-full w-0 bg-gradient-to-r from-emerald-300 via-teal-200 to-amber-400 rounded-full transition-all duration-500 ease-out"></div>
+                    </div>
+
+                    <!-- Celebratory Message (Reveals at 7/7) -->
+                    <p id="celebrationMessage" class="hidden mt-2.5 text-xs sm:text-sm font-semibold text-amber-200 flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-check text-emerald-300" aria-hidden="true"></i>
+                        <span>માશાઅલ્લાહ! તમે બધા ૭ કલમા યાદ કરી લીધા છે.</span>
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- Kalimas List -->
-        <section class="dua-container" id="kalimas" aria-label="Kalimas List">
-            
-            <!-- 1. Kalima Tayyab -->
-            <article class="dua-card">
-                <div class="dua-icon" aria-hidden="true">
-                    <i class="fa-solid fa-book-quran"></i>
-                </div>
-                <div class="dua-content-wrapper">
-                    <h2 class="dua-header">1. પહેલા કલમા (તૈયબ)</h2>
-                    <div class="dua-content">
-                        <p class="dua-arabic-transl">
-                            <strong class="highlight">અવ્વલ કલિમહ તૈયબ:</strong> લા ઈલાહ ઈલ્લલ્લાહુ મુહમ્મદુર્ર રસૂલુલ્લાહ (ﷺ)
-                        </p>
-                        <p class="dua-translation">
-                            <strong>તરજુમા:</strong> અલ્લાહ કે સિવા કોઈ મઅબૂદ નહીં, મુહંમદ (ﷺ) અલ્લાહ કે રસૂલ હૈ.
+        <!-- 4. Ta'awwudh & Bismillah Featured Card -->
+        <section class="mb-6 sm:mb-8" aria-label="તાઅવ્વુઝ અને બિસ્મિલ્લાહ">
+            <div class="relative overflow-hidden bg-white dark:bg-midnight-card rounded-2xl border border-emeraldLux-600/20 dark:border-emerald-500/25 shadow-soft dark:shadow-dark-card p-5 sm:p-6 transition-colors duration-300">
+                <!-- Left Emerald-Gold Accent Strip -->
+                <div class="absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b from-emeraldLux-600 via-emerald-500 to-goldLux-500" aria-hidden="true"></div>
+
+                <div class="pl-2.5 sm:pl-3.5">
+                    <div class="flex items-center justify-between gap-2 mb-2.5">
+                        <span class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full bg-emeraldLux-50 dark:bg-emerald-950/60 text-emeraldLux-800 dark:text-emerald-300 border border-emeraldLux-600/15 dark:border-emerald-500/20">
+                            <i class="fa-solid fa-book-open text-[10px] text-goldLux-600 dark:text-goldLux-400" aria-hidden="true"></i>
+                            શરૂઆતની દુઆ
+                        </span>
+                        <button
+                            type="button"
+                            id="copyBismillahBtn"
+                            class="text-xs font-medium px-2.5 py-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-emeraldLux-700 dark:hover:text-emerald-300 hover:bg-slate-100 dark:hover:bg-midnight-elevated transition-colors flex items-center gap-1.5"
+                            aria-label="બિસ્મિલ્લાહ કોપી કરો"
+                        >
+                            <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                            <span class="hidden sm:inline">કોપી</span>
+                        </button>
+                    </div>
+
+                    <h2 class="bismillah-title-scale font-bold text-emeraldLux-900 dark:text-emerald-300 mb-3">
+                        અઉઝુબિલ્લાહિ મિનશ્શૈતાનિર્રજીમ બિસ્મિલ્લાહિર્રહમાનિર્રહીમ
+                    </h2>
+
+                    <div id="bismillahTranslationBlock" class="pt-3 border-t border-slate-100 dark:border-midnight-border transition-all">
+                        <p class="translation-text-scale text-slate-600 dark:text-slate-300">
+                            <span class="inline-block font-bold text-goldLux-600 dark:text-goldLux-400 mr-1">તરજુમા:</span>
+                            પનાહ માંગતા હું મૈં અલ્લાહ કી શયતાન મરદૂદ સે. અલ્લાહ કે નામ સે શુરૂ જો નિહાયત મેહરબાન રહમ કરનેવાલા હૈ.
                         </p>
                     </div>
                 </div>
-            </article>
-
-            <!-- 2. Kalima Shahadat -->
-            <article class="dua-card">
-                <div class="dua-icon" aria-hidden="true">
-                    <i class="fa-solid fa-book-quran"></i>
-                </div>
-                <div class="dua-content-wrapper">
-                    <h2 class="dua-header">2. દૂસરા કલમા (શહાદત)</h2>
-                    <div class="dua-content">
-                        <p class="dua-arabic-transl">
-                            <strong class="highlight">દુવમ કલિમહ શહાદત:</strong> અશહદુ અલ્લા ઈલાહ ઈલ્લલ્લાહુ વહદહુ લા શરીક લહુ વ અશહદુ અન્ન મુહમ્મદન અબ્દુહૂ વ રસૂલુહ (ﷺ)
-                        </p>
-                        <p class="dua-translation">
-                            <strong>તરજુમા:</strong> મૈં ગવાહી દેતા હું કે અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહીં, વો અકેલા હૈ ઉસકા કોઈ શરીક નહી ઔર મૈં ગવાહી દેતા હું કે બેશક મુહમ્મદ (ﷺ) અલ્લાહ તઆલા કે બંદે ઔર રસૂલ હૈ.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 3. Kalima Tamjeed -->
-            <article class="dua-card">
-                <div class="dua-icon" aria-hidden="true">
-                    <i class="fa-solid fa-book-quran"></i>
-                </div>
-                <div class="dua-content-wrapper">
-                    <h2 class="dua-header">3. તિસરા કલમા (તમ્જીદ)</h2>
-                    <div class="dua-content">
-                        <p class="dua-arabic-transl">
-                            <strong class="highlight">સુવમ કલિમહ તમ્જીદ:</strong> સુબ્હાનલ્લાહિ વલ્હમ્દુલિલ્લાહિ વલા ઈલાહ ઈલ્લલ્લાહુ વલ્લાહુ અકબર વલા હૌલ વલા કુવ્વત ઈલ્લા બિલ્લાહિલ અલિય્યિલ અઝીમ.
-                        </p>
-                        <p class="dua-translation">
-                            <strong>તરજુમા:</strong> અલ્લાહ તઆલા પાક હૈ ઔર તમામ તારીફ અલ્લાહ તઆલા કે લિયે હૈ ઔર અલ્લાહ તઆલા કે સિવાય કોઈ મઅબૂદ નહી ઔર અલ્લાહ તઆલા બહુત બડા હૈ. ગુનાહો સે બચને કી તૌફીક ઔર નેકી કરને કી તાકત સિર્ફ અલ્લાહ તઆલા કી તરફ સે હૈ જો બુલંદ અઝમત વાલા હૈ.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 4. Kalima Tauheed -->
-            <article class="dua-card">
-                <div class="dua-icon" aria-hidden="true">
-                    <i class="fa-solid fa-book-quran"></i>
-                </div>
-                <div class="dua-content-wrapper">
-                    <h2 class="dua-header">4. ચોથા કલમા (તોહીદ)</h2>
-                    <div class="dua-content">
-                        <p class="dua-arabic-transl">
-                            <strong class="highlight">ચહારૂમ કલિમહ તોહીદ:</strong> લા ઈલાહ ઈલ્લલ્લાહુ વહદહુ લા શરીક લહુ લહુલ મુલ્કુ વલહુલ હમ્દુ ચુહયી વ ચુમીતો બિયદિહિલ ખૈર, વ હુવ અલા કુલ્લિ શૈઈન કદીર.
-                        </p>
-                        <p class="dua-translation">
-                            <strong>તરજુમા:</strong> અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહી, વો અકેલા હૈ, ઉસકા કોઈ શરીક નહી, ઉસી કે લિયે બાદશાહી હૈ ઔર ઉસી કે લિયે તમામ તઅરીફેં હૈ, વહી ઝીંદા કરતા હૈ ઔર વહી મારતા હૈ, ઉસી કે દસ્તે કુદરત મેં ભલાઈ હૈ ઔર વોહ હર ચીઝ પર કાદિર હૈ.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 5. Kalima Radde Kufr -->
-            <article class="dua-card">
-                <div class="dua-icon" aria-hidden="true">
-                    <i class="fa-solid fa-book-quran"></i>
-                </div>
-                <div class="dua-content-wrapper">
-                    <h2 class="dua-header">5. પાંચવા કલમા (રદ્દે કુફ્ર)</h2>
-                    <div class="dua-content">
-                        <p class="dua-arabic-transl">
-                            <strong class="highlight">પંજૂમ કલિમહ રદ્દે કુફ્ર:</strong> અલ્લાહુમ્મ ઈન્ની અઉઝૂ બિક મિન અન્ ઉશારિક બિક શૈઅંવ વ અના અઅલમુ બિહી વ અસ્તગ્ફિરુક લિમા લા અઅલમુ બિહી તુબતુ અન્હુ વ તબર્રીતુ મિનલ કુફ્રે વશિર્કિ વલ કિઝબિ વલ ગીબતિ વન્નમિમતિ વલ ફવાહિશિ વલ બુહતાનિ વલ મઆસી કુલ્લિહા વ અસ્લમ્તુ વ આમન્તુ વ-અ-કુલુ લા ઈલાહ ઈલ્લલ્લાહુ મુહમ્મદુર્ર રસૂલુલ્લાહ (ﷺ)
-                        </p>
-                        <p class="dua-translation">
-                            <strong>તરજુમા:</strong> ઐય અલ્લાહ મેં તેરી પનાહ માંગતા હું ઈસ બાત સે કે મેં કિસી ચીઝ કો તેરા શરીક બનાઉં જાન બુઝકર, ઔર બખ્શિશ ચાહતા હું ઉન ગુનાહો કી જિસ્કા મુઝે ઈલ્મ નહી હૈ, મૈને ઉસસે તૌબા કી ઔર બેઝાર હુવા કુફ્ર સે, શિર્ક સે, જુઠ સે, ગીબત સે, ચુગલી સે, બેહયાઈયો સે, બોહતાન સે ઔર તમામ ગુનાહોં સે. મૈં ઈસ્લામ લાયા ઔર મૈં ઈમાન લાયા ઔર મૈં કહેતા હું કે અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહીં, મુહમ્મદ (ﷺ) અલ્લાહ કે રસૂલ હૈ.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 6. Imaan-e-Mujmal -->
-            <article class="dua-card">
-                <div class="dua-icon" aria-hidden="true">
-                    <i class="fa-solid fa-book-quran"></i>
-                </div>
-                <div class="dua-content-wrapper">
-                    <h2 class="dua-header">6. ઈમાને મુજમલ</h2>
-                    <div class="dua-content">
-                        <p class="dua-arabic-transl">
-                            <strong class="highlight">ઈમાને મુજમલ:</strong> આમન્તુ બિલ્લાહિ કમા હુવ બિ અસ્માઈહિ વ સિફાતિહી વ કબિલ્તુ જમીઅ અહકામિહી વ અર્કાનિહી ઈકરારુમ બિલ લિસાની વ તસદિકુમ બિલ કલ્બિ.
-                        </p>
-                        <p class="dua-translation">
-                            <strong>તરજુમા:</strong> મૈં ઈમાન લાયા અલ્લાહ તઆલા પર જૈસા કે વો અપને નામોં ઔર અપની સિફતોં કે સાથ હૈ ઔર મૈને ઉસકે તમામ અહકામ ઔર અરકાન કબૂલ કિયે ઝબાન સે ઈકરાર કરતે હુએ ઔર દીલ સે તસ્દીક કરતે હૂએ.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 7. Imaan-e-Mufassal -->
-            <article class="dua-card">
-                <div class="dua-icon" aria-hidden="true">
-                    <i class="fa-solid fa-book-quran"></i>
-                </div>
-                <div class="dua-content-wrapper">
-                    <h2 class="dua-header">7. ઈમાને મુફસ્સલ</h2>
-                    <div class="dua-content">
-                        <p class="dua-arabic-transl">
-                            <strong class="highlight">ઈમાને મુફસ્સલ:</strong> આમન્તુ બિલ્લાહિ વ મલાઈકતિહિ વ કુતુબિહી વ રુસૂલિહી વલ્ યૌમિલ આખિરિ વલ કદરિ ખૈરિહી વ શર્રિહી મિનલ્લાહિ તઆલા વલ્ બઅષિ બઅદલ્ મૌત.
-                        </p>
-                        <p class="dua-translation">
-                            <strong>તરજુમા:</strong> મૈં ઈમાન લાયા અલ્લાહ તઆલા પર ઔર ઉસકે ફરિશ્તોં પર ઔર ઉસકી કિતાબોં પર ઔર ઉસકે રસૂલોં પર ઔર કયામત કે દિન પર ઔર ઈસ પર કે અચ્છી - બુરી તકદીર કા ખાલિક અલ્લાહ તઆલા હૈ ઔર મૌત કે બાદ ઉઠાએ જાને પર.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
+            </div>
         </section>
+
+        <!-- 5. Search & Quick-Jump Filter Bar -->
+        <section class="mb-6 sm:mb-7 space-y-3.5" aria-label="શોધો અને કલમા પસંદ કરો">
+            <!-- Live Search Input -->
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 dark:text-slate-500">
+                    <i class="fa-solid fa-magnifying-glass text-sm" aria-hidden="true"></i>
+                </div>
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="કલમા, શબ્દ કે તરજુમા શોધો... (દા.ત. તૈયબ, શહાદત, ઈમાન)"
+                    autocomplete="off"
+                    class="w-full pl-11 pr-11 py-3.5 rounded-2xl bg-white dark:bg-midnight-card border border-slate-200/90 dark:border-midnight-border text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm sm:text-base shadow-soft focus:outline-none focus:ring-2 focus:ring-emeraldLux-600/40 focus:border-emeraldLux-600 dark:focus:border-emerald-400 transition-all"
+                    aria-label="કલમા શોધો"
+                >
+                <button
+                    type="button"
+                    id="clearSearchBtn"
+                    class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
+                    aria-label="સર્ચ સાફ કરો"
+                >
+                    <span class="w-7 h-7 rounded-full bg-slate-100 dark:bg-midnight-elevated flex items-center justify-center">
+                        <i class="fa-solid fa-xmark text-xs" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Horizontal Scrollable Quick-Jump Pill Chips -->
+            <div class="relative">
+                <div id="pillFilterContainer" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 pb-1.5 -mx-1 px-1" role="tablist" aria-label="કલમા ફિલ્ટર કરો">
+                    <!-- Pills dynamically rendered by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Active Filter / Search Status Bar -->
+            <div id="filterStatusRow" class="hidden flex items-center justify-between text-xs sm:text-sm text-slate-500 dark:text-slate-400 px-1">
+                <span id="filterStatusText"></span>
+                <button type="button" id="showAllQuickBtn" class="font-semibold text-emeraldLux-700 dark:text-emerald-400 hover:underline flex items-center gap-1">
+                    <i class="fa-solid fa-grid-2 text-xs" aria-hidden="true"></i>
+                    <span>બધા ૭ કલમા જુઓ</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 6. Kalima Cards Container -->
+        <section id="kalimasGrid" class="space-y-5 sm:space-y-6" aria-label="સાત કલમાની યાદી" aria-live="polite">
+            <!-- Cards dynamically rendered by JavaScript -->
+        </section>
+
+        <!-- Focused Single-Kalima Navigation Footer (Visible only when a specific pill is selected) -->
+        <nav id="focusNavContainer" class="hidden mt-6 flex items-center justify-between gap-3" aria-label="આગળ અને પાછળનો કલમા">
+            <button
+                type="button"
+                id="prevKalimaBtn"
+                class="flex-1 sm:flex-none px-4 py-3 rounded-2xl bg-white dark:bg-midnight-card border border-slate-200 dark:border-midnight-border text-slate-700 dark:text-slate-200 font-semibold text-sm hover:border-emeraldLux-500 hover:text-emeraldLux-700 dark:hover:text-emerald-300 shadow-soft transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:pointer-events-none"
+            >
+                <i class="fa-solid fa-arrow-left text-xs" aria-hidden="true"></i>
+                <span>પાછળનો કલમા</span>
+            </button>
+            <button
+                type="button"
+                id="focusShowAllBtn"
+                class="hidden sm:inline-flex px-4 py-3 rounded-2xl bg-emeraldLux-50 dark:bg-emerald-950/60 text-emeraldLux-800 dark:text-emerald-300 font-semibold text-sm border border-emeraldLux-600/20 hover:bg-emeraldLux-100 dark:hover:bg-emerald-900/50 transition-all items-center gap-1.5"
+            >
+                <span>બધા કલમા</span>
+            </button>
+            <button
+                type="button"
+                id="nextKalimaBtn"
+                class="flex-1 sm:flex-none px-4 py-3 rounded-2xl bg-white dark:bg-midnight-card border border-slate-200 dark:border-midnight-border text-slate-700 dark:text-slate-200 font-semibold text-sm hover:border-emeraldLux-500 hover:text-emeraldLux-700 dark:hover:text-emerald-300 shadow-soft transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:pointer-events-none"
+            >
+                <span>આગળનો કલમા</span>
+                <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+            </button>
+        </nav>
+
+        <!-- Empty Search State -->
+        <div id="emptyState" class="hidden text-center py-14 px-6 bg-white dark:bg-midnight-card rounded-3xl border border-slate-200/80 dark:border-midnight-border shadow-soft">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-emeraldLux-50 dark:bg-emerald-950/60 text-emeraldLux-600 dark:text-emerald-400 flex items-center justify-center text-2xl">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-100 mb-1.5">કોઈ કલમા મળ્યો નથી</h3>
+            <p class="text-sm sm:text-base text-slate-500 dark:text-slate-400 mb-5">તમારા સર્ચ મુજબ કોઈ પરિણામ મળ્યું નથી. કૃપા કરીને બીજા શબ્દોથી શોધો.</p>
+            <button
+                type="button"
+                id="emptyResetBtn"
+                class="px-5 py-2.5 rounded-xl bg-emeraldLux-600 hover:bg-emeraldLux-700 text-white font-semibold text-sm shadow-sm transition-all active:scale-95"
+            >
+                બધા કલમા બતાવો
+            </button>
+        </div>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <p>DEVELOPED BY - <strong>Pathan Mahirkhan</strong></p>
+    <!-- 7. Clean Developer Footer -->
+    <footer class="w-full border-t border-slate-200/80 dark:border-midnight-border bg-white/70 dark:bg-midnight-card/60 backdrop-blur-md py-8 px-4 mt-auto">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex items-center justify-center gap-3 mb-3 opacity-70" aria-hidden="true">
+                <span class="h-px w-10 bg-gradient-to-r from-transparent to-emeraldLux-600 dark:to-emerald-400"></span>
+                <i class="fa-solid fa-mosque text-xs text-goldLux-600 dark:text-goldLux-400"></i>
+                <span class="h-px w-10 bg-gradient-to-l from-transparent to-emeraldLux-600 dark:to-emerald-400"></span>
+            </div>
+            <p class="font-en text-xs sm:text-sm tracking-widest uppercase text-slate-500 dark:text-slate-400">
+                DEVELOPED BY - <strong class="font-bold text-emeraldLux-900 dark:text-emerald-300 tracking-wide">Pathan Mahirkhan</strong>
+            </p>
         </div>
     </footer>
 
+    <!-- Floating Back-to-Top Button -->
+    <button
+        type="button"
+        id="backToTopBtn"
+        aria-label="ઉપર જાઓ"
+        title="ઉપર જાઓ"
+        class="fixed bottom-5 right-4 sm:bottom-7 sm:right-7 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-emeraldLux-700 to-emeraldLux-600 dark:from-emeraldLux-600 dark:to-emerald-500 text-white shadow-lg shadow-emeraldLux-900/25 flex items-center justify-center opacity-0 translate-y-4 pointer-events-none transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+    >
+        <i class="fa-solid fa-arrow-up text-sm sm:text-base" aria-hidden="true"></i>
+    </button>
+
+    <!-- Accessible Toast Notification -->
+    <div
+        id="toastContainer"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 translate-y-4 w-max max-w-[92vw]"
+    >
+        <div class="flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-900/95 dark:bg-emerald-950/95 text-white border border-emerald-500/30 shadow-2xl backdrop-blur-md text-sm font-medium">
+            <span id="toastIconWrap" class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0">
+                <i id="toastIcon" class="fa-solid fa-check text-xs" aria-hidden="true"></i>
+            </span>
+            <span id="toastMessage" class="leading-snug">કલમા કોપી થઈ ગયો!</span>
+        </div>
+    </div>
+
+    <!-- Application Logic (Modular, Bug-Free Vanilla JavaScript) -->
+    <script>
+        'use strict';
+
+        /**
+         * =========================================================================
+         * 1. DATA REPOSITORY (Exact Preserved Gujarati Script Content)
+         * =========================================================================
+         */
+        const BISMILLAH_DATA = {
+            title: 'અઉઝુબિલ્લાહિ મિનશ્શૈતાનિર્રજીમ બિસ્મિલ્લાહિર્રહમાનિર્રહીમ',
+            translation: 'પનાહ માંગતા હું મૈં અલ્લાહ કી શયતાન મરદૂદ સે. અલ્લાહ કે નામ સે શુરૂ જો નિહાયત મેહરબાન રહમ કરનેવાલા હૈ.'
+        };
+
+        const KALIMAS = [
+            {
+                id: 1,
+                badge: '01',
+                pillLabel: '1. તૈયબ',
+                title: '1. પહેલા કલમા (તૈયબ)',
+                label: 'અવ્વલ કલિમહ તૈયબ:',
+                text: 'લા ઈલાહ ઈલ્લલ્લાહુ મુહમ્મદુર્ર રસૂલુલ્લાહ (ﷺ)',
+                translation: 'અલ્લાહ કે સિવા કોઈ મઅબૂદ નહીં, મુહંમદ (ﷺ) અલ્લાહ કે રસૂલ હૈ.'
+            },
+            {
+                id: 2,
+                badge: '02',
+                pillLabel: '2. શહાદત',
+                title: '2. દૂસરા કલમા (શહાદત)',
+                label: 'દુવમ કલિમહ શહાદત:',
+                text: 'અશહદુ અલ્લા ઈલાહ ઈલ્લલ્લાહુ વહદહુ લા શરીક લહુ વ અશહદુ અન્ન મુહમ્મદન અબ્દુહૂ વ રસૂલુહ (ﷺ)',
+                translation: 'મૈં ગવાહી દેતા હું કે અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહીં, વો અકેલા હૈ ઉસકા કોઈ શરીક નહી ઔર મૈં ગવાહી દેતા હું કે બેશક મુહમ્મદ (ﷺ) અલ્લાહ તઆલા કે બંદે ઔર રસૂલ હૈ.'
+            },
+            {
+                id: 3,
+                badge: '03',
+                pillLabel: '3. તમ્જીદ',
+                title: '3. તિસરા કલમા (તમ્જીદ)',
+                label: 'સુવમ કલિમહ તમ્જીદ:',
+                text: 'સુબ્હાનલ્લાહિ વલ્હમ્દુલિલ્લાહિ વલા ઈલાહ ઈલ્લલ્લાહુ વલ્લાહુ અકબર વલા હૌલ વલા કુવ્વત ઈલ્લા બિલ્લાહિલ અલિય્યિલ અઝીમ.',
+                translation: 'અલ્લાહ તઆલા પાક હૈ ઔર તમામ તારીફ અલ્લાહ તઆલા કે લિયે હૈ ઔર અલ્લાહ તઆલા કે સિવાય કોઈ મઅબૂદ નહી ઔર અલ્લાહ તઆલા બહુત બડા હૈ. ગુનાહો સે બચને કી તૌફીક ઔર નેકી કરને કી તાકત સિર્ફ અલ્લાહ તઆલા કી તરફ સે હૈ જો બુલંદ અઝમત વાલા હૈ.'
+            },
+            {
+                id: 4,
+                badge: '04',
+                pillLabel: '4. તોહીદ',
+                title: '4. ચોથા કલમા (તોહીદ)',
+                label: 'ચહારૂમ કલિમહ તોહીદ:',
+                text: 'લા ઈલાહ ઈલ્લલ્લાહુ વહદહુ લા શરીક લહુ લહુલ મુલ્કુ વલહુલ હમ્દુ ચુહયી વ ચુમીતો બિયદિહિલ ખૈર, વ હુવ અલા કુલ્લિ શૈઈન કદીર.',
+                translation: 'અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહી, વો અકેલા હૈ, ઉસકા કોઈ શરીક નહી, ઉસી કે લિયે બાદશાહી હૈ ઔર ઉસી કે લિયે તમામ તઅરીફેં હૈ, વહી ઝીંદા કરતા હૈ ઔર વહી મારતા હૈ, ઉસી કે દસ્તે કુદરત મેં ભલાઈ હૈ ઔર વોહ હર ચીઝ પર કાદિર હૈ.'
+            },
+            {
+                id: 5,
+                badge: '05',
+                pillLabel: '5. રદ્દે કુફ્ર',
+                title: '5. પાંચવા કલમા (રદ્દે કુફ્ર)',
+                label: 'પંજૂમ કલિમહ રદ્દે કુફ્ર:',
+                text: 'અલ્લાહુમ્મ ઈન્ની અઉઝૂ બિક મિન અન્ ઉશારિક બિક શૈઅંવ વ અના અઅલમુ બિહી વ અસ્તગ્ફિરુક લિમા લા અઅલમુ બિહી તુબતુ અન્હુ વ તબર્રીતુ મિનલ કુફ્રે વશિર્કિ વલ કિઝબિ વલ ગીબતિ વન્નમિમતિ વલ ફવાહિશિ વલ બુહતાનિ વલ મઆસી કુલ્લિહા વ અસ્લમ્તુ વ આમન્તુ વ-અ-કુલુ લા ઈલાહ ઈલ્લલ્લાહુ મુહમ્મદુર્ર રસૂલુલ્લાહ (ﷺ)',
+                translation: 'ઐય અલ્લાહ મેં તેરી પનાહ માંગતા હું ઈસ બાત સે કે મેં કિસી ચીઝ કો તેરા શરીક બનાઉં જાન બુઝકર, ઔર બખ્શિશ ચાહતા હું ઉન ગુનાહો કી જિસ્કા મુઝે ઈલ્મ નહી હૈ, મૈને ઉસસે તૌબા કી ઔર બેઝાર હુવા કુફ્ર સે, શિર્ક સે, જુઠ સે, ગીબત સે, ચુગલી સે, બેહયાઈયો સે, બોહતાન સે ઔર તમામ ગુનાહોં સે. મૈં ઈસ્લામ લાયા ઔર મૈં ઈમાન લાયા ઔર મૈં કહેતા હું કે અલ્લાહ તઆલા કે સિવા કોઈ મઅબૂદ નહીં, મુહમ્મદ (ﷺ) અલ્લાહ કે રસૂલ હૈ.'
+            },
+            {
+                id: 6,
+                badge: '06',
+                pillLabel: '6. ઈમાને મુજમલ',
+                title: '6. ઈમાને મુજમલ',
+                label: 'ઈમાને મુજમલ:',
+                text: 'આમન્તુ બિલ્લાહિ કમા હુવ બિ અસ્માઈહિ વ સિફાતિહી વ કબિલ્તુ જમીઅ અહકામિહી વ અર્કાનિહી ઈકરારુમ બિલ લિસાની વ તસદિકુમ બિલ કલ્બિ.',
+                translation: 'મૈં ઈમાન લાયા અલ્લાહ તઆલા પર જૈસા કે વો અપને નામોં ઔર અપની સિફતોં કે સાથ હૈ ઔર મૈને ઉસકે તમામ અહકામ ઔર અરકાન કબૂલ કિયે ઝબાન સે ઈકરાર કરતે હુએ ઔર દીલ સે તસ્દીક કરતે હૂએ.'
+            },
+            {
+                id: 7,
+                badge: '07',
+                pillLabel: '7. ઈમાને મુફસ્સલ',
+                title: '7. ઈમાને મુફસ્સલ',
+                label: 'ઈમાને મુફસ્સલ:',
+                text: 'આમન્તુ બિલ્લાહિ વ મલાઈકતિહિ વ કુતુબિહી વ રુસૂલિહી વલ્ યૌમિલ આખિરિ વલ કદરિ ખૈરિહી વ શર્રિહી મિનલ્લાહિ તઆલા વલ્ બઅષિ બઅદલ્ મૌત.',
+                translation: 'મૈં ઈમાન લાયા અલ્લાહ તઆલા પર ઔર ઉસકે ફરિશ્તોં પર ઔર ઉસકી કિતાબોં પર ઔર ઉસકે રસૂલોં પર ઔર કયામત કે દિન પર ઔર ઈસ પર કે અચ્છી - બુરી તકદીર કા ખાલિક અલ્લાહ તઆલા હૈ ઔર મૌત કે બાદ ઉઠાએ જાને પર.'
+            }
+        ];
+
+        /**
+         * =========================================================================
+         * 2. SAFE STORAGE HELPER (Never Throws in Sandboxed/iFrame Environments)
+         * =========================================================================
+         */
+        const STORAGE_KEYS = {
+            THEME: 'kalima_app_theme',
+            FONT_SCALE: 'kalima_app_font_scale',
+            LEARNED: 'kalima_app_learned_ids',
+            SHOW_TRANS: 'kalima_app_show_translation'
+        };
+
+        const SafeStorage = {
+            memoryFallback: {},
+            get(key, defaultValue = null) {
+                try {
+                    const value = window.localStorage.getItem(key);
+                    return value !== null ? value : defaultValue;
+                } catch (err) {
+                    return Object.prototype.hasOwnProperty.call(this.memoryFallback, key)
+                        ? this.memoryFallback[key]
+                        : defaultValue;
+                }
+            },
+            set(key, value) {
+                try {
+                    window.localStorage.setItem(key, String(value));
+                } catch (err) {
+                    this.memoryFallback[key] = String(value);
+                }
+            },
+            getJSON(key, defaultValue) {
+                try {
+                    const raw = this.get(key, null);
+                    if (!raw) return defaultValue;
+                    const parsed = JSON.parse(raw);
+                    return parsed !== null && parsed !== undefined ? parsed : defaultValue;
+                } catch (err) {
+                    return defaultValue;
+                }
+            },
+            setJSON(key, value) {
+                try {
+                    this.set(key, JSON.stringify(value));
+                } catch (err) {
+                    // Fail silently
+                }
+            }
+        };
+
+        /**
+         * =========================================================================
+         * 3. RELIABLE CLIPBOARD HELPER (Modern API + Guaranteed execCommand Fallback)
+         * =========================================================================
+         */
+        async function copyTextToClipboard(text) {
+            // Try modern Clipboard API first in secure contexts
+            if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function' && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    return true;
+                } catch (err) {
+                    // Fall through to execCommand fallback (handles iframe restrictions)
+                }
+            }
+
+            // Guaranteed fallback using temporary textarea + execCommand('copy')
+            try {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.setAttribute('readonly', '');
+                textarea.style.position = 'fixed';
+                textarea.style.top = '-9999px';
+                textarea.style.left = '-9999px';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.focus();
+                textarea.select();
+                textarea.setSelectionRange(0, textarea.value.length);
+                const successful = document.execCommand('copy');
+                document.body.removeChild(textarea);
+                return Boolean(successful);
+            } catch (err) {
+                return false;
+            }
+        }
+
+        /**
+         * Escape HTML utility for safe rendering
+         */
+        function escapeHTML(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        /**
+         * =========================================================================
+         * 4. APPLICATION STATE
+         * =========================================================================
+         */
+        const FONT_MIN = 0.85;
+        const FONT_MAX = 1.45;
+        const FONT_STEP = 0.1;
+
+        const savedLearnedRaw = SafeStorage.getJSON(STORAGE_KEYS.LEARNED, []);
+        const validLearnedIds = Array.isArray(savedLearnedRaw)
+            ? savedLearnedRaw.filter((id) => typeof id === 'number' && id >= 1 && id <= KALIMAS.length)
+            : [];
+
+        const savedFont = parseFloat(SafeStorage.get(STORAGE_KEYS.FONT_SCALE, '1'));
+        const initialFontScale = (!Number.isNaN(savedFont) && savedFont >= FONT_MIN && savedFont <= FONT_MAX)
+            ? Math.round(savedFont * 100) / 100
+            : 1;
+
+        const state = {
+            theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
+            fontScale: initialFontScale,
+            showTranslations: SafeStorage.get(STORAGE_KEYS.SHOW_TRANS, 'true') !== 'false',
+            learnedIds: new Set(validLearnedIds),
+            revealedInQuizIds: new Set(), // Allows peeking at individual translations when global translations are hidden
+            activeFilter: 'all', // 'all' or Kalima id (1..7)
+            searchQuery: '',
+            resetConfirmArmed: false,
+            resetConfirmTimer: null,
+            toastTimer: null
+        };
+
+        /**
+         * =========================================================================
+         * 5. DOM ELEMENT REFERENCES
+         * =========================================================================
+         */
+        const dom = {
+            readingProgressBar: document.getElementById('readingProgressBar'),
+            themeToggleBtn: document.getElementById('themeToggleBtn'),
+            themeIcon: document.getElementById('themeIcon'),
+            fontDecreaseBtn: document.getElementById('fontDecreaseBtn'),
+            fontResetBtn: document.getElementById('fontResetBtn'),
+            fontIncreaseBtn: document.getElementById('fontIncreaseBtn'),
+            fontScaleIndicator: document.getElementById('fontScaleIndicator'),
+            toggleTranslationBtn: document.getElementById('toggleTranslationBtn'),
+            translationToggleIcon: document.getElementById('translationToggleIcon'),
+            bismillahTranslationBlock: document.getElementById('bismillahTranslationBlock'),
+            copyBismillahBtn: document.getElementById('copyBismillahBtn'),
+            progressSummaryText: document.getElementById('progressSummaryText'),
+            progressPercentBadge: document.getElementById('progressPercentBadge'),
+            memorizationProgressBar: document.getElementById('memorizationProgressBar'),
+            memorizationProgressFill: document.getElementById('memorizationProgressFill'),
+            celebrationMessage: document.getElementById('celebrationMessage'),
+            resetProgressBtn: document.getElementById('resetProgressBtn'),
+            searchInput: document.getElementById('searchInput'),
+            clearSearchBtn: document.getElementById('clearSearchBtn'),
+            pillFilterContainer: document.getElementById('pillFilterContainer'),
+            filterStatusRow: document.getElementById('filterStatusRow'),
+            filterStatusText: document.getElementById('filterStatusText'),
+            showAllQuickBtn: document.getElementById('showAllQuickBtn'),
+            kalimasGrid: document.getElementById('kalimasGrid'),
+            focusNavContainer: document.getElementById('focusNavContainer'),
+            prevKalimaBtn: document.getElementById('prevKalimaBtn'),
+            nextKalimaBtn: document.getElementById('nextKalimaBtn'),
+            focusShowAllBtn: document.getElementById('focusShowAllBtn'),
+            emptyState: document.getElementById('emptyState'),
+            emptyResetBtn: document.getElementById('emptyResetBtn'),
+            backToTopBtn: document.getElementById('backToTopBtn'),
+            toastContainer: document.getElementById('toastContainer'),
+            toastMessage: document.getElementById('toastMessage'),
+            toastIcon: document.getElementById('toastIcon')
+        };
+
+        /**
+         * =========================================================================
+         * 6. UI FEEDBACK & CORE CONTROLLERS
+         * =========================================================================
+         */
+        function showToast(message, iconClass = 'fa-check') {
+            if (state.toastTimer) {
+                clearTimeout(state.toastTimer);
+            }
+            dom.toastMessage.textContent = message;
+            dom.toastIcon.className = `fa-solid ${iconClass} text-xs`;
+
+            dom.toastContainer.classList.remove('opacity-0', 'translate-y-4');
+            dom.toastContainer.classList.add('opacity-100', 'translate-y-0');
+
+            state.toastTimer = setTimeout(() => {
+                dom.toastContainer.classList.remove('opacity-100', 'translate-y-0');
+                dom.toastContainer.classList.add('opacity-0', 'translate-y-4');
+            }, 2600);
+        }
+
+        function applyTheme(theme) {
+            state.theme = theme;
+            const isDark = theme === 'dark';
+            document.documentElement.classList.toggle('dark', isDark);
+            SafeStorage.set(STORAGE_KEYS.THEME, theme);
+
+            dom.themeIcon.className = isDark
+                ? 'fa-solid fa-sun text-sm sm:text-base transition-transform duration-300 rotate-0'
+                : 'fa-solid fa-moon text-sm sm:text-base transition-transform duration-300';
+
+            const metaTheme = document.querySelector('meta[name="theme-color"]');
+            if (metaTheme) {
+                metaTheme.setAttribute('content', isDark ? '#0b1116' : '#0f766e');
+            }
+        }
+
+        function applyFontScale(scale) {
+            const clamped = Math.max(FONT_MIN, Math.min(FONT_MAX, Math.round(scale * 100) / 100));
+            state.fontScale = clamped;
+            document.documentElement.style.setProperty('--kalima-scale', clamped);
+            SafeStorage.set(STORAGE_KEYS.FONT_SCALE, clamped);
+
+            dom.fontScaleIndicator.textContent = `${Math.round(clamped * 100)}%`;
+            dom.fontDecreaseBtn.disabled = clamped <= FONT_MIN + 0.001;
+            dom.fontIncreaseBtn.disabled = clamped >= FONT_MAX - 0.001;
+        }
+
+        function updateTranslationToggleUI() {
+            const active = state.showTranslations;
+            dom.toggleTranslationBtn.setAttribute('aria-pressed', String(active));
+
+            if (active) {
+                dom.toggleTranslationBtn.className = 'h-9 sm:h-10 px-2.5 sm:px-3.5 rounded-xl border text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-all active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emeraldLux-600 bg-emeraldLux-600 border-emeraldLux-600 text-white shadow-sm hover:bg-emeraldLux-700';
+                dom.translationToggleIcon.className = 'fa-solid fa-eye text-xs';
+                dom.bismillahTranslationBlock.classList.remove('hidden');
+            } else {
+                dom.toggleTranslationBtn.className = 'h-9 sm:h-10 px-2.5 sm:px-3.5 rounded-xl border text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-all active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-emeraldLux-600 bg-slate-100/90 dark:bg-midnight-card border-slate-200/80 dark:border-midnight-border text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-midnight-elevated';
+                dom.translationToggleIcon.className = 'fa-solid fa-eye-slash text-xs';
+                dom.bismillahTranslationBlock.classList.add('hidden');
+            }
+        }
+
+        function updateMemorizationProgressUI() {
+            const count = state.learnedIds.size;
+            const total = KALIMAS.length;
+            const percent = Math.round((count / total) * 100);
+
+            dom.progressSummaryText.textContent = `${count} / ${total} યાદ કરેલા`;
+            dom.progressPercentBadge.textContent = `${percent}%`;
+            dom.memorizationProgressBar.setAttribute('aria-valuenow', String(count));
+            dom.memorizationProgressFill.style.width = `${percent}%`;
+
+            if (count === total) {
+                dom.celebrationMessage.classList.remove('hidden');
+            } else {
+                dom.celebrationMessage.classList.add('hidden');
+            }
+
+            if (count > 0) {
+                dom.resetProgressBtn.classList.remove('hidden');
+            } else {
+                dom.resetProgressBtn.classList.add('hidden');
+                disarmResetProgress();
+            }
+        }
+
+        function disarmResetProgress() {
+            state.resetConfirmArmed = false;
+            if (state.resetConfirmTimer) {
+                clearTimeout(state.resetConfirmTimer);
+                state.resetConfirmTimer = null;
+            }
+            dom.resetProgressBtn.textContent = 'રીસેટ';
+            dom.resetProgressBtn.classList.remove('bg-rose-500', 'border-rose-400', 'text-white');
+            dom.resetProgressBtn.classList.add('bg-white/10', 'border-white/15');
+        }
+
+        /**
+         * =========================================================================
+         * 7. RENDERING: QUICK-JUMP PILL CHIPS & KALIMA CARDS
+         * =========================================================================
+         */
+        function renderFilterPills() {
+            const pillsHTML = [
+                { id: 'all', label: `બધા (${KALIMAS.length})`, learned: state.learnedIds.size === KALIMAS.length }
+            ].concat(
+                KALIMAS.map((k) => ({
+                    id: k.id,
+                    label: k.pillLabel,
+                    learned: state.learnedIds.has(k.id)
+                }))
+            ).map((pill) => {
+                const isSelected = state.activeFilter === pill.id;
+                const baseClasses = 'shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all duration-200 flex items-center gap-1.5 cursor-pointer select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-emeraldLux-600';
+                const stateClasses = isSelected
+                    ? 'bg-emeraldLux-700 dark:bg-emeraldLux-600 text-white border-emeraldLux-700 dark:border-emeraldLux-500 shadow-sm'
+                    : 'bg-white dark:bg-midnight-card text-slate-600 dark:text-slate-300 border-slate-200/90 dark:border-midnight-border hover:border-emeraldLux-500/60 hover:text-emeraldLux-700 dark:hover:text-emerald-300';
+
+                const learnedDot = (pill.id !== 'all' && pill.learned)
+                    ? `<span class="w-2 h-2 rounded-full ${isSelected ? 'bg-amber-300' : 'bg-emerald-500'}" title="યાદ કરેલ" aria-hidden="true"></span>`
+                    : '';
+
+                return `
+                    <button
+                        type="button"
+                        role="tab"
+                        aria-selected="${isSelected}"
+                        data-pill-id="${pill.id}"
+                        class="${baseClasses} ${stateClasses}"
+                    >
+                        ${learnedDot}
+                        <span>${escapeHTML(pill.label)}</span>
+                    </button>
+                `;
+            }).join('');
+
+            dom.pillFilterContainer.innerHTML = pillsHTML;
+        }
+
+        function getFilteredKalimas() {
+            const query = state.searchQuery.trim().toLowerCase();
+
+            if (query) {
+                return KALIMAS.filter((k) => {
+                    return (
+                        k.title.toLowerCase().includes(query) ||
+                        k.label.toLowerCase().includes(query) ||
+                        k.text.toLowerCase().includes(query) ||
+                        k.translation.toLowerCase().includes(query) ||
+                        String(k.id) === query
+                    );
+                });
+            }
+
+            if (state.activeFilter !== 'all') {
+                return KALIMAS.filter((k) => k.id === state.activeFilter);
+            }
+
+            return KALIMAS;
+        }
+
+        function renderKalimas() {
+            const list = getFilteredKalimas();
+            const isSearching = state.searchQuery.trim().length > 0;
+            const isFocusedSingle = !isSearching && state.activeFilter !== 'all';
+
+            // Update filter status banner
+            if (isSearching) {
+                dom.filterStatusRow.classList.remove('hidden');
+                dom.filterStatusText.textContent = `સર્ચ પરિણામ: ${list.length} કલમા મળ્યા`;
+            } else if (isFocusedSingle) {
+                dom.filterStatusRow.classList.remove('hidden');
+                dom.filterStatusText.textContent = `ફોકસ મોડ: કલમા ${state.activeFilter} / ${KALIMAS.length}`;
+            } else {
+                dom.filterStatusRow.classList.add('hidden');
+            }
+
+            // Update Focused Single-Kalima Previous / Next navigation
+            if (isFocusedSingle && list.length === 1) {
+                const currentId = list[0].id;
+                dom.focusNavContainer.classList.remove('hidden');
+                dom.prevKalimaBtn.disabled = currentId <= 1;
+                dom.nextKalimaBtn.disabled = currentId >= KALIMAS.length;
+            } else {
+                dom.focusNavContainer.classList.add('hidden');
+            }
+
+            // Show Empty State if zero matches
+            if (list.length === 0) {
+                dom.kalimasGrid.innerHTML = '';
+                dom.emptyState.classList.remove('hidden');
+                return;
+            }
+
+            dom.emptyState.classList.add('hidden');
+
+            dom.kalimasGrid.innerHTML = list.map((kalima, idx) => {
+                const isLearned = state.learnedIds.has(kalima.id);
+                const isTranslationVisible = state.showTranslations || state.revealedInQuizIds.has(kalima.id);
+
+                const cardBorderClass = isLearned
+                    ? 'border-emerald-500/50 dark:border-emerald-500/45 ring-1 ring-emerald-500/15'
+                    : 'border-slate-200/85 dark:border-midnight-border';
+
+                const learnedBtnClass = isLearned
+                    ? 'bg-emeraldLux-600 text-white border-emeraldLux-600 shadow-sm hover:bg-emeraldLux-700'
+                    : 'bg-slate-50 dark:bg-midnight-elevated text-slate-600 dark:text-slate-300 border-slate-200 dark:border-midnight-border hover:border-emeraldLux-500/60 hover:text-emeraldLux-700 dark:hover:text-emerald-300';
+
+                const translationBlockHTML = isTranslationVisible
+                    ? `
+                        <div class="mt-4 pt-4 border-t border-slate-100 dark:border-midnight-border/90">
+                            <div class="flex items-center justify-between gap-2 mb-1.5">
+                                <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-goldLux-600 dark:text-goldLux-400">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-goldLux-500" aria-hidden="true"></span>
+                                    તરજુમા
+                                </span>
+                                ${!state.showTranslations ? `
+                                    <button type="button" data-action="toggle-peek" data-id="${kalima.id}" class="text-xs font-medium text-slate-400 hover:text-emeraldLux-600 dark:hover:text-emerald-400 transition-colors">
+                                        છુપાવો
+                                    </button>
+                                ` : ''}
+                            </div>
+                            <p class="translation-text-scale text-slate-600 dark:text-slate-300">
+                                ${escapeHTML(kalima.translation)}
+                            </p>
+                        </div>
+                    `
+                    : `
+                        <div class="mt-4 pt-3.5 border-t border-dashed border-slate-200 dark:border-midnight-border flex items-center justify-between gap-2">
+                            <span class="text-xs sm:text-sm text-slate-400 dark:text-slate-500 italic flex items-center gap-1.5">
+                                <i class="fa-solid fa-brain text-xs text-emeraldLux-600/70 dark:text-emerald-400/70" aria-hidden="true"></i>
+                                યાદ કરવાનો મોડ ચાલુ છે
+                            </span>
+                            <button
+                                type="button"
+                                data-action="toggle-peek"
+                                data-id="${kalima.id}"
+                                class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-goldLux-600 dark:text-goldLux-400 border border-amber-200/80 dark:border-amber-500/25 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors"
+                            >
+                                તરજુમા જુઓ
+                            </button>
+                        </div>
+                    `;
+
+                return `
+                    <article
+                        id="kalima-card-${kalima.id}"
+                        class="animate-card-in group relative bg-white dark:bg-midnight-card rounded-3xl border ${cardBorderClass} shadow-soft hover:shadow-card-hover dark:shadow-dark-card transition-all duration-300 overflow-hidden"
+                        style="animation-delay: ${Math.min(idx * 45, 240)}ms;"
+                    >
+                        <!-- Learned Top Highlight Line -->
+                        ${isLearned ? '<div class="h-1 w-full bg-gradient-to-r from-emeraldLux-600 via-emerald-400 to-goldLux-500" aria-hidden="true"></div>' : ''}
+
+                        <div class="p-5 sm:p-7">
+                            <!-- Card Header -->
+                            <div class="flex items-start sm:items-center justify-between gap-3 mb-4 sm:mb-5">
+                                <div class="flex items-center gap-3.5 min-w-0">
+                                    <!-- Ornamental Octagon / Islamic Star Number Badge -->
+                                    <div class="relative w-12 h-12 shrink-0 flex items-center justify-center" aria-hidden="true">
+                                        <svg class="absolute inset-0 w-full h-full ${isLearned ? 'text-emeraldLux-600 dark:text-emerald-500' : 'text-emeraldLux-100 dark:text-emerald-950/90'}" viewBox="0 0 48 48" fill="currentColor">
+                                            <polygon points="24,2 30.5,8.5 39.5,8.5 39.5,17.5 46,24 39.5,30.5 39.5,39.5 30.5,39.5 24,46 17.5,39.5 8.5,39.5 8.5,30.5 2,24 8.5,17.5 8.5,8.5 17.5,8.5" stroke="${isLearned ? '#f59e0b' : '#0d9488'}" stroke-opacity="0.45" stroke-width="1.5"/>
+                                        </svg>
+                                        <span class="relative z-10 font-en font-bold text-sm ${isLearned ? 'text-white' : 'text-emeraldLux-800 dark:text-emerald-300'}">${kalima.badge}</span>
+                                    </div>
+
+                                    <div class="min-w-0">
+                                        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white leading-snug">
+                                            ${escapeHTML(kalima.title)}
+                                        </h2>
+                                        ${isLearned ? `
+                                            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emeraldLux-700 dark:text-emerald-400 mt-0.5">
+                                                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                                                યાદ કરેલ કલમા
+                                            </span>
+                                        ` : ''}
+                                    </div>
+                                </div>
+
+                                <!-- Mark as Learned Toggle -->
+                                <button
+                                    type="button"
+                                    data-action="toggle-learned"
+                                    data-id="${kalima.id}"
+                                    aria-pressed="${isLearned}"
+                                    class="shrink-0 px-3 py-2 rounded-xl border text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer ${learnedBtnClass}"
+                                    title="${isLearned ? 'યાદ કરેલ યાદીમાંથી હટાવો' : 'યાદ કરેલ તરીકે નોંધો'}"
+                                >
+                                    <i class="fa-solid ${isLearned ? 'fa-check-double' : 'fa-circle-check'} text-xs sm:text-sm" aria-hidden="true"></i>
+                                    <span>${isLearned ? 'યાદ છે' : 'યાદ કર્યું'}</span>
+                                </button>
+                            </div>
+
+                            <!-- Arabic-in-Gujarati Transliteration Callout Box -->
+                            <div class="relative rounded-2xl bg-emeraldLux-50/75 dark:bg-midnight-elevated/90 border border-emeraldLux-600/15 dark:border-emerald-500/20 p-4 sm:p-5">
+                                <p class="kalima-text-scale font-medium text-slate-900 dark:text-slate-50">
+                                    <strong class="font-extrabold text-emeraldLux-800 dark:text-emerald-300 mr-1">${escapeHTML(kalima.label)}</strong>
+                                    <span>${escapeHTML(kalima.text)}</span>
+                                </p>
+                            </div>
+
+                            <!-- Translation Section -->
+                            ${translationBlockHTML}
+
+                            <!-- Card Footer Actions -->
+                            <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-midnight-border/80 flex flex-wrap items-center justify-end gap-2">
+                                <button
+                                    type="button"
+                                    data-action="copy"
+                                    data-id="${kalima.id}"
+                                    class="px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-midnight-elevated hover:bg-emeraldLux-50 dark:hover:bg-emerald-950/60 text-slate-600 dark:text-slate-300 hover:text-emeraldLux-800 dark:hover:text-emerald-300 border border-slate-200/80 dark:border-midnight-border hover:border-emeraldLux-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all active:scale-95 cursor-pointer"
+                                    aria-label="${escapeHTML(kalima.title)} કોપી કરો"
+                                >
+                                    <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                                    <span>કોપી કરો</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    data-action="share"
+                                    data-id="${kalima.id}"
+                                    class="px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-midnight-elevated hover:bg-amber-50 dark:hover:bg-amber-950/40 text-slate-600 dark:text-slate-300 hover:text-goldLux-600 dark:hover:text-goldLux-400 border border-slate-200/80 dark:border-midnight-border hover:border-amber-400/50 text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all active:scale-95 cursor-pointer"
+                                    aria-label="${escapeHTML(kalima.title)} શેર કરો"
+                                >
+                                    <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                                    <span>શેર કરો</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        /**
+         * =========================================================================
+         * 8. INTERACTIVE ACTIONS (Copy, Share, Learned Toggle, Filter)
+         * =========================================================================
+         */
+        function formatKalimaText(kalima) {
+            return `${kalima.title}\n\n${kalima.label} ${kalima.text}\n\nતરજુમા: ${kalima.translation}\n\n— સાત કલમે તરજુમે કે સાથ`;
+        }
+
+        async function handleCopyKalima(id, buttonEl) {
+            const kalima = KALIMAS.find((k) => k.id === id);
+            if (!kalima) return;
+
+            const success = await copyTextToClipboard(formatKalimaText(kalima));
+            if (success) {
+                showToast('કલમા કોપી થઈ ગયો!', 'fa-check');
+                if (buttonEl) {
+                    const originalHTML = buttonEl.innerHTML;
+                    buttonEl.innerHTML = '<i class="fa-solid fa-check text-emerald-500" aria-hidden="true"></i><span>કોપી થયું</span>';
+                    setTimeout(() => {
+                        if (buttonEl.isConnected) {
+                            buttonEl.innerHTML = originalHTML;
+                        }
+                    }, 1600);
+                }
+            } else {
+                showToast('કોપી કરવામાં મુશ્કેલી આવી.', 'fa-circle-exclamation');
+            }
+        }
+
+        async function handleShareKalima(id) {
+            const kalima = KALIMAS.find((k) => k.id === id);
+            if (!kalima) return;
+
+            const formatted = formatKalimaText(kalima);
+
+            if (typeof navigator.share === 'function') {
+                try {
+                    await navigator.share({
+                        title: kalima.title,
+                        text: formatted
+                    });
+                    return;
+                } catch (err) {
+                    // User dismissed share sheet: do nothing
+                    if (err && err.name === 'AbortError') return;
+                }
+            }
+
+            // Graceful fallback to clipboard
+            const copied = await copyTextToClipboard(formatted);
+            if (copied) {
+                showToast('શેર કરવા માટે કલમા કોપી થઈ ગયો!', 'fa-share-nodes');
+            } else {
+                showToast('શેર અથવા કોપી ઉપલબ્ધ નથી.', 'fa-circle-exclamation');
+            }
+        }
+
+        function handleToggleLearned(id) {
+            const wasLearned = state.learnedIds.has(id);
+            if (wasLearned) {
+                state.learnedIds.delete(id);
+                showToast('યાદ કરેલ યાદીમાંથી હટાવ્યું.', 'fa-rotate-left');
+            } else {
+                state.learnedIds.add(id);
+                const msg = state.learnedIds.size === KALIMAS.length
+                    ? 'માશાઅલ્લાહ! બધા ૭ કલમા યાદ થઈ ગયા!'
+                    : 'સરસ! કલમા યાદ કરેલ તરીકે નોંધાયો.';
+                showToast(msg, 'fa-award');
+            }
+
+            SafeStorage.setJSON(STORAGE_KEYS.LEARNED, Array.from(state.learnedIds));
+            updateMemorizationProgressUI();
+            renderFilterPills();
+            renderKalimas();
+        }
+
+        function selectFilterPill(filterId, shouldScrollToGrid = false) {
+            state.activeFilter = filterId;
+            if (state.searchQuery) {
+                state.searchQuery = '';
+                dom.searchInput.value = '';
+                dom.clearSearchBtn.classList.add('hidden');
+            }
+            renderFilterPills();
+            renderKalimas();
+
+            if (shouldScrollToGrid) {
+                const targetEl = dom.kalimasGrid;
+                const yOffset = -90;
+                const y = targetEl.getBoundingClientRect().top + window.scrollY + yOffset;
+                window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+            }
+        }
+
+        /**
+         * =========================================================================
+         * 9. EVENT LISTENERS & SCROLL TRACKING
+         * =========================================================================
+         */
+        function initEventListeners() {
+            // Theme Toggle
+            dom.themeToggleBtn.addEventListener('click', () => {
+                const nextTheme = state.theme === 'dark' ? 'light' : 'dark';
+                applyTheme(nextTheme);
+                showToast(nextTheme === 'dark' ? 'ડાર્ક મોડ ચાલુ થયું' : 'લાઇટ મોડ ચાલુ થયું', nextTheme === 'dark' ? 'fa-moon' : 'fa-sun');
+            });
+
+            // Font Size Controls
+            dom.fontDecreaseBtn.addEventListener('click', () => {
+                applyFontScale(state.fontScale - FONT_STEP);
+            });
+            dom.fontIncreaseBtn.addEventListener('click', () => {
+                applyFontScale(state.fontScale + FONT_STEP);
+            });
+            dom.fontResetBtn.addEventListener('click', () => {
+                applyFontScale(1);
+                showToast('અક્ષરોનું કદ 100% રીસેટ થયું', 'fa-text-height');
+            });
+
+            // Global Translation Toggle (Memorization Mode)
+            dom.toggleTranslationBtn.addEventListener('click', () => {
+                state.showTranslations = !state.showTranslations;
+                state.revealedInQuizIds.clear();
+                SafeStorage.set(STORAGE_KEYS.SHOW_TRANS, String(state.showTranslations));
+                updateTranslationToggleUI();
+                renderKalimas();
+                showToast(
+                    state.showTranslations ? 'બધા તરજુમા બતાવવામાં આવ્યા છે' : 'યાદ કરવાનો મોડ: તરજુમા છુપાવ્યા',
+                    state.showTranslations ? 'fa-eye' : 'fa-eye-slash'
+                );
+            });
+
+            // Copy Ta'awwudh & Bismillah
+            dom.copyBismillahBtn.addEventListener('click', async () => {
+                const text = `${BISMILLAH_DATA.title}\n\nતરજુમા: ${BISMILLAH_DATA.translation}`;
+                const ok = await copyTextToClipboard(text);
+                if (ok) {
+                    showToast('બિસ્મિલ્લાહ કોપી થઈ ગયું!', 'fa-check');
+                }
+            });
+
+            // Two-Step Safe Progress Reset (No confirm() dialogs)
+            dom.resetProgressBtn.addEventListener('click', () => {
+                if (!state.resetConfirmArmed) {
+                    state.resetConfirmArmed = true;
+                    dom.resetProgressBtn.textContent = 'ખાતરી કરો?';
+                    dom.resetProgressBtn.classList.remove('bg-white/10', 'border-white/15');
+                    dom.resetProgressBtn.classList.add('bg-rose-500', 'border-rose-400', 'text-white');
+
+                    state.resetConfirmTimer = setTimeout(disarmResetProgress, 4000);
+                    return;
+                }
+
+                state.learnedIds.clear();
+                SafeStorage.setJSON(STORAGE_KEYS.LEARNED, []);
+                disarmResetProgress();
+                updateMemorizationProgressUI();
+                renderFilterPills();
+                renderKalimas();
+                showToast('પ્રગતિ રીસેટ થઈ ગઈ છે.', 'fa-rotate-left');
+            });
+
+            // Live Search Input
+            dom.searchInput.addEventListener('input', (e) => {
+                const value = e.target.value;
+                state.searchQuery = value;
+                dom.clearSearchBtn.classList.toggle('hidden', value.length === 0);
+
+                if (value.trim().length > 0 && state.activeFilter !== 'all') {
+                    state.activeFilter = 'all';
+                    renderFilterPills();
+                }
+                renderKalimas();
+            });
+
+            // Clear Search Button
+            dom.clearSearchBtn.addEventListener('click', () => {
+                state.searchQuery = '';
+                dom.searchInput.value = '';
+                dom.clearSearchBtn.classList.add('hidden');
+                dom.searchInput.focus();
+                renderKalimas();
+            });
+
+            // Quick-Jump Pill Chips (Event Delegation)
+            dom.pillFilterContainer.addEventListener('click', (e) => {
+                const pillBtn = e.target.closest('button[data-pill-id]');
+                if (!pillBtn) return;
+
+                const rawId = pillBtn.getAttribute('data-pill-id');
+                const filterId = rawId === 'all' ? 'all' : parseInt(rawId, 10);
+                selectFilterPill(filterId, false);
+            });
+
+            // Show All Quick Buttons & Empty State Reset
+            const resetToAll = () => selectFilterPill('all', false);
+            dom.showAllQuickBtn.addEventListener('click', resetToAll);
+            dom.focusShowAllBtn.addEventListener('click', resetToAll);
+            dom.emptyResetBtn.addEventListener('click', resetToAll);
+
+            // Focused Single-Kalima Prev / Next Buttons
+            dom.prevKalimaBtn.addEventListener('click', () => {
+                if (typeof state.activeFilter === 'number' && state.activeFilter > 1) {
+                    selectFilterPill(state.activeFilter - 1, true);
+                }
+            });
+            dom.nextKalimaBtn.addEventListener('click', () => {
+                if (typeof state.activeFilter === 'number' && state.activeFilter < KALIMAS.length) {
+                    selectFilterPill(state.activeFilter + 1, true);
+                }
+            });
+
+            // Kalima Card Actions (Event Delegation for Copy, Share, Learned, Peek Translation)
+            dom.kalimasGrid.addEventListener('click', (e) => {
+                const actionBtn = e.target.closest('button[data-action]');
+                if (!actionBtn) return;
+
+                const action = actionBtn.getAttribute('data-action');
+                const id = parseInt(actionBtn.getAttribute('data-id'), 10);
+                if (Number.isNaN(id)) return;
+
+                switch (action) {
+                    case 'copy':
+                        handleCopyKalima(id, actionBtn);
+                        break;
+                    case 'share':
+                        handleShareKalima(id);
+                        break;
+                    case 'toggle-learned':
+                        handleToggleLearned(id);
+                        break;
+                    case 'toggle-peek':
+                        if (state.revealedInQuizIds.has(id)) {
+                            state.revealedInQuizIds.delete(id);
+                        } else {
+                            state.revealedInQuizIds.add(id);
+                        }
+                        renderKalimas();
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+            // Floating Back-to-Top Button
+            dom.backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Smooth Throttled Scroll Handler (Reading Progress Bar + Back-to-Top Visibility)
+            let scrollTicking = false;
+            const updateScrollIndicators = () => {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const progress = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+
+                dom.readingProgressBar.style.width = `${progress}%`;
+
+                const showBackToTop = scrollTop > 320;
+                dom.backToTopBtn.classList.toggle('opacity-0', !showBackToTop);
+                dom.backToTopBtn.classList.toggle('translate-y-4', !showBackToTop);
+                dom.backToTopBtn.classList.toggle('pointer-events-none', !showBackToTop);
+                dom.backToTopBtn.classList.toggle('opacity-100', showBackToTop);
+                dom.backToTopBtn.classList.toggle('translate-y-0', showBackToTop);
+
+                scrollTicking = false;
+            };
+
+            window.addEventListener('scroll', () => {
+                if (!scrollTicking) {
+                    window.requestAnimationFrame(updateScrollIndicators);
+                    scrollTicking = true;
+                }
+            }, { passive: true });
+
+            // Sync if system theme changes when user hasn't explicitly overridden
+            try {
+                if (window.matchMedia) {
+                    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                    const handleSystemTheme = (e) => {
+                        if (!SafeStorage.get(STORAGE_KEYS.THEME, null)) {
+                            applyTheme(e.matches ? 'dark' : 'light');
+                        }
+                    };
+                    if (typeof mediaQuery.addEventListener === 'function') {
+                        mediaQuery.addEventListener('change', handleSystemTheme);
+                    }
+                }
+            } catch (err) {
+                // Safe ignore
+            }
+        }
+
+        /**
+         * =========================================================================
+         * 10. INITIALIZATION
+         * =========================================================================
+         */
+        function initApp() {
+            applyTheme(state.theme);
+            applyFontScale(state.fontScale);
+            updateTranslationToggleUI();
+            updateMemorizationProgressUI();
+            renderFilterPills();
+            renderKalimas();
+            initEventListeners();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
+    </script>
 </body>
 </html>
+```
