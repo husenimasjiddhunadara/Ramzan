@@ -2,439 +2,1712 @@
 <html lang="gu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>લાઇવ તસ્બીહ કાઉન્ટર | Live Tasbih Counter</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts: Anek Gujarati, Outfit, and Amiri (Arabic Calligraphy) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        *, *::before, *::after {
+        /* =========================================================
+           1. THEME DESIGN TOKENS (4 Luxury Themes)
+           ========================================================= */
+        :root,
+        [data-theme="emerald"] {
+            --bg-body: #05160c;
+            --bg-blob-1: rgba(26, 122, 72, 0.28);
+            --bg-blob-2: rgba(212, 168, 75, 0.14);
+            --bg-blob-3: rgba(14, 78, 44, 0.22);
+            --card-bg: linear-gradient(165deg, rgba(10, 56, 31, 0.90) 0%, rgba(16, 78, 44, 0.86) 52%, rgba(9, 44, 24, 0.94) 100%);
+            --card-border: rgba(212, 168, 75, 0.36);
+            --accent: #d4a84b;
+            --accent-light: #f6dc93;
+            --accent-dark: #a67c23;
+            --accent-glow: rgba(212, 168, 75, 0.35);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.72);
+            --text-muted: rgba(255, 255, 255, 0.45);
+            --surface-glass: rgba(255, 255, 255, 0.07);
+            --surface-glass-hover: rgba(255, 255, 255, 0.13);
+            --display-bg: rgba(4, 22, 12, 0.55);
+            --display-text: #f8e3a3;
+            --btn-text: #072916;
+            --bead-base: #1d8a52;
+            --bead-dark: #072c18;
+            --bead-highlight: #80f0b4;
+            --bead-active-base: #f5d680;
+            --bead-active-dark: #8c6314;
+            --pattern-color: "%23d4a84b";
+        }
+
+        [data-theme="sapphire"] {
+            --bg-body: #050b18;
+            --bg-blob-1: rgba(30, 64, 145, 0.30);
+            --bg-blob-2: rgba(196, 178, 130, 0.14);
+            --bg-blob-3: rgba(15, 36, 84, 0.26);
+            --card-bg: linear-gradient(165deg, rgba(12, 26, 56, 0.92) 0%, rgba(19, 41, 86, 0.86) 52%, rgba(9, 20, 44, 0.95) 100%);
+            --card-border: rgba(203, 186, 142, 0.34);
+            --accent: #cbb786;
+            --accent-light: #f1e6c9;
+            --accent-dark: #8e7b4d;
+            --accent-glow: rgba(203, 183, 134, 0.32);
+            --text-primary: #f8fafc;
+            --text-secondary: rgba(226, 232, 240, 0.76);
+            --text-muted: rgba(203, 213, 225, 0.46);
+            --surface-glass: rgba(255, 255, 255, 0.07);
+            --surface-glass-hover: rgba(255, 255, 255, 0.13);
+            --display-bg: rgba(4, 10, 24, 0.58);
+            --display-text: #f3e8cc;
+            --btn-text: #0a1630;
+            --bead-base: #2d55a8;
+            --bead-dark: #0b1b3d;
+            --bead-highlight: #93c5fd;
+            --bead-active-base: #efe2be;
+            --bead-active-dark: #7c6839;
+            --pattern-color: "%23cbb786";
+        }
+
+        [data-theme="sandstone"] {
+            --bg-body: #18110b;
+            --bg-blob-1: rgba(168, 114, 58, 0.25);
+            --bg-blob-2: rgba(224, 174, 102, 0.16);
+            --bg-blob-3: rgba(96, 62, 32, 0.24);
+            --card-bg: linear-gradient(165deg, rgba(50, 34, 21, 0.92) 0%, rgba(71, 48, 28, 0.88) 52%, rgba(38, 25, 15, 0.95) 100%);
+            --card-border: rgba(224, 174, 102, 0.38);
+            --accent: #dfa960;
+            --accent-light: #fbe0b0;
+            --accent-dark: #9c6a27;
+            --accent-glow: rgba(223, 169, 96, 0.35);
+            --text-primary: #fff8ef;
+            --text-secondary: rgba(255, 240, 220, 0.75);
+            --text-muted: rgba(240, 215, 185, 0.46);
+            --surface-glass: rgba(255, 238, 214, 0.07);
+            --surface-glass-hover: rgba(255, 238, 214, 0.14);
+            --display-bg: rgba(22, 14, 8, 0.58);
+            --display-text: #fde4b8;
+            --btn-text: #28180b;
+            --bead-base: #a36a35;
+            --bead-dark: #361e0c;
+            --bead-highlight: #f5c993;
+            --bead-active-base: #fae0ad;
+            --bead-active-dark: #8a5b1e;
+            --pattern-color: "%23dfa960";
+        }
+
+        [data-theme="amoled"] {
+            --bg-body: #000000;
+            --bg-blob-1: rgba(212, 168, 75, 0.07);
+            --bg-blob-2: rgba(255, 255, 255, 0.03);
+            --bg-blob-3: rgba(212, 168, 75, 0.05);
+            --card-bg: linear-gradient(165deg, rgba(12, 12, 12, 0.96) 0%, rgba(18, 18, 18, 0.95) 52%, rgba(6, 6, 6, 0.98) 100%);
+            --card-border: rgba(212, 168, 75, 0.28);
+            --accent: #c9a14a;
+            --accent-light: #ebd08c;
+            --accent-dark: #856522;
+            --accent-glow: rgba(201, 161, 74, 0.25);
+            --text-primary: #f5f5f5;
+            --text-secondary: rgba(245, 245, 245, 0.68);
+            --text-muted: rgba(245, 245, 245, 0.38);
+            --surface-glass: rgba(255, 255, 255, 0.05);
+            --surface-glass-hover: rgba(255, 255, 255, 0.10);
+            --display-bg: rgba(0, 0, 0, 0.85);
+            --display-text: #ebd08c;
+            --btn-text: #0a0a0a;
+            --bead-base: #2d2d2d;
+            --bead-dark: #090909;
+            --bead-highlight: #808080;
+            --bead-active-base: #e6c677;
+            --bead-active-dark: #6b4f15;
+            --pattern-color: "%23c9a14a";
+        }
+
+        /* =========================================================
+           2. BASE & TYPOGRAPHY
+           ========================================================= */
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            min-height: 100%;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            font-family: 'Anek Gujarati', 'Outfit', sans-serif;
+            overflow-x: hidden;
+            touch-action: manipulation;
+            transition: background-color 0.45s ease;
         }
 
-        :root {
-            --gold: #d4a84b;
-            --gold-light: #f5d98a;
-            --gold-dark: #b8922e;
-            --green-deep: #0a3d22;
-            --green-mid: #145a34;
-            --green-light: #1a7a48;
-            --bg-dark: #061a0e;
-            --white: #ffffff;
-            --white-10: rgba(255,255,255,0.10);
-            --white-05: rgba(255,255,255,0.05);
-            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.5);
-            --shadow-glow: 0 0 40px rgba(212,168,75,0.15);
+        .font-num {
+            font-family: 'Outfit', sans-serif;
+            font-variant-numeric: tabular-nums;
         }
 
-        body {
-            font-family: 'Outfit', 'Anek Gujarati', 'Segoe UI', sans-serif;
-            background-color: var(--bg-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        .font-arabic {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+        }
+
+        /* =========================================================
+           3. ANIMATED AMBIENT & ISLAMIC GEOMETRIC BACKGROUND
+           ========================================================= */
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
             overflow: hidden;
-            position: relative;
-        }
-
-        /* ───── Animated Background Pattern ───── */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: 
-                radial-gradient(ellipse at 20% 50%, rgba(26,122,72,0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(212,168,75,0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 80%, rgba(20,90,52,0.12) 0%, transparent 50%);
-            z-index: 0;
-        }
-
-        /* Geometric pattern overlay */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 8L48 32L72 40L48 48L40 72L32 48L8 40L32 32Z' fill='%23d4a84b' /%3E%3C/svg%3E");
-            background-size: 80px 80px;
-            z-index: 0;
             pointer-events: none;
         }
 
-        /* ───── Main Container ───── */
-        .counter-container {
-            position: relative;
-            z-index: 1;
-            width: 340px;
-            max-width: 92vw;
-            background: linear-gradient(165deg, var(--green-deep) 0%, var(--green-mid) 50%, var(--green-light) 100%);
-            border-radius: 28px;
-            padding: 36px 32px 28px;
-            text-align: center;
-            color: var(--white);
-            border: 1.5px solid rgba(212,168,75,0.35);
-            box-shadow: 
-                var(--shadow-heavy),
-                var(--shadow-glow),
-                inset 0 1px 0 rgba(255,255,255,0.08);
-        }
-
-        /* Subtle inner glass highlight */
-        .counter-container::before {
-            content: '';
+        .glow-blob {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            border-radius: 28px 28px 0 0;
-            background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 100%);
-            pointer-events: none;
+            border-radius: 50%;
+            filter: blur(75px);
+            opacity: 0.9;
+            animation: floatBlob 18s ease-in-out infinite alternate;
+            transition: background 0.5s ease;
         }
 
-        /* ───── Top Decorative Line ───── */
-        .ornament {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 8px;
+        .blob-1 {
+            width: 340px;
+            height: 340px;
+            top: -80px;
+            left: -80px;
+            background: var(--bg-blob-1);
         }
+
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            top: 20%;
+            right: -90px;
+            background: var(--bg-blob-2);
+            animation-delay: -6s;
+        }
+
+        .blob-3 {
+            width: 360px;
+            height: 360px;
+            bottom: -110px;
+            left: 20%;
+            background: var(--bg-blob-3);
+            animation-delay: -11s;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(24px, -18px) scale(1.08); }
+            100% { transform: translate(-18px, 22px) scale(0.96); }
+        }
+
+        /* Subtle rotating/drifting Islamic 8-point star lattice */
+        .geo-pattern {
+            position: fixed;
+            inset: -40px;
+            z-index: 0;
+            opacity: 0.045;
+            background-image: url("data:image/svg+xml,%3Csvg width='84' height='84' viewBox='0 0 84 84' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4a84b' stroke-width='1'%3E%3Cpath d='M42 6 L51 33 L78 42 L51 51 L42 78 L33 51 L6 42 L33 33 Z'/%3E%3Ccircle cx='42' cy='42' r='8'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 84px 84px;
+            pointer-events: none;
+            animation: slowDrift 45s linear infinite;
+        }
+
+        @keyframes slowDrift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(84px, 84px); }
+        }
+
+        /* =========================================================
+           4. GLASSMORPHIC MAIN CARD & FILIGREE ACCENTS
+           ========================================================= */
+        .counter-card {
+            position: relative;
+            z-index: 10;
+            background: var(--card-bg);
+            border: 1.5px solid var(--card-border);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            box-shadow:
+                0 28px 70px rgba(0, 0, 0, 0.58),
+                0 0 45px var(--accent-glow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.14);
+            transition: background 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+        }
+
+        /* Gold filigree corner ornaments */
+        .filigree-corner {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+            opacity: 0.72;
+        }
+
+        .filigree-tl { top: 10px; left: 10px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); border-top-left-radius: 10px; }
+        .filigree-tr { top: 10px; right: 10px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); border-top-right-radius: 10px; }
+        .filigree-bl { bottom: 10px; left: 10px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); border-bottom-left-radius: 10px; }
+        .filigree-br { bottom: 10px; right: 10px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); border-bottom-right-radius: 10px; }
 
         .ornament-line {
             height: 1px;
-            width: 50px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            width: 46px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
 
         .ornament-diamond {
-            width: 8px;
-            height: 8px;
-            background: var(--gold);
+            width: 7px;
+            height: 7px;
+            background: var(--accent-light);
             transform: rotate(45deg);
             border-radius: 1px;
-            flex-shrink: 0;
+            box-shadow: 0 0 8px var(--accent-glow);
         }
 
-        /* ───── Title ───── */
-        .title {
-            font-family: 'Anek Gujarati', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--gold-light);
-            margin-bottom: 28px;
-            letter-spacing: 0.5px;
-            position: relative;
-        }
-
-        /* ───── Counter Display ───── */
-        .display-wrapper {
-            position: relative;
-            margin-bottom: 36px;
-        }
-
-        .display {
-            font-family: 'Outfit', sans-serif;
-            background: var(--white);
-            color: var(--green-deep);
-            font-size: 72px;
-            font-weight: 800;
-            padding: 18px 20px;
-            border-radius: 18px;
-            box-shadow: 
-                inset 0 4px 12px rgba(0,0,0,0.08),
-                0 4px 16px rgba(0,0,0,0.2);
-            border: 2px solid rgba(212,168,75,0.3);
-            user-select: none;
-            -webkit-user-select: none;
-            line-height: 1.1;
-            position: relative;
-            transition: transform 0.1s ease;
-        }
-
-        .display.pop {
-            transform: scale(1.03);
-        }
-
-        /* Subtle corner accents */
-        .display::before,
-        .display::after {
-            content: '';
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            border-color: var(--gold);
-            border-style: solid;
-        }
-
-        .display::before {
-            top: 8px;
-            left: 8px;
-            border-width: 2px 0 0 2px;
-            border-radius: 4px 0 0 0;
-        }
-
-        .display::after {
-            bottom: 8px;
-            right: 8px;
-            border-width: 0 2px 2px 0;
-            border-radius: 0 0 4px 0;
-        }
-
-        /* ───── Buttons Area ───── */
-        .controls-wrapper {
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-        }
-
-        .btn {
-            border: none;
+        /* =========================================================
+           5. THEME SWATCHES & TOP ACTION BUTTONS
+           ========================================================= */
+        .theme-swatch {
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.25);
             cursor: pointer;
-            outline: none;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .theme-swatch:hover {
+            transform: scale(1.14);
+        }
+
+        .theme-swatch.active {
+            border-color: var(--accent-light);
+            transform: scale(1.15);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .icon-pill-btn {
+            background: var(--surface-glass);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .icon-pill-btn:hover {
+            background: var(--surface-glass-hover);
+            color: var(--text-primary);
+        }
+
+        .icon-pill-btn.active {
+            background: rgba(212, 168, 75, 0.20);
+            border-color: var(--accent);
+            color: var(--accent-light);
+            box-shadow: 0 0 14px var(--accent-glow);
+        }
+
+        /* =========================================================
+           6. DHIKR SCROLLABLE PILL BAR
+           ========================================================= */
+        .dhikr-scroll {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .dhikr-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dhikr-pill {
+            background: var(--surface-glass);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-secondary);
+            white-space: nowrap;
+            transition: all 0.22s ease;
+        }
+
+        .dhikr-pill:hover {
+            background: var(--surface-glass-hover);
+            color: var(--text-primary);
+        }
+
+        .dhikr-pill.active {
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            color: var(--btn-text);
+            border-color: var(--accent-light);
+            font-weight: 700;
+            box-shadow: 0 4px 16px var(--accent-glow);
+        }
+
+        /* =========================================================
+           7. DISPLAY & POP ANIMATION
+           ========================================================= */
+        .display-box {
+            background: var(--display-bg);
+            border: 1.5px solid rgba(212, 168, 75, 0.28);
+            box-shadow:
+                inset 0 6px 18px rgba(0, 0, 0, 0.42),
+                0 6px 20px rgba(0, 0, 0, 0.24);
+        }
+
+        .counter-number {
+            color: var(--display-text);
+            text-shadow: 0 0 22px var(--accent-glow);
+            transition: transform 0.12s cubic-bezier(0.22, 1, 0.36, 1);
             user-select: none;
-            -webkit-user-select: none;
-            -webkit-tap-highlight-color: transparent;
-            transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.2s ease;
-            position: relative;
         }
 
-        .btn:active {
-            transform: scale(0.92) !important;
-        }
-
-        /* ───── Main Count Button ───── */
-        .count-btn {
-            width: 130px;
-            height: 130px;
-            background: linear-gradient(145deg, var(--gold-light), var(--gold), var(--gold-dark));
-            color: var(--green-deep);
-            font-family: 'Anek Gujarati', sans-serif;
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 1.3;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 
-                0 8px 28px rgba(0,0,0,0.35),
-                0 0 0 4px rgba(212,168,75,0.15),
-                inset 0 2px 0 rgba(255,255,255,0.3);
-        }
-
-        .count-btn:hover {
-            transform: scale(1.04);
-            box-shadow: 
-                0 12px 36px rgba(0,0,0,0.4),
-                0 0 0 4px rgba(212,168,75,0.25),
-                inset 0 2px 0 rgba(255,255,255,0.3);
-        }
-
-        .count-btn:active {
-            box-shadow: 
-                0 4px 12px rgba(0,0,0,0.3),
-                inset 0 3px 8px rgba(0,0,0,0.2) !important;
-        }
-
-        .count-btn .label-gu {
-            font-size: 22px;
-            font-weight: 700;
-        }
-
-        .count-btn .label-en {
-            font-family: 'Outfit', sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            opacity: 0.7;
-            margin-top: 2px;
-        }
-
-        /* Pulse ring on tap */
-        .count-btn::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            border: 2px solid var(--gold);
-            opacity: 0;
-            transition: none;
-        }
-
-        .count-btn.pulse::after {
-            animation: pulseRing 0.4s ease-out;
-        }
-
-        @keyframes pulseRing {
-            0% { transform: scale(1); opacity: 0.6; }
-            100% { transform: scale(1.18); opacity: 0; }
-        }
-
-        /* ───── Reset Button ───── */
-        .reset-btn {
-            width: 46px;
-            height: 46px;
-            background: linear-gradient(145deg, #e04858, #c0313f);
-            color: var(--white);
-            font-family: 'Anek Gujarati', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            position: absolute;
-            right: 8px;
-            bottom: 0;
-            box-shadow: 
-                0 4px 14px rgba(192,49,63,0.4),
-                inset 0 1px 0 rgba(255,255,255,0.2);
-            letter-spacing: 0.3px;
-        }
-
-        .reset-btn:hover {
+        .counter-number.pop {
             transform: scale(1.08);
-            background: linear-gradient(145deg, #e8525f, #d43a4a);
         }
 
-        .reset-btn:active {
-            box-shadow: inset 0 3px 6px rgba(0,0,0,0.3) !important;
-        }
-
-        /* ───── Bottom Ornament ───── */
-        .bottom-ornament {
-            margin-top: 28px;
+        /* =========================================================
+           8. MAIN COUNT BUTTON & SVG RADIAL PROGRESS RING
+           ========================================================= */
+        .count-ring-wrapper {
+            position: relative;
+            width: 158px;
+            height: 158px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
         }
 
-        /* ───── Developer Credit ───── */
-        .credit {
-            margin-top: 14px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 11px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.35);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        /* ───── Ripple Effect ───── */
-        .ripple {
+        .progress-svg {
             position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.25);
-            transform: scale(0);
-            animation: rippleAnim 0.5s ease-out;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
             pointer-events: none;
         }
 
-        @keyframes rippleAnim {
-            to { transform: scale(3); opacity: 0; }
+        .progress-track {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.10);
+            stroke-width: 6;
         }
 
-        /* ───── Responsive ───── */
-        @media (max-height: 600px) {
-            .counter-container {
-                padding: 24px 24px 20px;
+        .progress-fill {
+            fill: none;
+            stroke: url(#goldRingGrad);
+            stroke-width: 6.5;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+            filter: drop-shadow(0 0 6px var(--accent-glow));
+        }
+
+        .count-btn {
+            position: relative;
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 32% 28%, var(--accent-light) 0%, var(--accent) 55%, var(--accent-dark) 100%);
+            color: var(--btn-text);
+            border: none;
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+            user-select: none;
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.45),
+                0 0 0 4px rgba(212, 168, 75, 0.16),
+                inset 0 2px 3px rgba(255, 255, 255, 0.45),
+                inset 0 -4px 10px rgba(0, 0, 0, 0.25);
+            transition: transform 0.1s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.15s ease;
+        }
+
+        .count-btn:hover {
+            transform: scale(1.035);
+            box-shadow:
+                0 14px 36px rgba(0, 0, 0, 0.5),
+                0 0 24px var(--accent-glow),
+                inset 0 2px 3px rgba(255, 255, 255, 0.55);
+        }
+
+        .count-btn:active,
+        .count-btn.pressed {
+            transform: scale(0.93) !important;
+            box-shadow:
+                0 4px 14px rgba(0, 0, 0, 0.4),
+                inset 0 4px 12px rgba(0, 0, 0, 0.32) !important;
+        }
+
+        /* Golden ripple wave inside button */
+        .btn-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.48);
+            transform: scale(0);
+            animation: rippleExpand 0.52s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes rippleExpand {
+            to {
+                transform: scale(2.8);
+                opacity: 0;
             }
-            .display {
-                font-size: 56px;
-                padding: 14px 16px;
-            }
-            .count-btn {
-                width: 110px;
-                height: 110px;
-            }
-            .display-wrapper {
-                margin-bottom: 24px;
-            }
+        }
+
+        /* Secondary circular action buttons (Undo / Reset) */
+        .side-action-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--surface-glass);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+        }
+
+        .side-action-btn:hover {
+            background: var(--surface-glass-hover);
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .side-action-btn:active {
+            transform: scale(0.92);
+        }
+
+        .reset-action-btn {
+            background: linear-gradient(145deg, rgba(220, 62, 78, 0.24), rgba(168, 36, 52, 0.34));
+            border-color: rgba(244, 102, 118, 0.42);
+            color: #ffd5da;
+        }
+
+        .reset-action-btn:hover {
+            background: linear-gradient(145deg, rgba(232, 74, 90, 0.38), rgba(190, 44, 60, 0.48));
+            border-color: rgba(255, 130, 145, 0.65);
+        }
+
+        /* =========================================================
+           9. FULL-SCREEN TAP MODE INDICATOR
+           ========================================================= */
+        body.screen-tap-active {
+            cursor: pointer;
+        }
+
+        .screen-tap-banner {
+            background: rgba(212, 168, 75, 0.18);
+            border: 1px solid var(--accent);
+            color: var(--accent-light);
+            animation: softPulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes softPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 168, 75, 0.25); }
+            50% { box-shadow: 0 0 16px 2px rgba(212, 168, 75, 0.35); }
+        }
+
+        /* =========================================================
+           10. MODALS & TOAST
+           ========================================================= */
+        .modal-backdrop {
+            background: rgba(0, 0, 0, 0.68);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: opacity 0.22s ease;
+        }
+
+        .modal-card {
+            background: var(--card-bg);
+            border: 1.5px solid var(--card-border);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 30px var(--accent-glow);
+            transform: scale(0.95);
+            transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .modal-open .modal-card {
+            transform: scale(1);
+        }
+
+        .toast-pill {
+            background: linear-gradient(135deg, rgba(16, 40, 26, 0.96), rgba(10, 24, 16, 0.96));
+            border: 1.5px solid var(--accent);
+            color: var(--accent-light);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* =========================================================
+           11. RESPONSIVE COMPACT ADJUSTMENTS FOR SMALL SCREENS
+           ========================================================= */
+        @media (max-height: 700px) {
+            .count-ring-wrapper { width: 140px; height: 140px; }
+            .count-btn { width: 112px; height: 112px; }
+            .counter-number { font-size: 3.4rem !important; }
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex items-center justify-center p-3 sm:p-5 select-none">
 
-<div class="counter-container">
-    <!-- Top Ornament -->
-    <div class="ornament">
-        <span class="ornament-line"></span>
-        <span class="ornament-diamond"></span>
-        <span class="ornament-line"></span>
+    <!-- Ambient Background & Geometric Pattern -->
+    <div class="ambient-bg" aria-hidden="true">
+        <div class="glow-blob blob-1"></div>
+        <div class="glow-blob blob-2"></div>
+        <div class="glow-blob blob-3"></div>
+    </div>
+    <div class="geo-pattern" aria-hidden="true"></div>
+
+    <!-- Full-Viewport Particle & Celebration Canvas -->
+    <canvas id="fxCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-50"></canvas>
+
+    <!-- Serene Toast Notification -->
+    <div id="toastContainer" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 -translate-y-4">
+        <div id="toastMessage" class="toast-pill px-5 py-2.5 rounded-full text-sm sm:text-base font-semibold tracking-wide flex items-center gap-2 whitespace-nowrap">
+            <span>✨</span>
+            <span id="toastText">માશાઅલ્લાહ!</span>
+        </div>
     </div>
 
-    <div class="title">તસ્બીહ કાઉન્ટર</div>
+    <!-- =========================================================
+         MAIN TASBIH GLASSMORPHIC CARD
+         ========================================================= -->
+    <main class="counter-card w-full max-w-[410px] rounded-[30px] px-5 pt-5 pb-5 sm:px-7 sm:pt-6 sm:pb-6 relative overflow-hidden">
+        <!-- Gold Filigree Corners -->
+        <span class="filigree-corner filigree-tl"></span>
+        <span class="filigree-corner filigree-tr"></span>
+        <span class="filigree-corner filigree-bl"></span>
+        <span class="filigree-corner filigree-br"></span>
 
-    <div class="display-wrapper">
-        <div class="display" id="counterDisplay">0</div>
+        <!-- Top Bar: Theme Switcher (Left) + Sensory Controls (Right) -->
+        <header class="no-screen-tap flex items-center justify-between gap-2 mb-3.5 relative z-10">
+            <!-- 4 Luxury Theme Swatches -->
+            <div class="flex items-center gap-1.5 bg-black/20 px-2.5 py-1.5 rounded-full border border-white/10" role="group" aria-label="થીમ પસંદગી">
+                <button type="button" class="theme-swatch active" data-theme-btn="emerald" title="શાહી લીલો (Royal Emerald)" style="background: linear-gradient(135deg, #1a7a48, #0a3d22);"></button>
+                <button type="button" class="theme-swatch" data-theme-btn="sapphire" title="મધ્યરાત્રિ નીલો (Midnight Sapphire)" style="background: linear-gradient(135deg, #274f9e, #0c1a38);"></button>
+                <button type="button" class="theme-swatch" data-theme-btn="sandstone" title="રણ સોનું (Warm Sandstone)" style="background: linear-gradient(135deg, #c28848, #3d2716);"></button>
+                <button type="button" class="theme-swatch" data-theme-btn="amoled" title="શુદ્ધ રાત્રિ (AMOLED Black)" style="background: linear-gradient(135deg, #242424, #000000);"></button>
+            </div>
+
+            <!-- Sensory Action Toggles: Sound, Vibration, Full-Screen Tap -->
+            <div class="flex items-center gap-1.5">
+                <!-- Sound Toggle -->
+                <button type="button" id="soundToggleBtn" class="icon-pill-btn active w-9 h-9 rounded-full flex items-center justify-center" title="અવાજ ચાલુ/બંધ (Sound)">
+                    <svg id="soundOnIcon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"/>
+                    </svg>
+                    <svg id="soundOffIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M23 9l-6 6M17 9l6 6"/>
+                    </svg>
+                </button>
+
+                <!-- Vibration Toggle -->
+                <button type="button" id="vibrateToggleBtn" class="icon-pill-btn active w-9 h-9 rounded-full flex items-center justify-center" title="વાઇબ્રેશન ચાલુ/બંધ (Haptics)">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="7" y="4" width="10" height="16" rx="2"/>
+                        <path stroke-linecap="round" d="M3 8v8M21 8v8"/>
+                    </svg>
+                </button>
+
+                <!-- Full-Screen Tap Mode Toggle -->
+                <button type="button" id="screenTapBtn" class="icon-pill-btn h-9 px-2.5 rounded-full flex items-center gap-1 text-xs font-semibold" title="સ્ક્રીન પર ગમે ત્યાં ટેપ કરીને ગણો">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/>
+                    </svg>
+                    <span>સ્ક્રીન ટેપ</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Title & Top Ornament -->
+        <div class="text-center mb-3 relative z-10">
+            <div class="flex items-center justify-center gap-2.5 mb-1">
+                <span class="ornament-line"></span>
+                <span class="ornament-diamond"></span>
+                <span class="ornament-line"></span>
+            </div>
+            <h1 class="text-2xl sm:text-[26px] font-bold tracking-wide" style="color: var(--accent-light);">તસ્બીહ કાઉન્ટર</h1>
+        </div>
+
+        <!-- Full-Screen Tap Active Banner (Hidden by default) -->
+        <div id="screenTapBanner" class="hidden screen-tap-banner text-center text-xs font-semibold py-1 px-3 rounded-full mb-2.5">
+            ✨ સ્ક્રીન ટેપ મોડ ચાલુ છે — ગણવા માટે સ્ક્રીન પર ગમે ત્યાં ટેપ કરો
+        </div>
+
+        <!-- Dhikr Selector Strip + Tasbih-e-Fatima Mode -->
+        <section class="no-screen-tap mb-3 relative z-10">
+            <!-- Tasbih-e-Fatima Smart Mode Toggle -->
+            <div class="flex items-center justify-between mb-2 px-0.5">
+                <span class="text-xs font-medium" style="color: var(--text-muted);">ઝિક્ર પસંદ કરો</span>
+                <button type="button" id="fatimaModeBtn" class="icon-pill-btn px-2.5 py-1 rounded-full text-[11px] font-semibold flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-current opacity-80"></span>
+                    <span>તસ્બીહ-એ-ફાતિમા (33-33-34)</span>
+                </button>
+            </div>
+
+            <!-- Horizontal Scrollable Dhikr Pills -->
+            <div id="dhikrPillsContainer" class="dhikr-scroll flex items-center gap-2 overflow-x-auto pb-1">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </section>
+
+        <!-- Active Dhikr Arabic Calligraphy & Numeric Display -->
+        <section class="display-box rounded-2xl px-4 pt-3 pb-2.5 mb-3.5 text-center relative overflow-hidden">
+            <!-- Arabic Text + Gujarati Name -->
+            <div class="flex flex-col items-center justify-center min-h-[54px] mb-1">
+                <div id="activeArabic" class="font-arabic text-2xl sm:text-[26px] leading-snug tracking-wide" style="color: var(--accent-light);">
+                    سُبْحَانَ اللَّهِ
+                </div>
+                <div class="flex items-center justify-center gap-2 mt-0.5">
+                    <span id="activeGujarati" class="text-xs sm:text-sm font-semibold" style="color: var(--text-secondary);">સુબહાનલ્લાહ</span>
+                    <span class="text-[11px] px-2 py-0.5 rounded-full font-num font-semibold" style="background: var(--surface-glass); color: var(--accent-light);" id="targetBadge">0 / 33</span>
+                </div>
+            </div>
+
+            <!-- Main Large Counter Number -->
+            <div id="counterDisplay" class="counter-number font-num text-[60px] sm:text-[66px] font-extrabold leading-none py-1">
+                0
+            </div>
+
+            <!-- Interactive Animated 3D Tasbih Beads Track (મણકા) -->
+            <div class="w-full h-[46px] mt-1 relative">
+                <canvas id="beadsCanvas" class="w-full h-full block"></canvas>
+            </div>
+        </section>
+
+        <!-- Main Controls: Undo (-1) | Main Golden Count Button + SVG Ring | Reset -->
+        <section class="flex items-center justify-between px-2 sm:px-4 mb-4 relative z-10">
+            <!-- Undo (-1) Button -->
+            <button type="button" id="undoBtn" class="no-screen-tap side-action-btn" title="એક ઓછું કરો (-1)">
+                <span class="font-num text-sm font-bold leading-none">-1</span>
+                <span class="text-[10px] opacity-75 mt-0.5">પાછળ</span>
+            </button>
+
+            <!-- Center Count Button with Radial Progress Ring -->
+            <div class="count-ring-wrapper">
+                <svg class="progress-svg" viewBox="0 0 160 160" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="goldRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f8e3a3" />
+                            <stop offset="50%" stop-color="#d4a84b" />
+                            <stop offset="100%" stop-color="#f5d680" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="progress-track" cx="80" cy="80" r="72"></circle>
+                    <circle id="progressRing" class="progress-fill" cx="80" cy="80" r="72" stroke-dasharray="452.39" stroke-dashoffset="452.39"></circle>
+                </svg>
+
+                <button type="button" id="countBtn" class="count-btn flex flex-col items-center justify-center" aria-label="ગણો (Count)">
+                    <span class="text-[24px] font-extrabold leading-tight">ગણો</span>
+                    <span class="font-num text-xs font-semibold opacity-75 tracking-wide">(Count)</span>
+                </button>
+            </div>
+
+            <!-- Reset Button -->
+            <button type="button" id="resetBtn" class="no-screen-tap side-action-btn reset-action-btn" title="કાઉન્ટર રિસેટ કરો">
+                <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h5M20 20v-5h-5M5.64 18.36A9 9 0 1018.36 5.64"/>
+                </svg>
+                <span class="text-[10px] font-bold">રિસેટ</span>
+            </button>
+        </section>
+
+        <!-- Live Stats Strip: Rounds, Today's Total, All-Time Total -->
+        <section class="grid grid-cols-3 gap-2 mb-4 relative z-10">
+            <div class="rounded-xl py-2 px-2 text-center border border-white/10" style="background: var(--surface-glass);">
+                <div class="text-[11px] font-medium mb-0.5" style="color: var(--text-muted);">ચક્ર (Rounds)</div>
+                <div id="roundsStat" class="font-num text-lg font-bold" style="color: var(--accent-light);">0</div>
+            </div>
+            <div class="rounded-xl py-2 px-2 text-center border border-white/10" style="background: var(--surface-glass);">
+                <div class="text-[11px] font-medium mb-0.5" style="color: var(--text-muted);">આજની કુલ</div>
+                <div id="todayStat" class="font-num text-lg font-bold" style="color: var(--text-primary);">0</div>
+            </div>
+            <div class="rounded-xl py-2 px-2 text-center border border-white/10" style="background: var(--surface-glass);">
+                <div class="text-[11px] font-medium mb-0.5" style="color: var(--text-muted);">કુલ તસ્બીહ</div>
+                <div id="totalStat" class="font-num text-lg font-bold" style="color: var(--text-primary);">0</div>
+            </div>
+        </section>
+
+        <!-- Bottom Ornament & Developer Credit -->
+        <footer class="text-center relative z-10">
+            <div class="flex items-center justify-center gap-2.5 mb-2">
+                <span class="ornament-line"></span>
+                <span class="ornament-diamond"></span>
+                <span class="ornament-line"></span>
+            </div>
+            <p class="font-num text-[11px] font-medium tracking-[1.6px] uppercase" style="color: var(--text-muted);">
+                Developed by — Pathan Mahirkhan
+            </p>
+        </footer>
+    </main>
+
+    <!-- =========================================================
+         CUSTOM GLASSMORPHIC RESET MODAL (No browser alert/confirm)
+         ========================================================= -->
+    <div id="resetModal" class="no-screen-tap modal-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4 opacity-0">
+        <div class="modal-card w-full max-w-[340px] rounded-3xl p-6 text-center">
+            <div class="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style="background: rgba(220, 62, 78, 0.2); border: 1px solid rgba(244, 102, 118, 0.45); color: #ff9ca6;">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h5M20 20v-5h-5M5.64 18.36A9 9 0 1018.36 5.64"/>
+                </svg>
+            </div>
+            <h2 class="text-xl font-bold mb-1.5" style="color: var(--accent-light);">કાઉન્ટર રિસેટ કરો</h2>
+            <p class="text-sm mb-5" style="color: var(--text-secondary);">તમે શું રિસેટ કરવા માંગો છો? પસંદ કરો:</p>
+
+            <div class="flex flex-col gap-2.5">
+                <button type="button" id="resetCurrentOnlyBtn" class="w-full py-3 px-4 rounded-xl font-semibold text-sm transition hover:brightness-110 active:scale-[0.98]" style="background: linear-gradient(135deg, var(--accent-light), var(--accent)); color: var(--btn-text);">
+                    ફક્ત આ ગણતરી રિસેટ કરો (0)
+                </button>
+                <button type="button" id="resetAllBtn" class="w-full py-3 px-4 rounded-xl font-semibold text-sm transition hover:brightness-110 active:scale-[0.98]" style="background: rgba(220, 62, 78, 0.24); border: 1px solid rgba(244, 102, 118, 0.5); color: #ffd5da;">
+                    બધું રિસેટ કરો (ચક્ર અને આજની કુલ)
+                </button>
+                <button type="button" id="cancelResetBtn" class="w-full py-2.5 px-4 rounded-xl font-medium text-sm transition hover:bg-white/10" style="color: var(--text-secondary);">
+                    રદ કરો
+                </button>
+            </div>
+        </div>
     </div>
 
-    <div class="controls-wrapper">
-        <button class="btn count-btn" id="countBtn" onclick="increment()">
-            <span class="label-gu">ગણો</span>
-            <span class="label-en">(Count)</span>
-        </button>
-        <button class="btn reset-btn" id="resetBtn" onclick="resetCounter()" title="Reset Counter">રિસેટ</button>
+    <!-- =========================================================
+         CUSTOM DHIKR MODAL (+ કસ્ટમ)
+         ========================================================= -->
+    <div id="customDhikrModal" class="no-screen-tap modal-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4 opacity-0">
+        <div class="modal-card w-full max-w-[350px] rounded-3xl p-6">
+            <h2 class="text-xl font-bold mb-1 text-center" style="color: var(--accent-light);">નવી ઝિક્ર ઉમેરો</h2>
+            <p class="text-xs text-center mb-4" style="color: var(--text-muted);">તમારી પસંદગીની ઝિક્ર અને લક્ષ્ય (Target) સેટ કરો</p>
+
+            <form id="customDhikrForm" class="flex flex-col gap-3">
+                <div>
+                    <label for="customNameInput" class="block text-xs font-semibold mb-1" style="color: var(--text-secondary);">ઝિક્રનું નામ (ગુજરાતી / English) *</label>
+                    <input type="text" id="customNameInput" required maxlength="36" placeholder="દા.ત. યા અલ્લાહ" class="w-full px-3.5 py-2.5 rounded-xl text-sm bg-black/30 border border-white/15 text-white placeholder-white/35 focus:outline-none focus:border-amber-300">
+                </div>
+
+                <div>
+                    <label for="customArabicInput" class="block text-xs font-semibold mb-1" style="color: var(--text-secondary);">અરબી ટેક્સ્ટ (વૈકલ્પિક)</label>
+                    <input type="text" id="customArabicInput" maxlength="50" placeholder="દા.ત. يَا اللَّهُ" class="font-arabic w-full px-3.5 py-2 rounded-xl text-base bg-black/30 border border-white/15 text-white placeholder-white/35 focus:outline-none focus:border-amber-300 text-right">
+                </div>
+
+                <div>
+                    <label for="customTargetInput" class="block text-xs font-semibold mb-1" style="color: var(--text-secondary);">લક્ષ્ય સંખ્યા (Target — 0 એટલે અનંત ∞)</label>
+                    <input type="number" id="customTargetInput" min="0" max="10000" value="33" class="font-num w-full px-3.5 py-2.5 rounded-xl text-sm bg-black/30 border border-white/15 text-white focus:outline-none focus:border-amber-300">
+                </div>
+
+                <div class="flex items-center gap-2.5 mt-2">
+                    <button type="button" id="cancelCustomBtn" class="flex-1 py-2.5 rounded-xl text-sm font-medium bg-white/10 hover:bg-white/15 transition" style="color: var(--text-secondary);">
+                        રદ કરો
+                    </button>
+                    <button type="submit" class="flex-1 py-2.5 rounded-xl text-sm font-bold transition hover:brightness-110 active:scale-[0.98]" style="background: linear-gradient(135deg, var(--accent-light), var(--accent)); color: var(--btn-text);">
+                        ઉમેરો
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <!-- Bottom Ornament -->
-    <div class="bottom-ornament">
-        <span class="ornament-line"></span>
-        <span class="ornament-diamond"></span>
-        <span class="ornament-line"></span>
-    </div>
+    <!-- =========================================================
+         JAVASCRIPT APPLICATION LOGIC
+         ========================================================= -->
+    <script>
+        (function () {
+            'use strict';
 
-    <div class="credit">Developed by — Pathan Mahirkhan</div>
-</div>
+            /* ---------------------------------------------------------
+               1. DEFAULT DHIKRS & STATE MANAGEMENT
+               --------------------------------------------------------- */
+            const STORAGE_KEY = 'tasbihCounterPro_v2';
 
-<script>
-    let count = 0;
-    const displayElement = document.getElementById('counterDisplay');
-    const countBtn = document.getElementById('countBtn');
+            const DEFAULT_DHIKRS = [
+                { id: 'subhanallah', gu: 'સુબહાનલ્લાહ', ar: 'سُبْحَانَ اللَّهِ', target: 33 },
+                { id: 'alhamdulillah', gu: 'અલહમ્દુલિલ્લાહ', ar: 'الْحَمْدُ لِلَّهِ', target: 33 },
+                { id: 'allahuakbar', gu: 'અલ્લાહુ અકબર', ar: 'اللَّهُ أَكْبَرُ', target: 34 },
+                { id: 'astaghfirullah', gu: 'અસ્તગફિરુલ્લાહ', ar: 'أَسْتَغْفِرُ اللَّهَ', target: 100 },
+                { id: 'durood', gu: 'દરૂદ શરીફ', ar: 'اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ', target: 100 },
+                { id: 'kalima', gu: 'લા ઇલાહા ઇલ્લલ્લાહ', ar: 'لَا إِلَٰهَ إِلَّا اللَّهُ', target: 100 },
+                { id: 'free', gu: 'મુક્ત ગણતરી', ar: 'ذِكْرُ اللَّهِ', target: 0 }
+            ];
 
-    // પેજ લોડ થાય ત્યારે સેવ થયેલો ડેટા પાછો લાવવા માટે
-    window.onload = function() {
-        let savedCount = localStorage.getItem('tasbihCount');
-        if (savedCount !== null) {
-            count = parseInt(savedCount);
-            displayElement.innerText = count;
-        }
-    };
+            const FATIMA_SEQUENCE = ['subhanallah', 'alhamdulillah', 'allahuakbar'];
 
-    // કાઉન્ટર વધારવા માટેનું ફંક્શન
-    function increment() {
-        count++;
-        updateDisplayAndSave();
+            function getTodayDateString() {
+                const d = new Date();
+                const y = d.getFullYear();
+                const m = String(d.getMonth() + 1).padStart(2, '0');
+                const day = String(d.getDate()).padStart(2, '0');
+                return `${y}-${m}-${day}`;
+            }
 
-        // Display pop animation
-        displayElement.classList.add('pop');
-        setTimeout(function() { displayElement.classList.remove('pop'); }, 120);
+            let state = {
+                count: 0,
+                rounds: 0,
+                todayTotal: 0,
+                todayDate: getTodayDateString(),
+                allTimeTotal: 0,
+                activeDhikrId: 'subhanallah',
+                fatimaMode: false,
+                customDhikrs: [],
+                theme: 'emerald',
+                soundEnabled: true,
+                vibrateEnabled: true,
+                screenTapMode: false
+            };
 
-        // Button pulse ring
-        countBtn.classList.remove('pulse');
-        void countBtn.offsetWidth; // reflow trick
-        countBtn.classList.add('pulse');
+            function loadState() {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+                        if (parsed && typeof parsed === 'object') {
+                            state = { ...state, ...parsed };
+                            if (!Array.isArray(state.customDhikrs)) state.customDhikrs = [];
+                        }
+                    } else {
+                        // Migrate legacy count from older version if present
+                        const legacy = localStorage.getItem('tasbihCount');
+                        if (legacy !== null && !isNaN(parseInt(legacy, 10))) {
+                            const legacyVal = Math.max(0, parseInt(legacy, 10));
+                            state.count = legacyVal;
+                            state.todayTotal = legacyVal;
+                            state.allTimeTotal = legacyVal;
+                        }
+                    }
 
-        // જો મોબાઇલમાં સપોર્ટ કરતું હોય તો ગણતી વખતે નાનું વાઇબ્રેશન આપવા
-        if (navigator.vibrate) {
-            navigator.vibrate(40);
-        }
-    }
+                    // Auto-reset Today's Total if calendar date has changed
+                    const today = getTodayDateString();
+                    if (state.todayDate !== today) {
+                        state.todayDate = today;
+                        state.todayTotal = 0;
+                    }
+                } catch (err) {
+                    console.warn('Storage load skipped:', err);
+                }
+            }
 
-    // કાઉન્ટર રિસેટ કરવા માટેનું ફંક્શન
-    function resetCounter() {
-        if (confirm('શું તમે ખરેખર કાઉન્ટર ઝીરો (0) કરવા માંગો છો?')) {
-            count = 0;
-            updateDisplayAndSave();
-        }
-    }
+            function saveState() {
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+                } catch (err) {
+                    console.warn('Storage save skipped:', err);
+                }
+            }
 
-    // નંબર અપડેટ કરવા અને લોકલ સ્ટોરેજમાં સેવ કરવા
-    function updateDisplayAndSave() {
-        displayElement.innerText = count;
-        localStorage.setItem('tasbihCount', count);
-    }
-</script>
+            function getAllDhikrs() {
+                return [...DEFAULT_DHIKRS, ...state.customDhikrs];
+            }
 
+            function getActiveDhikr() {
+                const all = getAllDhikrs();
+                return all.find(d => d.id === state.activeDhikrId) || DEFAULT_DHIKRS[0];
+            }
+
+            /* ---------------------------------------------------------
+               2. DOM REFERENCES
+               --------------------------------------------------------- */
+            const counterDisplay = document.getElementById('counterDisplay');
+            const activeArabic = document.getElementById('activeArabic');
+            const activeGujarati = document.getElementById('activeGujarati');
+            const targetBadge = document.getElementById('targetBadge');
+            const progressRing = document.getElementById('progressRing');
+            const countBtn = document.getElementById('countBtn');
+            const undoBtn = document.getElementById('undoBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const roundsStat = document.getElementById('roundsStat');
+            const todayStat = document.getElementById('todayStat');
+            const totalStat = document.getElementById('totalStat');
+            const dhikrPillsContainer = document.getElementById('dhikrPillsContainer');
+            const fatimaModeBtn = document.getElementById('fatimaModeBtn');
+
+            // Top action buttons
+            const soundToggleBtn = document.getElementById('soundToggleBtn');
+            const soundOnIcon = document.getElementById('soundOnIcon');
+            const soundOffIcon = document.getElementById('soundOffIcon');
+            const vibrateToggleBtn = document.getElementById('vibrateToggleBtn');
+            const screenTapBtn = document.getElementById('screenTapBtn');
+            const screenTapBanner = document.getElementById('screenTapBanner');
+            const themeButtons = document.querySelectorAll('[data-theme-btn]');
+
+            // Modals & Toast
+            const resetModal = document.getElementById('resetModal');
+            const resetCurrentOnlyBtn = document.getElementById('resetCurrentOnlyBtn');
+            const resetAllBtn = document.getElementById('resetAllBtn');
+            const cancelResetBtn = document.getElementById('cancelResetBtn');
+
+            const customDhikrModal = document.getElementById('customDhikrModal');
+            const customDhikrForm = document.getElementById('customDhikrForm');
+            const customNameInput = document.getElementById('customNameInput');
+            const customArabicInput = document.getElementById('customArabicInput');
+            const customTargetInput = document.getElementById('customTargetInput');
+            const cancelCustomBtn = document.getElementById('cancelCustomBtn');
+
+            const toastContainer = document.getElementById('toastContainer');
+            const toastText = document.getElementById('toastText');
+            let toastTimer = null;
+
+            const RING_CIRCUMFERENCE = 2 * Math.PI * 72; // r = 72 => ~452.39
+
+            /* ---------------------------------------------------------
+               3. WEB AUDIO API (Synthesized Bead Click & Harmonic Chime)
+               --------------------------------------------------------- */
+            let audioCtx = null;
+
+            function ensureAudioContext() {
+                try {
+                    if (!audioCtx) {
+                        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                        if (AudioContextClass) {
+                            audioCtx = new AudioContextClass();
+                        }
+                    }
+                    if (audioCtx && audioCtx.state === 'suspended') {
+                        audioCtx.resume();
+                    }
+                } catch (e) {
+                    // Ignore audio init errors
+                }
+            }
+
+            // Soft wooden/pearl bead tap sound
+            function playBeadClick() {
+                if (!state.soundEnabled) return;
+                ensureAudioContext();
+                if (!audioCtx) return;
+
+                try {
+                    const now = audioCtx.currentTime;
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    const filter = audioCtx.createBiquadFilter();
+
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(520, now);
+                    osc.frequency.exponentialRampToValueAtTime(160, now + 0.045);
+
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(1400, now);
+
+                    gain.gain.setValueAtTime(0.001, now);
+                    gain.gain.linearRampToValueAtTime(0.18, now + 0.005);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.055);
+
+                    osc.connect(filter);
+                    filter.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.start(now);
+                    osc.stop(now + 0.06);
+                } catch (e) {
+                    // Safe fallback
+                }
+            }
+
+            // Gentle serene harmonic chime for target completion
+            function playCompletionChime() {
+                if (!state.soundEnabled) return;
+                ensureAudioContext();
+                if (!audioCtx) return;
+
+                try {
+                    const now = audioCtx.currentTime;
+                    const notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+                    notes.forEach((freq, idx) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        const startTime = now + idx * 0.085;
+
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, startTime);
+
+                        gain.gain.setValueAtTime(0.001, startTime);
+                        gain.gain.linearRampToValueAtTime(0.12, startTime + 0.03);
+                        gain.gain.exponentialRampToValueAtTime(0.0008, startTime + 0.75);
+
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+
+                        osc.start(startTime);
+                        osc.stop(startTime + 0.78);
+                    });
+                } catch (e) {
+                    // Safe fallback
+                }
+            }
+
+            /* ---------------------------------------------------------
+               4. 3D ANIMATED TASBIH BEADS TRACK (60fps Canvas Physics)
+               --------------------------------------------------------- */
+            const beadsCanvas = document.getElementById('beadsCanvas');
+            const beadsCtx = beadsCanvas.getContext('2d');
+            let beadsWidth = 300;
+            let beadsHeight = 46;
+            let beadPhaseTarget = 0;  // Increments by 1 on every tap
+            let beadPhaseCurrent = 0; // Smoothly springs toward target
+            let beadHighlightPulse = 0;
+
+            function resizeBeadsCanvas() {
+                const rect = beadsCanvas.getBoundingClientRect();
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                beadsWidth = rect.width || 300;
+                beadsHeight = rect.height || 46;
+                beadsCanvas.width = Math.round(beadsWidth * dpr);
+                beadsCanvas.height = Math.round(beadsHeight * dpr);
+                beadsCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+
+            function getThemeBeadColors() {
+                const cs = getComputedStyle(document.documentElement);
+                return {
+                    base: cs.getPropertyValue('--bead-base').trim() || '#1d8a52',
+                    dark: cs.getPropertyValue('--bead-dark').trim() || '#072c18',
+                    highlight: cs.getPropertyValue('--bead-highlight').trim() || '#80f0b4',
+                    activeBase: cs.getPropertyValue('--bead-active-base').trim() || '#f5d680',
+                    activeDark: cs.getPropertyValue('--bead-active-dark').trim() || '#8c6314',
+                    accent: cs.getPropertyValue('--accent').trim() || '#d4a84b'
+                };
+            }
+
+            function drawBeadsFrame() {
+                // Smooth spring interpolation
+                const diff = beadPhaseTarget - beadPhaseCurrent;
+                beadPhaseCurrent += diff * 0.22;
+                if (Math.abs(diff) < 0.001) beadPhaseCurrent = beadPhaseTarget;
+                beadHighlightPulse *= 0.88;
+
+                beadsCtx.clearRect(0, 0, beadsWidth, beadsHeight);
+                const colors = getThemeBeadColors();
+
+                const centerY = beadsHeight * 0.56;
+                const archDepth = 10;
+
+                // 1. Draw subtle golden curved cord (string)
+                beadsCtx.save();
+                const cordGrad = beadsCtx.createLinearGradient(0, 0, beadsWidth, 0);
+                cordGrad.addColorStop(0, 'rgba(212,168,75,0.04)');
+                cordGrad.addColorStop(0.25, 'rgba(212,168,75,0.45)');
+                cordGrad.addColorStop(0.5, 'rgba(246,220,147,0.8)');
+                cordGrad.addColorStop(0.75, 'rgba(212,168,75,0.45)');
+                cordGrad.addColorStop(1, 'rgba(212,168,75,0.04)');
+
+                beadsCtx.strokeStyle = cordGrad;
+                beadsCtx.lineWidth = 2;
+                beadsCtx.beginPath();
+                beadsCtx.moveTo(8, centerY + archDepth);
+                beadsCtx.quadraticCurveTo(beadsWidth / 2, centerY - archDepth, beadsWidth - 8, centerY + archDepth);
+                beadsCtx.stroke();
+                beadsCtx.restore();
+
+                // 2. Draw 3D glossy beads gliding right-to-left
+                const spacing = Math.max(30, beadsWidth / 9.2);
+                const frac = beadPhaseCurrent - Math.floor(beadPhaseCurrent);
+                const baseIndex = Math.floor(beadPhaseCurrent);
+
+                for (let i = -5; i <= 5; i++) {
+                    // As beadPhaseCurrent increases, beads glide right-to-left
+                    const posUnits = i - frac;
+                    const x = beadsWidth / 2 + posUnits * spacing;
+                    if (x < -16 || x > beadsWidth + 16) continue;
+
+                    // Normalized position (-1 to +1) for parabolic arch & edge fade
+                    const norm = (x - beadsWidth / 2) / (beadsWidth / 2);
+                    const y = centerY - archDepth * 0.5 + (norm * norm) * archDepth;
+                    const edgeAlpha = Math.max(0, 1 - Math.pow(Math.abs(norm), 2.6));
+                    if (edgeAlpha <= 0.02) continue;
+
+                    // Determine if this bead is near center (active highlight) or a milestone bead
+                    const distFromCenter = Math.abs(posUnits);
+                    const isCenter = distFromCenter < 0.55;
+                    const beadLogicalId = baseIndex + i;
+                    const isGoldenBead = isCenter || (beadLogicalId > 0 && beadLogicalId % 11 === 0);
+
+                    const baseRadius = isCenter ? 11.2 + beadHighlightPulse * 1.6 : 9.4 - Math.abs(norm) * 1.4;
+                    const r = Math.max(5.5, baseRadius);
+
+                    beadsCtx.save();
+                    beadsCtx.globalAlpha = edgeAlpha;
+
+                    // Soft golden aura on center bead
+                    if (isCenter) {
+                        beadsCtx.shadowColor = colors.accent;
+                        beadsCtx.shadowBlur = 12 + beadHighlightPulse * 8;
+                    } else {
+                        beadsCtx.shadowColor = 'rgba(0,0,0,0.45)';
+                        beadsCtx.shadowBlur = 5;
+                        beadsCtx.shadowOffsetY = 2;
+                    }
+
+                    // 3D Sphere radial gradient
+                    const grad = beadsCtx.createRadialGradient(
+                        x - r * 0.32, y - r * 0.32, r * 0.12,
+                        x, y, r
+                    );
+
+                    if (isGoldenBead) {
+                        grad.addColorStop(0, '#fff9e6');
+                        grad.addColorStop(0.35, colors.activeBase);
+                        grad.addColorStop(1, colors.activeDark);
+                    } else {
+                        grad.addColorStop(0, colors.highlight);
+                        grad.addColorStop(0.35, colors.base);
+                        grad.addColorStop(1, colors.dark);
+                    }
+
+                    beadsCtx.fillStyle = grad;
+                    beadsCtx.beginPath();
+                    beadsCtx.arc(x, y, r, 0, Math.PI * 2);
+                    beadsCtx.fill();
+
+                    // Crisp glossy specular dot
+                    beadsCtx.shadowBlur = 0;
+                    beadsCtx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+                    beadsCtx.beginPath();
+                    beadsCtx.arc(x - r * 0.32, y - r * 0.32, r * 0.22, 0, Math.PI * 2);
+                    beadsCtx.fill();
+
+                    beadsCtx.restore();
+                }
+            }
+
+            /* ---------------------------------------------------------
+               5. GOLDEN SPARKLES & CELEBRATION PARTICLE CANVAS
+               --------------------------------------------------------- */
+            const fxCanvas = document.getElementById('fxCanvas');
+            const fxCtx = fxCanvas.getContext('2d');
+            let particles = [];
+
+            function resizeFxCanvas() {
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                fxCanvas.width = Math.round(window.innerWidth * dpr);
+                fxCanvas.height = Math.round(window.innerHeight * dpr);
+                fxCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+
+            // Soft rising golden light particles on every tap
+            function spawnTapSparkles(originX, originY) {
+                const count = 6;
+                for (let i = 0; i < count; i++) {
+                    const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.4;
+                    const speed = 1.2 + Math.random() * 2.2;
+                    particles.push({
+                        x: originX + (Math.random() - 0.5) * 44,
+                        y: originY + (Math.random() - 0.5) * 24,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed - 0.6,
+                        size: 2 + Math.random() * 2.6,
+                        alpha: 0.95,
+                        decay: 0.022 + Math.random() * 0.015,
+                        color: Math.random() > 0.35 ? '#f6dc93' : '#ffffff',
+                        gravity: -0.02,
+                        shape: 'circle'
+                    });
+                }
+            }
+
+            // Graceful golden celebration burst on target completion
+            function spawnCelebrationBurst() {
+                const rect = countBtn.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                const palette = ['#f6dc93', '#d4a84b', '#ffffff', '#fde68a', '#fbbf24'];
+
+                for (let i = 0; i < 48; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = 2.5 + Math.random() * 6.5;
+                    particles.push({
+                        x: cx,
+                        y: cy,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed - 2.2,
+                        size: 3 + Math.random() * 4,
+                        alpha: 1,
+                        decay: 0.012 + Math.random() * 0.01,
+                        color: palette[Math.floor(Math.random() * palette.length)],
+                        gravity: 0.11,
+                        shape: Math.random() > 0.45 ? 'diamond' : 'circle'
+                    });
+                }
+            }
+
+            function drawFxFrame() {
+                if (particles.length === 0) {
+                    fxCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                    return;
+                }
+
+                fxCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += p.gravity;
+                    p.vx *= 0.985;
+                    p.alpha -= p.decay;
+
+                    if (p.alpha <= 0) {
+                        particles.splice(i, 1);
+                        continue;
+                    }
+
+                    fxCtx.save();
+                    fxCtx.globalAlpha = p.alpha;
+                    fxCtx.fillStyle = p.color;
+                    fxCtx.shadowColor = p.color;
+                    fxCtx.shadowBlur = 8;
+
+                    if (p.shape === 'diamond') {
+                        fxCtx.translate(p.x, p.y);
+                        fxCtx.rotate(Math.PI / 4);
+                        fxCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                    } else {
+                        fxCtx.beginPath();
+                        fxCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                        fxCtx.fill();
+                    }
+                    fxCtx.restore();
+                }
+            }
+
+            // Unified 60fps Animation Loop
+            function animationLoop() {
+                drawBeadsFrame();
+                drawFxFrame();
+                requestAnimationFrame(animationLoop);
+            }
+
+            /* ---------------------------------------------------------
+               6. UI RENDERING & TOASTS
+               --------------------------------------------------------- */
+            function showToast(message) {
+                toastText.textContent = message;
+                toastContainer.classList.remove('opacity-0', '-translate-y-4');
+                toastContainer.classList.add('opacity-100', 'translate-y-0');
+
+                if (toastTimer) clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toastContainer.classList.add('opacity-0', '-translate-y-4');
+                    toastContainer.classList.remove('opacity-100', 'translate-y-0');
+                }, 2800);
+            }
+
+            function applyTheme(themeName) {
+                state.theme = themeName;
+                document.documentElement.setAttribute('data-theme', themeName);
+                themeButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.themeBtn === themeName);
+                });
+                saveState();
+            }
+
+            function renderDhikrPills() {
+                const all = getAllDhikrs();
+                dhikrPillsContainer.innerHTML = '';
+
+                all.forEach(item => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = `dhikr-pill px-3 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5 shrink-0 ${item.id === state.activeDhikrId ? 'active' : ''}`;
+                    const targetLabel = item.target > 0 ? item.target : '∞';
+                    btn.innerHTML = `<span>${escapeHtml(item.gu)}</span><span class="font-num text-[10px] opacity-75">(${targetLabel})</span>`;
+
+                    btn.addEventListener('click', () => {
+                        btn.blur();
+                        // Turning off Fatima mode if user manually picks a non-Fatima dhikr
+                        if (state.fatimaMode && !FATIMA_SEQUENCE.includes(item.id)) {
+                            state.fatimaMode = false;
+                        }
+                        state.activeDhikrId = item.id;
+                        state.count = 0;
+                        updateUI();
+                        saveState();
+                    });
+
+                    dhikrPillsContainer.appendChild(btn);
+                });
+
+                // "+ કસ્ટમ" Button
+                const addBtn = document.createElement('button');
+                addBtn.type = 'button';
+                addBtn.className = 'dhikr-pill px-3 py-1.5 rounded-full text-xs font-semibold shrink-0 border-dashed';
+                addBtn.style.borderColor = 'var(--accent)';
+                addBtn.style.color = 'var(--accent-light)';
+                addBtn.textContent = '+ કસ્ટમ';
+                addBtn.addEventListener('click', () => {
+                    addBtn.blur();
+                    openModal(customDhikrModal);
+                    setTimeout(() => customNameInput.focus(), 120);
+                });
+                dhikrPillsContainer.appendChild(addBtn);
+            }
+
+            function escapeHtml(str) {
+                return String(str)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;');
+            }
+
+            function updateUI() {
+                const dhikr = getActiveDhikr();
+
+                // Update text displays
+                counterDisplay.textContent = state.count;
+                activeArabic.textContent = dhikr.ar || 'ذِكْرُ اللَّهِ';
+                activeGujarati.textContent = dhikr.gu;
+
+                if (dhikr.target > 0) {
+                    targetBadge.textContent = `${state.count} / ${dhikr.target}`;
+                    const ratio = Math.min(1, state.count / dhikr.target);
+                    const offset = RING_CIRCUMFERENCE * (1 - ratio);
+                    progressRing.style.strokeDasharray = RING_CIRCUMFERENCE;
+                    progressRing.style.strokeDashoffset = offset;
+                } else {
+                    targetBadge.textContent = `${state.count} / ∞`;
+                    // Subtle cyclical ring for Free Count (every 33)
+                    const cycleRatio = (state.count % 33) / 33;
+                    const offset = RING_CIRCUMFERENCE * (1 - cycleRatio);
+                    progressRing.style.strokeDasharray = RING_CIRCUMFERENCE;
+                    progressRing.style.strokeDashoffset = offset;
+                }
+
+                // Update stats
+                roundsStat.textContent = state.rounds;
+                todayStat.textContent = state.todayTotal;
+                totalStat.textContent = state.allTimeTotal;
+
+                // Update Fatima Mode button state
+                fatimaModeBtn.classList.toggle('active', state.fatimaMode);
+
+                // Update Sensory buttons
+                soundToggleBtn.classList.toggle('active', state.soundEnabled);
+                soundOnIcon.classList.toggle('hidden', !state.soundEnabled);
+                soundOffIcon.classList.toggle('hidden', state.soundEnabled);
+
+                vibrateToggleBtn.classList.toggle('active', state.vibrateEnabled);
+
+                screenTapBtn.classList.toggle('active', state.screenTapMode);
+                screenTapBanner.classList.toggle('hidden', !state.screenTapMode);
+                document.body.classList.toggle('screen-tap-active', state.screenTapMode);
+
+                renderDhikrPills();
+            }
+
+            /* ---------------------------------------------------------
+               7. CORE COUNTING & TARGET COMPLETION LOGIC
+               --------------------------------------------------------- */
+            function triggerRipple(btn, clientX, clientY) {
+                const rect = btn.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = `${size}px`;
+                const x = (clientX ? clientX - rect.left : rect.width / 2) - size / 2;
+                const y = (clientY ? clientY - rect.top : rect.height / 2) - size / 2;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                ripple.className = 'btn-ripple';
+                btn.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 540);
+            }
+
+            function increment(event) {
+                // Ensure date roll-over check even if page stays open past midnight
+                const today = getTodayDateString();
+                if (state.todayDate !== today) {
+                    state.todayDate = today;
+                    state.todayTotal = 0;
+                }
+
+                const dhikr = getActiveDhikr();
+                state.count++;
+                state.todayTotal++;
+                state.allTimeTotal++;
+
+                // Advance 3D bead track
+                beadPhaseTarget += 1;
+                beadHighlightPulse = 1;
+
+                // Display pop animation
+                counterDisplay.classList.remove('pop');
+                void counterDisplay.offsetWidth;
+                counterDisplay.classList.add('pop');
+                setTimeout(() => counterDisplay.classList.remove('pop'), 130);
+
+                // Sparkles from tap or button center
+                const rect = countBtn.getBoundingClientRect();
+                const fxX = event && event.clientX ? event.clientX : rect.left + rect.width / 2;
+                const fxY = event && event.clientY ? event.clientY : rect.top + rect.height / 2;
+                spawnTapSparkles(fxX, fxY);
+                triggerRipple(countBtn, event && event.clientX, event && event.clientY);
+
+                // Check target completion
+                let targetReached = dhikr.target > 0 && state.count >= dhikr.target;
+
+                if (targetReached) {
+                    playCompletionChime();
+                    spawnCelebrationBurst();
+                    if (state.vibrateEnabled && navigator.vibrate) {
+                        navigator.vibrate([45, 55, 45, 55, 95]);
+                    }
+
+                    if (state.fatimaMode) {
+                        const currentIdx = FATIMA_SEQUENCE.indexOf(state.activeDhikrId);
+                        if (currentIdx >= 0 && currentIdx < FATIMA_SEQUENCE.length - 1) {
+                            const nextId = FATIMA_SEQUENCE[currentIdx + 1];
+                            const nextDhikr = DEFAULT_DHIKRS.find(d => d.id === nextId);
+                            state.activeDhikrId = nextId;
+                            state.count = 0;
+                            showToast(`માશાઅલ્લાહ! હવે ${nextDhikr.gu} (${nextDhikr.target}) ✨`);
+                        } else {
+                            // Completed all 33 + 33 + 34 = 100!
+                            state.rounds++;
+                            state.activeDhikrId = FATIMA_SEQUENCE[0];
+                            state.count = 0;
+                            showToast(`માશાઅલ્લાહ! તસ્બીહ-એ-ફાતિમા (${state.rounds} ચક્ર) પૂર્ણ ✨`);
+                        }
+                    } else {
+                        state.rounds++;
+                        state.count = 0;
+                        showToast(`માશાઅલ્લાહ! ${state.rounds} ચક્ર પૂર્ણ થયું ✨`);
+                    }
+                } else {
+                    playBeadClick();
+                    if (state.vibrateEnabled && navigator.vibrate) {
+                        navigator.vibrate(32);
+                    }
+                }
+
+                updateUI();
+                saveState();
+            }
+
+            function undoCount() {
+                if (state.count <= 0) {
+                    showToast('ગણતરી પહેલેથી જ 0 પર છે');
+                    return;
+                }
+                state.count--;
+                if (state.todayTotal > 0) state.todayTotal--;
+                if (state.allTimeTotal > 0) state.allTimeTotal--;
+                beadPhaseTarget -= 1;
+
+                if (state.vibrateEnabled && navigator.vibrate) {
+                    navigator.vibrate(18);
+                }
+                updateUI();
+                saveState();
+            }
+
+            /* ---------------------------------------------------------
+               8. MODAL HELPERS
+               --------------------------------------------------------- */
+            function isAnyModalOpen() {
+                return !resetModal.classList.contains('hidden') || !customDhikrModal.classList.contains('hidden');
+            }
+
+            function openModal(modalEl) {
+                modalEl.classList.remove('hidden');
+                modalEl.classList.add('flex');
+                requestAnimationFrame(() => {
+                    modalEl.classList.remove('opacity-0');
+                    modalEl.classList.add('opacity-100', 'modal-open');
+                });
+            }
+
+            function closeModal(modalEl) {
+                modalEl.classList.remove('opacity-100', 'modal-open');
+                modalEl.classList.add('opacity-0');
+                setTimeout(() => {
+                    modalEl.classList.add('hidden');
+                    modalEl.classList.remove('flex');
+                }, 220);
+            }
+
+            /* ---------------------------------------------------------
+               9. EVENT LISTENERS
+               --------------------------------------------------------- */
+            // Main Count Button
+            countBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                countBtn.blur();
+                increment(e);
+            });
+
+            // Undo Button
+            undoBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                undoBtn.blur();
+                undoCount();
+            });
+
+            // Reset Button -> Opens Custom Modal
+            resetBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                resetBtn.blur();
+                openModal(resetModal);
+            });
+
+            // Reset Modal Actions
+            resetCurrentOnlyBtn.addEventListener('click', () => {
+                state.count = 0;
+                updateUI();
+                saveState();
+                closeModal(resetModal);
+                showToast('આ ગણતરી 0 પર રિસેટ થઈ ગઈ');
+            });
+
+            resetAllBtn.addEventListener('click', () => {
+                state.count = 0;
+                state.rounds = 0;
+                state.todayTotal = 0;
+                updateUI();
+                saveState();
+                closeModal(resetModal);
+                showToast('ગણતરી, ચક્ર અને આજની કુલ રિસેટ થઈ');
+            });
+
+            cancelResetBtn.addEventListener('click', () => closeModal(resetModal));
+            resetModal.addEventListener('click', (e) => {
+                if (e.target === resetModal) closeModal(resetModal);
+            });
+
+            // Custom Dhikr Modal Actions
+            cancelCustomBtn.addEventListener('click', () => closeModal(customDhikrModal));
+            customDhikrModal.addEventListener('click', (e) => {
+                if (e.target === customDhikrModal) closeModal(customDhikrModal);
+            });
+
+            customDhikrForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = customNameInput.value.trim();
+                const arabic = customArabicInput.value.trim();
+                const targetVal = Math.max(0, parseInt(customTargetInput.value, 10) || 0);
+
+                if (!name) return;
+
+                const newDhikr = {
+                    id: 'custom_' + Date.now(),
+                    gu: name,
+                    ar: arabic || name,
+                    target: targetVal
+                };
+
+                state.customDhikrs.push(newDhikr);
+                state.fatimaMode = false;
+                state.activeDhikrId = newDhikr.id;
+                state.count = 0;
+
+                customDhikrForm.reset();
+                customTargetInput.value = '33';
+                closeModal(customDhikrModal);
+                updateUI();
+                saveState();
+                showToast(`"${name}" ઉમેરાયું ✨`);
+            });
+
+            // Theme Switcher
+            themeButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    btn.blur();
+                    applyTheme(btn.dataset.themeBtn);
+                });
+            });
+
+            // Sensory Toggles
+            soundToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                soundToggleBtn.blur();
+                state.soundEnabled = !state.soundEnabled;
+                if (state.soundEnabled) playBeadClick();
+                updateUI();
+                saveState();
+                showToast(state.soundEnabled ? 'અવાજ ચાલુ કર્યો' : 'અવાજ બંધ કર્યો');
+            });
+
+            vibrateToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                vibrateToggleBtn.blur();
+                state.vibrateEnabled = !state.vibrateEnabled;
+                if (state.vibrateEnabled && navigator.vibrate) navigator.vibrate(25);
+                updateUI();
+                saveState();
+                showToast(state.vibrateEnabled ? 'વાઇબ્રેશન ચાલુ' : 'વાઇબ્રેશન બંધ');
+            });
+
+            screenTapBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                screenTapBtn.blur();
+                state.screenTapMode = !state.screenTapMode;
+                updateUI();
+                saveState();
+                showToast(state.screenTapMode ? 'સ્ક્રીન ટેપ મોડ ચાલુ — ગમે ત્યાં ટેપ કરો' : 'સ્ક્રીન ટેપ મોડ બંધ');
+            });
+
+            // Tasbih-e-Fatima Mode Toggle
+            fatimaModeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                fatimaModeBtn.blur();
+                state.fatimaMode = !state.fatimaMode;
+                if (state.fatimaMode) {
+                    state.activeDhikrId = FATIMA_SEQUENCE[0];
+                    state.count = 0;
+                    showToast('તસ્બીહ-એ-ફાતિમા મોડ ચાલુ (33 → 33 → 34) ✨');
+                } else {
+                    showToast('તસ્બીહ-એ-ફાતિમા મોડ બંધ');
+                }
+                updateUI();
+                saveState();
+            });
+
+            // Full-Screen Tap Mode Listener
+            document.addEventListener('click', (e) => {
+                if (!state.screenTapMode || isAnyModalOpen()) return;
+                if (e.target.closest('.no-screen-tap') || e.target.closest('#countBtn')) return;
+                increment(e);
+            });
+
+            // Keyboard Shortcuts (Spacebar or Enter to count; Escape to close modals)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isAnyModalOpen()) {
+                    closeModal(resetModal);
+                    closeModal(customDhikrModal);
+                    return;
+                }
+
+                if (isAnyModalOpen()) return;
+                if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+
+                if (e.code === 'Space' || e.key === 'Enter') {
+                    e.preventDefault();
+                    countBtn.classList.add('pressed');
+                    increment();
+                    setTimeout(() => countBtn.classList.remove('pressed'), 110);
+                }
+            });
+
+            // Handle Window Resize
+            window.addEventListener('resize', () => {
+                resizeBeadsCanvas();
+                resizeFxCanvas();
+            });
+
+            /* ---------------------------------------------------------
+               10. INITIALIZATION ON WINDOW LOAD
+               --------------------------------------------------------- */
+            window.onload = function () {
+                loadState();
+                applyTheme(state.theme);
+                updateUI();
+                resizeBeadsCanvas();
+                resizeFxCanvas();
+                requestAnimationFrame(animationLoop);
+            };
+        })();
+    </script>
 </body>
 </html>
