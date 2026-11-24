@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>તસ્બીહ-એ-ઝિક્ર | Live Tasbih Counter</title>
+    <title>તસ્બીહ-એ-ઝિક્ર | લાઇવ તસ્બીહ કાઉન્ટર</title>
 
     <!-- Google Fonts: Anek Gujarati, Amiri (Arabic Calligraphy), Outfit (Crisp Numerals) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,117 +15,121 @@
 
     <style>
         /* =========================================================
-           1. LUXURY THEME TOKENS (4 Themes)
+1. ROYAL ISLAMIC THEME TOKENS (4 Luxury Themes)
            ========================================================= */
         :root,
         [data-theme="emerald"] {
-            --bg-outer: #031109;
-            --bg-blob-1: rgba(24, 120, 70, 0.30);
-            --bg-blob-2: rgba(212, 168, 75, 0.16);
-            --bg-blob-3: rgba(12, 74, 42, 0.24);
-            --shell-bg: linear-gradient(168deg, rgba(9, 52, 29, 0.94) 0%, rgba(14, 72, 41, 0.90) 50%, rgba(7, 36, 20, 0.96) 100%);
-            --shell-border: rgba(212, 168, 75, 0.38);
-            --accent: #d4a84b;
-            --accent-light: #f7df99;
-            --accent-dark: #9c7420;
-            --accent-glow: rgba(212, 168, 75, 0.34);
+            --bg-outer: #020e07;
+            --bg-blob-1: rgba(20, 122, 68, 0.34);
+            --bg-blob-2: rgba(218, 174, 80, 0.18);
+            --bg-blob-3: rgba(10, 74, 40, 0.28);
+            --shell-bg: linear-gradient(166deg, rgba(7, 46, 25, 0.96) 0%, rgba(12, 66, 37, 0.92) 48%, rgba(4, 28, 15, 0.98) 100%);
+            --shell-border: rgba(218, 174, 80, 0.44);
+            --accent: #d8ab4e;
+            --accent-light: #fae4a6;
+            --accent-dark: #946b1a;
+            --accent-glow: rgba(216, 171, 78, 0.38);
             --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.78);
-            --text-muted: rgba(255, 255, 255, 0.48);
+            --text-secondary: rgba(244, 250, 246, 0.82);
+            --text-muted: rgba(226, 240, 231, 0.52);
             --glass: rgba(255, 255, 255, 0.065);
             --glass-hover: rgba(255, 255, 255, 0.13);
-            --panel-bg: rgba(3, 20, 11, 0.52);
-            --btn-text: #062413;
-            --bead-base: #1c8750;
-            --bead-dark: #072916;
-            --bead-highlight: #8af5bc;
-            --bead-active: #f7dc8a;
-            --bead-active-dark: #8c6314;
-            --sheet-bg: linear-gradient(180deg, rgba(10, 48, 27, 0.98) 0%, rgba(5, 24, 13, 0.99) 100%);
+            --panel-bg: linear-gradient(180deg, rgba(3, 22, 12, 0.62) 0%, rgba(5, 32, 17, 0.48) 100%);
+            --btn-text: #052111;
+            --bead-base: #1c8a52;
+            --bead-dark: #062413;
+            --bead-highlight: #94f7c3;
+            --bead-active: #fae094;
+            --bead-active-dark: #875d10;
+            --sheet-bg: linear-gradient(180deg, rgba(9, 44, 24, 0.98) 0%, rgba(4, 20, 11, 0.99) 100%);
+            --arch-glow: rgba(216, 171, 78, 0.12);
         }
 
         [data-theme="sapphire"] {
-            --bg-outer: #040914;
-            --bg-blob-1: rgba(32, 68, 152, 0.32);
-            --bg-blob-2: rgba(206, 192, 154, 0.15);
-            --bg-blob-3: rgba(14, 34, 82, 0.26);
-            --shell-bg: linear-gradient(168deg, rgba(11, 24, 54, 0.95) 0%, rgba(18, 39, 82, 0.90) 50%, rgba(8, 17, 38, 0.97) 100%);
-            --shell-border: rgba(206, 192, 154, 0.34);
-            --accent: #cfc096;
-            --accent-light: #f3ead0;
-            --accent-dark: #8c7b51;
-            --accent-glow: rgba(207, 192, 150, 0.32);
+            --bg-outer: #030712;
+            --bg-blob-1: rgba(34, 72, 160, 0.34);
+            --bg-blob-2: rgba(214, 198, 154, 0.17);
+            --bg-blob-3: rgba(14, 34, 86, 0.28);
+            --shell-bg: linear-gradient(166deg, rgba(10, 22, 52, 0.96) 0%, rgba(16, 37, 80, 0.92) 48%, rgba(6, 14, 34, 0.98) 100%);
+            --shell-border: rgba(214, 198, 154, 0.38);
+            --accent: #d4c498;
+            --accent-light: #f6eed6;
+            --accent-dark: #8a784c;
+            --accent-glow: rgba(212, 196, 152, 0.35);
             --text-primary: #f8fafc;
-            --text-secondary: rgba(226, 232, 240, 0.78);
-            --text-muted: rgba(203, 213, 225, 0.48);
+            --text-secondary: rgba(226, 234, 245, 0.82);
+            --text-muted: rgba(203, 214, 230, 0.50);
             --glass: rgba(255, 255, 255, 0.065);
             --glass-hover: rgba(255, 255, 255, 0.13);
-            --panel-bg: rgba(4, 10, 24, 0.56);
-            --btn-text: #0a1630;
-            --bead-base: #2d57ab;
-            --bead-dark: #0b1b3d;
-            --bead-highlight: #9ec5ff;
-            --bead-active: #f2e5c2;
-            --bead-active-dark: #7a683b;
-            --sheet-bg: linear-gradient(180deg, rgba(12, 27, 58, 0.98) 0%, rgba(6, 14, 32, 0.99) 100%);
+            --panel-bg: linear-gradient(180deg, rgba(4, 10, 26, 0.65) 0%, rgba(9, 20, 46, 0.50) 100%);
+            --btn-text: #08132b;
+            --bead-base: #2d59b3;
+            --bead-dark: #091838;
+            --bead-highlight: #a8cbff;
+            --bead-active: #f6ead0;
+            --bead-active-dark: #786538;
+            --sheet-bg: linear-gradient(180deg, rgba(11, 25, 56, 0.98) 0%, rgba(5, 12, 28, 0.99) 100%);
+            --arch-glow: rgba(212, 196, 152, 0.11);
         }
 
         [data-theme="bronze"] {
-            --bg-outer: #120b07;
-            --bg-blob-1: rgba(164, 104, 62, 0.28);
-            --bg-blob-2: rgba(228, 178, 128, 0.16);
-            --bg-blob-3: rgba(94, 54, 32, 0.24);
-            --shell-bg: linear-gradient(168deg, rgba(48, 30, 20, 0.95) 0%, rgba(68, 43, 29, 0.90) 50%, rgba(34, 21, 14, 0.97) 100%);
-            --shell-border: rgba(226, 176, 126, 0.38);
-            --accent: #dfa878;
-            --accent-light: #fbe0c4;
-            --accent-dark: #99653a;
-            --accent-glow: rgba(223, 168, 120, 0.34);
+            --bg-outer: #100906;
+            --bg-blob-1: rgba(168, 104, 62, 0.30);
+            --bg-blob-2: rgba(232, 182, 130, 0.18);
+            --bg-blob-3: rgba(96, 54, 30, 0.26);
+            --shell-bg: linear-gradient(166deg, rgba(46, 28, 18, 0.96) 0%, rgba(66, 41, 27, 0.92) 48%, rgba(30, 18, 12, 0.98) 100%);
+            --shell-border: rgba(230, 180, 128, 0.42);
+            --accent: #e3ac7a;
+            --accent-light: #fce3c8;
+            --accent-dark: #966136;
+            --accent-glow: rgba(227, 172, 122, 0.36);
             --text-primary: #fff8f2;
-            --text-secondary: rgba(255, 238, 224, 0.78);
-            --text-muted: rgba(240, 212, 190, 0.48);
+            --text-secondary: rgba(255, 238, 224, 0.82);
+            --text-muted: rgba(242, 214, 192, 0.52);
             --glass: rgba(255, 236, 220, 0.07);
             --glass-hover: rgba(255, 236, 220, 0.14);
-            --panel-bg: rgba(20, 12, 7, 0.56);
-            --btn-text: #261409;
-            --bead-base: #a36442;
-            --bead-dark: #33190d;
-            --bead-highlight: #f7c7a8;
-            --bead-active: #fae0c3;
-            --bead-active-dark: #87552d;
-            --sheet-bg: linear-gradient(180deg, rgba(46, 29, 19, 0.98) 0%, rgba(24, 14, 9, 0.99) 100%);
+            --panel-bg: linear-gradient(180deg, rgba(20, 11, 6, 0.65) 0%, rgba(38, 22, 13, 0.50) 100%);
+            --btn-text: #241207;
+            --bead-base: #a86642;
+            --bead-dark: #2e1509;
+            --bead-highlight: #faccaa;
+            --bead-active: #fce4c8;
+            --bead-active-dark: #85522a;
+            --sheet-bg: linear-gradient(180deg, rgba(44, 27, 17, 0.98) 0%, rgba(22, 13, 8, 0.99) 100%);
+            --arch-glow: rgba(227, 172, 122, 0.12);
         }
 
         [data-theme="amoled"] {
             --bg-outer: #000000;
-            --bg-blob-1: rgba(204, 164, 78, 0.06);
+            --bg-blob-1: rgba(208, 168, 78, 0.07);
             --bg-blob-2: rgba(255, 255, 255, 0.025);
-            --bg-blob-3: rgba(204, 164, 78, 0.04);
-            --shell-bg: linear-gradient(168deg, rgba(8, 8, 8, 0.98) 0%, rgba(14, 14, 14, 0.97) 50%, rgba(0, 0, 0, 0.99) 100%);
-            --shell-border: rgba(204, 164, 78, 0.28);
-            --accent: #c8a04b;
-            --accent-light: #e8cd8a;
-            --accent-dark: #7d5f20;
-            --accent-glow: rgba(200, 160, 75, 0.22);
-            --text-primary: #f2f2f2;
-            --text-secondary: rgba(242, 242, 242, 0.70);
-            --text-muted: rgba(242, 242, 242, 0.40);
+            --bg-blob-3: rgba(208, 168, 78, 0.045);
+            --shell-bg: linear-gradient(166deg, rgba(9, 9, 9, 0.98) 0%, rgba(14, 14, 14, 0.97) 48%, rgba(0, 0, 0, 0.99) 100%);
+            --shell-border: rgba(208, 168, 78, 0.30);
+            --accent: #cca44e;
+            --accent-light: #edd28e;
+            --accent-dark: #7a5c1d;
+            --accent-glow: rgba(204, 164, 78, 0.24);
+            --text-primary: #f5f5f5;
+            --text-secondary: rgba(245, 245, 245, 0.74);
+            --text-muted: rgba(245, 245, 245, 0.44);
             --glass: rgba(255, 255, 255, 0.045);
             --glass-hover: rgba(255, 255, 255, 0.095);
-            --panel-bg: rgba(0, 0, 0, 0.88);
-            --btn-text: #080808;
-            --bead-base: #2a2a2a;
-            --bead-dark: #070707;
-            --bead-highlight: #7a7a7a;
-            --bead-active: #e6c77a;
-            --bead-active-dark: #694e16;
+            --panel-bg: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(12, 12, 12, 0.85) 100%);
+            --btn-text: #060606;
+            --bead-base: #2d2d2d;
+            --bead-dark: #060606;
+            --bead-highlight: #808080;
+            --bead-active: #ebd084;
+            --bead-active-dark: #664b14;
             --sheet-bg: linear-gradient(180deg, rgba(14, 14, 14, 0.99) 0%, rgba(0, 0, 0, 1) 100%);
+            --arch-glow: rgba(204, 164, 78, 0.08);
         }
 
         /* =========================================================
-           2. STRICT NO-ZOOM & SINGLE-SCREEN MOBILE SHELL LOCK
+2. STRICT NO-ZOOM & SINGLE-SCREEN MOBILE SHELL LOCK
            ========================================================= */
-        * {
+- {
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
             -webkit-touch-callout: none;
@@ -147,6 +151,12 @@
             transition: background-color 0.45s ease;
         }
 
+        /* Allow clean typing & editing inside modal inputs on iOS/Android */
+        input, textarea {
+            user-select: text;
+            -webkit-user-select: text;
+        }
+
         .font-num {
             font-family: 'Outfit', sans-serif;
             font-variant-numeric: tabular-nums;
@@ -157,22 +167,23 @@
             direction: rtl;
         }
 
-        /* Fixed Mobile Viewport Shell — stays crisp even in Desktop Site mode */
+        /* Fixed Mobile Viewport Shell */
         .app-shell {
             position: relative;
             z-index: 10;
             width: 100%;
-            max-width: 390px;
+            max-width: 396px;
             height: 100dvh;
-            max-height: 780px;
+            max-height: 790px;
             background: var(--shell-bg);
             border: 1.5px solid var(--shell-border);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             box-shadow:
-                0 28px 75px rgba(0, 0, 0, 0.65),
-                0 0 46px var(--accent-glow),
-                inset 0 1px 0 rgba(255, 255, 255, 0.12);
+                0 30px 80px rgba(0, 0, 0, 0.72),
+                0 0 54px var(--accent-glow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.14),
+                inset 0 0 42px rgba(0, 0, 0, 0.25);
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -180,7 +191,7 @@
             transition: background 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
         }
 
-        @media (max-width: 410px) and (max-height: 790px) {
+        @media (max-width: 420px) and (max-height: 810px) {
             .app-shell {
                 border-radius: 0 !important;
                 border-left: none;
@@ -190,7 +201,7 @@
         }
 
         /* =========================================================
-           3. AMBIENT GLOW & ANIMATED ISLAMIC 8-POINT LATTICE
+3. AMBIENT GLOW, ISLAMIC GEOMETRIC LATTICE & MIHRAB ARCH
            ========================================================= */
         .ambient-layer {
             position: fixed;
@@ -203,86 +214,100 @@
         .glow-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            animation: driftOrb 20s ease-in-out infinite alternate;
+            filter: blur(84px);
+            animation: driftOrb 22s ease-in-out infinite alternate;
             transition: background 0.5s ease;
         }
 
-        .orb-1 { width: 320px; height: 320px; top: -90px; left: -90px; background: var(--bg-blob-1); }
-        .orb-2 { width: 280px; height: 280px; top: 30%; right: -80px; background: var(--bg-blob-2); animation-delay: -7s; }
-        .orb-3 { width: 340px; height: 340px; bottom: -100px; left: 15%; background: var(--bg-blob-3); animation-delay: -13s; }
+        .orb-1 { width: 340px; height: 340px; top: -100px; left: -100px; background: var(--bg-blob-1); }
+        .orb-2 { width: 290px; height: 290px; top: 32%; right: -90px; background: var(--bg-blob-2); animation-delay: -7s; }
+        .orb-3 { width: 350px; height: 350px; bottom: -110px; left: 12%; background: var(--bg-blob-3); animation-delay: -14s; }
 
         @keyframes driftOrb {
             0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(20px, -16px) scale(1.07); }
-            100% { transform: translate(-14px, 18px) scale(0.95); }
+            50% { transform: translate(22px, -18px) scale(1.08); }
+            100% { transform: translate(-16px, 20px) scale(0.95); }
         }
 
         .islamic-lattice {
             position: fixed;
-            inset: -84px;
+            inset: -88px;
             z-index: 0;
-            opacity: 0.045;
+            opacity: 0.05;
             pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg width='84' height='84' viewBox='0 0 84 84' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4a84b' stroke-width='1'%3E%3Cpath d='M42 6 L51 33 L78 42 L51 51 L42 78 L33 51 L6 42 L33 33 Z'/%3E%3Ccircle cx='42' cy='42' r='7'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 84px 84px;
-            animation: latticeDrift 50s linear infinite;
+            background-image: url("data:image/svg+xml,%3Csvg width='88' height='88' viewBox='0 0 88 88' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d8ab4e' stroke-width='0.95'%3E%3Cpath d='M44 6 L53 35 L82 44 L53 53 L44 82 L35 53 L6 44 L35 35 Z'/%3E%3Crect x='26' y='26' width='36' height='36' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='6'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 88px 88px;
+            animation: latticeDrift 56s linear infinite;
         }
 
         @keyframes latticeDrift {
             from { transform: translate(0, 0); }
-            to { transform: translate(84px, 84px); }
+            to { transform: translate(88px, 88px); }
         }
 
-        /* Filigree Corner Accents */
-        .filigree {
+        /* Subtle Inner Mihrab Silhouette inside App Shell */
+        .mihrab-backdrop {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 94%;
+            height: 280px;
             pointer-events: none;
-            opacity: 0.68;
-            z-index: 1;
+            z-index: 0;
+            opacity: 0.9;
         }
-        .f-tl { top: 9px; left: 9px; border-top: 1.8px solid var(--accent); border-left: 1.8px solid var(--accent); border-top-left-radius: 8px; }
-        .f-tr { top: 9px; right: 9px; border-top: 1.8px solid var(--accent); border-right: 1.8px solid var(--accent); border-top-right-radius: 8px; }
-        .f-bl { bottom: 9px; left: 9px; border-bottom: 1.8px solid var(--accent); border-left: 1.8px solid var(--accent); border-bottom-left-radius: 8px; }
-        .f-br { bottom: 9px; right: 9px; border-bottom: 1.8px solid var(--accent); border-right: 1.8px solid var(--accent); border-bottom-right-radius: 8px; }
+
+        /* Intricate Islamic Arabesque Corner Ornaments */
+        .corner-arabesque {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            pointer-events: none;
+            z-index: 2;
+            color: var(--accent);
+            opacity: 0.72;
+        }
+        .ca-tl { top: 8px; left: 8px; }
+        .ca-tr { top: 8px; right: 8px; transform: scaleX(-1); }
+        .ca-bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
+        .ca-br { bottom: 8px; right: 8px; transform: scale(-1); }
 
         .ornament-line {
             height: 1px;
-            width: 40px;
+            width: 44px;
             background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
 
-        .ornament-diamond {
-            width: 6px;
-            height: 6px;
+        .ornament-star {
+            width: 7px;
+            height: 7px;
             background: var(--accent-light);
             transform: rotate(45deg);
             border-radius: 1px;
-            box-shadow: 0 0 8px var(--accent-glow);
+            box-shadow: 0 0 10px var(--accent-glow);
         }
 
         /* =========================================================
-           4. CONTROLS, SWATCHES, PILLS
+4. CONTROLS, SWATCHES, MIHRAB DHIKR CARD & TARGET PILLS
            ========================================================= */
         .theme-dot {
-            width: 20px;
-            height: 20px;
+            width: 19px;
+            height: 19px;
             border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.22);
+            border: 2px solid rgba(255, 255, 255, 0.24);
             cursor: pointer;
             transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
         .theme-dot.active {
             border-color: var(--accent-light);
-            transform: scale(1.16);
+            transform: scale(1.18);
             box-shadow: 0 0 10px var(--accent-glow);
         }
 
         .top-pill {
             background: var(--glass);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.13);
             color: var(--text-secondary);
             transition: all 0.2s ease;
         }
@@ -291,27 +316,73 @@
             color: var(--text-primary);
         }
         .top-pill.active {
-            background: rgba(212, 168, 75, 0.18);
+            background: rgba(216, 171, 78, 0.18);
             border-color: var(--accent);
             color: var(--accent-light);
-            box-shadow: 0 0 12px var(--accent-glow);
+            box-shadow: 0 0 14px var(--accent-glow);
         }
 
+        /* Royal Islamic Arch-Accented Dhikr Card */
         .dhikr-card-btn {
             background: var(--panel-bg);
-            border: 1px solid rgba(212, 168, 75, 0.28);
-            box-shadow: inset 0 4px 14px rgba(0, 0, 0, 0.35);
-            transition: border-color 0.2s ease, background 0.2s ease;
+            border: 1px solid rgba(216, 171, 78, 0.34);
+            box-shadow:
+                inset 0 6px 18px rgba(0, 0, 0, 0.38),
+                0 6px 20px rgba(0, 0, 0, 0.22);
+            transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.15s ease;
+            overflow: hidden;
+        }
+        .dhikr-card-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 14%;
+            right: 14%;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+            opacity: 0.7;
         }
         .dhikr-card-btn:hover {
+            border-color: var(--accent-light);
+            box-shadow:
+                inset 0 6px 18px rgba(0, 0, 0, 0.38),
+                0 0 18px var(--accent-glow);
+        }
+        .dhikr-card-btn:active {
+            transform: scale(0.985);
+        }
+
+        /* Tasbih-e-Fatima 3-Step Journey Pill */
+        .fatima-step-dot {
+            font-size: 9px;
+            padding: 1px 6px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+        .fatima-step-dot.active {
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            color: var(--btn-text);
+            border-color: var(--accent-light);
+            font-weight: 700;
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+        .fatima-step-dot.done {
+            background: rgba(216, 171, 78, 0.22);
+            color: var(--accent-light);
             border-color: var(--accent);
         }
 
         .target-chip {
             background: var(--glass);
-            border: 1px solid rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.11);
             color: var(--text-secondary);
             transition: all 0.18s ease;
+        }
+        .target-chip:hover {
+            background: var(--glass-hover);
         }
         .target-chip.active {
             background: linear-gradient(135deg, var(--accent-light), var(--accent));
@@ -322,25 +393,29 @@
         }
 
         /* =========================================================
-           5. COUNTER READOUT, SVG PROGRESS RING & TAP BUTTON
+5. COUNTER READOUT, DUAL PROGRESS RING & MEDALLION TAP BTN
            ========================================================= */
         .count-readout {
             color: var(--accent-light);
-            text-shadow: 0 0 22px var(--accent-glow);
+            text-shadow: 0 0 26px var(--accent-glow), 0 2px 6px rgba(0, 0, 0, 0.45);
             transition: transform 0.11s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .count-readout.pop {
-            transform: scale(1.09);
+            transform: scale(1.1);
         }
 
         .ring-wrap {
             position: relative;
-            width: 150px;
-            height: 150px;
+            width: 158px;
+            height: 158px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+        }
+
+        .ring-wrap.celebrate .ring-fill {
+            filter: drop-shadow(0 0 14px var(--accent-light));
         }
 
         .ring-svg {
@@ -350,11 +425,19 @@
             height: 100%;
             transform: rotate(-90deg);
             pointer-events: none;
+            overflow: visible;
+        }
+
+        .ring-ticks {
+            fill: none;
+            stroke: rgba(216, 171, 78, 0.22);
+            stroke-width: 1.5;
+            stroke-dasharray: 2 7.5;
         }
 
         .ring-track {
             fill: none;
-            stroke: rgba(255, 255, 255, 0.10);
+            stroke: rgba(255, 255, 255, 0.09);
             stroke-width: 5.5;
         }
 
@@ -364,25 +447,31 @@
             stroke-width: 6;
             stroke-linecap: round;
             transition: stroke-dashoffset 0.26s cubic-bezier(0.22, 1, 0.36, 1);
-            filter: drop-shadow(0 0 6px var(--accent-glow));
+            filter: drop-shadow(0 0 7px var(--accent-glow));
         }
 
+        .progress-dot-group {
+            transform-origin: 82px 82px;
+            transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+        }
+
+        /* Royal Embossed Gold Medallion Tap Button */
         .tap-btn {
             position: relative;
-            width: 120px;
-            height: 120px;
+            width: 122px;
+            height: 122px;
             border-radius: 50%;
-            border: none;
+            border: 1.5px solid rgba(255, 248, 224, 0.45);
             outline: none;
             cursor: pointer;
             overflow: hidden;
-            background: radial-gradient(circle at 30% 25%, var(--accent-light) 0%, var(--accent) 56%, var(--accent-dark) 100%);
+            background: radial-gradient(circle at 30% 24%, var(--accent-light) 0%, var(--accent) 56%, var(--accent-dark) 100%);
             color: var(--btn-text);
             box-shadow:
-                0 12px 28px rgba(0, 0, 0, 0.48),
-                0 0 0 4px rgba(212, 168, 75, 0.14),
-                inset 0 2px 3px rgba(255, 255, 255, 0.45),
-                inset 0 -4px 10px rgba(0, 0, 0, 0.26);
+                0 14px 32px rgba(0, 0, 0, 0.54),
+                0 0 0 5px rgba(216, 171, 78, 0.14),
+                inset 0 2px 4px rgba(255, 255, 255, 0.55),
+                inset 0 -5px 12px rgba(0, 0, 0, 0.28);
             transition: transform 0.1s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.14s ease;
         }
 
@@ -390,32 +479,32 @@
         .tap-btn.pressed {
             transform: scale(0.92) !important;
             box-shadow:
-                0 4px 12px rgba(0, 0, 0, 0.42),
+                0 5px 14px rgba(0, 0, 0, 0.45),
+                0 0 0 3px rgba(216, 171, 78, 0.24),
                 inset 0 4px 12px rgba(0, 0, 0, 0.34) !important;
         }
 
-        /* Subtle halo pulse around button */
         .tap-halo {
             position: absolute;
-            width: 122px;
-            height: 122px;
+            width: 124px;
+            height: 124px;
             border-radius: 50%;
             border: 2px solid var(--accent-light);
             opacity: 0;
             pointer-events: none;
         }
         .tap-halo.animate {
-            animation: haloWave 0.44s ease-out forwards;
+            animation: haloWave 0.46s ease-out forwards;
         }
         @keyframes haloWave {
-            0% { transform: scale(1); opacity: 0.65; }
-            100% { transform: scale(1.26); opacity: 0; }
+            0% { transform: scale(1); opacity: 0.72; }
+            100% { transform: scale(1.28); opacity: 0; }
         }
 
         .btn-ripple {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.45);
+            background: rgba(255, 255, 255, 0.46);
             transform: scale(0);
             animation: rippleOut 0.48s ease-out forwards;
             pointer-events: none;
@@ -430,7 +519,7 @@
             height: 54px;
             border-radius: 50%;
             background: var(--glass);
-            border: 1px solid rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--text-primary);
             display: flex;
             flex-direction: column;
@@ -438,45 +527,50 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.16s ease;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.30);
         }
         .side-btn:hover {
             background: var(--glass-hover);
             border-color: var(--accent);
         }
-        .side-btn:active { transform: scale(0.91); }
+        .side-btn:active { transform: scale(0.90); }
 
         .reset-btn-style {
-            background: linear-gradient(145deg, rgba(215, 60, 76, 0.22), rgba(160, 34, 48, 0.34));
-            border-color: rgba(244, 102, 118, 0.40);
-            color: #ffd6db;
+            background: linear-gradient(145deg, rgba(215, 60, 76, 0.22), rgba(160, 34, 48, 0.35));
+            border-color: rgba(244, 102, 118, 0.42);
+            color: #ffd9de;
         }
         .reset-btn-style:hover {
-            background: linear-gradient(145deg, rgba(230, 70, 86, 0.35), rgba(182, 42, 56, 0.48));
-            border-color: rgba(255, 132, 148, 0.65);
+            background: linear-gradient(145deg, rgba(230, 70, 86, 0.36), rgba(182, 42, 56, 0.50));
+            border-color: rgba(255, 136, 152, 0.68);
         }
 
-        /* Full-Screen Tap Mode Glow */
         .screen-tap-indicator {
-            background: rgba(212, 168, 75, 0.15);
+            background: rgba(216, 171, 78, 0.16);
             border: 1px solid var(--accent);
             color: var(--accent-light);
         }
 
+        .stat-card {
+            background: var(--glass);
+            border: 1px solid rgba(216, 171, 78, 0.18);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        }
+
         /* =========================================================
-           6. SLIDE-UP AZKAR SHEET, MODALS & TOAST
+6. SLIDE-UP AZKAR SHEET, MODALS & TOAST
            ========================================================= */
         .sheet-backdrop {
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(7px);
-            -webkit-backdrop-filter: blur(7px);
+            background: rgba(0, 0, 0, 0.68);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             transition: opacity 0.24s ease;
         }
 
         .azkar-sheet {
             background: var(--sheet-bg);
             border-top: 1.5px solid var(--shell-border);
-            box-shadow: 0 -18px 50px rgba(0, 0, 0, 0.72);
+            box-shadow: 0 -20px 56px rgba(0, 0, 0, 0.76);
             transform: translateY(100%);
             transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
         }
@@ -497,15 +591,15 @@
         }
         .azkar-item:hover { background: var(--glass-hover); }
         .azkar-item.active {
-            background: rgba(212, 168, 75, 0.16);
+            background: rgba(216, 171, 78, 0.17);
             border-color: var(--accent);
-            box-shadow: 0 0 14px var(--accent-glow);
+            box-shadow: 0 0 16px var(--accent-glow);
         }
 
         .modal-card {
             background: var(--sheet-bg);
             border: 1.5px solid var(--shell-border);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.72), 0 0 28px var(--accent-glow);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.76), 0 0 30px var(--accent-glow);
             transform: scale(0.94);
             transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
         }
@@ -514,30 +608,32 @@
         }
 
         .toast-pill {
-            background: rgba(8, 22, 14, 0.96);
+            background: rgba(6, 20, 12, 0.96);
             border: 1.5px solid var(--accent);
             color: var(--accent-light);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 18px var(--accent-glow);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.58), 0 0 20px var(--accent-glow);
             transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         /* =========================================================
-           7. COMPACT HEIGHT ADAPTATION (For 640px & Shorter Phones)
+7. COMPACT HEIGHT ADAPTATION (For 640px & Shorter Phones)
            ========================================================= */
-        @media (max-height: 690px) {
-            .app-shell { padding-top: 10px !important; padding-bottom: 10px !important; }
-            .ring-wrap { width: 134px; height: 134px; }
-            .tap-btn { width: 106px; height: 106px; }
-            .tap-halo { width: 108px; height: 108px; }
+        @media (max-height: 700px) {
+            .app-shell { padding-top: 9px !important; padding-bottom: 9px !important; }
+            .bismillah-line { font-size: 13px !important; }
+            .ring-wrap { width: 140px; height: 140px; }
+            .tap-btn { width: 108px; height: 108px; }
+            .tap-halo { width: 110px; height: 110px; }
             .count-readout { font-size: 3.1rem !important; }
-            .arabic-display { font-size: 1.45rem !important; }
+            .arabic-display { font-size: 1.48rem !important; }
             .beads-wrap { height: 36px !important; }
         }
 
-        @media (max-height: 610px) {
-            .ring-wrap { width: 122px; height: 122px; }
-            .tap-btn { width: 96px; height: 96px; }
-            .tap-halo { width: 98px; height: 98px; }
+        @media (max-height: 615px) {
+            .bismillah-line { display: none; }
+            .ring-wrap { width: 126px; height: 126px; }
+            .tap-btn { width: 98px; height: 98px; }
+            .tap-halo { width: 100px; height: 100px; }
             .count-readout { font-size: 2.75rem !important; }
             .side-btn { width: 46px; height: 46px; }
         }
@@ -545,7 +641,7 @@
 </head>
 <body class="flex items-center justify-center">
 
-    <!-- Ambient Glow & Islamic Geometric Lattice -->
+    <!-- Ambient Glow & Andalusian Islamic Geometric Lattice -->
     <div class="ambient-layer" aria-hidden="true">
         <div class="glow-orb orb-1"></div>
         <div class="glow-orb orb-2"></div>
@@ -556,37 +652,72 @@
     <!-- Full-Viewport Golden Particle Canvas -->
     <canvas id="fxCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-50"></canvas>
 
-    <!-- Gentle Urdu-Gujarati Toast Notification -->
+    <!-- Gentle Urdu (in Gujarati Script) Toast Notification -->
     <div id="toastWrap" class="fixed top-3 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 -translate-y-4">
         <div class="toast-pill px-4 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide flex items-center gap-2 whitespace-nowrap">
             <span>✨</span>
-            <span id="toastText">માશાઅલ્લાહ! આ દૌર મુકમ્મલ થયો</span>
+            <span id="toastText">માશાઅલ્લાહ! યહ દૌર મુકમ્મલ હુઆ</span>
         </div>
     </div>
 
     <!-- =========================================================
-         FIXED MOBILE-SIZE APP SHELL (390px × 780px max, Zero Scroll)
+         ROYAL ISLAMIC MOBILE SHELL (396px × 790px max, Zero Scroll)
          ========================================================= -->
-    <main id="appShell" class="app-shell rounded-[30px] px-4 py-3.5 sm:px-5 sm:py-4">
-        <!-- Filigree Corners -->
-        <span class="filigree f-tl"></span>
-        <span class="filigree f-tr"></span>
-        <span class="filigree f-bl"></span>
-        <span class="filigree f-br"></span>
+    <main id="appShell" class="app-shell rounded-[32px] px-4 py-3.5 sm:px-5 sm:py-4">
 
-        <!-- 1. TOP BAR: Theme Swatches (રંગ-એ-મહફિલ) + Sound + Full-Screen Tap -->
+        <!-- Architectural Mihrab Arch Silhouette Glow -->
+        <svg class="mihrab-backdrop" viewBox="0 0 360 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+                <linearGradient id="mihrabStroke" x1="180" y1="6" x2="180" y2="275" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#fae4a6" stop-opacity="0.45"/>
+                    <stop offset="45%" stop-color="#d8ab4e" stop-opacity="0.16"/>
+                    <stop offset="100%" stop-color="#d8ab4e" stop-opacity="0"/>
+                </linearGradient>
+                <radialGradient id="mihrabGlow" cx="50%" cy="22%" r="60%">
+                    <stop offset="0%" stop-color="#d8ab4e" stop-opacity="0.15"/>
+                    <stop offset="100%" stop-color="#d8ab4e" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+            <path d="M180 12 C132 48, 34 94, 24 176 L24 278 L336 278 L336 176 C326 94, 228 48, 180 12 Z" fill="url(#mihrabGlow)" stroke="url(#mihrabStroke)" stroke-width="1.2"/>
+            <path d="M180 24 C138 56, 46 98, 36 174 L36 270" stroke="url(#mihrabStroke)" stroke-width="0.7" stroke-dasharray="3 4"/>
+            <path d="M180 24 C222 56, 314 98, 324 174 L324 270" stroke="url(#mihrabStroke)" stroke-width="0.7" stroke-dasharray="3 4"/>
+        </svg>
+
+        <!-- Intricate Islamic Arabesque Corners (SVG) -->
+        <svg class="corner-arabesque ca-tl" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M2 28 V10 C2 5.6 5.6 2 10 2 H28" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7 22 V12 C7 9.2 9.2 7 12 7 H22" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
+            <circle cx="11.5" cy="11.5" r="1.8" fill="currentColor"/>
+        </svg>
+        <svg class="corner-arabesque ca-tr" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M2 28 V10 C2 5.6 5.6 2 10 2 H28" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7 22 V12 C7 9.2 9.2 7 12 7 H22" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
+            <circle cx="11.5" cy="11.5" r="1.8" fill="currentColor"/>
+        </svg>
+        <svg class="corner-arabesque ca-bl" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M2 28 V10 C2 5.6 5.6 2 10 2 H28" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7 22 V12 C7 9.2 9.2 7 12 7 H22" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
+            <circle cx="11.5" cy="11.5" r="1.8" fill="currentColor"/>
+        </svg>
+        <svg class="corner-arabesque ca-br" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M2 28 V10 C2 5.6 5.6 2 10 2 H28" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7 22 V12 C7 9.2 9.2 7 12 7 H22" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
+            <circle cx="11.5" cy="11.5" r="1.8" fill="currentColor"/>
+        </svg>
+
+        <!-- 1. TOP BAR: 4 Luxury Themes + Sound + Full-Screen Tap -->
         <header class="no-screen-tap flex items-center justify-between gap-2 relative z-10 shrink-0">
             <!-- 4 Luxury Theme Dots -->
-            <div class="flex items-center gap-1.5 bg-black/25 px-2.5 py-1.5 rounded-full border border-white/10" role="group" aria-label="રંગ-એ-મહફિલ">
-                <button type="button" class="theme-dot active" data-theme-pick="emerald" title="શાહી ઝુમર્રુદ" style="background: linear-gradient(135deg, #1a7a48, #08331c);"></button>
-                <button type="button" class="theme-dot" data-theme-pick="sapphire" title="શબ-એ-મહતાબ" style="background: linear-gradient(135deg, #2752a3, #0a1736);"></button>
-                <button type="button" class="theme-dot" data-theme-pick="bronze" title="મદીના રોઝ ગોલ્ડ" style="background: linear-gradient(135deg, #b8784e, #361d12);"></button>
-                <button type="button" class="theme-dot" data-theme-pick="amoled" title="ખિલ્વત-એ-શબ" style="background: linear-gradient(135deg, #242424, #000000);"></button>
+            <div class="flex items-center gap-1.5 bg-black/30 px-2.5 py-1.5 rounded-full border border-white/10" role="group" aria-label="રંગ-એ-મહફિલ">
+                <button type="button" class="theme-dot active" data-theme-pick="emerald" title="શાહી ઝુમર્રુદ" style="background: linear-gradient(135deg, #1b824d, #07301a);"></button>
+                <button type="button" class="theme-dot" data-theme-pick="sapphire" title="શબ-એ-મહતાબ" style="background: linear-gradient(135deg, #2855ab, #081533);"></button>
+                <button type="button" class="theme-dot" data-theme-pick="bronze" title="મદીના રોઝ ગોલ્ડ" style="background: linear-gradient(135deg, #be7c50, #331a0f);"></button>
+                <button type="button" class="theme-dot" data-theme-pick="amoled" title="ખિલ્વત-એ-શબ" style="background: linear-gradient(135deg, #2a2a2a, #000000);"></button>
             </div>
 
-            <!-- Sound (આવાઝ/ખામોશ) & Full-Screen Tap (આખી સ્ક્રીન) -->
+            <!-- Sound (આવાઝ/ખામોશ) & Full-Screen Touch (પૂરી સ્ક્રીન) -->
             <div class="flex items-center gap-1.5">
-                <button type="button" id="soundBtn" class="top-pill active h-8 px-2.5 rounded-full flex items-center gap-1 text-[11px] font-semibold" title="આવાઝ ચાલુ કે ખામોશ કરો">
+                <button type="button" id="soundBtn" class="top-pill active h-8 px-2.5 rounded-full flex items-center gap-1 text-[11px] font-semibold" title="આવાઝ ચાલુ યા ખામોશ કરેં">
                     <svg id="iconSoundOn" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5z"/>
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.54 8.46a5 5 0 010 7.07"/>
@@ -598,43 +729,49 @@
                     <span id="soundLabel">આવાઝ</span>
                 </button>
 
-                <button type="button" id="screenTapBtn" class="top-pill h-8 px-2.5 rounded-full flex items-center gap-1 text-[11px] font-semibold" title="પૂરી સ્ક્રીન ટેપ મોડ">
+                <button type="button" id="screenTapBtn" class="top-pill h-8 px-2.5 rounded-full flex items-center gap-1 text-[11px] font-semibold" title="પૂરી સ્ક્રીન ટચ મોડ">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/>
                     </svg>
-                    <span>આખી સ્ક્રીન</span>
+                    <span>પૂરી સ્ક્રીન</span>
                 </button>
             </div>
         </header>
 
-        <!-- 2. TITLE HEADER -->
-        <section class="text-center relative z-10 shrink-0 -mt-1">
-            <div class="flex items-center justify-center gap-2 mb-0.5">
+        <!-- 2. ROYAL BISMILLAH & TITLE HEADER -->
+        <section class="text-center relative z-10 shrink-0 -mt-0.5">
+            <div class="bismillah-line font-arabic text-[15px] leading-tight opacity-85 mb-0.5" style="color: var(--accent-light);">
+                بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْم
+            </div>
+            <div class="flex items-center justify-center gap-2.5">
                 <span class="ornament-line"></span>
-                <span class="ornament-diamond"></span>
+                <h1 class="text-[20px] sm:text-[22px] font-bold tracking-wide leading-tight" style="color: var(--accent-light); text-shadow: 0 0 18px var(--accent-glow);">
+                    તસ્બીહ-એ-ઝિક્ર
+                </h1>
                 <span class="ornament-line"></span>
             </div>
-            <h1 class="text-xl sm:text-[22px] font-bold tracking-wide leading-tight" style="color: var(--accent-light);">
-                તસ્બીહ-એ-ઝિક્ર
-            </h1>
             <div id="screenTapHint" class="hidden mt-1 mx-auto inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold screen-tap-indicator">
-                ✨ પૂરી સ્ક્રીન ટેપ ચાલુ છે — ગમે ત્યાં ટેપ કરો
+                ✨ પૂરી સ્ક્રીન ટચ ચાલુ હૈ — કહીં ભી ટચ કરેં
             </div>
         </section>
 
-        <!-- 3. ACTIVE DHIKR DISPLAY + TAP TO OPEN AZKAR SHEET -->
+        <!-- 3. ACTIVE DHIKR MIHRAB CARD + TAP TO OPEN AZKAR SHEET -->
         <section class="no-screen-tap relative z-10 shrink-0">
-            <button type="button" id="openAzkarBtn" class="dhikr-card-btn w-full rounded-2xl px-3.5 py-2.5 text-center relative group">
-                <!-- Top-right "અઝકાર ચૂંટો" pill -->
-                <div class="flex items-center justify-between mb-1">
-                    <span id="fatimaBadge" class="text-[10px] font-semibold px-2 py-0.5 rounded-full hidden" style="background: rgba(212,168,75,0.2); color: var(--accent-light); border: 1px solid var(--accent);">
-                        તસ્બીહ-એ-ફાતિમા
-                    </span>
-                    <span id="dhikrNormalTag" class="text-[10px] font-medium" style="color: var(--text-muted);">
-                        મૌજૂદા ઝિક્ર
-                    </span>
-                    <span class="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full" style="background: var(--glass); color: var(--accent-light); border: 1px solid rgba(212,168,75,0.28);">
-                        <span>અઝકાર ચૂંટો</span>
+            <button type="button" id="openAzkarBtn" class="dhikr-card-btn w-full rounded-[22px] px-3.5 py-2.5 text-center relative group">
+                <!-- Card Top Row -->
+                <div class="flex items-center justify-between mb-1 gap-2">
+                    <div class="flex items-center gap-1.5 min-w-0">
+                        <span id="fatimaBadge" class="text-[10px] font-semibold px-2 py-0.5 rounded-full hidden shrink-0" style="background: rgba(216,171,78,0.22); color: var(--accent-light); border: 1px solid var(--accent);">
+                            તસ્બીહ-એ-ફાતિમા
+                        </span>
+                        <span id="dhikrNormalTag" class="inline-flex items-center gap-1 text-[10px] font-medium" style="color: var(--text-muted);">
+                            <span class="w-1.5 h-1.5 rounded-full" style="background: var(--accent);"></span>
+                            મૌજૂદા ઝિક્ર
+                        </span>
+                    </div>
+
+                    <span class="inline-flex items-center gap-1 text-[10px] font-semibold px-2.5 py-0.5 rounded-full shrink-0" style="background: var(--glass); color: var(--accent-light); border: 1px solid rgba(216,171,78,0.32);">
+                        <span>અઝકાર મુન્તખબ કરેં</span>
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
                         </svg>
@@ -642,16 +779,25 @@
                 </div>
 
                 <!-- Arabic Calligraphy -->
-                <div id="activeArabic" class="arabic-display font-arabic text-[26px] leading-snug tracking-wide" style="color: var(--accent-light);">
+                <div id="activeArabic" class="arabic-display font-arabic text-[27px] leading-snug tracking-wide" style="color: var(--accent-light); text-shadow: 0 2px 14px var(--accent-glow);">
                     سُبْحَانَ اللّٰہ
                 </div>
 
-                <!-- Gujarati-Urdu Title & Meaning -->
+                <!-- Urdu-in-Gujarati Title & Meaning -->
                 <div id="activeTitle" class="text-sm font-bold leading-tight mt-0.5" style="color: var(--text-primary);">
                     સુબ્હાનલ્લાહ
                 </div>
                 <div id="activeMeaning" class="text-[11px] leading-snug mt-0.5 truncate" style="color: var(--text-muted);">
-                    અલ્લાહ દરેક ઐબથી પાક છે
+                    અલ્લાહ હર ઐબ સે પાક હૈ
+                </div>
+
+                <!-- Tasbih-e-Fatima Live 3-Stage Stepper -->
+                <div id="fatimaStepper" class="hidden items-center justify-center gap-1.5 mt-1.5 pt-1.5 border-t border-white/10">
+                    <span class="fatima-step-dot font-num" data-fstep="0">1. 33</span>
+                    <span class="text-[9px] opacity-40">→</span>
+                    <span class="fatima-step-dot font-num" data-fstep="1">2. 33</span>
+                    <span class="text-[9px] opacity-40">→</span>
+                    <span class="fatima-step-dot font-num" data-fstep="2">3. 34</span>
                 </div>
             </button>
         </section>
@@ -674,94 +820,104 @@
                 <div id="counterDisplay" class="count-readout font-num text-[58px] font-extrabold leading-none">
                     0
                 </div>
-                <div id="targetFraction" class="font-num text-sm font-semibold opacity-70" style="color: var(--text-secondary);">
+                <div id="targetFraction" class="font-num text-sm font-semibold opacity-75" style="color: var(--text-secondary);">
                     / 33
                 </div>
             </div>
 
-            <!-- 3D Glossy Beads Canvas -->
+            <!-- 3D Glossy Tasbih Beads Canvas -->
             <div class="beads-wrap w-full h-[42px] mt-1 relative">
                 <canvas id="beadsCanvas" class="w-full h-full block"></canvas>
             </div>
         </section>
 
-        <!-- 6. MAIN ERGONOMIC CONTROLS: UNDO | TAP BUTTON + SVG RING | RESET -->
+        <!-- 6. MAIN ERGONOMIC CONTROLS: UNDO | ROYAL MEDALLION TAP | RESET -->
         <section class="flex items-center justify-between px-2 relative z-10 shrink-0">
             <!-- Undo (-1 / એક કમ) -->
-            <button type="button" id="undoBtn" class="no-screen-tap side-btn" title="એક કમ કરો">
+            <button type="button" id="undoBtn" class="no-screen-tap side-btn" title="એક કમ કરેં">
                 <span class="font-num text-sm font-bold leading-none">-1</span>
-                <span class="text-[10px] opacity-80 mt-0.5">એક કમ</span>
+                <span class="text-[10px] opacity-85 mt-0.5">એક કમ</span>
             </button>
 
-            <!-- Center Tap Button + Golden SVG Progress Arc -->
-            <div class="ring-wrap">
-                <svg class="ring-svg" viewBox="0 0 156 156" aria-hidden="true">
+            <!-- Center Medallion Tap Button + Dual-Layer Islamic Progress Ring -->
+            <div id="ringWrap" class="ring-wrap">
+                <svg class="ring-svg" viewBox="0 0 164 164" aria-hidden="true">
                     <defs>
                         <linearGradient id="goldArcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#faecc0" />
-                            <stop offset="50%" stop-color="#d4a84b" />
-                            <stop offset="100%" stop-color="#f5d57e" />
+                            <stop offset="0%" stop-color="#fff0c4" />
+                            <stop offset="50%" stop-color="#d8ab4e" />
+                            <stop offset="100%" stop-color="#fae094" />
                         </linearGradient>
                     </defs>
-                    <circle class="ring-track" cx="78" cy="78" r="70"></circle>
-                    <circle id="progressArc" class="ring-fill" cx="78" cy="78" r="70" stroke-dasharray="439.82" stroke-dashoffset="439.82"></circle>
+                    <!-- Outer Decorative Dotted Islamic Compass Ring -->
+                    <circle class="ring-ticks" cx="82" cy="82" r="79"></circle>
+                    <!-- Inner Progress Track -->
+                    <circle class="ring-track" cx="82" cy="82" r="72"></circle>
+                    <!-- Luminous Golden Progress Arc -->
+                    <circle id="progressArc" class="ring-fill" cx="82" cy="82" r="72" stroke-dasharray="452.39" stroke-dashoffset="452.39"></circle>
+                    <!-- Leading Glowing Golden Jewel Dot -->
+                    <g id="progressDotGroup" class="progress-dot-group" style="opacity: 0;">
+                        <circle cx="154" cy="82" r="4.5" fill="#fff7dc" stroke="#d8ab4e" stroke-width="1.5" style="filter: drop-shadow(0 0 6px #fae4a6);"></circle>
+                    </g>
                 </svg>
 
                 <div id="tapHalo" class="tap-halo"></div>
 
-                <button type="button" id="tapBtn" class="tap-btn flex flex-col items-center justify-center" aria-label="ઝિક્ર કરો">
-                    <span class="text-[21px] font-extrabold leading-tight">ઝિક્ર કરો</span>
-                    <span class="text-[10px] font-semibold opacity-75 mt-0.5 tracking-wide">ટેપ કરો</span>
+                <button type="button" id="tapBtn" class="tap-btn flex flex-col items-center justify-center" aria-label="ઝિક્ર કરેં">
+                    <span class="relative z-10 text-[21px] font-extrabold leading-tight">ઝિક્ર કરેં</span>
+                    <span class="relative z-10 text-[10px] font-semibold opacity-80 mt-0.5 tracking-wide">યહાં ટચ કરેં</span>
                 </button>
             </div>
 
-            <!-- Reset (સિફર / દોબારા શરૂ) -->
-            <button type="button" id="resetBtn" class="no-screen-tap side-btn reset-btn-style" title="દોબારા શરૂ કરો">
+            <!-- Reset (RESET(સિફર) / દોબારા શુરૂ) -->
+            <button type="button" id="resetBtn" class="no-screen-tap side-btn reset-btn-style" title="દોબારા શુરૂ કરેં">
                 <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2.1" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h5M20 20v-5h-5M5.64 18.36A9 9 0 1018.36 5.64"/>
                 </svg>
-                <span class="text-[10px] font-bold">સિફર</span>
+                <span class="text-[10px] font-bold">RESET</span>
             </button>
         </section>
 
-        <!-- 7. LIVE STATS STRIP (દૌર | આજનો શુમાર | કુલ શુમાર) -->
+        <!-- 7. LIVE STATS STRIP (દૌર | આજ કા શુમાર | કુલ શુમાર) -->
         <section class="grid grid-cols-3 gap-2 relative z-10 shrink-0">
-            <div class="rounded-xl py-1.5 px-2 text-center border border-white/10" style="background: var(--glass);">
+            <div class="stat-card rounded-2xl py-1.5 px-2 text-center">
                 <div class="text-[10px] font-medium" style="color: var(--text-muted);">દૌર</div>
                 <div id="roundsStat" class="font-num text-base font-bold leading-tight" style="color: var(--accent-light);">0</div>
             </div>
-            <div class="rounded-xl py-1.5 px-2 text-center border border-white/10" style="background: var(--glass);">
-                <div class="text-[10px] font-medium" style="color: var(--text-muted);">આજનો શુમાર</div>
+            <div class="stat-card rounded-2xl py-1.5 px-2 text-center">
+                <div class="text-[10px] font-medium" style="color: var(--text-muted);">આજ કા શુમાર</div>
                 <div id="todayStat" class="font-num text-base font-bold leading-tight" style="color: var(--text-primary);">0</div>
             </div>
-            <div class="rounded-xl py-1.5 px-2 text-center border border-white/10" style="background: var(--glass);">
+            <div class="stat-card rounded-2xl py-1.5 px-2 text-center">
                 <div class="text-[10px] font-medium" style="color: var(--text-muted);">કુલ શુમાર</div>
                 <div id="totalStat" class="font-num text-base font-bold leading-tight" style="color: var(--text-primary);">0</div>
             </div>
         </section>
 
-        <!-- 8. FOOTER CREDIT -->
-        <footer class="text-center relative z-10 shrink-0 pt-0.5">
-            <p class="font-num text-[10px] font-medium tracking-[1.5px] uppercase" style="color: var(--text-muted);">
+        <!-- 8. ORNAMENTAL FOOTER CREDIT -->
+        <footer class="text-center relative z-10 shrink-0 pt-0.5 flex items-center justify-center gap-2">
+            <span class="w-4 h-[1px] opacity-35" style="background: var(--accent);"></span>
+            <p class="font-num text-[10px] font-medium tracking-[1.4px] uppercase" style="color: var(--text-muted);">
                 Developed by — Pathan Mahirkhan
             </p>
+            <span class="w-4 h-[1px] opacity-35" style="background: var(--accent);"></span>
         </footer>
 
         <!-- =========================================================
-             SLIDE-UP AZKAR SELECTOR SHEET (અઝકાર ચૂંટો)
+             SLIDE-UP AZKAR SELECTOR SHEET (અઝકાર મુન્તખબ કરેં)
              ========================================================= -->
         <div id="azkarBackdrop" class="no-screen-tap sheet-backdrop absolute inset-0 z-40 hidden opacity-0 flex flex-col justify-end">
-            <div class="azkar-sheet w-full max-h-[82%] rounded-t-[26px] px-4 pt-3 pb-4 flex flex-col">
+            <div class="azkar-sheet w-full max-h-[84%] rounded-t-[28px] px-4 pt-3 pb-4 flex flex-col">
                 <!-- Drag Handle -->
-                <div class="w-10 h-1 rounded-full mx-auto mb-2.5 opacity-40" style="background: var(--accent-light);"></div>
+                <div class="w-11 h-1 rounded-full mx-auto mb-2.5 opacity-45" style="background: var(--accent-light);"></div>
 
                 <!-- Sheet Header -->
                 <div class="flex items-center justify-between mb-3 shrink-0">
                     <div>
-                        <h2 class="text-lg font-bold leading-tight" style="color: var(--accent-light);">અઝકાર ચૂંટો</h2>
-                        <p class="text-[11px]" style="color: var(--text-muted);">તમારી પસંદનો ઝિક્ર અથવા તસ્બીહ-એ-ફાતિમા શરૂ કરો</p>
+                        <h2 class="text-lg font-bold leading-tight" style="color: var(--accent-light);">અઝકાર મુન્તખબ કરેં</h2>
+                        <p class="text-[11px]" style="color: var(--text-muted);">અપની પસંદ કા ઝિક્ર યા તસ્બીહ-એ-ફાતિમા શુરૂ કરેં</p>
                     </div>
-                    <button type="button" id="closeAzkarBtn" class="w-8 h-8 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/15 text-white/80">
+                    <button type="button" id="closeAzkarBtn" class="w-8 h-8 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/15 text-white/80" aria-label="બંદ કરેં">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
                         </svg>
@@ -773,77 +929,80 @@
                     <!-- Populated via JS -->
                 </div>
 
-                <!-- Add Custom Dhikr Button (+ ખસુસી ઝિક્ર) -->
+                <!-- Add Custom Dhikr Button (+ ખુસૂસી ઝિક્ર શામિલ કરેં) -->
                 <button type="button" id="openCustomBtn" class="mt-2.5 w-full py-2.5 rounded-xl text-xs font-bold shrink-0 transition hover:brightness-110 active:scale-[0.98]" style="background: linear-gradient(135deg, var(--accent-light), var(--accent)); color: var(--btn-text);">
-                    + ખસુસી ઝિક્ર ઉમેરો
+                    + ખુસૂસી ઝિક્ર શામિલ કરેં
                 </button>
             </div>
         </div>
 
         <!-- =========================================================
-             CUSTOM RESET CONFIRMATION MODAL (No browser alert/confirm)
+             CUSTOM RESET CONFIRMATION MODAL (દોબારા શુરૂ કરેં)
              ========================================================= -->
         <div id="resetModal" class="no-screen-tap sheet-backdrop absolute inset-0 z-40 hidden opacity-0 items-center justify-center p-4">
-            <div class="modal-card w-full max-w-[320px] rounded-3xl p-5 text-center">
+            <div class="modal-card w-full max-w-[326px] rounded-3xl p-5 text-center">
                 <div class="w-11 h-11 mx-auto mb-2.5 rounded-full flex items-center justify-center" style="background: rgba(215, 60, 76, 0.22); border: 1px solid rgba(244, 102, 118, 0.45); color: #ffa6b0;">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h5M20 20v-5h-5M5.64 18.36A9 9 0 1018.36 5.64"/>
                     </svg>
                 </div>
-                <h2 class="text-lg font-bold mb-1" style="color: var(--accent-light);">દોબારા શરૂ કરો</h2>
+                <h2 class="text-lg font-bold mb-1" style="color: var(--accent-light);">દોબારા શુરૂ કરેં</h2>
                 <p class="text-xs leading-relaxed mb-4" style="color: var(--text-secondary);">
-                    શું આપ ખરેખર શુમાર સિફર (0) કરવા ચાહો છો?
+                    ક્યા આપ વાકઈ શુમાર કો RESET(સિફર) (0) કરના ચાહતે હૈં?
                 </p>
 
                 <div class="flex flex-col gap-2">
                     <button type="button" id="confirmResetCurrent" class="w-full py-2.5 px-4 rounded-xl font-bold text-xs transition hover:brightness-110 active:scale-[0.98]" style="background: linear-gradient(135deg, var(--accent-light), var(--accent)); color: var(--btn-text);">
-                        હા, સિફર કરો (મૌજૂદા શુમાર)
+                        જી હાં, મૌજૂદા શુમાર RESET(સિફર) કરેં
                     </button>
-                    <button type="button" id="confirmResetAll" class="w-full py-2.5 px-4 rounded-xl font-semibold text-xs transition hover:brightness-110 active:scale-[0.98]" style="background: rgba(215, 60, 76, 0.24); border: 1px solid rgba(244, 102, 118, 0.48); color: #ffd6db;">
-                        દૌર અને આજનો શુમાર પણ સિફર કરો
+                    <button type="button" id="confirmResetAll" class="w-full py-2.5 px-4 rounded-xl font-semibold text-xs transition hover:brightness-110 active:scale-[0.98]" style="background: rgba(215, 60, 76, 0.24); border: 1px solid rgba(244, 102, 118, 0.48); color: #ffd9de;">
+                        દૌર ઔર આજ કા શુમાર ભી RESET(સિફર) કરેં
+                    </button>
+                    <button type="button" id="confirmResetTotal" class="w-full py-2.5 px-4 rounded-xl font-semibold text-xs transition hover:brightness-110 active:scale-[0.98]" style="background: rgba(185, 28, 46, 0.36); border: 1px solid rgba(244, 102, 118, 0.62); color: #ffe4e8;">
+                        કુલ શુમાર સમેત તમામ RESET(સિફર) કરેં
                     </button>
                     <button type="button" id="cancelResetBtn" class="w-full py-2 px-4 rounded-xl font-medium text-xs hover:bg-white/10 transition" style="color: var(--text-secondary);">
-                        રહેવા દો
+                        રહને દેં
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- =========================================================
-             CUSTOM DHIKR MODAL (+ ખસુસી ઝિક્ર)
+             CUSTOM DHIKR MODAL (+ ખુસૂસી ઝિક્ર શામિલ કરેં)
              ========================================================= -->
         <div id="customModal" class="no-screen-tap sheet-backdrop absolute inset-0 z-50 hidden opacity-0 items-center justify-center p-4">
-            <div class="modal-card w-full max-w-[330px] rounded-3xl p-5">
-                <h2 class="text-lg font-bold text-center mb-0.5" style="color: var(--accent-light);">ખસુસી ઝિક્ર ઉમેરો</h2>
-                <p class="text-[11px] text-center mb-3.5" style="color: var(--text-muted);">આપનો ખાસ ઝિક્ર અને હદફ (લક્ષ્ય) દાખલ કરો</p>
+            <div class="modal-card w-full max-w-[336px] rounded-3xl p-5">
+                <h2 class="text-lg font-bold text-center mb-0.5" style="color: var(--accent-light);">ખુસૂસી ઝિક્ર શામિલ કરેં</h2>
+                <p class="text-[11px] text-center mb-3.5" style="color: var(--text-muted);">અપના ખાસ ઝિક્ર ઔર હદફ (તાદાદ) દર્જ કરેં</p>
 
                 <form id="customForm" class="flex flex-col gap-2.5">
                     <div>
-                        <label for="cTitle" class="block text-[11px] font-semibold mb-1" style="color: var(--text-secondary);">ઝિક્રનું નામ (ગુજરાતીમાં) *</label>
-                        <input type="text" id="cTitle" required maxlength="36" placeholder="દા.ત. યા હય્યુ યા કય્યૂમ" class="w-full px-3 py-2 rounded-xl text-xs bg-black/35 border border-white/15 text-white placeholder-white/35 focus:outline-none focus:border-amber-300">
+                        <label for="cTitle" class="block text-[11px] font-semibold mb-1" style="color: var(--text-secondary);">ઝિક્ર કા નામ (ગુજરાતી રસ્મુલ ખત મેં) *</label>
+                        <input type="text" id="cTitle" required maxlength="38" placeholder="મસલન: યા હય્યુ યા કય્યૂમ" class="w-full px-3 py-2 rounded-xl text-xs bg-black/40 border border-white/15 text-white placeholder-white/35 focus:outline-none focus:border-amber-300">
                     </div>
 
                     <div>
-                        <label for="cArabic" class="block text-[11px] font-semibold mb-1" style="color: var(--text-secondary);">અરબી ઇબારત (વૈકલ્પિક)</label>
-                        <input type="text" id="cArabic" maxlength="48" placeholder="يَا حَيُّ يَا قَيُّومُ" class="font-arabic w-full px-3 py-1.5 rounded-xl text-base bg-black/35 border border-white/15 text-white placeholder-white/35 focus:outline-none focus:border-amber-300 text-right">
+                        <label for="cArabic" class="block text-[11px] font-semibold mb-1" style="color: var(--text-secondary);">અરબી ઇબારત (ઇખ્તિયારી)</label>
+                        <input type="text" id="cArabic" maxlength="52" placeholder="يَا حَيُّ يَا قَيُّومُ" class="font-arabic w-full px-3 py-1.5 rounded-xl text-base bg-black/40 border border-white/15 text-white placeholder-white/35 focus:outline-none focus:border-amber-300 text-right">
                     </div>
 
                     <div>
-                        <label for="cMeaning" class="block text-[11px] font-semibold mb-1" style="color: var(--text-secondary);">ટૂંકો અર્થ (વૈકલ્પિક)</label>
-                        <input type="text" id="cMeaning" maxlength="54" placeholder="દા.ત. અય હંમેશા જીવંત અને કાયમ રહેનાર" class="w-full px-3 py-2 rounded-xl text-xs bg-black/35 border border-white/15 text-white placeholder-white/35 focus:outline-none focus:border-amber-300">
+                        <label for="cMeaning" class="block text-[11px] font-semibold mb-1" style="color: var(--text-secondary);">મુખ્તસર મતલબ (ઇખ્તિયારી)</label>
+                        <input type="text" id="cMeaning" maxlength="60" placeholder="મસલન: અય હમેશા ઝિંદા ઔર કાયમ રહને વાલે" class="w-full px-3 py-2 rounded-xl text-xs bg-black/40 border border-white/15 text-white placeholder-white/35 focus:outline-none focus:border-amber-300">
                     </div>
 
                     <div>
-                        <label for="cTarget" class="block text-[11px] font-semibold mb-1" style="color: var(--text-secondary);">હદફ (0 એટલે લા-મહદૂદ ∞)</label>
-                        <input type="number" id="cTarget" min="0" max="10000" value="33" class="font-num w-full px-3 py-2 rounded-xl text-xs bg-black/35 border border-white/15 text-white focus:outline-none focus:border-amber-300">
+                        <label for="cTarget" class="block text-[11px] font-semibold mb-1" style="color: var(--text-secondary);">હદફ (0 યાની લા-મહદૂદ ∞)</label>
+                        <input type="number" id="cTarget" min="0" max="10000" value="33" class="font-num w-full px-3 py-2 rounded-xl text-xs bg-black/40 border border-white/15 text-white focus:outline-none focus:border-amber-300">
                     </div>
 
                     <div class="flex items-center gap-2 mt-1.5">
                         <button type="button" id="cancelCustomBtn" class="flex-1 py-2.5 rounded-xl text-xs font-medium bg-white/10 hover:bg-white/15 transition" style="color: var(--text-secondary);">
-                            રહેવા દો
+                            રહને દેં
                         </button>
                         <button type="submit" class="flex-1 py-2.5 rounded-xl text-xs font-bold transition hover:brightness-110 active:scale-[0.98]" style="background: linear-gradient(135deg, var(--accent-light), var(--accent)); color: var(--btn-text);">
-                            મહફૂઝ કરો
+                            મહફૂઝ કરેં
                         </button>
                     </div>
                 </form>
@@ -852,14 +1011,14 @@
     </main>
 
     <!-- =========================================================
-         JAVASCRIPT APPLICATION LOGIC (Zero Vibration, Ultra-Soft Audio, Zero Zoom)
+         BUG-FREE APPLICATION LOGIC
          ========================================================= -->
     <script>
         (function () {
             'use strict';
 
             /* ---------------------------------------------------------
-               1. STRICT ANTI-ZOOM PROTECTION (Mobile & Desktop Site Mode)
+1. STRICT ANTI-ZOOM PROTECTION (Mobile & Desktop)
                --------------------------------------------------------- */
             document.addEventListener('gesturestart', (e) => e.preventDefault(), { passive: false });
             document.addEventListener('gesturechange', (e) => e.preventDefault(), { passive: false });
@@ -884,51 +1043,66 @@
             });
 
             /* ---------------------------------------------------------
-               2. AZKAR CATALOG & APPLICATION STATE
+2. AZKAR CATALOG (Pure Urdu in Gujarati Script) & STATE
                --------------------------------------------------------- */
-            const STORAGE_KEY = 'tasbihEZikr_v3';
+            const STORAGE_KEY = 'tasbihEZikr_v4';
+            const VALID_THEMES = ['emerald', 'sapphire', 'bronze', 'amoled'];
 
             const DEFAULT_AZKAR = [
                 {
                     id: 'subhanallah',
                     title: 'સુબ્હાનલ્લાહ',
                     arabic: 'سُبْحَانَ اللّٰہ',
-                    meaning: 'અલ્લાહ દરેક ઐબથી પાક છે',
+                    meaning: 'અલ્લાહ હર ઐબ સે પાક હૈ',
                     defaultTarget: 33
                 },
                 {
                     id: 'alhamdulillah',
                     title: 'અલ્હમ્દુલિલ્લાહ',
                     arabic: 'اَلْحَمْدُ لِلّٰہ',
-                    meaning: 'તમામ હમ્દ-ઓ-સના અલ્લાહ માટે છે',
+                    meaning: 'તમામ તારીફેં અલ્લાહ હી કે લિએ હૈં',
                     defaultTarget: 33
                 },
                 {
                     id: 'allahuakbar',
                     title: 'અલ્લાહુ અકબર',
                     arabic: 'اَللّٰہُ اَکْبَر',
-                    meaning: 'અલ્લાહ સૌથી બુઝુર્ગ-ઓ-બરતર છે',
+                    meaning: 'અલ્લાહ સબસે બડા ઔર બુઝુર્ગ હૈ',
                     defaultTarget: 34
                 },
                 {
                     id: 'astaghfirullah',
                     title: 'અસ્તગ્ફિરુલ્લાહ',
                     arabic: 'اَسْتَغْفِرُ اللّٰہ',
-                    meaning: 'હું અલ્લાહથી મગ્ફિરત ચાહું છું',
+                    meaning: 'મૈં અલ્લાહ સે મગ્ફિરત તલબ કરતા હૂં',
                     defaultTarget: 100
                 },
                 {
                     id: 'durood',
                     title: 'દુરુદ-એ-પાક',
                     arabic: 'صَلَّی اللّٰہُ عَلَیْہِ وَسَلَّم',
-                    meaning: 'હુઝૂર (સ.અ.વ.) પર દુરુદ-ઓ-સલામ',
+                    meaning: 'હુઝૂર ﷺ પર દુરુદ-ઓ-સલામ હો',
                     defaultTarget: 100
                 },
                 {
                     id: 'kalima',
                     title: 'લા ઇલાહા ઇલ્લલ્લાહ',
                     arabic: 'لَا اِلٰہَ اِلَّا اللّٰہ',
-                    meaning: 'અલ્લાહ સિવાય કોઈ માબૂદ નથી',
+                    meaning: 'અલ્લાહ કે સિવા કોઈ માબૂદ નહીં',
+                    defaultTarget: 100
+                },
+                {
+                    id: 'subhanbihamdihi',
+                    title: 'સુબ્હાનલ્લાહિ વબિહમ્દિહી',
+                    arabic: 'سُبْحَانَ اللّٰہِ وَبِحَمْدِہٖ',
+                    meaning: 'પાક હૈ અલ્લાહ અપની તમામ તારીફોં કે સાથ',
+                    defaultTarget: 100
+                },
+                {
+                    id: 'lahawla',
+                    title: 'લા હૌલા વલા કુવ્વતા ઇલ્લા બિલ્લાહ',
+                    arabic: 'لَا حَوْلَ وَلَا قُوَّةَ اِلَّا بِاللّٰہ',
+                    meaning: 'નેકી કી કુવ્વત ઔર બુરાઈ સે બચાવ સિર્ફ અલ્લાહ સે હૈ',
                     defaultTarget: 100
                 }
             ];
@@ -967,14 +1141,32 @@
                 screenTapMode: false
             };
 
+            function sanitizeNonNegInt(val, fallback = 0) {
+                const n = Number(val);
+                return Number.isFinite(n) && n >= 0 ? Math.floor(n) : fallback;
+            }
+
             function loadState() {
                 try {
-                    const raw = localStorage.getItem(STORAGE_KEY);
+                    const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('tasbihEZikr_v3');
                     if (raw) {
                         const parsed = JSON.parse(raw);
                         if (parsed && typeof parsed === 'object') {
-                            state = { ...state, ...parsed };
-                            if (!Array.isArray(state.customAzkar)) state.customAzkar = [];
+                            state.count = sanitizeNonNegInt(parsed.count, 0);
+                            state.rounds = sanitizeNonNegInt(parsed.rounds, 0);
+                            state.todayTotal = sanitizeNonNegInt(parsed.todayTotal, 0);
+                            state.allTimeTotal = sanitizeNonNegInt(parsed.allTimeTotal, 0);
+                            state.target = sanitizeNonNegInt(parsed.target, 33);
+                            state.todayDate = typeof parsed.todayDate === 'string' ? parsed.todayDate : getTodayKey();
+                            state.activeDhikrId = typeof parsed.activeDhikrId === 'string' ? parsed.activeDhikrId : 'subhanallah';
+                            state.fatimaMode = Boolean(parsed.fatimaMode);
+                            state.fatimaStepIdx = Math.min(2, sanitizeNonNegInt(parsed.fatimaStepIdx, 0));
+                            state.theme = VALID_THEMES.includes(parsed.theme) ? parsed.theme : 'emerald';
+                            state.soundEnabled = typeof parsed.soundEnabled === 'boolean' ? parsed.soundEnabled : true;
+                            state.screenTapMode = Boolean(parsed.screenTapMode);
+                            state.customAzkar = Array.isArray(parsed.customAzkar)
+                                ? parsed.customAzkar.filter(item => item && typeof item.id === 'string' && typeof item.title === 'string')
+                                : [];
                         }
                     }
                     const today = getTodayKey();
@@ -983,7 +1175,7 @@
                         state.todayTotal = 0;
                     }
                 } catch (e) {
-                    console.warn('Could not load saved state:', e);
+                    console.warn('Saved state could not be loaded:', e);
                 }
             }
 
@@ -991,7 +1183,7 @@
                 try {
                     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
                 } catch (e) {
-                    console.warn('Could not save state:', e);
+                    console.warn('State could not be saved:', e);
                 }
             }
 
@@ -1005,7 +1197,7 @@
             }
 
             /* ---------------------------------------------------------
-               3. DOM REFERENCES
+3. DOM REFERENCES
                --------------------------------------------------------- */
             const appShell = document.getElementById('appShell');
             const themeDots = document.querySelectorAll('[data-theme-pick]');
@@ -1019,6 +1211,8 @@
             const openAzkarBtn = document.getElementById('openAzkarBtn');
             const fatimaBadge = document.getElementById('fatimaBadge');
             const dhikrNormalTag = document.getElementById('dhikrNormalTag');
+            const fatimaStepper = document.getElementById('fatimaStepper');
+            const fatimaStepDots = document.querySelectorAll('[data-fstep]');
             const activeArabic = document.getElementById('activeArabic');
             const activeTitle = document.getElementById('activeTitle');
             const activeMeaning = document.getElementById('activeMeaning');
@@ -1026,7 +1220,9 @@
             const targetChips = document.querySelectorAll('[data-target]');
             const counterDisplay = document.getElementById('counterDisplay');
             const targetFraction = document.getElementById('targetFraction');
+            const ringWrap = document.getElementById('ringWrap');
             const progressArc = document.getElementById('progressArc');
+            const progressDotGroup = document.getElementById('progressDotGroup');
             const tapHalo = document.getElementById('tapHalo');
             const tapBtn = document.getElementById('tapBtn');
             const undoBtn = document.getElementById('undoBtn');
@@ -1045,6 +1241,7 @@
             const resetModal = document.getElementById('resetModal');
             const confirmResetCurrent = document.getElementById('confirmResetCurrent');
             const confirmResetAll = document.getElementById('confirmResetAll');
+            const confirmResetTotal = document.getElementById('confirmResetTotal');
             const cancelResetBtn = document.getElementById('cancelResetBtn');
 
             const customModal = document.getElementById('customModal');
@@ -1059,11 +1256,10 @@
             const toastText = document.getElementById('toastText');
             let toastTimer = null;
 
-            const ARC_CIRCUMFERENCE = 2 * Math.PI * 70; // r=70 => 439.82
+            const ARC_CIRCUMFERENCE = 2 * Math.PI * 72; // r=72 => 452.39
 
             /* ---------------------------------------------------------
-               4. ULTRA-SOFT WHISPER-GENTLE WEB AUDIO SYNTHESIS
-                  (No vibration anywhere; delicate bead "ehsas" only)
+4. ULTRA-SOFT WHISPER-GENTLE WEB AUDIO SYNTHESIS
                --------------------------------------------------------- */
             let audioCtx = null;
 
@@ -1081,7 +1277,6 @@
                 }
             }
 
-            // Whisper-quiet warm wooden/pearl bead tap (Peak gain ~0.04)
             function playWhisperBeadTap() {
                 if (!state.soundEnabled) return;
                 unlockAudio();
@@ -1115,7 +1310,6 @@
                 }
             }
 
-            // Very soft, serene warm completion chime (Peak gain ~0.048)
             function playSereneChime() {
                 if (!state.soundEnabled) return;
                 unlockAudio();
@@ -1123,7 +1317,7 @@
 
                 try {
                     const now = audioCtx.currentTime;
-                    const freqs = [440, 554.37, 659.25]; // Warm A-major triad
+                    const freqs = [440, 554.37, 659.25];
                     freqs.forEach((f, idx) => {
                         const osc = audioCtx.createOscillator();
                         const gain = audioCtx.createGain();
@@ -1148,7 +1342,7 @@
             }
 
             /* ---------------------------------------------------------
-               5. 3D TACTILE TASBIH BEADS TRACK (60fps Canvas Physics)
+5. 3D TACTILE TASBIH BEADS TRACK (60fps Canvas Physics)
                --------------------------------------------------------- */
             const beadsCanvas = document.getElementById('beadsCanvas');
             const beadsCtx = beadsCanvas.getContext('2d');
@@ -1171,12 +1365,12 @@
             function getBeadPalette() {
                 const cs = getComputedStyle(document.documentElement);
                 return {
-                    base: cs.getPropertyValue('--bead-base').trim() || '#1c8750',
-                    dark: cs.getPropertyValue('--bead-dark').trim() || '#072916',
-                    highlight: cs.getPropertyValue('--bead-highlight').trim() || '#8af5bc',
-                    active: cs.getPropertyValue('--bead-active').trim() || '#f7dc8a',
-                    activeDark: cs.getPropertyValue('--bead-active-dark').trim() || '#8c6314',
-                    accent: cs.getPropertyValue('--accent').trim() || '#d4a84b'
+                    base: cs.getPropertyValue('--bead-base').trim() || '#1c8a52',
+                    dark: cs.getPropertyValue('--bead-dark').trim() || '#062413',
+                    highlight: cs.getPropertyValue('--bead-highlight').trim() || '#94f7c3',
+                    active: cs.getPropertyValue('--bead-active').trim() || '#fae094',
+                    activeDark: cs.getPropertyValue('--bead-active-dark').trim() || '#875d10',
+                    accent: cs.getPropertyValue('--accent').trim() || '#d8ab4e'
                 };
             }
 
@@ -1189,25 +1383,25 @@
                 beadsCtx.clearRect(0, 0, bWidth, bHeight);
                 const pal = getBeadPalette();
                 const cy = bHeight * 0.56;
-                const curve = 9;
+                const curve = 9.5;
 
-                // Golden silk cord
+                // Braided golden silk cord
                 beadsCtx.save();
                 const cordGrad = beadsCtx.createLinearGradient(0, 0, bWidth, 0);
-                cordGrad.addColorStop(0, 'rgba(212,168,75,0.03)');
-                cordGrad.addColorStop(0.25, 'rgba(212,168,75,0.42)');
-                cordGrad.addColorStop(0.5, 'rgba(247,223,153,0.78)');
-                cordGrad.addColorStop(0.75, 'rgba(212,168,75,0.42)');
-                cordGrad.addColorStop(1, 'rgba(212,168,75,0.03)');
+                cordGrad.addColorStop(0, 'rgba(216,171,78,0.03)');
+                cordGrad.addColorStop(0.22, 'rgba(216,171,78,0.45)');
+                cordGrad.addColorStop(0.5, 'rgba(250,228,166,0.85)');
+                cordGrad.addColorStop(0.78, 'rgba(216,171,78,0.45)');
+                cordGrad.addColorStop(1, 'rgba(216,171,78,0.03)');
                 beadsCtx.strokeStyle = cordGrad;
-                beadsCtx.lineWidth = 1.8;
+                beadsCtx.lineWidth = 2;
                 beadsCtx.beginPath();
                 beadsCtx.moveTo(8, cy + curve);
                 beadsCtx.quadraticCurveTo(bWidth / 2, cy - curve, bWidth - 8, cy + curve);
                 beadsCtx.stroke();
                 beadsCtx.restore();
 
-                // 9-bead gliding string
+                // 9-bead gliding string with Imam marker every 11th bead
                 const spacing = Math.max(30, bWidth / 8.6);
                 const frac = beadCurrent - Math.floor(beadCurrent);
                 const baseIdx = Math.floor(beadCurrent);
@@ -1215,7 +1409,7 @@
                 for (let i = -4; i <= 4; i++) {
                     const posUnits = i - frac;
                     const x = bWidth / 2 + posUnits * spacing;
-                    if (x < -14 || x > bWidth + 14) continue;
+                    if (x < -16 || x > bWidth + 16) continue;
 
                     const norm = (x - bWidth / 2) / (bWidth / 2);
                     const y = cy - curve * 0.45 + (norm * norm) * curve;
@@ -1224,25 +1418,26 @@
 
                     const isCenter = Math.abs(posUnits) < 0.52;
                     const logicalId = baseIdx + i;
-                    const isGold = isCenter || (logicalId > 0 && logicalId % 11 === 0);
+                    const isMarker = logicalId > 0 && logicalId % 11 === 0;
+                    const isGold = isCenter || isMarker;
 
-                    const r = Math.max(5.5, isCenter ? 10.6 + beadPulse * 1.4 : 8.8 - Math.abs(norm) * 1.3);
+                    const r = Math.max(5.5, isCenter ? 10.8 + beadPulse * 1.5 : 8.8 - Math.abs(norm) * 1.3);
 
                     beadsCtx.save();
                     beadsCtx.globalAlpha = alpha;
 
                     if (isCenter) {
                         beadsCtx.shadowColor = pal.accent;
-                        beadsCtx.shadowBlur = 11 + beadPulse * 7;
+                        beadsCtx.shadowBlur = 12 + beadPulse * 8;
                     } else {
-                        beadsCtx.shadowColor = 'rgba(0,0,0,0.45)';
+                        beadsCtx.shadowColor = 'rgba(0,0,0,0.48)';
                         beadsCtx.shadowBlur = 4;
                         beadsCtx.shadowOffsetY = 2;
                     }
 
                     const grad = beadsCtx.createRadialGradient(x - r * 0.3, y - r * 0.3, r * 0.1, x, y, r);
                     if (isGold) {
-                        grad.addColorStop(0, '#fffaf0');
+                        grad.addColorStop(0, '#fffcf2');
                         grad.addColorStop(0.36, pal.active);
                         grad.addColorStop(1, pal.activeDark);
                     } else {
@@ -1253,12 +1448,17 @@
 
                     beadsCtx.fillStyle = grad;
                     beadsCtx.beginPath();
-                    beadsCtx.arc(x, y, r, 0, Math.PI * 2);
+                    if (isMarker && !isCenter) {
+                        // Subtle elongated Imam divider bead
+                        beadsCtx.ellipse(x, y, r * 1.15, r * 0.88, 0, 0, Math.PI * 2);
+                    } else {
+                        beadsCtx.arc(x, y, r, 0, Math.PI * 2);
+                    }
                     beadsCtx.fill();
 
                     // Glossy specular reflection
                     beadsCtx.shadowBlur = 0;
-                    beadsCtx.fillStyle = 'rgba(255,255,255,0.55)';
+                    beadsCtx.fillStyle = 'rgba(255,255,255,0.58)';
                     beadsCtx.beginPath();
                     beadsCtx.arc(x - r * 0.32, y - r * 0.32, r * 0.22, 0, Math.PI * 2);
                     beadsCtx.fill();
@@ -1268,7 +1468,7 @@
             }
 
             /* ---------------------------------------------------------
-               6. GOLDEN SPARKLE PARTICLE ENGINE
+6. GOLDEN SPARKLE PARTICLE ENGINE
                --------------------------------------------------------- */
             const fxCanvas = document.getElementById('fxCanvas');
             const fxCtx = fxCanvas.getContext('2d');
@@ -1282,20 +1482,20 @@
             }
 
             function spawnTapSparkles(x, y) {
-                for (let i = 0; i < 5; i++) {
-                    const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.3;
-                    const speed = 1.1 + Math.random() * 1.9;
+                for (let i = 0; i < 6; i++) {
+                    const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.4;
+                    const speed = 1.1 + Math.random() * 2.0;
                     particles.push({
-                        x: x + (Math.random() - 0.5) * 38,
+                        x: x + (Math.random() - 0.5) * 40,
                         y: y + (Math.random() - 0.5) * 20,
                         vx: Math.cos(angle) * speed,
-                        vy: Math.sin(angle) * speed - 0.5,
+                        vy: Math.sin(angle) * speed - 0.55,
                         size: 1.8 + Math.random() * 2.4,
-                        alpha: 0.9,
-                        decay: 0.024 + Math.random() * 0.014,
-                        color: Math.random() > 0.35 ? '#f7df99' : '#ffffff',
+                        alpha: 0.92,
+                        decay: 0.023 + Math.random() * 0.014,
+                        color: Math.random() > 0.35 ? '#fae4a6' : '#ffffff',
                         gravity: -0.015,
-                        shape: 'circle'
+                        shape: Math.random() > 0.5 ? 'diamond' : 'circle'
                     });
                 }
             }
@@ -1304,22 +1504,22 @@
                 const rect = tapBtn.getBoundingClientRect();
                 const cx = rect.left + rect.width / 2;
                 const cy = rect.top + rect.height / 2;
-                const palette = ['#f7df99', '#d4a84b', '#ffffff', '#fde68a'];
+                const palette = ['#fae4a6', '#d8ab4e', '#ffffff', '#fde68a'];
 
-                for (let i = 0; i < 42; i++) {
+                for (let i = 0; i < 46; i++) {
                     const angle = Math.random() * Math.PI * 2;
-                    const speed = 2.2 + Math.random() * 5.8;
+                    const speed = 2.2 + Math.random() * 6.0;
                     particles.push({
                         x: cx,
                         y: cy,
                         vx: Math.cos(angle) * speed,
-                        vy: Math.sin(angle) * speed - 2.0,
-                        size: 2.8 + Math.random() * 3.6,
+                        vy: Math.sin(angle) * speed - 2.1,
+                        size: 2.8 + Math.random() * 3.8,
                         alpha: 1,
                         decay: 0.013 + Math.random() * 0.01,
                         color: palette[Math.floor(Math.random() * palette.length)],
                         gravity: 0.1,
-                        shape: Math.random() > 0.45 ? 'diamond' : 'circle'
+                        shape: Math.random() > 0.4 ? 'diamond' : 'circle'
                     });
                 }
             }
@@ -1348,7 +1548,7 @@
                     fxCtx.globalAlpha = p.alpha;
                     fxCtx.fillStyle = p.color;
                     fxCtx.shadowColor = p.color;
-                    fxCtx.shadowBlur = 7;
+                    fxCtx.shadowBlur = 8;
 
                     if (p.shape === 'diamond') {
                         fxCtx.translate(p.x, p.y);
@@ -1370,7 +1570,7 @@
             }
 
             /* ---------------------------------------------------------
-               7. UI RENDERING, TOAST & SHEET MANAGEMENT
+7. UI RENDERING, TOAST & SHEET MANAGEMENT
                --------------------------------------------------------- */
             function showToast(msg) {
                 toastText.textContent = msg;
@@ -1381,7 +1581,7 @@
                 toastTimer = setTimeout(() => {
                     toastWrap.classList.add('opacity-0', '-translate-y-4');
                     toastWrap.classList.remove('opacity-100', 'translate-y-0');
-                }, 2600);
+                }, 2700);
             }
 
             function escapeHtml(str) {
@@ -1393,15 +1593,29 @@
             }
 
             function applyTheme(themeKey, notify = false) {
-                state.theme = themeKey;
-                document.documentElement.setAttribute('data-theme', themeKey);
+                const valid = VALID_THEMES.includes(themeKey) ? themeKey : 'emerald';
+                state.theme = valid;
+                document.documentElement.setAttribute('data-theme', valid);
                 themeDots.forEach(dot => {
-                    dot.classList.toggle('active', dot.dataset.themePick === themeKey);
+                    dot.classList.toggle('active', dot.dataset.themePick === valid);
                 });
                 saveState();
-                if (notify && THEME_NAMES[themeKey]) {
-                    showToast(`રંગ-એ-મહફિલ: ${THEME_NAMES[themeKey]}`);
+                if (notify && THEME_NAMES[valid]) {
+                    showToast(`રંગ-એ-મહફિલ: ${THEME_NAMES[valid]}`);
                 }
+            }
+
+            function deleteCustomDhikr(id, title) {
+                state.customAzkar = state.customAzkar.filter(item => item.id !== id);
+                if (state.activeDhikrId === id) {
+                    state.activeDhikrId = DEFAULT_AZKAR[0].id;
+                    state.target = DEFAULT_AZKAR[0].defaultTarget;
+                    state.count = 0;
+                }
+                saveState();
+                renderAzkarSheetList();
+                updateUI();
+                showToast(`"${title}" હટા દિયા ગયા`);
             }
 
             function renderAzkarSheetList() {
@@ -1414,13 +1628,13 @@
                 fatimaItem.innerHTML = `
                     <div class="min-w-0">
                         <div class="flex items-center gap-1.5">
-                            <span class="text-xs font-bold" style="color: var(--accent-light);">✨ તસ્બીહ-એ-ફાતિમા (ઓટો સફર)</span>
+                            <span class="text-xs font-bold" style="color: var(--accent-light);">✨ તસ્બીહ-એ-ફાતિમા (ખુદકાર સફર)</span>
                         </div>
                         <div class="text-[11px] mt-0.5" style="color: var(--text-secondary);">
-                            ૩૩ સુબ્હાનલ્લાહ → ૩૩ અલ્હમ્દુલિલ્લાહ → ૩૪ અલ્લાહુ અકબર
+                            33 સુબ્હાનલ્લાહ → 33 અલ્હમ્દુલિલ્લાહ → 34 અલ્લાહુ અકબર
                         </div>
                     </div>
-                    <span class="font-num text-[11px] font-bold px-2 py-0.5 rounded-full shrink-0" style="background: rgba(212,168,75,0.2); color: var(--accent-light);">100</span>
+                    <span class="font-num text-[11px] font-bold px-2.5 py-0.5 rounded-full shrink-0" style="background: rgba(216,171,78,0.22); color: var(--accent-light);">100</span>
                 `;
                 fatimaItem.addEventListener('click', () => {
                     state.fatimaMode = true;
@@ -1431,7 +1645,7 @@
                     updateUI();
                     saveState();
                     closeAzkarSheet();
-                    showToast('તસ્બીહ-એ-ફાતિમાનો ઓટો સફર શરૂ ✨');
+                    showToast('તસ્બીહ-એ-ફાતિમા કા ખુદકાર સફર શુરૂ ✨');
                 });
                 azkarList.appendChild(fatimaItem);
 
@@ -1439,9 +1653,13 @@
                 const all = getAllAzkar();
                 all.forEach(item => {
                     const isSelected = !state.fatimaMode && state.activeDhikrId === item.id;
-                    const row = document.createElement('button');
-                    row.type = 'button';
-                    row.className = `azkar-item w-full rounded-2xl px-3 py-2.5 text-left flex items-center justify-between gap-3 ${isSelected ? 'active' : ''}`;
+                    const isCustom = item.id.startsWith('custom_');
+
+                    const row = document.createElement('div');
+                    row.className = `azkar-item w-full rounded-2xl px-3 py-2.5 text-left flex items-center justify-between gap-2.5 cursor-pointer ${isSelected ? 'active' : ''}`;
+                    row.setAttribute('role', 'button');
+                    row.setAttribute('tabindex', '0');
+
                     row.innerHTML = `
                         <div class="min-w-0 flex-1">
                             <div class="text-xs font-bold truncate" style="color: var(--text-primary);">${escapeHtml(item.title)}</div>
@@ -1451,16 +1669,43 @@
                             <div class="font-arabic text-lg leading-tight" style="color: var(--accent-light);">${escapeHtml(item.arabic)}</div>
                             <div class="font-num text-[10px]" style="color: var(--text-muted);">હદફ: ${item.defaultTarget > 0 ? item.defaultTarget : '∞'}</div>
                         </div>
+                        ${isCustom ? `
+                            <button type="button" class="del-custom-btn w-7 h-7 rounded-full flex items-center justify-center bg-red-500/15 hover:bg-red-500/30 text-red-200 shrink-0 transition" title="હટાએં" aria-label="હટાએં">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+                        ` : ''}
                     `;
-                    row.addEventListener('click', () => {
+
+                    const selectHandler = () => {
                         state.fatimaMode = false;
                         state.activeDhikrId = item.id;
-                        state.target = item.defaultTarget;
+                        state.target = sanitizeNonNegInt(item.defaultTarget, 33);
                         state.count = 0;
                         updateUI();
                         saveState();
                         closeAzkarSheet();
+                    };
+
+                    row.addEventListener('click', selectHandler);
+                    row.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            selectHandler();
+                        }
                     });
+
+                    if (isCustom) {
+                        const delBtn = row.querySelector('.del-custom-btn');
+                        if (delBtn) {
+                            delBtn.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                deleteCustomDhikr(item.id, item.title);
+                            });
+                        }
+                    }
+
                     azkarList.appendChild(row);
                 });
             }
@@ -1468,58 +1713,75 @@
             function updateUI() {
                 const dhikr = getActiveDhikr();
 
-                // Active Dhikr card
+                // Active Dhikr Mihrab Card
                 activeArabic.textContent = dhikr.arabic || dhikr.title;
                 activeTitle.textContent = dhikr.title;
-                activeMeaning.textContent = dhikr.meaning || 'ઝિક્ર-એ-ઇલાહીમાં સુકૂન છે';
+                activeMeaning.textContent = dhikr.meaning || 'ઝિક્ર-એ-ઇલાહી મેં દિલોં કા સુકૂન હૈ';
 
                 fatimaBadge.classList.toggle('hidden', !state.fatimaMode);
                 dhikrNormalTag.classList.toggle('hidden', state.fatimaMode);
+                fatimaStepper.classList.toggle('hidden', !state.fatimaMode);
+                fatimaStepper.classList.toggle('flex', state.fatimaMode);
 
-                // Counter & Target fraction
+                if (state.fatimaMode) {
+                    fatimaStepDots.forEach((dot) => {
+                        const idx = parseInt(dot.dataset.fstep, 10);
+                        dot.classList.toggle('active', idx === state.fatimaStepIdx);
+                        dot.classList.toggle('done', idx < state.fatimaStepIdx);
+                    });
+                }
+
+                // Counter & Dual Progress Ring + Leading Jewel
                 counterDisplay.textContent = state.count;
                 const activeTarget = state.fatimaMode ? FATIMA_STEPS[state.fatimaStepIdx].target : state.target;
 
+                let progress = 0;
                 if (activeTarget > 0) {
                     targetFraction.textContent = `/ ${activeTarget}`;
-                    const progress = Math.min(1, state.count / activeTarget);
-                    progressArc.style.strokeDasharray = ARC_CIRCUMFERENCE;
-                    progressArc.style.strokeDashoffset = ARC_CIRCUMFERENCE * (1 - progress);
+                    progress = Math.min(1, state.count / activeTarget);
                 } else {
                     targetFraction.textContent = '/ ∞';
-                    const cycle = (state.count % 33) / 33;
-                    progressArc.style.strokeDasharray = ARC_CIRCUMFERENCE;
-                    progressArc.style.strokeDashoffset = ARC_CIRCUMFERENCE * (1 - cycle);
+                    progress = (state.count % 33) / 33;
                 }
 
-                // Target chips state
+                progressArc.style.strokeDasharray = ARC_CIRCUMFERENCE;
+                progressArc.style.strokeDashoffset = ARC_CIRCUMFERENCE * (1 - progress);
+
+                if (progress > 0.001) {
+                    progressDotGroup.style.opacity = '1';
+                    progressDotGroup.style.transform = `rotate(${progress * 360}deg)`;
+                } else {
+                    progressDotGroup.style.opacity = '0';
+                    progressDotGroup.style.transform = 'rotate(0deg)';
+                }
+
+                // Target Chips State
                 targetChips.forEach(chip => {
                     const val = parseInt(chip.dataset.target, 10);
                     chip.classList.toggle('active', !state.fatimaMode && val === state.target);
-                    chip.style.opacity = state.fatimaMode ? '0.45' : '1';
+                    chip.style.opacity = state.fatimaMode ? '0.42' : '1';
                 });
 
-                // Stats
+                // Live Stats
                 roundsStat.textContent = state.rounds;
                 todayStat.textContent = state.todayTotal;
                 totalStat.textContent = state.allTimeTotal;
 
-                // Sound toggle
+                // Sound Toggle
                 soundBtn.classList.toggle('active', state.soundEnabled);
                 iconSoundOn.classList.toggle('hidden', !state.soundEnabled);
                 iconSoundOff.classList.toggle('hidden', state.soundEnabled);
                 soundLabel.textContent = state.soundEnabled ? 'આવાઝ' : 'ખામોશ';
 
-                // Full-screen tap toggle
+                // Full-Screen Touch Toggle
                 screenTapBtn.classList.toggle('active', state.screenTapMode);
                 screenTapHint.classList.toggle('hidden', !state.screenTapMode);
             }
 
             /* ---------------------------------------------------------
-               8. CORE COUNTING & COMPLETION LOGIC
+8. CORE COUNTING & COMPLETION LOGIC
                --------------------------------------------------------- */
             function triggerButtonFX(clientX, clientY) {
-                // Ripple inside tap button
                 const rect = tapBtn.getBoundingClientRect();
                 const rip = document.createElement('span');
                 const size = Math.max(rect.width, rect.height);
@@ -1532,25 +1794,21 @@
                 tapBtn.appendChild(rip);
                 setTimeout(() => rip.remove(), 500);
 
-                // Halo pulse
                 tapHalo.classList.remove('animate');
                 void tapHalo.offsetWidth;
                 tapHalo.classList.add('animate');
 
-                // Number pop
                 counterDisplay.classList.remove('pop');
                 void counterDisplay.offsetWidth;
                 counterDisplay.classList.add('pop');
                 setTimeout(() => counterDisplay.classList.remove('pop'), 120);
 
-                // Rising golden sparkles
                 const sx = clientX || (rect.left + rect.width / 2);
                 const sy = clientY || (rect.top + rect.height / 2);
                 spawnTapSparkles(sx, sy);
             }
 
             function increment(event) {
-                // Daily date roll-over check
                 const today = getTodayKey();
                 if (state.todayDate !== today) {
                     state.todayDate = today;
@@ -1572,6 +1830,8 @@
                 if (completed) {
                     playSereneChime();
                     spawnCelebrationBurst();
+                    ringWrap.classList.add('celebrate');
+                    setTimeout(() => ringWrap.classList.remove('celebrate'), 650);
 
                     if (state.fatimaMode) {
                         if (state.fatimaStepIdx < FATIMA_STEPS.length - 1) {
@@ -1581,20 +1841,19 @@
                             state.target = nextStep.target;
                             state.count = 0;
                             const nextObj = getActiveDhikr();
-                            showToast(`માશાઅલ્લાહ! હવે ${nextObj.title} (${nextStep.target})`);
+                            showToast(`માશાઅલ્લાહ! અબ ${nextObj.title} (${nextStep.target})`);
                         } else {
-                            // Completed full Tasbih-e-Fatima (33 + 33 + 34 = 100)
                             state.rounds++;
                             state.fatimaStepIdx = 0;
                             state.activeDhikrId = FATIMA_STEPS[0].id;
                             state.target = FATIMA_STEPS[0].target;
                             state.count = 0;
-                            showToast('માશાઅલ્લાહ! તસ્બીહ-એ-ફાતિમાનો દૌર મુકમ્મલ થયો');
+                            showToast('માશાઅલ્લાહ! તસ્બીહ-એ-ફાતિમા કા દૌર મુકમ્મલ હુઆ');
                         }
                     } else {
                         state.rounds++;
                         state.count = 0;
-                        showToast('માશાઅલ્લાહ! આ દૌર મુકમ્મલ થયો');
+                        showToast('માશાઅલ્લાહ! યહ દૌર મુકમ્મલ હુઆ');
                     }
                 } else {
                     playWhisperBeadTap();
@@ -1606,7 +1865,7 @@
 
             function undoOne() {
                 if (state.count <= 0) {
-                    showToast('શુમાર પહેલેથી જ સિફર (0) પર છે');
+                    showToast('શુમાર પહલે સે હી RESET(સિફર) (0) પર હૈ');
                     return;
                 }
                 state.count--;
@@ -1618,7 +1877,7 @@
             }
 
             /* ---------------------------------------------------------
-               9. SHEET & MODAL HELPERS
+9. SHEET & MODAL HELPERS
                --------------------------------------------------------- */
             function isOverlayOpen() {
                 return !azkarBackdrop.classList.contains('hidden') ||
@@ -1660,7 +1919,7 @@
             }
 
             /* ---------------------------------------------------------
-               10. EVENT LISTENERS
+10. EVENT LISTENERS
                --------------------------------------------------------- */
             tapBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -1690,7 +1949,7 @@
                 updateUI();
                 saveState();
                 closeModal(resetModal);
-                showToast('મૌજૂદા શુમાર સિફર (0) થઈ ગયો');
+                showToast('મૌજૂદા શુમાર RESET(સિફર) (0) હો ગયા');
             });
 
             confirmResetAll.addEventListener('click', () => {
@@ -1705,7 +1964,23 @@
                 updateUI();
                 saveState();
                 closeModal(resetModal);
-                showToast('તમામ શુમાર અને દૌર સિફર થઈ ગયા');
+                showToast('તમામ શુમાર ઔર દૌર RESET(સિફર) હો ગએ');
+            });
+
+            confirmResetTotal.addEventListener('click', () => {
+                state.count = 0;
+                state.rounds = 0;
+                state.todayTotal = 0;
+                state.allTimeTotal = 0;
+                if (state.fatimaMode) {
+                    state.fatimaStepIdx = 0;
+                    state.activeDhikrId = FATIMA_STEPS[0].id;
+                    state.target = FATIMA_STEPS[0].target;
+                }
+                updateUI();
+                saveState();
+                closeModal(resetModal);
+                showToast('કુલ શુમાર સમેત તમામ શુમાર RESET(સિફર) હો ગએ');
             });
 
             cancelResetBtn.addEventListener('click', () => closeModal(resetModal));
@@ -1713,7 +1988,7 @@
                 if (e.target === resetModal) closeModal(resetModal);
             });
 
-            // Theme Dots
+            // Theme Swatches
             themeDots.forEach(dot => {
                 dot.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -1730,20 +2005,20 @@
                 if (state.soundEnabled) playWhisperBeadTap();
                 updateUI();
                 saveState();
-                showToast(state.soundEnabled ? 'હળવો આવાઝ ચાલુ છે' : 'ખામોશ મોડ ચાલુ છે');
+                showToast(state.soundEnabled ? 'હલ્કી આવાઝ ચાલુ હૈ' : 'ખામોશ મોડ ચાલુ હૈ');
             });
 
-            // Full-Screen Tap Mode Toggle
+            // Full-Screen Touch Mode Toggle
             screenTapBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 screenTapBtn.blur();
                 state.screenTapMode = !state.screenTapMode;
                 updateUI();
                 saveState();
-                showToast(state.screenTapMode ? 'પૂરી સ્ક્રીન ટેપ ચાલુ — ગમે ત્યાં ટેપ કરો' : 'પૂરી સ્ક્રીન ટેપ બંધ');
+                showToast(state.screenTapMode ? 'પૂરી સ્ક્રીન ટચ ચાલુ — કહીં ભી ટચ કરેં' : 'પૂરી સ્ક્રીન ટચ બંદ હો ગયા');
             });
 
-            // Full-Screen Tap Handler
+            // Full-Screen Touch Handler
             appShell.addEventListener('click', (e) => {
                 if (!state.screenTapMode || isOverlayOpen()) return;
                 if (e.target.closest('.no-screen-tap') || e.target.closest('#tapBtn')) return;
@@ -1757,10 +2032,10 @@
                     chip.blur();
                     if (state.fatimaMode) {
                         state.fatimaMode = false;
-                        showToast('તસ્બીહ-એ-ફાતિમા મોડ બંધ કરી નવો હદફ સેટ થયો');
+                        showToast('તસ્બીહ-એ-ફાતિમા મોડ બંદ કરકે નયા હદફ મુકર્રર હુઆ');
                     }
                     const newTarget = parseInt(chip.dataset.target, 10);
-                    state.target = isNaN(newTarget) ? 33 : newTarget;
+                    state.target = Number.isFinite(newTarget) && newTarget >= 0 ? newTarget : 33;
                     state.count = 0;
                     updateUI();
                     saveState();
@@ -1783,7 +2058,7 @@
                 closeAzkarSheet();
                 setTimeout(() => {
                     openModal(customModal);
-                    setTimeout(() => cTitle.focus(), 120);
+                    setTimeout(() => cTitle.focus(), 140);
                 }, 180);
             });
 
@@ -1797,8 +2072,8 @@
                 const title = cTitle.value.trim();
                 if (!title) return;
                 const arabic = cArabic.value.trim() || title;
-                const meaning = cMeaning.value.trim() || 'ખસુસી ઝિક્ર-એ-ઇલાહી';
-                const targetVal = Math.max(0, parseInt(cTarget.value, 10) || 0);
+                const meaning = cMeaning.value.trim() || 'ખુસૂસી ઝિક્ર-એ-ઇલાહી';
+                const targetVal = sanitizeNonNegInt(cTarget.value, 0);
 
                 const item = {
                     id: 'custom_' + Date.now(),
@@ -1819,10 +2094,10 @@
                 closeModal(customModal);
                 updateUI();
                 saveState();
-                showToast(`"${title}" મહફૂઝ થયું ✨`);
+                showToast(`"${title}" મહફૂઝ હો ગયા ✨`);
             });
 
-            // Keyboard Shortcuts (Space / Enter to tap, Escape to close)
+            // Keyboard Shortcuts (Space / Enter to count, Escape to close)
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && isOverlayOpen()) {
                     closeAzkarSheet();
@@ -1846,17 +2121,24 @@
                 resizeFxCanvas();
             });
 
+            window.addEventListener('orientationchange', () => {
+                setTimeout(() => {
+                    resizeBeadsCanvas();
+                    resizeFxCanvas();
+                }, 150);
+            });
+
             /* ---------------------------------------------------------
-               11. INITIALIZE ON WINDOW LOAD
+11. INITIALIZE ON WINDOW LOAD
                --------------------------------------------------------- */
-            window.onload = function () {
+            window.addEventListener('load', () => {
                 loadState();
                 applyTheme(state.theme, false);
                 updateUI();
                 resizeBeadsCanvas();
                 resizeFxCanvas();
                 requestAnimationFrame(animateAll);
-            };
+            });
         })();
     </script>
 </body>
