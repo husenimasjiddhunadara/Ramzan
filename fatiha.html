@@ -1,433 +1,2246 @@
 <!DOCTYPE html>
-<html lang="gu">
+<html lang="gu" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ફાતિહા કા તરીકા | Premium Light Edition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="ફાતિહા કા તરીકા — મુકમ્મલ ફાતિહા પઢને કા આસાન તરીકા, સભી સૂરતેં ઔર ઇસાલે સવાબકી દુઆ.">
+    <title>ફાતિહા કા તરીકા</title>
 
-    <!-- Premium Google Fonts -->
+    <!-- Google Fonts: Shrikhand (Royal Gujarati Display), Anek Gujarati (Crisp Reading), Outfit (English Footer Badge) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Modern Icons (FontAwesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Shrikhand&display=swap" rel="stylesheet">
 
-    <!-- PREMIUM LIGHT THEME CSS -->
     <style>
+        /* =====================================================================
+           1. DESIGN TOKENS — ROYAL EMERALD, GOLD & LIGHT/DARK THEMES
+           ===================================================================== */
         :root {
-            --bg-page: #F8FAF9; /* Very soft light tint */
-            --bg-card: #FFFFFF;
-            --primary: #0A5C36; /* Deep Elegant Emerald */
-            --primary-light: #158551;
-            --gold: #B8860B; /* Rich Dark Gold for readability */
-            --gold-light: #D4AF37;
-            --text-main: #1E293B; /* Slate dark */
-            --text-muted: #475569;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-            --card-hover-shadow: 0 20px 40px rgba(10, 92, 54, 0.08);
-            --border-soft: rgba(10, 92, 54, 0.08);
+            --bg-page: #F5F8F6;
+            --bg-surface: #FFFFFF;
+            --bg-glass: rgba(255, 255, 255, 0.92);
+            --bg-subtle: rgba(10, 92, 54, 0.06);
+            --bg-gold-soft: rgba(184, 134, 11, 0.11);
+
+            --primary: #0A5C36;
+            --primary-deep: #043927;
+            --primary-light: #15804E;
+            --gold: #B8860B;
+            --gold-bright: #D4AF37;
+            --champagne: #FFF8E7;
+
+            --text-main: #15241D;
+            --text-reading: #1E293B;
+            --text-muted: #4A6055;
+
+            --border-soft: rgba(10, 92, 54, 0.13);
+            --border-gold: rgba(212, 175, 55, 0.50);
+            --border-done: rgba(10, 92, 54, 0.45);
+
+            --shadow-sm: 0 3px 12px rgba(4, 57, 39, 0.06);
+            --shadow-md: 0 10px 28px rgba(4, 57, 39, 0.12);
+            --shadow-lg: 0 20px 48px rgba(4, 57, 39, 0.24);
+
+            --nav-height: 56px;
+            --radius-sm: 12px;
+            --radius-md: 18px;
+            --radius-lg: 24px;
+            --radius-pill: 999px;
+
+            --reading-scale: 1;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        [data-theme="dark"] {
+            --bg-page: #06130E;
+            --bg-surface: #0C2119;
+            --bg-glass: rgba(9, 27, 20, 0.93);
+            --bg-subtle: rgba(52, 211, 153, 0.10);
+            --bg-gold-soft: rgba(229, 193, 88, 0.14);
+
+            --primary: #34D399;
+            --primary-deep: #10B981;
+            --primary-light: #6EE7B7;
+            --gold: #E5C158;
+            --gold-bright: #F2D272;
+            --champagne: #FFF9EB;
+
+            --text-main: #ECFDF5;
+            --text-reading: #E5F4EC;
+            --text-muted: #9AB8A9;
+
+            --border-soft: rgba(52, 211, 153, 0.17);
+            --border-gold: rgba(229, 193, 88, 0.40);
+            --border-done: rgba(52, 211, 153, 0.52);
+
+            --shadow-sm: 0 3px 14px rgba(0, 0, 0, 0.36);
+            --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.50);
+            --shadow-lg: 0 22px 52px rgba(0, 0, 0, 0.68);
+        }
+
+        /* =====================================================================
+           2. STRICT MOBILE-FIRST RESET & ZERO HORIZONTAL OVERFLOW
+           ===================================================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--nav-height) + 14px);
+            -webkit-text-size-adjust: 100%;
+        }
 
         body {
-            font-family: 'Anek Gujarati', 'Outfit', sans-serif;
+            font-family: 'Anek Gujarati', system-ui, -apple-system, 'Noto Sans Gujarati', sans-serif;
             background-color: var(--bg-page);
+            background-image:
+                radial-gradient(var(--border-gold) 0.7px, transparent 0.7px),
+                radial-gradient(var(--border-soft) 0.7px, transparent 0.7px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
             color: var(--text-main);
-            line-height: 1.8;
+            line-height: 1.75;
             min-height: 100vh;
-            position: relative;
+            transition: background-color 0.28s ease, color 0.25s ease;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Light Eye-Catching Background Pattern */
-        .bg-pattern {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -1;
-            background-image: 
-                radial-gradient(var(--gold-light) 0.5px, transparent 0.5px), 
-                radial-gradient(var(--gold-light) 0.5px, var(--bg-page) 0.5px);
-            background-size: 24px 24px;
-            background-position: 0 0, 12px 12px;
-            opacity: 0.15;
+        button {
+            font-family: inherit;
+            color: inherit;
+            background: none;
+            border: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Soft gradient blobs for visual appeal */
-        .glow-orb {
-            position: fixed; border-radius: 50%; filter: blur(90px); z-index: -1; opacity: 0.4;
+        svg {
+            display: block;
+            flex-shrink: 0;
         }
-        .orb-1 { width: 50vw; height: 50vw; background: rgba(212, 175, 55, 0.15); top: -20%; left: -10%; }
-        .orb-2 { width: 40vw; height: 40vw; background: rgba(10, 92, 54, 0.1); bottom: -10%; right: -10%; }
 
-        .container {
-            max-width: 950px;
+        :focus-visible {
+            outline: 2px solid var(--gold-bright);
+            outline-offset: 2px;
+        }
+
+        /* =====================================================================
+           3. COMPACT STICKY 56PX GLASSMORPHIC TOP NAVBAR
+           ===================================================================== */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            height: var(--nav-height);
+            background: var(--bg-glass);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-soft);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .top-nav-inner {
+            width: 100%;
+            max-width: 680px;
+            height: 100%;
             margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        /* =========================================
-           FIXED HEADING (Responsive & Clean)
-           ========================================= */
-        .premium-header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeInDown 0.8s ease-out;
-            padding: 10px; /* Prevents shadow clipping */
-        }
-
-        .header-flex {
+            padding: 0 10px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap; /* Allows wrapping on very small screens */
+            justify-content: space-between;
+            gap: 6px;
         }
 
-        .header-icon {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: var(--gold);
-            animation: gentleFloat 3s ease-in-out infinite;
-        }
-
-        .page-title {
-            /* clamp ensures it never cuts off on mobile screens */
-            font-size: clamp(2.2rem, 6vw, 4rem); 
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), #1A935D);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.4;
-            padding-bottom: 5px; /* Prevent bottom cut-off */
-            margin: 0;
-            text-shadow: 0 4px 15px rgba(10, 92, 54, 0.15);
-        }
-
-        .header-divider {
-            width: 150px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 20px auto 0;
-            border-radius: 10px;
-        }
-
-        @keyframes gentleFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        /* =========================================
-           ROYAL PLAQUE (Status Box)
-           ========================================= */
-        .royal-plaque {
-            background: var(--bg-card);
-            border: 1px solid var(--border-soft);
-            border-left: 6px solid var(--primary);
-            border-radius: 20px;
-            padding: 35px 30px;
-            text-align: center;
-            margin-bottom: 50px;
-            box-shadow: var(--card-shadow);
-            animation: fadeInUp 0.8s ease-out 0.2s forwards;
-            opacity: 0;
-        }
-
-        .status-arabic {
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 0;
+            flex: 1 1 auto;
+            text-decoration: none;
             color: var(--primary);
-            font-weight: 800;
-            font-size: clamp(1.4rem, 4vw, 1.8rem);
-            margin-bottom: 12px;
         }
 
-        .status-translation {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            line-height: 1.7;
-        }
-        .status-translation strong { color: var(--gold); }
-
-        /* =========================================
-           EYE-CATCHING LIGHT CARDS
-           ========================================= */
-        .dua-container {
-            display: grid;
-            gap: 25px;
-            grid-template-columns: 1fr;
-        }
-
-        .dua-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-soft);
-            border-radius: 20px;
-            padding: 35px;
-            position: relative;
-            box-shadow: var(--card-shadow);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            opacity: 0;
-            transform: translateY(20px);
-            /* Elegant top border accent */
-            border-top: 4px solid var(--gold-light);
-        }
-
-        .dua-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--card-hover-shadow);
-            border-top-color: var(--primary);
-        }
-
-        .dua-icon {
+        .nav-logo-box {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #0A5C36, #043927);
+            border: 1px solid rgba(212, 175, 55, 0.55);
+            color: #F4D77B;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 50px; height: 50px;
-            background: rgba(10, 92, 54, 0.05);
+            flex-shrink: 0;
+            box-shadow: 0 3px 10px rgba(4, 57, 39, 0.25);
+        }
+
+        .nav-title {
+            font-family: 'Shrikhand', 'Anek Gujarati', serif;
+            font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+            font-weight: 400;
+            line-height: 1.35;
+            padding-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             color: var(--primary);
-            border-radius: 12px;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
         }
 
-        .dua-card:hover .dua-icon {
-            background: var(--primary);
-            color: #fff;
-            transform: rotate(10deg) scale(1.1);
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;
         }
 
-        .dua-header {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 15px;
-            padding-bottom: 12px;
-            border-bottom: 1px dashed rgba(10, 92, 54, 0.15);
-        }
-
-        .dua-content {
-            font-size: 1.2rem;
-            line-height: 1.9;
+        .nav-btn {
+            min-width: 38px;
+            height: 40px;
+            padding: 0 7px;
+            border-radius: 10px;
+            border: 1px solid var(--border-soft);
+            background: var(--bg-surface);
             color: var(--text-main);
-            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.86rem;
+            font-weight: 700;
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
         }
 
-        /* =========================================
-           PROFESSIONAL DEVELOPER BADGE
-           ========================================= */
-        .dev-footer {
-            margin-top: 80px;
-            padding-bottom: 40px;
+        .nav-btn:hover {
+            border-color: var(--border-gold);
+            color: var(--primary);
+        }
+
+        .nav-btn:active {
+            transform: scale(0.94);
+        }
+
+        /* =====================================================================
+           4. MAIN MOBILE-FIRST CONTAINER (12px SIDE PADDING, MAX 680px)
+           ===================================================================== */
+        .app-main {
+            width: 100%;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 14px 12px 34px;
+        }
+
+        /* =====================================================================
+           5. ROYAL STYLISH GUJARATI HERO BANNER + ORNAMENTAL ISLAMIC BACKDROP
+           ===================================================================== */
+        .royal-hero {
+            position: relative;
+            width: 100%;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(145deg, #043927 0%, #0A5C36 48%, #053D29 100%);
+            border: 1.5px solid rgba(212, 175, 55, 0.72);
+            box-shadow:
+                0 14px 34px rgba(4, 57, 39, 0.28),
+                inset 0 1px 0 rgba(255, 248, 231, 0.22);
+            padding: 26px 16px 18px;
+            margin-bottom: 14px;
+            overflow: hidden;
+            text-align: center;
+            isolation: isolate;
+        }
+
+        [data-theme="dark"] .royal-hero {
+            background: linear-gradient(145deg, #03261A 0%, #08492C 50%, #042B1D 100%);
+            border-color: rgba(242, 210, 114, 0.65);
+            box-shadow:
+                0 16px 38px rgba(0, 0, 0, 0.56),
+                inset 0 1px 0 rgba(255, 248, 231, 0.16);
+        }
+
+        /* Subtle golden double-border inner frame */
+        .royal-hero::before {
+            content: "";
+            position: absolute;
+            inset: 7px;
+            border-radius: 18px;
+            border: 1px solid rgba(242, 210, 114, 0.34);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Layered SVG ornamental Islamic backdrop (Mihrab + Rub el Hizb lattice + radial halo) */
+        .hero-backdrop-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* 4-corner ornate gold filigree flourishes */
+        .hero-filigree {
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            color: #F2D272;
+            opacity: 0.75;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .filigree-tl { top: 10px; left: 10px; }
+        .filigree-tr { top: 10px; right: 10px; transform: scaleX(-1); }
+        .filigree-bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
+        .filigree-br { bottom: 10px; right: 10px; transform: scale(-1, -1); }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Centered Crescent & 8-point Star Crown Ornament above title */
+        .hero-crown-ornament {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 6px;
+            color: #F4D77B;
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.45));
+        }
+
+        /* Royal Gujarati Shrikhand Display Heading — zero matra clipping */
+        .royal-heading {
+            font-family: 'Shrikhand', 'Anek Gujarati', serif;
+            font-size: clamp(2.1rem, 8.5vw, 3.3rem);
+            font-weight: 400;
+            line-height: 1.45;
+            padding: 6px 4px;
+            margin: 0;
+            color: var(--champagne);
+            letter-spacing: 0.015em;
+            text-shadow:
+                0 2px 16px rgba(242, 210, 114, 0.48),
+                0 2px 4px rgba(2, 24, 15, 0.55);
+            overflow-wrap: break-word;
+            max-width: 100%;
+        }
+
+        /* Diamond-tapered Gold Divider Ribbon below title */
+        .hero-ribbon-divider {
+            width: 100%;
+            max-width: 240px;
+            margin: 4px auto 14px;
             display: flex;
             justify-content: center;
-            animation: fadeInUp 0.8s ease-out 1.2s forwards;
-            opacity: 0;
+            color: #F2D272;
         }
 
-        .dev-badge {
-            background: #fff;
-            border: 1px solid rgba(10, 92, 54, 0.1);
-            padding: 15px 40px;
-            border-radius: 50px;
+        /* Sleek compact reading progress bar inside bottom of Hero card */
+        .hero-progress-box {
+            width: 100%;
+            background: rgba(3, 27, 18, 0.46);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(242, 210, 114, 0.30);
+            border-radius: 14px;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        .progress-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .progress-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .progress-caption {
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: rgba(255, 248, 231, 0.90);
+        }
+
+        .progress-count-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 9px;
+            border-radius: var(--radius-pill);
+            background: rgba(242, 210, 114, 0.18);
+            border: 1px solid rgba(242, 210, 114, 0.42);
+            color: #FFE9A8;
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .hero-reset-btn {
+            display: none;
+            align-items: center;
+            gap: 5px;
+            min-height: 32px;
+            padding: 4px 11px;
+            border-radius: var(--radius-pill);
+            background: rgba(255, 248, 231, 0.12);
+            border: 1px solid rgba(242, 210, 114, 0.45);
+            color: #FFF8E7;
+            font-size: 0.78rem;
+            font-weight: 700;
+            transition: background-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .hero-reset-btn.visible {
+            display: inline-flex;
+        }
+
+        .hero-reset-btn:hover {
+            background: rgba(220, 38, 38, 0.32);
+            border-color: rgba(252, 165, 165, 0.65);
+        }
+
+        .hero-reset-btn:active {
+            transform: scale(0.95);
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 7px;
+            border-radius: var(--radius-pill);
+            background: rgba(255, 248, 231, 0.16);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            border-radius: var(--radius-pill);
+            background: linear-gradient(90deg, #D4AF37 0%, #FFE48F 100%);
+            box-shadow: 0 0 10px rgba(242, 210, 114, 0.55);
+            transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* =====================================================================
+           6. INTRO PLAQUE (TA'AWWUZ & TASMIYAH — VERBATIM)
+           ===================================================================== */
+        .intro-plaque {
+            width: 100%;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-soft);
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius-md);
+            padding: 16px 14px;
+            margin-bottom: 14px;
+            box-shadow: var(--shadow-sm);
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
         }
 
-        .dev-badge:hover {
-            box-shadow: 0 15px 35px rgba(10, 92, 54, 0.15);
-            transform: translateY(-3px);
-            border-color: var(--primary-light);
+        .plaque-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 12px;
+            border-radius: var(--radius-pill);
+            background: var(--bg-gold-soft);
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-bottom: 9px;
         }
 
-        .dev-label {
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 3px;
-            display: block;
-            font-weight: 600;
-        }
-
-        .dev-name {
-            font-size: 1.6rem;
+        .plaque-main-text {
+            font-size: calc(clamp(1.08rem, 4.2vw, 1.30rem) * var(--reading-scale));
             font-weight: 800;
             color: var(--primary);
+            line-height: 1.58;
+            margin-bottom: 8px;
+            overflow-wrap: break-word;
+        }
+
+        .plaque-tarjuma {
+            font-size: calc(clamp(0.92rem, 3.5vw, 1.02rem) * var(--reading-scale));
+            color: var(--text-muted);
+            line-height: 1.70;
+            overflow-wrap: break-word;
+        }
+
+        .plaque-tarjuma strong {
+            color: var(--gold);
+            font-weight: 800;
+        }
+
+        /* =====================================================================
+           7. COMPLETION CELEBRATION BANNER
+           ===================================================================== */
+        .complete-banner {
+            display: none;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(10, 92, 54, 0.11), rgba(212, 175, 55, 0.17));
+            border: 1.5px solid var(--gold-bright);
+            border-radius: var(--radius-md);
+            padding: 14px;
+            margin-bottom: 14px;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .complete-banner.visible {
+            display: flex;
+        }
+
+        .complete-icon-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+            color: #1A1300;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .complete-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.35;
+        }
+
+        .complete-sub {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            line-height: 1.48;
+            margin-top: 2px;
+        }
+
+        /* =====================================================================
+           8. 12 FATIHA SURAH & DUA CARDS
+           ===================================================================== */
+        .cards-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            width: 100%;
+        }
+
+        .dua-card {
+            width: 100%;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-soft);
+            border-top: 3.5px solid var(--gold-bright);
+            border-radius: var(--radius-md);
+            padding: 16px 14px 14px;
+            box-shadow: var(--shadow-sm);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .dua-card.completed {
+            border-color: var(--border-done);
+            border-top-color: var(--primary);
+            box-shadow: 0 6px 20px rgba(10, 92, 54, 0.11);
+        }
+
+        .card-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 11px;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed var(--border-soft);
+        }
+
+        .card-icon-badge {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-gold);
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .dua-card.completed .card-icon-badge {
+            background: linear-gradient(135deg, #0A5C36, #043927);
+            color: #F4D77B;
+            border-color: rgba(212, 175, 55, 0.55);
+        }
+
+        .step-chip {
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            min-width: 21px;
+            height: 21px;
+            padding: 0 4px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+            color: #1A1300;
+            font-size: 0.72rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-title {
+            flex: 1;
+            min-width: 0;
+            font-size: clamp(1.06rem, 4.2vw, 1.26rem);
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.35;
+            overflow-wrap: break-word;
+        }
+
+        .card-body-text {
+            font-size: calc(clamp(1.05rem, 4.1vw, 1.18rem) * var(--reading-scale));
+            line-height: 1.98;
+            color: var(--text-reading);
+            font-weight: 500;
+            margin-bottom: 14px;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        /* Interactive Card Action Bar */
+        .card-action-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding-top: 11px;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .step-action-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .step-toggle-btn {
+            min-height: 40px;
+            padding: 7px 14px;
+            border-radius: var(--radius-pill);
+            border: 1.5px solid var(--primary);
+            background: var(--bg-subtle);
+            color: var(--primary);
+            font-size: 0.88rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .step-toggle-btn:active {
+            transform: scale(0.96);
+        }
+
+        .step-toggle-btn.done {
+            background: linear-gradient(135deg, #0A5C36, #043927);
+            color: #FFF8E7;
+            border-color: transparent;
+        }
+
+        [data-theme="dark"] .step-toggle-btn.done {
+            background: linear-gradient(135deg, #34D399, #10B981);
+            color: #041911;
+        }
+
+        .rep-dots {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rep-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1.5px solid var(--primary);
+            background: transparent;
+            transition: all 0.2s ease;
+        }
+
+        .rep-dot.filled {
+            background: var(--gold-bright);
+            border-color: var(--gold-bright);
+            transform: scale(1.15);
+        }
+
+        .card-util-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .util-pill-btn {
+            min-height: 40px;
+            padding: 7px 11px;
+            border-radius: 10px;
+            border: 1px solid var(--border-soft);
+            background: var(--bg-page);
+            color: var(--text-muted);
+            font-size: 0.80rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .util-pill-btn:hover {
+            border-color: var(--border-gold);
+            color: var(--primary);
+        }
+
+        .util-pill-btn:active {
+            transform: scale(0.95);
+        }
+
+        .tool-icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--border-soft);
+            background: var(--bg-page);
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .tool-icon-btn:hover {
+            border-color: var(--border-gold);
+            color: var(--primary);
+        }
+
+        .tool-icon-btn:active {
+            transform: scale(0.94);
+        }
+
+        /* =====================================================================
+           9. DEVELOPER FOOTER — EXACT ENGLISH ONLY (NO GUJARATI)
+           ===================================================================== */
+        .dev-footer {
+            margin-top: 28px;
+            padding: 8px 0 6px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dev-badge-pill {
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            max-width: 100%;
+            padding: 11px 18px;
+            border-radius: var(--radius-pill);
+            background: var(--bg-surface);
+            border: 1.5px solid var(--border-gold);
+            box-shadow: var(--shadow-sm);
+            color: var(--primary);
+            font-size: clamp(0.76rem, 3.3vw, 0.92rem);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            line-height: 1.3;
+            white-space: nowrap;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .dev-badge-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .dev-badge-icon {
+            color: var(--gold);
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+        }
+
+        /* =====================================================================
+           10. QUICK INDEX BOTTOM SHEET (તમામ સૂરતેં ઔર દુઆએં)
+           ===================================================================== */
+        .sheet-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 300;
+            background: rgba(4, 18, 13, 0.58);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .sheet-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .bottom-sheet {
+            width: 100%;
+            max-width: 680px;
+            max-height: 82dvh;
+            background: var(--bg-surface);
+            border-top: 2px solid var(--gold-bright);
+            border-radius: 22px 22px 0 0;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            overflow: hidden;
+        }
+
+        .sheet-overlay.open .bottom-sheet {
+            transform: translateY(0);
+        }
+
+        .sheet-handle {
+            width: 42px;
+            height: 4px;
+            border-radius: 4px;
+            background: var(--border-soft);
+            margin: 10px auto 4px;
+        }
+
+        .sheet-header {
+            padding: 8px 16px 12px;
+            border-bottom: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .sheet-title {
+            font-size: 1.06rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .sheet-list {
+            list-style: none;
+            padding: 10px 12px 22px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .sheet-item-btn {
+            width: 100%;
+            min-height: 44px;
+            padding: 9px 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border-soft);
+            background: var(--bg-page);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-align: left;
+            transition: all 0.18s ease;
+        }
+
+        .sheet-item-btn:hover {
+            border-color: var(--border-gold);
+        }
+
+        .sheet-item-btn.done {
+            background: var(--bg-subtle);
+            border-color: var(--border-done);
+        }
+
+        .sheet-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-gold);
+            color: var(--primary);
+            font-size: 0.80rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .sheet-item-btn.done .sheet-num {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: transparent;
+        }
+
+        [data-theme="dark"] .sheet-item-btn.done .sheet-num {
+            color: #041911;
+        }
+
+        .sheet-item-text {
+            flex: 1;
+            min-width: 0;
+            font-size: 0.94rem;
+            font-weight: 700;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .sheet-status-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-gold);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            flex-shrink: 0;
+        }
+
+        .sheet-item-btn.done .sheet-status-icon {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #FFFFFF;
+        }
+
+        [data-theme="dark"] .sheet-item-btn.done .sheet-status-icon {
+            color: #041911;
+        }
+
+        /* =====================================================================
+           11. FULL-SCREEN FOCUS READER MODAL
+           ===================================================================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 400;
+            background: rgba(4, 16, 11, 0.76);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.24s ease, visibility 0.24s ease;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .focus-dialog {
+            width: 100%;
+            max-width: 640px;
+            max-height: 92dvh;
+            background: var(--bg-surface);
+            border: 1.5px solid var(--border-gold);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: scale(0.95);
+            transition: transform 0.24s ease;
+        }
+
+        .modal-overlay.open .focus-dialog {
+            transform: scale(1);
+        }
+
+        .focus-head {
+            padding: 12px 14px;
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .focus-step-pill {
+            padding: 5px 12px;
+            border-radius: var(--radius-pill);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-gold);
+            font-size: 0.86rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .focus-head-tools {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .focus-body {
+            padding: 20px 16px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .focus-title-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .focus-icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #0A5C36, #043927);
+            border: 1px solid rgba(212, 175, 55, 0.55);
+            color: #F4D77B;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .focus-title {
+            font-size: clamp(1.26rem, 5vw, 1.65rem);
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.35;
+        }
+
+        .focus-text {
+            font-size: calc(clamp(1.16rem, 4.6vw, 1.36rem) * var(--reading-scale));
+            line-height: 2.08;
+            color: var(--text-reading);
+            font-weight: 500;
+            margin-bottom: 22px;
+            overflow-wrap: break-word;
+        }
+
+        .focus-complete-row {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
-        .dev-name i {
-            color: var(--gold);
-            font-size: 1.2rem;
+        .focus-foot {
+            padding: 12px 14px;
+            border-top: 1px solid var(--border-soft);
+            background: var(--bg-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
         }
 
-        /* Keyframes */
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .focus-nav-btn {
+            min-height: 42px;
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-soft);
+            background: var(--bg-surface);
+            color: var(--text-main);
+            font-size: 0.92rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
 
-        /* Animation Delays for smooth cascade load */
-        .dua-card:nth-child(1) { animation: fadeInUp 0.6s ease forwards 0.2s; }
-        .dua-card:nth-child(2) { animation: fadeInUp 0.6s ease forwards 0.3s; }
-        .dua-card:nth-child(3) { animation: fadeInUp 0.6s ease forwards 0.4s; }
-        .dua-card:nth-child(4) { animation: fadeInUp 0.6s ease forwards 0.5s; }
-        .dua-card:nth-child(5) { animation: fadeInUp 0.6s ease forwards 0.6s; }
-        .dua-card:nth-child(6) { animation: fadeInUp 0.6s ease forwards 0.7s; }
-        .dua-card:nth-child(7) { animation: fadeInUp 0.6s ease forwards 0.8s; }
-        .dua-card:nth-child(8) { animation: fadeInUp 0.6s ease forwards 0.9s; }
-        .dua-card:nth-child(9) { animation: fadeInUp 0.6s ease forwards 1.0s; }
-        .dua-card:nth-child(10) { animation: fadeInUp 0.6s ease forwards 1.1s; }
-        .dua-card:nth-child(11) { animation: fadeInUp 0.6s ease forwards 1.2s; }
-        .dua-card:nth-child(12) { animation: fadeInUp 0.6s ease forwards 1.3s; }
+        .focus-nav-btn:disabled {
+            opacity: 0.42;
+            pointer-events: none;
+        }
 
+        .focus-nav-btn:hover:not(:disabled) {
+            border-color: var(--border-gold);
+            color: var(--primary);
+        }
+
+        /* =====================================================================
+           12. IN-APP CONFIRMATION MODAL (ZERO browser confirm/alert)
+           ===================================================================== */
+        .confirm-box {
+            width: 100%;
+            max-width: 344px;
+            background: var(--bg-surface);
+            border: 1.5px solid var(--border-gold);
+            border-radius: var(--radius-md);
+            padding: 20px 18px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transform: scale(0.95);
+            transition: transform 0.22s ease;
+        }
+
+        .modal-overlay.open .confirm-box {
+            transform: scale(1);
+        }
+
+        .confirm-icon-wrap {
+            width: 46px;
+            height: 46px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background: rgba(220, 38, 38, 0.12);
+            color: #DC2626;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confirm-title {
+            font-size: 1.06rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .confirm-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            line-height: 1.58;
+        }
+
+        .confirm-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn-cancel {
+            min-height: 42px;
+            padding: 0 12px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-soft);
+            background: var(--bg-page);
+            color: var(--text-main);
+            font-size: 0.90rem;
+            font-weight: 700;
+        }
+
+        .btn-confirm {
+            min-height: 42px;
+            padding: 0 12px;
+            border-radius: var(--radius-pill);
+            background: #DC2626;
+            color: #FFFFFF;
+            font-size: 0.90rem;
+            font-weight: 700;
+        }
+
+        /* =====================================================================
+           13. SUBTLE BOTTOM TOAST NOTIFICATION
+           ===================================================================== */
+        .toast-wrap {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 500;
+            width: calc(100% - 28px);
+            max-width: 340px;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast-pill {
+            background: #043927;
+            color: #FFF8E7;
+            border: 1px solid var(--gold-bright);
+            padding: 10px 16px;
+            border-radius: var(--radius-pill);
+            box-shadow: var(--shadow-lg);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            animation: toastRise 0.24s ease;
+        }
+
+        .toast-pill svg {
+            color: #F4D77B;
+        }
+
+        @keyframes toastRise {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* =====================================================================
+           14. TABLET & DESKTOP ENHANCEMENTS (480px+)
+           ===================================================================== */
+        @media (min-width: 480px) {
+            .top-nav-inner {
+                padding: 0 16px;
+            }
+            .nav-actions {
+                gap: 6px;
+            }
+            .nav-btn {
+                min-width: 40px;
+                padding: 0 10px;
+            }
+            .app-main {
+                padding: 20px 16px 42px;
+            }
+            .royal-hero {
+                padding: 32px 24px 22px;
+            }
+            .intro-plaque,
+            .dua-card {
+                padding: 20px 20px 16px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Soft Light Pattern & Orbs -->
-    <div class="bg-pattern"></div>
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-   
-    <div class="container">
-        
-        <!-- FIXED RESPONSIVE HEADER -->
-        <header class="premium-header">
-            <div class="header-flex">
-                <i class="fa-solid fa-book-open header-icon"></i>
-                <h1 class="page-title">ફાતિહા કા તરીકા</h1>
-                <i class="fa-solid fa-star-and-crescent header-icon"></i>
-            </div>
-            <div class="header-divider"></div>
-        </header>
-
-        <!-- INTRO PLAQUE -->
-        <div class="royal-plaque">
-            <div class="status-arabic">અઉઝુબિલ્લાહિ મિનશ્શૈતાનિર્રજીમ બિસ્મિલ્લાહિર્રહમાનિર્રહીમ</div>
-            <div class="status-translation"><strong>તરજુમા:</strong> પનાહ માંગતા હું મૈં અલ્લાહ કી શયતાન મરદૂદ સે. અલ્લાહ કે નામ સે શુરૂ જો નિહાયત મેહરબાન રહમ કરનેવાલા હૈ.</div>
-        </div>
-            
-        <!-- DUA CONTENT CARDS -->
-        <div class="dua-container">
-            
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-star"></i></div>
-                <div class="dua-header">દુરુદ શરીફ (3 બાર)</div>
-                <div class="dua-content">
-                    અલ્લાહુમ્મ સલ્લિ અલા સૈયિદિના મુહમ્મદિવ વ અલા આલિ સૈયિદિના મુહમ્મદિવ વ બારિક વ સલ્લિમ.
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">સૂરએ કાફિરૂન (1 બાર)</div>
-                <div class="dua-content">
-                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br><br>
-                    કુલ યા અય્યુહલ્ કાફિરૂન. લા અઅબુદુ મા તઅબુદૂન. વલા અન્તુમ આબિદૂન મા અઅબુદ. વલા અના આબિદુમ્ મા અબત્તુમ. વલા અન્તુમ આબિદૂન મા અઅબુદ. લકુમ દીનુકુમ વલિય દીન.
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">સૂરએ ઈખ્લાસ (3 બાર)</div>
-                <div class="dua-content">
-                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br><br>
-                    કુલ હુવલ્લાહુ અહદ. અલ્લાહુસ્ સમદ. લમ યલિદ વલમ યૂલદ. વલમ યકુલ્ લહૂ કુફુવન અહદ.
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">સૂરએ ફલક (1 બાર)</div>
-                <div class="dua-content">
-                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br><br>
-                    કુલ અઉઝુ બિ રબ્બિલ ફલક. મિન શર્રિ મા ખલક. વ મિન શર્રિ ગાસિકિન ઇઝા વકબ. વ મિન શર્રિન્ નફ્ફાસાતિ ફિલ ઉકદ. વ મિન શર્રિ હાસિદિન ઇઝા હસદ.
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">સૂરએ નાસ (1 બાર)</div>
-                <div class="dua-content">
-                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br><br>
-                    કુલ અઉઝુ બિ રબ્બિન્ નાસ. મલિકિન્ નાસ. ઇલાહિન્ નાસ. મિન શર્રિલ વસ્વાસિલ ખન્નાસ. અલ્લઝી યુવસ્વિસુ ફી સુદૂરિન્ નાસ. મિનલ્ જિન્નતિ વન્ નાસ.
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">સૂરએ ફાતિહા (1 બાર)</div>
-                <div class="dua-content">
-                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.<br><br>
-                    અલ્હમ્દુ લિલ્લાહિ રબ્બિલ આલમીન. અર્રહમાનિ ર્રહીમ. માલિકિ યવમિદ્દીન. ઇય્યાક નઅબુદુ વ ઇય્યાક નસ્તઈન. ઇહદિનસ્ સિરાતલ મુસ્તકીમ. સિરાતલ્લઝીન અન્અમ્ત અલયહિમ ગયરિલ મગ્દૂબિ અલયહિમ વલદ્દ્વાલ્લીન. (આમીન)
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-quran"></i></div>
-                <div class="dua-header">સૂરએ બકરહ (1 બાર)</div>
-                <div class="dua-content">
-                    બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ:<br><br>
-                    અલિફ લામ મીમ. ઝાલિકલ્ કિતાબુ લા રૈબ ફીહ. હુદલ્ લિલમુત્તકીન. અલ્લઝીન યુઅમિનૂન બિલ ગયબિ વ યુકીમૂનસ્ સલાત વ મિમ્મા રઝકનાહુમ યુન્ફિકૂન. વલ્લઝીન યુઅમિનૂન બિમા ઉન્ઝિલ ઇલૈક વમા ઉન્ઝિલ મિન્ કબ્લિક વ બિલ્ આખિરતિ હુમ યૂકિનૂન. ઉલાઇક અલા હુદમ્ મિર રબ્બિહિમ વ ઉલાઇક હુમુલ્ મુફલિહૂન.
-                    <br><br>
-                    વ ઇલાહુકુમ્ ઇલાહુવ્ વાહિદ, લાઇલા-હ ઇલ્લા હુવર્ રહમાનુર્રહીમ.
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-moon"></i></div>
-                <div class="dua-header">આયતુલ કુર્સી (1 બાર)</div>
-                <div class="dua-content">
-                    અલ્લાહુ લા-ઇલાહ ઇલ્લા હુવલ્હયુલ્ કય્યૂમ, લાતઅખુઝુહૂ સિનતુવ્ વલા નવ્મ, લહૂ મા ફિસ્સમાવાતિ વમા ફિલ અર્દ, મન ઝલ્લઝી યશ્ફઉ ઇન્દહૂ ઇલ્લા બિઇઝનિહી, યઅલમુ મા બૈન અય્દીહિમ વમા ખલ્ફહુમ વલા યુહીતૂન બિશયઇમ્ મિન્ ઇલ્મિહી ઇલ્લા બિમા શાઅ. વસિઅ કુરસિય્યુહુસ્ સમાવાતિ વલ અર્દ, વલા યઊદુહૂ હિફઝુહુમા વ હુવલ્ અલિય્યુલ અઝીમ.
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-heart"></i></div>
-                <div class="dua-header">આમનર્રસૂલુ (1 બાર)</div>
-                <div class="dua-content">
-                    આમનર્રસૂલુ બિમા ઉન્ઝિલ ઇલૈહિ મિર રબ્બિહી વલમુઅમિનૂન, કુલ્લુન આમન બિલ્લાહિ વ મલાઇકતિહી વ કુતુબિહી વ રુસુલિહી, લા નુફર્રિકુ બય્-ન અહદિમ્ મિર રુસુલિહી વ કાલૂ સમિઅના વ અતઅના ગુફરાનક રબ્બના વ ઇલૈકલ્ મસીર. લા યુકલ્લિફુલ્લાહુ નફસન ઇલ્લા વુસ્અહા, લહા મા કસબત વઅલયહા મકતસબત, રબ્બના લા તુઆખિઝના ઇન્નસીના અવ અખ્તઅના, રબ્બના વલા તહમિલ અલયના ઇસ્રન કમા હમલ્તહૂ અલલ્લઝીન મિન્ કબ્લિના, રબ્બના વલા તુહમ્મિલના મા લાતાકત લના બિહ, વઅફુ અન્ના વગ્ફિરલના વરહમ્ના અન્ત મવલાના ફન્સરના અલલ્ કવ્મિલ કાફિરીન.
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-book-open"></i></div>
-                <div class="dua-header">સૂરએ અહઝાબ (1 બાર)</div>
-                <div class="dua-content">
-                    મા કાન મુહમ્મદુન અબા અહદિમ મિર્રિજાલિકુમ વલા કિર્રસૂલલ્લાહિ વ ખાતમન્નબિય્યીન, વ-કાનલ્લાહુ બિકુલ્લિ શયઇન અલીમા. ઇન્નલ્લાહ વ મલાઇકતહૂ યુસલ્લૂન અલન્નબિય્યિ યા અય્યુહલ્લઝીન આમનૂ સલ્લૂ અલયહિ વ સલ્લિમૂ તસ્લીમા.
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-hands-praying"></i></div>
-                <div class="dua-header">દુરુદ શરીફ ઔર દુઆ</div>
-                <div class="dua-content">
-                    વ સલ્લલ્લાહુ તઆલા અલા ખૈરિ ખલ્કિહી ન નૂરિ અર્શિહી સૈયિદના વ નબિય્યિના વ શફીઇના વ હબીબના વ મૌલાના મુહમ્મદિવ વઅલા આલિહી વ અસ્હાબિહી અજમઇન, બિરહમતિકા યા અર-હમર્રાહિમીન.
-                </div>
-            </div>
-
-            <div class="dua-card">
-                <div class="dua-icon"><i class="fa-solid fa-kaaba"></i></div>
-                <div class="dua-header">ઇસાલે સવાબકી દુઆ</div>
-                <div class="dua-content">
-                    યા અલ્લાહ! મૈંને જો કુછ પઢા યહ સબ તેરી ખુશ્નૂદી કે લિયે ઔર ખાસ તેરે હી લિયે પઢા, ઇસકો તેરી આલી બારગાહમેં કબૂલ ફરમા ઔર ઇસ પઢને મેં મેરી જો ખતા રહ ગઈ હો ઉસકો તેરે ફઝલસે મુઆફ ફરમા. ઔર ઇસકા જો તૂને સવાબ રખા હૈ વહ સવાબ હમારે દો જહાં કે સરદાર આકાએ નામદાર, સરવરે મવજૂદાત અહમદે મુજતબા મુહમ્મદ મુસ્તફા (ﷺ) કી રુહ મુબારક કો નઝર કિયા. ઔર સારે અંબિયા વ મુરસલીન ઔર તમામ આલ વ અવલાદ, અસ્હાબે કિરામ ઔર તમામ મોમિન વ મોમિનાત જિતને ભી દુનિયા સે ચલ બસે હૈં ઉન તમામ કી રુહોંકો ઇસકા સવાબ પહુંચા.
-                </div>
-            </div>
-
-        </div>
-
-        <!-- PROFESSIONAL FOOTER -->
-        <footer class="dev-footer">
-            <div class="dev-badge">
-                <span class="dev-label">Designed & Developed By</span>
-                <span class="dev-name">
-                    Pathan Mahirkhan <i class="fa-solid fa-code"></i>
+    <!-- =====================================================================
+         COMPACT 56PX STICKY GLASSMORPHIC TOP BAR
+         ===================================================================== -->
+    <header class="top-nav">
+        <div class="top-nav-inner">
+            <a href="#top" class="nav-brand" aria-label="ફાતિહા કા તરીકા">
+                <!-- Hand-coded Inline SVG Book-Crescent Emblem -->
+                <span class="nav-logo-box" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 7.5C10.5 6.3 8.2 5.8 5 6.2v11.3c3-.4 5.3.2 7 1.5 1.7-1.3 4-1.9 7-1.5V6.2c-3.2-.4-5.5.1-7 1.3Z"/>
+                        <line x1="12" y1="7.5" x2="12" y2="19"/>
+                        <path d="M13.6 3.7a2.2 2.2 0 1 1-2.4-1.8 1.75 1.75 0 1 0 2.4 1.8Z" fill="currentColor" stroke="none"/>
+                    </svg>
                 </span>
+                <span class="nav-title">ફાતિહા કા તરીકા</span>
+            </a>
+
+            <div class="nav-actions">
+                <!-- Quick Index Drawer Button (ફેહરિસ્ત) -->
+                <button type="button" class="nav-btn" id="openIndexBtn" aria-label="ફેહરિસ્ત — તમામ સૂરતેં ઔર દુઆએં" title="ફેહરિસ્ત">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="8" y1="6" x2="20" y2="6"/>
+                        <line x1="8" y1="12" x2="20" y2="12"/>
+                        <line x1="8" y1="18" x2="20" y2="18"/>
+                        <circle cx="4" cy="6" r="1.3" fill="currentColor" stroke="none"/>
+                        <circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/>
+                        <circle cx="4" cy="18" r="1.3" fill="currentColor" stroke="none"/>
+                    </svg>
+                </button>
+
+                <!-- Font Size Decrease (અ-) -->
+                <button type="button" class="nav-btn" id="fontDecBtn" aria-label="અક્ષર છોટે કરેં" title="અક્ષર છોટે કરેં">અ-</button>
+
+                <!-- Font Size Increase (અ+) -->
+                <button type="button" class="nav-btn" id="fontIncBtn" aria-label="અક્ષર બડે કરેં" title="અક્ષર બડે કરેં">અ+</button>
+
+                <!-- Light/Dark Theme Toggle (Sun/Moon Inline SVG) -->
+                <button type="button" class="nav-btn" id="themeToggleBtn" aria-label="થીમ બદલેં" title="થીમ બદલેં">
+                    <span id="themeIconSlot" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         MAIN MOBILE-FIRST READING CONTAINER
+         ===================================================================== -->
+    <main class="app-main" id="top">
+
+        <!-- ROYAL STYLISH GUJARATI HEADING BANNER WITH ORNAMENTAL ISLAMIC BACKDROP -->
+        <section class="royal-hero" aria-label="ફાતિહા કા તરીકા">
+            <!-- Lightweight Layered Inline SVG Islamic Backdrop (Mihrab + Rub el Hizb Lattice + Golden Glow Halo) -->
+            <svg class="hero-backdrop-svg" viewBox="0 0 640 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                    <!-- Repeating 8-point Rub el Hizb Geometric Lattice Watermark -->
+                    <pattern id="rubLatticePattern" width="56" height="56" patternUnits="userSpaceOnUse">
+                        <g fill="none" stroke="#F2D272" stroke-width="0.7" opacity="0.22">
+                            <rect x="16" y="16" width="24" height="24"/>
+                            <rect x="16" y="16" width="24" height="24" transform="rotate(45 28 28)"/>
+                            <circle cx="28" cy="28" r="2.2" fill="#F2D272" stroke="none" opacity="0.45"/>
+                            <path d="M0 28H11 M45 28H56 M28 0V11 M28 45V56" opacity="0.4"/>
+                        </g>
+                    </pattern>
+
+                    <!-- Soft Radial Mask so Lattice Fades Gently Toward Edges -->
+                    <radialGradient id="latticeFadeGrad" cx="50%" cy="44%" r="60%">
+                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+                        <stop offset="68%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+                        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+                    </radialGradient>
+                    <mask id="latticeFadeMask">
+                        <rect width="640" height="300" fill="url(#latticeFadeGrad)"/>
+                    </mask>
+
+                    <!-- Warm Golden Radial Halo Directly Behind the Heading -->
+                    <radialGradient id="titleGoldHalo" cx="50%" cy="42%" r="42%">
+                        <stop offset="0%" stop-color="#F6D97C" stop-opacity="0.28"/>
+                        <stop offset="52%" stop-color="#D4AF37" stop-opacity="0.10"/>
+                        <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+                    </radialGradient>
+
+                    <!-- Shimmering Gold Stroke Gradient for Mihrab Arch -->
+                    <linearGradient id="mihrabGoldStroke" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#FFE9A3" stop-opacity="0.65"/>
+                        <stop offset="55%" stop-color="#D4AF37" stop-opacity="0.34"/>
+                        <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.06"/>
+                    </linearGradient>
+                </defs>
+
+                <!-- Geometric Watermark Lattice Layer -->
+                <rect width="640" height="300" fill="url(#rubLatticePattern)" mask="url(#latticeFadeMask)"/>
+
+                <!-- Soft Golden Glow Halo Behind Heading -->
+                <ellipse cx="320" cy="126" rx="255" ry="105" fill="url(#titleGoldHalo)"/>
+
+                <!-- Centered Islamic Pointed Mihrab Arch Silhouette Outline -->
+                <path d="M150 300 V150 C150 88 228 48 320 20 C412 48 490 88 490 150 V300"
+                      fill="none" stroke="url(#mihrabGoldStroke)" stroke-width="1.8"/>
+                <path d="M168 300 V154 C168 98 238 62 320 36 C402 62 472 98 472 154 V300"
+                      fill="none" stroke="url(#mihrabGoldStroke)" stroke-width="1" stroke-dasharray="4 4"/>
+            </svg>
+
+            <!-- 4-Corner Ornate Gold Filigree Flourishes -->
+            <svg class="hero-filigree filigree-tl" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M5 42V15C5 9.5 9.5 5 15 5H42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M11 33V17C11 13.7 13.7 11 17 11H33" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                <path d="M16 16C18.5 16 20 14.5 20 12C17.5 12 16 13.5 16 16Z" fill="currentColor"/>
+                <circle cx="15" cy="15" r="1.8" fill="currentColor"/>
+            </svg>
+            <svg class="hero-filigree filigree-tr" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M5 42V15C5 9.5 9.5 5 15 5H42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M11 33V17C11 13.7 13.7 11 17 11H33" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                <path d="M16 16C18.5 16 20 14.5 20 12C17.5 12 16 13.5 16 16Z" fill="currentColor"/>
+                <circle cx="15" cy="15" r="1.8" fill="currentColor"/>
+            </svg>
+            <svg class="hero-filigree filigree-bl" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M5 42V15C5 9.5 9.5 5 15 5H42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M11 33V17C11 13.7 13.7 11 17 11H33" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                <circle cx="15" cy="15" r="1.8" fill="currentColor"/>
+            </svg>
+            <svg class="hero-filigree filigree-br" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M5 42V15C5 9.5 9.5 5 15 5H42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M11 33V17C11 13.7 13.7 11 17 11H33" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+                <circle cx="15" cy="15" r="1.8" fill="currentColor"/>
+            </svg>
+
+            <div class="hero-content">
+                <!-- Centered Crescent & 8-Point Star Crown Ornament Above Heading -->
+                <div class="hero-crown-ornament" aria-hidden="true">
+                    <svg width="78" height="32" viewBox="0 0 78 32" fill="none">
+                        <path d="M4 17H23" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" opacity="0.65"/>
+                        <path d="M55 17H74" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" opacity="0.65"/>
+                        <circle cx="25.5" cy="17" r="1.6" fill="currentColor" opacity="0.8"/>
+                        <circle cx="52.5" cy="17" r="1.6" fill="currentColor" opacity="0.8"/>
+                        <!-- Crescent Moon -->
+                        <path d="M45.5 18.8A8.6 8.6 0 1 1 35.8 5.2a6.9 6.9 0 1 0 9.7 13.6Z" fill="currentColor"/>
+                        <!-- 8-Point Star -->
+                        <g transform="translate(42.5, 11)">
+                            <rect x="-3.1" y="-3.1" width="6.2" height="6.2" fill="currentColor"/>
+                            <rect x="-3.1" y="-3.1" width="6.2" height="6.2" transform="rotate(45)" fill="currentColor"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Ultra-Stylish Royal Gujarati Display Heading -->
+                <h1 class="royal-heading">ફાતિહા કા તરીકા</h1>
+
+                <!-- Ornamental Diamond-Tapered Gold Divider Ribbon -->
+                <div class="hero-ribbon-divider" aria-hidden="true">
+                    <svg width="236" height="18" viewBox="0 0 236 18" fill="none">
+                        <path d="M6 9 Q54 7.5 100 9 Q54 10.5 6 9 Z" fill="currentColor" opacity="0.72"/>
+                        <path d="M230 9 Q182 7.5 136 9 Q182 10.5 230 9 Z" fill="currentColor" opacity="0.72"/>
+                        <polygon points="118,2 125,9 118,16 111,9" fill="currentColor"/>
+                        <polygon points="103,5.5 106.5,9 103,12.5 99.5,9" fill="currentColor" opacity="0.82"/>
+                        <polygon points="133,5.5 136.5,9 133,12.5 129.5,9" fill="currentColor" opacity="0.82"/>
+                    </svg>
+                </div>
+
+                <!-- Sleek Compact Reading Progress Bar Inside Bottom of Hero Card -->
+                <div class="hero-progress-box">
+                    <div class="progress-top-row">
+                        <div class="progress-meta">
+                            <span class="progress-caption">પઢને કી પ્રગતિ</span>
+                            <span class="progress-count-pill" id="progressText">૦ / ૧૨</span>
+                        </div>
+                        <button type="button" class="hero-reset-btn" id="resetAllBtn" aria-label="તમામ પ્રગતિ રીસેટ કરેં">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/>
+                                <path d="M3 3v5h5"/>
+                            </svg>
+                            <span>રીસેટ</span>
+                        </button>
+                    </div>
+                    <div class="progress-track" aria-hidden="true">
+                        <div class="progress-fill" id="progressBarFill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRO PLAQUE (100% VERBATIM) -->
+        <section class="intro-plaque" aria-label="શુરૂ કરે">
+            <span class="plaque-badge">શુરૂઆત કી દુઆ</span>
+            <p class="plaque-main-text">અઉઝુબિલ્લાહિ મિનશ્શૈતાનિર્રજીમ બિસ્મિલ્લાહિર્રહમાનિર્રહીમ</p>
+            <p class="plaque-tarjuma"><strong>તરજુમા:</strong> પનાહ માંગતા હું મૈં અલ્લાહ કી શયતાન મરદૂદ સે. અલ્લાહ કે નામ સે શુરૂ જો નિહાયત મેહરબાન રહમ કરનેવાલા હૈ.</p>
+        </section>
+
+        <!-- COMPLETION BANNER (SHOWN WHEN 12/12 COMPLETED) -->
+        <section class="complete-banner" id="completeBanner" aria-live="polite">
+            <span class="complete-icon-circle" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                </svg>
+            </span>
+            <div>
+                <div class="complete-title">માશાઅલ્લાહ! તમામ ફાતિહા મુકમ્મલ હો ગઈ</div>
+                <div class="complete-sub">અલ્લાહ તઆલા આપકી ફાતિહા ઔર ઇસાલે સવાબ કબૂલ ફરમાએ. આમીન.</div>
+            </div>
+        </section>
+
+        <!-- ALL 12 SURAH & DUA CARDS -->
+        <section class="cards-stack" id="cardsStack" aria-label="ફાતિહા કે બારહ કદમ"></section>
+
+        <!-- DEVELOPER FOOTER — EXACT ENGLISH ONLY (NO GUJARATI) -->
+        <footer class="dev-footer">
+            <div class="dev-badge-pill">
+                <svg class="dev-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="8 6 2 12 8 18"/>
+                    <polyline points="16 18 22 12 16 6"/>
+                </svg>
+                <span>Developed By - PATHAN MAHIRKHAN</span>
             </div>
         </footer>
 
+    </main>
+
+    <!-- =====================================================================
+         QUICK INDEX BOTTOM SHEET (તમામ સૂરતેં ઔર દુઆએં)
+         ===================================================================== -->
+    <div class="sheet-overlay" id="indexSheetOverlay" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+        <div class="bottom-sheet">
+            <div class="sheet-handle" aria-hidden="true"></div>
+            <div class="sheet-header">
+                <h2 class="sheet-title" id="sheetTitle">તમામ સૂરતેં ઔર દુઆએં</h2>
+                <button type="button" class="tool-icon-btn" id="closeIndexBtn" aria-label="બંદ કરેં" title="બંદ કરેં">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <ul class="sheet-list" id="indexSheetList"></ul>
+        </div>
     </div>
 
+    <!-- =====================================================================
+         FULL-SCREEN FOCUS READER MODAL
+         ===================================================================== -->
+    <div class="modal-overlay" id="focusOverlay" role="dialog" aria-modal="true" aria-labelledby="focusModalTitle">
+        <div class="focus-dialog">
+            <div class="focus-head">
+                <span class="focus-step-pill" id="focusStepLabel">કદમ ૧ / ૧૨</span>
+                <div class="focus-head-tools">
+                    <button type="button" class="tool-icon-btn" id="focusFontDec" aria-label="અક્ષર છોટે કરેં" title="અક્ષર છોટે કરેં" style="font-size:0.84rem; font-weight:700;">અ-</button>
+                    <button type="button" class="tool-icon-btn" id="focusFontInc" aria-label="અક્ષર બડે કરેં" title="અક્ષર બડે કરેં" style="font-size:0.84rem; font-weight:700;">અ+</button>
+                    <button type="button" class="tool-icon-btn" id="focusCopyBtn" aria-label="કૉપી કરેં" title="કૉપી કરેં">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="9" y="9" width="13" height="13" rx="2"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                        </svg>
+                    </button>
+                    <button type="button" class="tool-icon-btn" id="closeFocusBtn" aria-label="બંદ કરેં" title="બંદ કરેં">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="focus-body">
+                <div class="focus-title-row">
+                    <span class="focus-icon-box" id="focusIconSlot" aria-hidden="true"></span>
+                    <h2 class="focus-title" id="focusModalTitle"></h2>
+                </div>
+                <div class="focus-text" id="focusModalText"></div>
+                <div class="focus-complete-row">
+                    <button type="button" class="step-toggle-btn" id="focusActionBtn"></button>
+                    <div class="rep-dots" id="focusDotsSlot"></div>
+                </div>
+            </div>
+
+            <div class="focus-foot">
+                <button type="button" class="focus-nav-btn" id="focusPrevBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                    <span>પિછલા</span>
+                </button>
+                <button type="button" class="focus-nav-btn" id="focusNextBtn">
+                    <span>અગલા</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         CUSTOM IN-APP CONFIRMATION MODAL FOR PROGRESS RESET
+         ===================================================================== -->
+    <div class="modal-overlay" id="confirmOverlay" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle">
+        <div class="confirm-box">
+            <div class="confirm-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/>
+                    <path d="M3 3v5h5"/>
+                </svg>
+            </div>
+            <h3 class="confirm-title" id="confirmModalTitle">પ્રગતિ રીસેટ કરેં?</h3>
+            <p class="confirm-desc">ક્યા આપ તમામ પ્રગતિ રીસેટ કરના ચાહતે હૈં?</p>
+            <div class="confirm-actions">
+                <button type="button" class="btn-cancel" id="confirmNoBtn">નહીં</button>
+                <button type="button" class="btn-confirm" id="confirmYesBtn">હાં, રીસેટ કરેં</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div class="toast-wrap" id="toastWrap" role="status" aria-live="polite"></div>
+
+    <!-- =====================================================================
+         PURE VANILLA JAVASCRIPT — BUG-FREE & ZERO EXTERNAL DEPENDENCIES
+         ===================================================================== -->
+    <script>
+        (function () {
+            'use strict';
+
+            /* -----------------------------------------------------------------
+               1. GUJARATI NUMERAL HELPER
+               ----------------------------------------------------------------- */
+            const GUJARATI_DIGITS = ['૦', '૧', '૨', '૩', '૪', '૫', '૬', '૭', '૮', '૯'];
+
+            function toGuNum(num) {
+                return String(num).replace(/\d/g, (digit) => GUJARATI_DIGITS[Number(digit)]);
+            }
+
+            /* -----------------------------------------------------------------
+               2. 100% HAND-CODED INLINE SVG ICON LIBRARY
+               ----------------------------------------------------------------- */
+            const SVG_ICONS = {
+                sun: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="4.9" y1="4.9" x2="6.7" y2="6.7"/><line x1="17.3" y1="17.3" x2="19.1" y2="19.1"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="4.9" y1="19.1" x2="6.7" y2="17.3"/><line x1="17.3" y1="6.7" x2="19.1" y2="4.9"/></svg>',
+                moon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a6.8 6.8 0 1 0 11 11Z"/></svg>',
+                copy: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
+                focus: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>',
+                check: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+                checkSmall: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+                circle: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8.5"/></svg>',
+
+                /* 12 Distinct Islamic Motif Inline SVGs */
+                starRub: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="1.2"/><rect x="5" y="5" width="14" height="14" rx="1.2" transform="rotate(45 12 12)"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></svg>',
+                openQuran: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6A2.5 2.5 0 0 1 5 3.5h5a2.5 2.5 0 0 1 2 1 2.5 2.5 0 0 1 2-1h5A2.5 2.5 0 0 1 21.5 6v12a1.5 1.5 0 0 1-1.5 1.5h-6a2.5 2.5 0 0 0-2 1 2.5 2.5 0 0 0-2-1H4a1.5 1.5 0 0 1-1.5-1.5V6Z"/><line x1="12" y1="4.5" x2="12" y2="20.5"/></svg>',
+                quranRehal: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 12l9-4.5"/><path d="M5 10.5 12 14l7-3.5"/><path d="M6 20 12 14l6 6"/><line x1="12" y1="4.5" x2="12" y2="12"/></svg>',
+                dawnArch: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><path d="M6 19v-5.5C6 9.4 9.2 6.5 12 4.5c2.8 2 6 4.9 6 9V19"/><circle cx="12" cy="13.5" r="2.2"/></svg>',
+                shieldStar: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.4 7.5 9.5 4.4-1.1 7.5-4.9 7.5-9.5V6L12 3Z"/><polygon points="12 8.2 13.1 10.6 15.7 10.9 13.8 12.6 14.3 15.2 12 13.9 9.7 15.2 10.2 12.6 8.3 10.9 10.9 10.6 12 8.2" fill="currentColor" stroke="none"/></svg>',
+                mihrab: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20v-8.5C6 7.8 9 5 12 3c3 2 6 4.8 6 8.5V20"/><path d="M9.5 20v-6.5c0-1.9 1.2-3.4 2.5-4.2 1.3.8 2.5 2.3 2.5 4.2V20"/></svg>',
+                scrollBook: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H19v18H7.5A2.5 2.5 0 0 0 5 22V4.5Z"/><path d="M5 18.5A2.5 2.5 0 0 1 7.5 16H19"/><line x1="9.5" y1="7" x2="15.5" y2="7"/><line x1="9.5" y1="10.5" x2="15.5" y2="10.5"/></svg>',
+                crescent: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 16.8A7.5 7.5 0 1 1 11.2 4.5a6 6 0 1 0 6.3 12.3Z"/><circle cx="17.5" cy="7" r="1.4" fill="currentColor" stroke="none"/></svg>',
+                heart: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.8-9-9.5A5.1 5.1 0 0 1 12 6.8 5.1 5.1 0 0 1 21 11c-1.5 4.7-9 9.5-9 9.5Z"/></svg>',
+                lamp: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2.5" x2="12" y2="5.5"/><path d="M9 5.5h6l2 3.5v7l-2.5 3h-5L7 16V9l2-3.5Z"/><line x1="9" y1="19" x2="15" y2="19"/><path d="M12 10.5c1.1 1.1 1.4 2.5 0 3.7-1.4-1.2-1.1-2.6 0-3.7Z" fill="currentColor" stroke="none"/></svg>',
+                prayerHands: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 19.5H6.5A2.5 2.5 0 0 1 4 17V9.5a1.5 1.5 0 0 1 3 0v3.5"/><path d="M7 10.5V7a1.5 1.5 0 0 1 3 0v5.5"/><path d="M11 19.5V12c0-1.2.6-2 1-2s1 .8 1 2v7.5"/><path d="M13 19.5h4.5A2.5 2.5 0 0 0 20 17V9.5a1.5 1.5 0 0 0-3 0v3.5"/><path d="M17 10.5V7a1.5 1.5 0 0 0-3 0v5.5"/></svg>',
+                kaaba: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 3 20.5 7.5 12 12 3.5 7.5 12 3"/><path d="M3.5 7.5V16.5L12 21l8.5-4.5V7.5"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M3.5 11.2 12 15.7l8.5-4.5"/></svg>'
+            };
+
+            /* -----------------------------------------------------------------
+               3. ALL 12 FATIHA STEPS — 100% VERBATIM PRESERVED TEXT
+               ----------------------------------------------------------------- */
+            const FATIHA_STEPS = [
+                {
+                    id: 1,
+                    title: 'દુરુદ શરીફ (૩ બાર)',
+                    target: 3,
+                    icon: 'starRub',
+                    paragraphs: [
+                        'અલ્લાહુમ્મ સલ્લિ અલા સૈયિદિના મુહમ્મદિવ વ અલા આલિ સૈયિદિના મુહમ્મદિવ વ બારિક વ સલ્લિમ.'
+                    ]
+                },
+                {
+                    id: 2,
+                    title: 'સૂરએ કાફિરૂન (૧ બાર)',
+                    target: 1,
+                    icon: 'openQuran',
+                    paragraphs: [
+                        'બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.',
+                        'કુલ યા અય્યુહલ્ કાફિરૂન. લા અઅબુદુ મા તઅબુદૂન. વલા અન્તુમ આબિદૂન મા અઅબુદ. વલા અના આબિદુમ્ મા અબત્તુમ. વલા અન્તુમ આબિદૂન મા અઅબુદ. લકુમ દીનુકુમ વલિય દીન.'
+                    ]
+                },
+                {
+                    id: 3,
+                    title: 'સૂરએ ઈખ્લાસ (૩ બાર)',
+                    target: 3,
+                    icon: 'quranRehal',
+                    paragraphs: [
+                        'બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.',
+                        'કુલ હુવલ્લાહુ અહદ. અલ્લાહુસ્ સમદ. લમ યલિદ વલમ યૂલદ. વલમ યકુલ્ લહૂ કુફુવન અહદ.'
+                    ]
+                },
+                {
+                    id: 4,
+                    title: 'સૂરએ ફલક (૧ બાર)',
+                    target: 1,
+                    icon: 'dawnArch',
+                    paragraphs: [
+                        'બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.',
+                        'કુલ અઉઝુ બિ રબ્બિલ ફલક. મિન શર્રિ મા ખલક. વ મિન શર્રિ ગાસિકિન ઇઝા વકબ. વ મિન શર્રિન્ નફ્ફાસાતિ ફિલ ઉકદ. વ મિન શર્રિ હાસિદિન ઇઝા હસદ.'
+                    ]
+                },
+                {
+                    id: 5,
+                    title: 'સૂરએ નાસ (૧ બાર)',
+                    target: 1,
+                    icon: 'shieldStar',
+                    paragraphs: [
+                        'બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.',
+                        'કુલ અઉઝુ બિ રબ્બિન્ નાસ. મલિકિન્ નાસ. ઇલાહિન્ નાસ. મિન શર્રિલ વસ્વાસિલ ખન્નાસ. અલ્લઝી યુવસ્વિસુ ફી સુદૂરિન્ નાસ. મિનલ્ જિન્નતિ વન્ નાસ.'
+                    ]
+                },
+                {
+                    id: 6,
+                    title: 'સૂરએ ફાતિહા (૧ બાર)',
+                    target: 1,
+                    icon: 'mihrab',
+                    paragraphs: [
+                        'બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ.',
+                        'અલ્હમ્દુ લિલ્લાહિ રબ્બિલ આલમીન. અર્રહમાનિ ર્રહીમ. માલિકિ યવમિદ્દીન. ઇય્યાક નઅબુદુ વ ઇય્યાક નસ્તઈન. ઇહદિનસ્ સિરાતલ મુસ્તકીમ. સિરાતલ્લઝીન અન્અમ્ત અલયહિમ ગયરિલ મગ્દૂબિ અલયહિમ વલદ્દ્વાલ્લીન. (આમીન)'
+                    ]
+                },
+                {
+                    id: 7,
+                    title: 'સૂરએ બકરહ (૧ બાર)',
+                    target: 1,
+                    icon: 'scrollBook',
+                    paragraphs: [
+                        'બિસ્મિલ્લાહિ ર્રહમાનિ ર્રહીમ:',
+                        'અલિફ લામ મીમ. ઝાલિકલ્ કિતાબુ લા રૈબ ફીહ. હુદલ્ લિલમુત્તકીન. અલ્લઝીન યુઅમિનૂન બિલ ગયબિ વ યુકીમૂનસ્ સલાત વ મિમ્મા રઝકનાહુમ યુન્ફિકૂન. વલ્લઝીન યુઅમિનૂન બિમા ઉન્ઝિલ ઇલૈક વમા ઉન્ઝિલ મિન્ કબ્લિક વ બિલ્ આખિરતિ હુમ યૂકિનૂન. ઉલાઇક અલા હુદમ્ મિર રબ્બિહિમ વ ઉલાઇક હુમુલ્ મુફલિહૂન.',
+                        'વ ઇલાહુકુમ્ ઇલાહુવ્ વાહિદ, લાઇલા-હ ઇલ્લા હુવર્ રહમાનુર્રહીમ.'
+                    ]
+                },
+                {
+                    id: 8,
+                    title: 'આયતુલ કુર્સી (૧ બાર)',
+                    target: 1,
+                    icon: 'crescent',
+                    paragraphs: [
+                        'અલ્લાહુ લા-ઇલાહ ઇલ્લા હુવલ્હયુલ્ કય્યૂમ, લાતઅખુઝુહૂ સિનતુવ્ વલા નવ્મ, લહૂ મા ફિસ્સમાવાતિ વમા ફિલ અર્દ, મન ઝલ્લઝી યશ્ફઉ ઇન્દહૂ ઇલ્લા બિઇઝનિહી, યઅલમુ મા બૈન અય્દીહિમ વમા ખલ્ફહુમ વલા યુહીતૂન બિશયઇમ્ મિન્ ઇલ્મિહી ઇલ્લા બિમા શાઅ. વસિઅ કુરસિય્યુહુસ્ સમાવાતિ વલ અર્દ, વલા યઊદુહૂ હિફઝુહુમા વ હુવલ્ અલિય્યુલ અઝીમ.'
+                    ]
+                },
+                {
+                    id: 9,
+                    title: 'આમનર્રસૂલુ (૧ બાર)',
+                    target: 1,
+                    icon: 'heart',
+                    paragraphs: [
+                        'આમનર્રસૂલુ બિમા ઉન્ઝિલ ઇલૈહિ મિર રબ્બિહી વલમુઅમિનૂન, કુલ્લુન આમન બિલ્લાહિ વ મલાઇકતિહી વ કુતુબિહી વ રુસુલિહી, લા નુફર્રિકુ બય્-ન અહદિમ્ મિર રુસુલિહી વ કાલૂ સમિઅના વ અતઅના ગુફરાનક રબ્બના વ ઇલૈકલ્ મસીર. લા યુકલ્લિફુલ્લાહુ નફસન ઇલ્લા વુસ્અહા, લહા મા કસબત વઅલયહા મકતસબત, રબ્બના લા તુઆખિઝના ઇન્નસીના અવ અખ્તઅના, રબ્બના વલા તહમિલ અલયના ઇસ્રન કમા હમલ્તહૂ અલલ્લઝીન મિન્ કબ્લિના, રબ્બના વલા તુહમ્મિલના મા લાતાકત લના બિહ, વઅફુ અન્ના વગ્ફિરલના વરહમ્ના અન્ત મવલાના ફન્સરના અલલ્ કવ્મિલ કાફિરીન.'
+                    ]
+                },
+                {
+                    id: 10,
+                    title: 'સૂરએ અહઝાબ (૧ બાર)',
+                    target: 1,
+                    icon: 'lamp',
+                    paragraphs: [
+                        'મા કાન મુહમ્મદુન અબા અહદિમ મિર્રિજાલિકુમ વલા કિર્રસૂલલ્લાહિ વ ખાતમન્નબિય્યીન, વ-કાનલ્લાહુ બિકુલ્લિ શયઇન અલીમા. ઇન્નલ્લાહ વ મલાઇકતહૂ યુસલ્લૂન અલન્નબિય્યિ યા અય્યુહલ્લઝીન આમનૂ સલ્લૂ અલયહિ વ સલ્લિમૂ તસ્લીમા.'
+                    ]
+                },
+                {
+                    id: 11,
+                    title: 'દુરુદ શરીફ ઔર દુઆ',
+                    target: 1,
+                    icon: 'prayerHands',
+                    paragraphs: [
+                        'વ સલ્લલ્લાહુ તઆલા અલા ખૈરિ ખલ્કિહી ન નૂરિ અર્શિહી સૈયિદના વ નબિય્યિના વ શફીઇના વ હબીબના વ મૌલાના મુહમ્મદિવ વઅલા આલિહી વ અસ્હાબિહી અજમઇન, બિરહમતિકા યા અર-હમર્રાહિમીન.'
+                    ]
+                },
+                {
+                    id: 12,
+                    title: 'ઇસાલે સવાબકી દુઆ',
+                    target: 1,
+                    icon: 'kaaba',
+                    paragraphs: [
+                        'યા અલ્લાહ! મૈંને જો કુછ પઢા યહ સબ તેરી ખુશ્નૂદી કે લિયે ઔર ખાસ તેરે હી લિયે પઢા, ઇસકો તેરી આલી બારગાહમેં કબૂલ ફરમા ઔર ઇસ પઢને મેં મેરી જો ખતા રહ ગઈ હો ઉસકો તેરે ફઝલસે મુઆફ ફરમા. ઔર ઇસકા જો તૂને સવાબ રખા હૈ વહ સવાબ હમારે દો જહાં કે સરદાર આકાએ નામદાર, સરવરે મવજૂદાત અહમદે મુજતબા મુહમ્મદ મુસ્તફા (ﷺ) કી રુહ મુબારક કો નઝર કિયા. ઔર સારે અંબિયા વ મુરસલીન ઔર તમામ આલ વ અવલાદ, અસ્હાબે કિરામ ઔર તમામ મોમિન વ મોમિનાત જિતને ભી દુનિયા સે ચલ બસે હૈં ઉન તમામ કી રુહોંકો ઇસકા સવાબ પહુંચા.'
+                    ]
+                }
+            ];
+
+            /* -----------------------------------------------------------------
+               4. SAFE LOCALSTORAGE STATE MANAGEMENT (IFRAME-SAFE)
+               ----------------------------------------------------------------- */
+            const STORAGE_KEY = 'fatiha_royal_mobile_v3';
+            const MIN_SCALE = 0.85;
+            const MAX_SCALE = 1.40;
+
+            function safeStorageGet(key) {
+                try {
+                    return window.localStorage ? window.localStorage.getItem(key) : null;
+                } catch (err) {
+                    return null;
+                }
+            }
+
+            function safeStorageSet(key, value) {
+                try {
+                    if (window.localStorage) {
+                        window.localStorage.setItem(key, value);
+                    }
+                } catch (err) {
+                    /* Safely ignore storage restrictions in sandboxed iframes */
+                }
+            }
+
+            function loadState() {
+                const defaults = { theme: 'light', fontScale: 1, counts: {} };
+                try {
+                    const raw = safeStorageGet(STORAGE_KEY);
+                    if (!raw) return defaults;
+                    const parsed = JSON.parse(raw);
+                    return {
+                        theme: parsed && parsed.theme === 'dark' ? 'dark' : 'light',
+                        fontScale: parsed && typeof parsed.fontScale === 'number'
+                            ? Math.min(MAX_SCALE, Math.max(MIN_SCALE, parsed.fontScale))
+                            : 1,
+                        counts: parsed && parsed.counts && typeof parsed.counts === 'object' ? parsed.counts : {}
+                    };
+                } catch (err) {
+                    return defaults;
+                }
+            }
+
+            let state = loadState();
+            let focusStepId = 1;
+            let toastTimer = null;
+
+            function saveState() {
+                try {
+                    safeStorageSet(STORAGE_KEY, JSON.stringify(state));
+                } catch (err) {
+                    /* Safely ignore serialization errors */
+                }
+            }
+
+            function getStepById(id) {
+                return FATIHA_STEPS.find((item) => item.id === Number(id)) || null;
+            }
+
+            function isStepDone(step) {
+                return (state.counts[step.id] || 0) >= step.target;
+            }
+
+            /* -----------------------------------------------------------------
+               5. TOAST NOTIFICATION & SAFE CLIPBOARD COPY HELPER
+               ----------------------------------------------------------------- */
+            const toastWrap = document.getElementById('toastWrap');
+
+            function showToast(message) {
+                if (!toastWrap) return;
+                if (toastTimer) clearTimeout(toastTimer);
+                toastWrap.innerHTML = '';
+
+                const pill = document.createElement('div');
+                pill.className = 'toast-pill';
+                pill.innerHTML = `${SVG_ICONS.check}<span>${message}</span>`;
+                toastWrap.appendChild(pill);
+
+                toastTimer = setTimeout(() => {
+                    pill.style.opacity = '0';
+                    pill.style.transition = 'opacity 0.22s ease';
+                    setTimeout(() => {
+                        if (pill.parentNode) pill.parentNode.removeChild(pill);
+                    }, 230);
+                }, 2000);
+            }
+
+            function copyWithExecCommand(text) {
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    textarea.setAttribute('readonly', '');
+                    textarea.style.position = 'fixed';
+                    textarea.style.top = '-9999px';
+                    textarea.style.left = '-9999px';
+                    textarea.style.opacity = '0';
+                    document.body.appendChild(textarea);
+                    textarea.focus();
+                    textarea.select();
+                    textarea.setSelectionRange(0, text.length);
+                    const ok = document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    return ok;
+                } catch (err) {
+                    return false;
+                }
+            }
+
+            function copyTextSafely(text) {
+                if (copyWithExecCommand(text)) {
+                    showToast('કૉપી હો ગયા');
+                    return;
+                }
+
+                if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+                    navigator.clipboard.writeText(text)
+                        .then(() => showToast('કૉપી હો ગયા'))
+                        .catch(() => showToast('કૉપી નહીં હો સકા'));
+                } else {
+                    showToast('કૉપી નહીં હો સકા');
+                }
+            }
+
+            /* -----------------------------------------------------------------
+               6. THEME & READING FONT SCALE CONTROLS
+               ----------------------------------------------------------------- */
+            const themeIconSlot = document.getElementById('themeIconSlot');
+
+            function applyTheme() {
+                document.documentElement.setAttribute('data-theme', state.theme);
+                if (themeIconSlot) {
+                    themeIconSlot.innerHTML = state.theme === 'dark' ? SVG_ICONS.sun : SVG_ICONS.moon;
+                }
+            }
+
+            function applyFontScale() {
+                document.documentElement.style.setProperty('--reading-scale', state.fontScale.toFixed(2));
+            }
+
+            function adjustFont(delta) {
+                const next = Math.round((state.fontScale + delta) * 100) / 100;
+                const clamped = Math.min(MAX_SCALE, Math.max(MIN_SCALE, next));
+                if (clamped === state.fontScale) {
+                    showToast(delta > 0 ? 'અક્ષર સબસે બડે હૈં' : 'અક્ષર સબસે છોટે હૈં');
+                    return;
+                }
+                state.fontScale = clamped;
+                applyFontScale();
+                saveState();
+                showToast(delta > 0 ? 'અક્ષર બડે હો ગએ' : 'અક્ષર છોટે હો ગએ');
+            }
+
+            document.getElementById('themeToggleBtn').addEventListener('click', () => {
+                state.theme = state.theme === 'dark' ? 'light' : 'dark';
+                applyTheme();
+                saveState();
+                showToast(state.theme === 'dark' ? 'ડાર્ક મોડ ચાલુ હો ગયા' : 'લાઇટ મોડ ચાલુ હો ગયા');
+            });
+
+            document.getElementById('fontDecBtn').addEventListener('click', () => adjustFont(-0.1));
+            document.getElementById('fontIncBtn').addEventListener('click', () => adjustFont(0.1));
+            document.getElementById('focusFontDec').addEventListener('click', () => adjustFont(-0.1));
+            document.getElementById('focusFontInc').addEventListener('click', () => adjustFont(0.1));
+
+            /* -----------------------------------------------------------------
+               7. RENDER 12 CARDS & INTERACTIVE COMPLETION TRACKER
+               ----------------------------------------------------------------- */
+            const cardsStack = document.getElementById('cardsStack');
+            const progressText = document.getElementById('progressText');
+            const progressBarFill = document.getElementById('progressBarFill');
+            const resetAllBtn = document.getElementById('resetAllBtn');
+            const completeBanner = document.getElementById('completeBanner');
+
+            function buildStepButtonHtml(step, count) {
+                const done = count >= step.target;
+                if (step.target > 1) {
+                    if (done) {
+                        return `${SVG_ICONS.check}<span>${toGuNum(step.target)}/${toGuNum(step.target)} મુકમ્મલ</span>`;
+                    }
+                    return `${SVG_ICONS.circle}<span>${toGuNum(count)}/${toGuNum(step.target)}</span>`;
+                }
+                return done
+                    ? `${SVG_ICONS.check}<span>મુકમ્મલ</span>`
+                    : `${SVG_ICONS.circle}<span>પઢ લિયા</span>`;
+            }
+
+            function buildDotsHtml(step, count) {
+                if (step.target <= 1) return '';
+                let html = '';
+                for (let i = 1; i <= step.target; i++) {
+                    html += `<span class="rep-dot${i <= count ? ' filled' : ''}"></span>`;
+                }
+                return html;
+            }
+
+            function renderCardsOnce() {
+                cardsStack.innerHTML = '';
+
+                FATIHA_STEPS.forEach((step) => {
+                    const article = document.createElement('article');
+                    article.className = 'dua-card';
+                    article.id = `kadam-${step.id}`;
+                    article.dataset.stepId = String(step.id);
+
+                    const bodyHtml = step.paragraphs.join('<br><br>');
+
+                    article.innerHTML = `
+                        <div class="card-head">
+                            <div class="card-icon-badge" aria-hidden="true">
+                                <span class="step-chip">${toGuNum(step.id)}</span>
+                                ${SVG_ICONS[step.icon]}
+                            </div>
+                            <h2 class="card-title">${step.title}</h2>
+                        </div>
+                        <div class="card-body-text">${bodyHtml}</div>
+                        <div class="card-action-bar">
+                            <div class="step-action-group">
+                                <button type="button" class="step-toggle-btn" data-id="${step.id}"></button>
+                                <div class="rep-dots" data-dots="${step.id}" aria-hidden="true"></div>
+                            </div>
+                            <div class="card-util-group">
+                                <button type="button" class="util-pill-btn card-copy-btn" data-id="${step.id}" aria-label="કૉપી કરેં">
+                                    ${SVG_ICONS.copy}<span>કૉપી</span>
+                                </button>
+                                <button type="button" class="util-pill-btn card-focus-btn" data-id="${step.id}" aria-label="ફોકસ મોડ">
+                                    ${SVG_ICONS.focus}<span>ફોકસ મોડ</span>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    cardsStack.appendChild(article);
+                });
+
+                /* Single event delegation handler for all 12 cards */
+                cardsStack.addEventListener('click', (event) => {
+                    const toggleBtn = event.target.closest('.step-toggle-btn');
+                    if (toggleBtn) {
+                        handleStepTap(Number(toggleBtn.dataset.id));
+                        return;
+                    }
+
+                    const copyBtn = event.target.closest('.card-copy-btn');
+                    if (copyBtn) {
+                        const step = getStepById(copyBtn.dataset.id);
+                        if (step) {
+                            copyTextSafely(`${step.title}\n\n${step.paragraphs.join('\n\n')}`);
+                        }
+                        return;
+                    }
+
+                    const focusBtn = event.target.closest('.card-focus-btn');
+                    if (focusBtn) {
+                        openFocusModal(Number(focusBtn.dataset.id));
+                    }
+                });
+            }
+
+            function handleStepTap(id) {
+                const step = getStepById(id);
+                if (!step) return;
+
+                const current = state.counts[id] || 0;
+                const wasAllDone = FATIHA_STEPS.every(isStepDone);
+
+                if (step.target > 1) {
+                    state.counts[id] = current < step.target ? current + 1 : 0;
+                } else {
+                    state.counts[id] = current >= 1 ? 0 : 1;
+                }
+
+                if (navigator.vibrate) {
+                    try { navigator.vibrate(14); } catch (err) { /* ignore */ }
+                }
+
+                saveState();
+                syncAllUI();
+
+                if (!wasAllDone && FATIHA_STEPS.every(isStepDone)) {
+                    showToast('માશાઅલ્લાહ! તમામ ફાતિહા મુકમ્મલ હો ગઈ');
+                }
+            }
+
+            function syncAllUI() {
+                let completedCount = 0;
+                let hasAnyProgress = false;
+
+                FATIHA_STEPS.forEach((step) => {
+                    const count = state.counts[step.id] || 0;
+                    const done = count >= step.target;
+                    if (count > 0) hasAnyProgress = true;
+                    if (done) completedCount++;
+
+                    const cardEl = document.getElementById(`kadam-${step.id}`);
+                    if (!cardEl) return;
+
+                    cardEl.classList.toggle('completed', done);
+
+                    const toggleBtn = cardEl.querySelector('.step-toggle-btn');
+                    if (toggleBtn) {
+                        toggleBtn.classList.toggle('done', done);
+                        toggleBtn.innerHTML = buildStepButtonHtml(step, count);
+                    }
+
+                    const dotsEl = cardEl.querySelector('.rep-dots');
+                    if (dotsEl) {
+                        dotsEl.innerHTML = buildDotsHtml(step, count);
+                    }
+                });
+
+                const total = FATIHA_STEPS.length;
+                const percent = (completedCount / total) * 100;
+
+                progressText.textContent = `${toGuNum(completedCount)} / ${toGuNum(total)}`;
+                progressBarFill.style.width = `${percent}%`;
+                resetAllBtn.classList.toggle('visible', hasAnyProgress);
+                completeBanner.classList.toggle('visible', completedCount === total);
+
+                renderIndexSheetList();
+
+                if (focusOverlay.classList.contains('open')) {
+                    renderFocusModal();
+                }
+            }
+
+            /* -----------------------------------------------------------------
+               8. SCROLL BODY LOCK HELPER
+               ----------------------------------------------------------------- */
+            function updateBodyScrollLock() {
+                const anyOpen =
+                    indexSheetOverlay.classList.contains('open') ||
+                    focusOverlay.classList.contains('open') ||
+                    confirmOverlay.classList.contains('open');
+                document.body.style.overflow = anyOpen ? 'hidden' : '';
+            }
+
+            /* -----------------------------------------------------------------
+               9. QUICK INDEX BOTTOM SHEET (તમામ સૂરતેં ઔર દુઆએં)
+               ----------------------------------------------------------------- */
+            const indexSheetOverlay = document.getElementById('indexSheetOverlay');
+            const indexSheetList = document.getElementById('indexSheetList');
+
+            function scrollToCardSmooth(stepId) {
+                const target = document.getElementById(`kadam-${stepId}`);
+                if (!target) return;
+                const navEl = document.querySelector('.top-nav');
+                const navHeight = navEl ? navEl.offsetHeight : 56;
+                const topY = target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
+                window.scrollTo({
+                    top: Math.max(0, topY),
+                    behavior: 'smooth'
+                });
+            }
+
+            function renderIndexSheetList() {
+                indexSheetList.innerHTML = '';
+
+                FATIHA_STEPS.forEach((step) => {
+                    const done = isStepDone(step);
+                    const li = document.createElement('li');
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = `sheet-item-btn${done ? ' done' : ''}`;
+                    btn.innerHTML = `
+                        <span class="sheet-num">${toGuNum(step.id)}</span>
+                        <span class="sheet-item-text">${step.title}</span>
+                        <span class="sheet-status-icon" aria-hidden="true">${done ? SVG_ICONS.checkSmall : ''}</span>
+                    `;
+                    btn.addEventListener('click', () => {
+                        closeIndexSheet();
+                        setTimeout(() => scrollToCardSmooth(step.id), 90);
+                    });
+                    li.appendChild(btn);
+                    indexSheetList.appendChild(li);
+                });
+            }
+
+            function openIndexSheet() {
+                indexSheetOverlay.classList.add('open');
+                updateBodyScrollLock();
+            }
+
+            function closeIndexSheet() {
+                indexSheetOverlay.classList.remove('open');
+                updateBodyScrollLock();
+            }
+
+            document.getElementById('openIndexBtn').addEventListener('click', openIndexSheet);
+            document.getElementById('closeIndexBtn').addEventListener('click', closeIndexSheet);
+            indexSheetOverlay.addEventListener('click', (event) => {
+                if (event.target === indexSheetOverlay) closeIndexSheet();
+            });
+
+            /* -----------------------------------------------------------------
+               10. FULL-SCREEN FOCUS READER MODAL
+               ----------------------------------------------------------------- */
+            const focusOverlay = document.getElementById('focusOverlay');
+            const focusStepLabel = document.getElementById('focusStepLabel');
+            const focusIconSlot = document.getElementById('focusIconSlot');
+            const focusModalTitle = document.getElementById('focusModalTitle');
+            const focusModalText = document.getElementById('focusModalText');
+            const focusActionBtn = document.getElementById('focusActionBtn');
+            const focusDotsSlot = document.getElementById('focusDotsSlot');
+            const focusPrevBtn = document.getElementById('focusPrevBtn');
+            const focusNextBtn = document.getElementById('focusNextBtn');
+
+            function renderFocusModal() {
+                const step = getStepById(focusStepId);
+                if (!step) return;
+
+                const count = state.counts[step.id] || 0;
+                const done = count >= step.target;
+
+                focusStepLabel.textContent = `કદમ ${toGuNum(step.id)} / ${toGuNum(FATIHA_STEPS.length)}`;
+                focusIconSlot.innerHTML = SVG_ICONS[step.icon];
+                focusModalTitle.textContent = step.title;
+                focusModalText.innerHTML = step.paragraphs.join('<br><br>');
+
+                focusActionBtn.classList.toggle('done', done);
+                focusActionBtn.innerHTML = buildStepButtonHtml(step, count);
+                focusDotsSlot.innerHTML = buildDotsHtml(step, count);
+
+                focusPrevBtn.disabled = focusStepId <= 1;
+                focusNextBtn.disabled = focusStepId >= FATIHA_STEPS.length;
+            }
+
+            function openFocusModal(id) {
+                focusStepId = Number(id) || 1;
+                renderFocusModal();
+                focusOverlay.classList.add('open');
+                updateBodyScrollLock();
+            }
+
+            function closeFocusModal() {
+                focusOverlay.classList.remove('open');
+                updateBodyScrollLock();
+            }
+
+            document.getElementById('closeFocusBtn').addEventListener('click', closeFocusModal);
+            focusOverlay.addEventListener('click', (event) => {
+                if (event.target === focusOverlay) closeFocusModal();
+            });
+
+            focusActionBtn.addEventListener('click', () => handleStepTap(focusStepId));
+
+            document.getElementById('focusCopyBtn').addEventListener('click', () => {
+                const step = getStepById(focusStepId);
+                if (step) {
+                    copyTextSafely(`${step.title}\n\n${step.paragraphs.join('\n\n')}`);
+                }
+            });
+
+            focusPrevBtn.addEventListener('click', () => {
+                if (focusStepId > 1) {
+                    focusStepId--;
+                    renderFocusModal();
+                }
+            });
+
+            focusNextBtn.addEventListener('click', () => {
+                if (focusStepId < FATIHA_STEPS.length) {
+                    focusStepId++;
+                    renderFocusModal();
+                }
+            });
+
+            /* -----------------------------------------------------------------
+               11. IN-APP CONFIRMATION MODAL FOR RESETTING PROGRESS
+               ----------------------------------------------------------------- */
+            const confirmOverlay = document.getElementById('confirmOverlay');
+
+            function openConfirmModal() {
+                confirmOverlay.classList.add('open');
+                updateBodyScrollLock();
+            }
+
+            function closeConfirmModal() {
+                confirmOverlay.classList.remove('open');
+                updateBodyScrollLock();
+            }
+
+            resetAllBtn.addEventListener('click', openConfirmModal);
+            document.getElementById('confirmNoBtn').addEventListener('click', closeConfirmModal);
+            confirmOverlay.addEventListener('click', (event) => {
+                if (event.target === confirmOverlay) closeConfirmModal();
+            });
+
+            document.getElementById('confirmYesBtn').addEventListener('click', () => {
+                state.counts = {};
+                saveState();
+                syncAllUI();
+                closeConfirmModal();
+                showToast('તમામ પ્રગતિ રીસેટ હો ગઈ');
+            });
+
+            /* Keyboard Support (Escape to close, Arrow keys inside Focus Reader) */
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    if (confirmOverlay.classList.contains('open')) closeConfirmModal();
+                    else if (focusOverlay.classList.contains('open')) closeFocusModal();
+                    else if (indexSheetOverlay.classList.contains('open')) closeIndexSheet();
+                    return;
+                }
+
+                if (focusOverlay.classList.contains('open')) {
+                    if (event.key === 'ArrowRight' && focusStepId < FATIHA_STEPS.length) {
+                        focusStepId++;
+                        renderFocusModal();
+                    } else if (event.key === 'ArrowLeft' && focusStepId > 1) {
+                        focusStepId--;
+                        renderFocusModal();
+                    }
+                }
+            });
+
+            /* -----------------------------------------------------------------
+               12. INITIALIZE APPLICATION
+               ----------------------------------------------------------------- */
+            applyTheme();
+            applyFontScale();
+            renderCardsOnce();
+            syncAllUI();
+        })();
+    </script>
 </body>
 </html>
