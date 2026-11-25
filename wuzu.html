@@ -5,120 +5,277 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>તરીકએ વુઝૂ</title>
 
-    <!-- Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Modern Icons (FontAwesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Next Level UI/UX Styles -->
+    <!-- Stylish Gujarati Heading Font (Noto Serif Gujarati - Not Shrikhand) + Crisp Body Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@400;500;600;700&family=Noto+Serif+Gujarati:wght@600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #045c4a; /* Deep Emerald Green */
-            --primary-light: #e6f4f1;
-            --accent: #d4af37; /* Premium Gold */
-            --bg-main: #f4f9f7;
+            --primary: #045c4a;
+            --primary-deep: #02352a;
+            --primary-mid: #087a62;
+            --primary-soft: #e7f4f0;
+            --accent: #d4af37;
+            --accent-bright: #f2d574;
+            --accent-dark: #9c7914;
+            --bg-main: #f2f7f5;
             --card-bg: #ffffff;
-            --text-dark: #1f2937;
-            --text-muted: #4b5563;
+            --text-dark: #162923;
+            --text-muted: #3d524b;
+            --border-subtle: rgba(4, 92, 74, 0.12);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
 
         body {
             font-family: 'Anek Gujarati', 'Outfit', sans-serif;
-            background: linear-gradient(135deg, #f4f9f7 0%, #e5eff1 100%);
+            background-color: var(--bg-main);
+            background-image:
+                radial-gradient(circle at 12% 10%, rgba(4, 92, 74, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 88% 18%, rgba(212, 175, 55, 0.11) 0%, transparent 45%),
+                linear-gradient(180deg, #f3f9f7 0%, #e7f0ed 100%);
             color: var(--text-dark);
-            line-height: 1.8;
-            margin: 0;
-            padding: 0;
+            line-height: 1.85;
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle Fixed Islamic Geometric Pattern */
+        .islamic-pattern {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cg fill='none' stroke='%23045c4a' stroke-width='1.1'%3E%3Cpath d='M44 4 L55 33 L84 44 L55 55 L44 84 L33 55 L4 44 L33 33 Z'/%3E%3Crect x='22' y='22' width='44' height='44' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='9' stroke='%23d4af37'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 88px 88px;
         }
 
         .container {
-            max-width: 850px;
-            margin: 50px auto;
+            max-width: 860px;
+            margin: 36px auto 54px;
             padding: 0 20px;
         }
 
-        /* Page Header Style */
-        .page-header {
-            text-align: center;
-            margin-bottom: 50px;
+        /* =====================================================
+           PROFESSIONAL ISLAMIC HEADER (NO CLUTTER, BUG-FREE)
+        ===================================================== */
+        .islamic-header {
             position: relative;
+            background: linear-gradient(140deg, #022d24 0%, #045c4a 52%, #023b2f 100%);
+            border-radius: 26px;
+            padding: 46px 28px 40px;
+            margin-bottom: 38px;
+            text-align: center;
+            overflow: hidden;
+            box-shadow:
+                0 22px 45px -16px rgba(2, 45, 36, 0.48),
+                0 6px 16px -6px rgba(212, 175, 55, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+        }
+
+        /* Inner Golden Arch Frame */
+        .header-inner-frame {
+            position: absolute;
+            inset: 12px;
+            border-radius: 18px;
+            border: 1px solid rgba(242, 213, 116, 0.32);
+            pointer-events: none;
+        }
+
+        /* Architectural Mihrab SVG Backdrop */
+        .header-mihrab-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.14;
+            pointer-events: none;
+        }
+
+        /* Header Top Ornament */
+        .header-3d-emblem {
+            position: relative;
+            z-index: 2;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 24px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(0, 0, 0, 0.22));
+            border: 1px solid rgba(242, 213, 116, 0.45);
+            box-shadow:
+                0 14px 28px -8px rgba(0, 0, 0, 0.45),
+                inset 0 2px 3px rgba(255, 255, 255, 0.28),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.25);
         }
 
         .page-title {
-            color: var(--primary);
-            font-weight: 800;
-            font-size: 2.5rem;
-            margin: 0;
-            display: inline-block;
             position: relative;
-            padding-bottom: 10px;
+            z-index: 2;
+            font-family: 'Noto Serif Gujarati', serif;
+            font-weight: 800;
+            font-size: clamp(2.15rem, 5vw, 3.05rem);
+            line-height: 1.45;
+            color: #fffaf0;
+            margin: 0;
+            padding: 4px 10px 0;
+            text-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            letter-spacing: 0.5px;
         }
 
-        .page-title::after {
+        /* Decorative Golden Islamic Divider Under Title */
+        .title-divider {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 14px auto 0;
+            max-width: 260px;
+        }
+
+        .title-divider::before,
+        .title-divider::after {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 20%;
-            width: 60%;
-            height: 4px;
-            background: var(--accent);
+            flex: 1;
+            height: 2px;
             border-radius: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-bright), transparent);
         }
 
-        /* Card Design */
+        .title-divider-diamond {
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(135deg, #fff3c4, #d4af37);
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px rgba(242, 213, 116, 0.7);
+            flex-shrink: 0;
+        }
+
+        /* =====================================================
+           CONTENT CARDS & 3D ICON PEDESTALS
+        ===================================================== */
         .dua-card {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            margin-bottom: 28px;
+            box-shadow:
+                0 14px 32px -12px rgba(2, 53, 42, 0.12),
+                0 4px 10px -4px rgba(2, 53, 42, 0.05);
+            border: 1px solid var(--border-subtle);
             border-left: 5px solid var(--primary);
-            transition: all 0.3s ease;
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-left-color 0.28s ease;
             position: relative;
             overflow: hidden;
         }
 
+        .dua-card::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
         .dua-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-4px);
+            box-shadow:
+                0 22px 42px -14px rgba(2, 53, 42, 0.18),
+                0 8px 18px -6px rgba(212, 175, 55, 0.16);
             border-left-color: var(--accent);
         }
 
-        /* Card Header & Icon */
+        .dua-card.warning-card {
+            border-left-color: #c2410c;
+        }
+
+        .dua-card.warning-card:hover {
+            border-left-color: #ea580c;
+        }
+
+        /* Card Header Wrapper */
         .dua-header-wrapper {
             display: flex;
             align-items: center;
-            margin-bottom: 18px;
-            border-bottom: 2px dashed #f3f4f6;
-            padding-bottom: 15px;
+            gap: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1.5px dashed rgba(4, 92, 74, 0.15);
         }
 
-        .dua-icon {
-            background: var(--primary-light);
-            color: var(--primary);
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+        /* 3D Tactile Icon Box */
+        .dua-icon-3d {
+            width: 62px;
+            height: 62px;
+            border-radius: 17px;
+            background: linear-gradient(145deg, #ffffff 0%, #e7f4f0 100%);
+            border: 1px solid rgba(4, 92, 74, 0.16);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-right: 18px;
             flex-shrink: 0;
-            transition: all 0.3s ease;
+            box-shadow:
+                0 10px 18px -8px rgba(2, 53, 42, 0.28),
+                0 3px 0 #cfe4dd,
+                inset 0 2px 2px #ffffff;
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
         }
 
-        .dua-card:hover .dua-icon {
-            background: var(--primary);
-            color: white;
+        .dua-card.warning-card .dua-icon-3d {
+            background: linear-gradient(145deg, #fffaf5 0%, #ffedd5 100%);
+            border-color: rgba(194, 65, 12, 0.2);
+            box-shadow:
+                0 10px 18px -8px rgba(194, 65, 12, 0.25),
+                0 3px 0 #fed7aa,
+                inset 0 2px 2px #ffffff;
         }
 
+        .dua-card:hover .dua-icon-3d {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow:
+                0 14px 22px -8px rgba(2, 53, 42, 0.34),
+                0 4px 0 #c5ded6,
+                inset 0 2px 2px #ffffff;
+        }
+
+        .dua-icon-3d svg {
+            width: 42px;
+            height: 42px;
+            display: block;
+            overflow: visible;
+        }
+
+        /* Stylish Gujarati Card Heading */
         .dua-header {
-            font-size: 1.5rem;
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.52rem;
             font-weight: 700;
+            line-height: 1.45;
             color: var(--primary);
             margin: 0;
+        }
+
+        .dua-card.warning-card .dua-header {
+            color: #9a3412;
         }
 
         /* Content Typography */
@@ -129,27 +286,62 @@
             text-align: justify;
         }
 
+        /* Highlighted Recitation Box (Niyyat & Dua) */
+        .sacred-text-box {
+            background: linear-gradient(145deg, rgba(4, 92, 74, 0.045), rgba(212, 175, 55, 0.08));
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 14px;
+            padding: 20px 22px;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.18rem;
+            line-height: 2.1;
+        }
+
+        .sacred-text-box.centered {
+            text-align: center;
+        }
+
+        /* Clean 3D Gem Bullet List */
         .dua-content ul {
             list-style: none;
             padding-left: 0;
-            margin-top: 15px;
+            margin: 12px 0 0;
         }
 
         .dua-content ul li {
             position: relative;
-            padding-left: 35px;
-            margin-bottom: 12px;
+            padding: 10px 14px 10px 38px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            background: rgba(4, 92, 74, 0.03);
+            transition: background 0.2s ease;
+        }
+
+        .dua-content ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .dua-content ul li:hover {
+            background: rgba(4, 92, 74, 0.065);
         }
 
         .dua-content ul li::before {
-            content: '\f058'; /* Check-circle icon */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
+            content: '';
             position: absolute;
-            left: 0;
-            top: 4px;
-            font-size: 1.1rem;
-            color: var(--accent);
+            left: 14px;
+            top: 19px;
+            width: 11px;
+            height: 11px;
+            border-radius: 3px;
+            transform: rotate(45deg);
+            background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent-dark) 100%);
+            box-shadow: 0 2px 5px rgba(156, 121, 20, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+        }
+
+        .dua-card.warning-card ul li::before {
+            background: linear-gradient(135deg, #fb923c 0%, #c2410c 100%);
+            box-shadow: 0 2px 5px rgba(194, 65, 12, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.65);
         }
 
         strong {
@@ -159,65 +351,243 @@
 
         /* Special Notice Box */
         .note-box {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
-            padding: 15px 20px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 20px;
-            font-size: 1.1rem;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 1px solid rgba(217, 119, 6, 0.28);
+            border-left: 5px solid #d97706;
+            padding: 15px 18px;
+            border-radius: 12px;
+            margin-top: 22px;
+            font-size: 1.08rem;
             color: #92400e;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
-        /* Responsive Design */
+        .note-box svg {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 22px 16px;
+            border-top: 2px dashed rgba(4, 92, 74, 0.2);
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .site-footer span {
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 600px) {
-            .dua-card {
-                padding: 20px;
+            .container {
+                margin: 20px auto 38px;
+                padding: 0 14px;
             }
-            .page-title {
-                font-size: 2rem;
+            .islamic-header {
+                padding: 34px 18px 30px;
+                border-radius: 20px;
+                margin-bottom: 26px;
+            }
+            .header-3d-emblem {
+                width: 76px;
+                height: 76px;
+                border-radius: 20px;
+            }
+            .dua-card {
+                padding: 20px 18px;
+                border-radius: 16px;
+                margin-bottom: 22px;
+            }
+            .dua-header-wrapper {
+                gap: 13px;
+                margin-bottom: 16px;
+                padding-bottom: 13px;
+            }
+            .dua-icon-3d {
+                width: 52px;
+                height: 52px;
+                border-radius: 14px;
+            }
+            .dua-icon-3d svg {
+                width: 34px;
+                height: 34px;
             }
             .dua-header {
-                font-size: 1.3rem;
+                font-size: 1.32rem;
             }
             .dua-content {
                 font-size: 1.05rem;
+                text-align: left;
             }
-            .dua-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
+            .sacred-text-box {
+                padding: 16px;
+                font-size: 1.08rem;
+            }
+            .dua-content ul li {
+                padding: 9px 12px 9px 32px;
+            }
+            .dua-content ul li::before {
+                left: 11px;
+                top: 17px;
+                width: 9px;
+                height: 9px;
+            }
+            .note-box {
+                font-size: 1rem;
+                padding: 13px 14px;
             }
         }
     </style>
 </head>
 <body>
 
+    <div class="islamic-pattern" aria-hidden="true"></div>
+
     <div class="container">
-        
-        <!-- Header -->
-        <div class="page-header">
+
+        <!-- Professional Bug-Free Islamic Header -->
+        <header class="islamic-header">
+            <svg class="header-mihrab-bg" viewBox="0 0 860 280" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M80 280 L80 140 Q80 42 430 14 Q780 42 780 140 L780 280" fill="none" stroke="#f2d574" stroke-width="2"/>
+                <path d="M125 280 L125 150 Q125 68 430 42 Q735 68 735 150 L735 280" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="5 5"/>
+            </svg>
+            <div class="header-inner-frame" aria-hidden="true"></div>
+
+            <!-- 3D Coded Islamic Mosque & Crescent Emblem -->
+            <div class="header-3d-emblem" aria-hidden="true">
+                <svg viewBox="0 0 64 64" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="hGold" x1="12" y1="6" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#fff5cc"/>
+                            <stop offset="45%" stop-color="#e8c352"/>
+                            <stop offset="100%" stop-color="#9e7614"/>
+                        </linearGradient>
+                        <linearGradient id="hDome" x1="20" y1="18" x2="46" y2="54" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#22c59c"/>
+                            <stop offset="55%" stop-color="#066a54"/>
+                            <stop offset="100%" stop-color="#022f25"/>
+                        </linearGradient>
+                        <filter id="hShadow" x="-15%" y="-15%" width="130%" height="140%">
+                            <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.45"/>
+                        </filter>
+                    </defs>
+                    <g filter="url(#hShadow)">
+                        <!-- 3D Golden Crescent at Top -->
+                        <path d="M35.5 7.5C32.2 8.2 30 11 30 14.3C30 17.8 32.8 20.5 36.2 20.5C37.5 20.5 38.6 20.1 39.6 19.4C38.4 21.8 35.9 23.4 33 23.4C28.8 23.4 25.4 20 25.4 15.8C25.4 11.7 28.6 8.3 32.7 8.1C33.7 8.1 34.6 7.8 35.5 7.5Z" fill="url(#hGold)"/>
+                        <!-- Spire -->
+                        <rect x="31" y="21" width="2" height="5" rx="1" fill="url(#hGold)"/>
+                        <!-- Main 3D Emerald Dome -->
+                        <path d="M32 24C21 28 16 36 16 45H48C48 36 43 28 32 24Z" fill="url(#hDome)" stroke="url(#hGold)" stroke-width="1.4"/>
+                        <!-- Glossy Dome Highlight -->
+                        <path d="M29 27C23 30 20 35 19.5 41" stroke="#a7f3d0" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+                        <!-- Left & Right Minarets -->
+                        <rect x="10" y="34" width="5" height="20" rx="2" fill="url(#hGold)"/>
+                        <rect x="49" y="34" width="5" height="20" rx="2" fill="url(#hGold)"/>
+                        <path d="M12.5 29L15 34H10L12.5 29Z" fill="#fff3c4"/>
+                        <path d="M51.5 29L54 34H49L51.5 29Z" fill="#fff3c4"/>
+                        <!-- Mosque Base & Mihrab Door -->
+                        <rect x="14" y="45" width="36" height="10" rx="2.5" fill="url(#hGold)"/>
+                        <path d="M27.5 55V49.5C27.5 47 29.5 45.5 32 45.5C34.5 45.5 36.5 47 36.5 49.5V55H27.5Z" fill="#02352a"/>
+                    </g>
+                </svg>
+            </div>
+
             <h1 class="page-title">તરીકએ વુઝૂ</h1>
-        </div>
-        
+
+            <div class="title-divider" aria-hidden="true">
+                <span class="title-divider-diamond"></span>
+            </div>
+        </header>
+
         <!-- Card 1: Niyyat -->
-        <div class="dua-card">
+        <section class="dua-card">
             <div class="dua-header-wrapper">
-                <div class="dua-icon"><i class="fa-solid fa-hand-holding-droplet"></i></div>
+                <div class="dua-icon-3d" aria-hidden="true">
+                    <!-- 3D Coded Water Droplet & Golden Cradle -->
+                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="c1Drop" cx="35%" cy="30%" r="70%">
+                                <stop offset="0%" stop-color="#a7f3d0"/>
+                                <stop offset="45%" stop-color="#0d9488"/>
+                                <stop offset="100%" stop-color="#023e32"/>
+                            </radialGradient>
+                            <linearGradient id="c1Gold" x1="10" y1="38" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fef08a"/>
+                                <stop offset="50%" stop-color="#d4af37"/>
+                                <stop offset="100%" stop-color="#855f0b"/>
+                            </linearGradient>
+                            <filter id="c1Sh" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="2.5" flood-color="#02352a" flood-opacity="0.32"/>
+                            </filter>
+                        </defs>
+                        <g filter="url(#c1Sh)">
+                            <!-- 3D Water Droplet -->
+                            <path d="M32 7C32 7 18 22.5 18 32C18 39.7 24.3 46 32 46C39.7 46 46 39.7 46 32C46 22.5 32 7 32 7Z" fill="url(#c1Drop)"/>
+                            <!-- Specular Gloss -->
+                            <ellipse cx="26.5" cy="28" rx="3.2" ry="6.5" transform="rotate(18 26.5 28)" fill="#ffffff" opacity="0.55"/>
+                            <!-- 3D Golden Cupped Base -->
+                            <path d="M10 43C15 51 23 55 32 55C41 55 49 51 54 43C48.5 46.5 40.5 48.5 32 48.5C23.5 48.5 15.5 46.5 10 43Z" fill="url(#c1Gold)"/>
+                        </g>
+                    </svg>
+                </div>
                 <h2 class="dua-header">વુઝૂકી નિય્યત</h2>
             </div>
             <div class="dua-content">
-                નવયતુ અન અ-તવદ્દઅ લિરફઇલ- હદષિ અઉઝૂ બિલ્લાહિ મિનશ્શૈતાનિર્રજીમ, બિસ્મિલ્લાહિ ર્રહમાનિર્રહીમ, બિસ્મિલ્લાહિલ્ અઝીમી વલ્હમ્દુ લિલ્લાહિ અલા દીનિલ ઈસ્લામ.
+                <div class="sacred-text-box">
+                    નવયતુ અન અ-તવદ્દઅ લિરફઇલ- હદષિ અઉઝૂ બિલ્લાહિ મિનશ્શૈતાનિર્રજીમ, બિસ્મિલ્લાહિ ર્રહમાનિર્રહીમ, બિસ્મિલ્લાહિલ્ અઝીમી વલ્હમ્દુ લિલ્લાહિ અલા દીનિલ ઈસ્લામ.
+                </div>
             </div>
-        </div>
+        </section>
 
         <!-- Card 2: Faraiz -->
-        <div class="dua-card">
+        <section class="dua-card">
             <div class="dua-header-wrapper">
-                <div class="dua-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                <div class="dua-icon-3d" aria-hidden="true">
+                    <!-- 3D Coded Emerald & Gold Faraiz Tablet -->
+                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="c2Board" x1="12" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#14967a"/>
+                                <stop offset="60%" stop-color="#045c4a"/>
+                                <stop offset="100%" stop-color="#023228"/>
+                            </linearGradient>
+                            <linearGradient id="c2Gold" x1="20" y1="6" x2="44" y2="18" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fef08a"/>
+                                <stop offset="55%" stop-color="#d4af37"/>
+                                <stop offset="100%" stop-color="#8c670d"/>
+                            </linearGradient>
+                            <filter id="c2Sh" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="2.5" flood-color="#02352a" flood-opacity="0.34"/>
+                            </filter>
+                        </defs>
+                        <g filter="url(#c2Sh)">
+                            <!-- 3D Board -->
+                            <rect x="12" y="12" width="40" height="46" rx="8" fill="url(#c2Board)" stroke="#d4af37" stroke-width="1.6"/>
+                            <!-- Top Gold Clip -->
+                            <rect x="22" y="7" width="20" height="9" rx="4.5" fill="url(#c2Gold)"/>
+                            <!-- 4 Raised Check Rows -->
+                            <circle cx="21" cy="25" r="2.6" fill="#f2d574"/>
+                            <rect x="27" y="23.2" width="18" height="3.6" rx="1.8" fill="#d1fae5"/>
+                            <circle cx="21" cy="34" r="2.6" fill="#f2d574"/>
+                            <rect x="27" y="32.2" width="18" height="3.6" rx="1.8" fill="#d1fae5"/>
+                            <circle cx="21" cy="43" r="2.6" fill="#f2d574"/>
+                            <rect x="27" y="41.2" width="18" height="3.6" rx="1.8" fill="#d1fae5"/>
+                            <circle cx="21" cy="51.5" r="2.6" fill="#f2d574"/>
+                            <rect x="27" y="49.7" width="13" height="3.6" rx="1.8" fill="#a7f3d0"/>
+                        </g>
+                    </svg>
+                </div>
                 <h2 class="dua-header">વુઝૂમેં ચાર ફર્ઝ હૈં</h2>
             </div>
             <div class="dua-content">
@@ -227,18 +597,57 @@
                     <li><strong>(૩)</strong> સરકે ચૌથે હિસ્સેકા મસહ કરના.</li>
                     <li><strong>(૪)</strong> દોનોં પૈરો કો ટખ્નોં તક ધોના.</li>
                 </ul>
-                
+
                 <div class="note-box">
-                    <i class="fa-solid fa-circle-info"></i>
-                    નોટ : ફર્ઝમેં એક બાલ બરાબર ભી જગહ સુખી રહેગી તો વુઝૂ નહીં હોગા.
+                    <!-- 3D Coded Golden Info Sphere -->
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <radialGradient id="noteOrb" cx="35%" cy="30%" r="70%">
+                                <stop offset="0%" stop-color="#fde68a"/>
+                                <stop offset="50%" stop-color="#f59e0b"/>
+                                <stop offset="100%" stop-color="#b45309"/>
+                            </radialGradient>
+                        </defs>
+                        <circle cx="20" cy="20" r="17" fill="url(#noteOrb)"/>
+                        <circle cx="20" cy="13" r="2.3" fill="#ffffff"/>
+                        <rect x="17.9" y="17.5" width="4.2" height="11.5" rx="2.1" fill="#ffffff"/>
+                    </svg>
+                    <span>નોટ : ફર્ઝમેં એક બાલ બરાબર ભી જગહ સુખી રહેગી તો વુઝૂ નહીં હોગા.</span>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Card 3: Sunnat -->
-        <div class="dua-card">
+        <section class="dua-card">
             <div class="dua-header-wrapper">
-                <div class="dua-icon"><i class="fa-solid fa-star-and-crescent"></i></div>
+                <div class="dua-icon-3d" aria-hidden="true">
+                    <!-- 3D Coded Golden Crescent & Star Medallion -->
+                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="c3Disc" cx="32%" cy="28%" r="75%">
+                                <stop offset="0%" stop-color="#129478"/>
+                                <stop offset="60%" stop-color="#045c4a"/>
+                                <stop offset="100%" stop-color="#022c23"/>
+                            </radialGradient>
+                            <linearGradient id="c3Gold" x1="14" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fff8d6"/>
+                                <stop offset="48%" stop-color="#e5be4b"/>
+                                <stop offset="100%" stop-color="#966e0d"/>
+                            </linearGradient>
+                            <filter id="c3Sh" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="2.5" flood-color="#02352a" flood-opacity="0.34"/>
+                            </filter>
+                        </defs>
+                        <g filter="url(#c3Sh)">
+                            <!-- 3D Emerald Medallion -->
+                            <circle cx="32" cy="32" r="25" fill="url(#c3Disc)" stroke="url(#c3Gold)" stroke-width="2.4"/>
+                            <!-- 3D Golden Crescent -->
+                            <path d="M37.5 16.5C31.5 17.5 27 22.8 27 29.2C27 36.2 32.6 41.8 39.6 41.8C41.8 41.8 43.9 41.2 45.7 40.1C43.2 44.6 38.4 47.6 32.9 47.6C24.7 47.6 18 41 18 32.7C18 24.5 24.5 17.8 32.7 17.8C34.4 17.8 36 17.3 37.5 16.5Z" fill="url(#c3Gold)"/>
+                            <!-- 3D Golden Star -->
+                            <path d="M41.5 21L43.4 25.3L48 25.8L44.5 28.9L45.5 33.5L41.5 31.1L37.5 33.5L38.5 28.9L35 25.8L39.6 25.3L41.5 21Z" fill="url(#c3Gold)"/>
+                        </g>
+                    </svg>
+                </div>
                 <h2 class="dua-header">વુઝૂકી સુન્નતેં</h2>
             </div>
             <div class="dua-content">
@@ -258,35 +667,141 @@
                     <li>(૧૩) સભી મકરૂહ ઔર ગલત તરીકો સે બચના.</li>
                 </ul>
             </div>
-        </div>
+        </section>
 
         <!-- Card 4: Tariqa -->
-        <div class="dua-card">
+        <section class="dua-card">
             <div class="dua-header-wrapper">
-                <div class="dua-icon"><i class="fa-solid fa-faucet-drip"></i></div>
+                <div class="dua-icon-3d" aria-hidden="true">
+                    <!-- 3D Coded Traditional Islamic Water Ewer (Lotah / Aftaba) & Water Stream -->
+                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="c4Pot" x1="16" y1="12" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fff4c2"/>
+                                <stop offset="45%" stop-color="#d4af37"/>
+                                <stop offset="100%" stop-color="#87610b"/>
+                            </linearGradient>
+                            <radialGradient id="c4Water" cx="35%" cy="30%" r="70%">
+                                <stop offset="0%" stop-color="#99f6e4"/>
+                                <stop offset="50%" stop-color="#0d9488"/>
+                                <stop offset="100%" stop-color="#045c4a"/>
+                            </radialGradient>
+                            <filter id="c4Sh" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="2.5" flood-color="#02352a" flood-opacity="0.32"/>
+                            </filter>
+                        </defs>
+                        <g filter="url(#c4Sh)">
+                            <!-- Handle -->
+                            <path d="M44 26C52 26 54 36 46 42" stroke="url(#c4Pot)" stroke-width="4.2" stroke-linecap="round"/>
+                            <!-- Spout -->
+                            <path d="M26 36C21 34 17 29 14 23" stroke="url(#c4Pot)" stroke-width="4.5" stroke-linecap="round"/>
+                            <!-- Lid & Neck -->
+                            <ellipse cx="36" cy="14" rx="5" ry="3" fill="#fff4c2"/>
+                            <rect x="31" y="16" width="10" height="8" rx="3" fill="url(#c4Pot)"/>
+                            <!-- 3D Rounded Vessel Body -->
+                            <path d="M24 38C24 29 29 23 36 23C43 23 48 29 48 38C48 46.5 42.5 52 36 52C29.5 52 24 46.5 24 38Z" fill="url(#c4Pot)"/>
+                            <!-- Specular Highlight on Pitcher -->
+                            <path d="M31 29C28.5 32 28 38 30 43" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" opacity="0.5"/>
+                            <!-- Base Foot -->
+                            <rect x="28" y="51" width="16" height="4.5" rx="2.2" fill="#87610b"/>
+                            <!-- 3D Pouring Water Droplets -->
+                            <path d="M12.5 29C12.5 29 8.5 34.5 8.5 37.5C8.5 39.7 10.3 41.5 12.5 41.5C14.7 41.5 16.5 39.7 16.5 37.5C16.5 34.5 12.5 29 12.5 29Z" fill="url(#c4Water)"/>
+                            <circle cx="12.5" cy="48" r="3" fill="url(#c4Water)"/>
+                        </g>
+                    </svg>
+                </div>
                 <h2 class="dua-header">વુઝૂ કા તરીકા</h2>
             </div>
             <div class="dua-content">
                 પહલે બિસ્મિલ્લાહિર્રહમાનિર્રહીમ પઢે ઔર ફિર દોનોં હાથોંકો ગટ્ટોં તક તીન બાર ધોએ. ફિર મિસ્વાક કરેં. ફિર દાહને (સીધે) હાથસે તીન બાર કુલ્લી કરેં, ફિર દાહને હાથસે તીન બાર નાકમેં પાની ચઢાએ ઔર બાએ (ઉલ્ટે) હાથસે નાક સાફ કરેં. ફિર પૂરા ચેહરા યાની પેશાની પર બાલ ઉગને કી જગહસે થોળી કે નીચે તક ઔર એક કાનકી લવ સે દૂસરે કાનકી લવ તક હર હિસ્સે પર તીન બાર પાની બહાએ. ફિર દોનોં હાથ કોહનિયોં સમેત તીન બાર ધોએ. ઉગલિયોંકી તરફસે કોહનિયોંકે ઉપર તક પાની ડાલેં, કોહનિયોંકી તરફસે ન ડાલેં. ફિર એક બાર દોનોં હાથોંસે પૂરે સરકા મસહ કરેં. ફિર કાનોં કા ઔર ગરદનકા મસહ કરેં. ફિર દોનોં પાંવ ટખ્નોં સમેત તીન બાર ધુએ.
             </div>
-        </div>
+        </section>
 
         <!-- Card 5: Dua -->
-        <div class="dua-card">
+        <section class="dua-card">
             <div class="dua-header-wrapper">
-                <div class="dua-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+                <div class="dua-icon-3d" aria-hidden="true">
+                    <!-- 3D Coded Open Islamic Book on Rehal -->
+                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="c5Cover" x1="8" y1="16" x2="56" y2="50" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#109075"/>
+                                <stop offset="60%" stop-color="#045c4a"/>
+                                <stop offset="100%" stop-color="#022e24"/>
+                            </linearGradient>
+                            <linearGradient id="c5Page" x1="12" y1="14" x2="52" y2="42" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#ffffff"/>
+                                <stop offset="100%" stop-color="#f3ead2"/>
+                            </linearGradient>
+                            <linearGradient id="c5Gold" x1="16" y1="40" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fef08a"/>
+                                <stop offset="50%" stop-color="#d4af37"/>
+                                <stop offset="100%" stop-color="#87610b"/>
+                            </linearGradient>
+                            <filter id="c5Sh" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="2.5" flood-color="#02352a" flood-opacity="0.32"/>
+                            </filter>
+                        </defs>
+                        <g filter="url(#c5Sh)">
+                            <!-- Rehal Wooden/Gold Stand -->
+                            <path d="M18 55L32 42L46 55H39L32 48L25 55H18Z" fill="url(#c5Gold)"/>
+                            <!-- Emerald Book Cover -->
+                            <path d="M8 22C16 19 25 20 32 25C39 20 48 19 56 22V44C48 41 39 42 32 47C25 42 16 41 8 44V22Z" fill="url(#c5Cover)"/>
+                            <!-- Open Illuminated Pages -->
+                            <path d="M11 19C18 16.5 26 17.5 32 22.5C38 17.5 46 16.5 53 19V40C46 37.5 38 38.5 32 43C26 38.5 18 37.5 11 40V19Z" fill="url(#c5Page)"/>
+                            <!-- Spine Crease -->
+                            <line x1="32" y1="22.5" x2="32" y2="43" stroke="#d4af37" stroke-width="1.8"/>
+                            <!-- Delicate Golden Lines on Pages -->
+                            <line x1="16" y1="25" x2="27" y2="26.5" stroke="#045c4a" stroke-width="1.8" stroke-linecap="round" opacity="0.65"/>
+                            <line x1="16" y1="31" x2="27" y2="32.5" stroke="#045c4a" stroke-width="1.8" stroke-linecap="round" opacity="0.65"/>
+                            <line x1="37" y1="26.5" x2="48" y2="25" stroke="#045c4a" stroke-width="1.8" stroke-linecap="round" opacity="0.65"/>
+                            <line x1="37" y1="32.5" x2="48" y2="31" stroke="#045c4a" stroke-width="1.8" stroke-linecap="round" opacity="0.65"/>
+                            <!-- Top Glow Star -->
+                            <circle cx="32" cy="11" r="3.2" fill="#f2d574"/>
+                        </g>
+                    </svg>
+                </div>
                 <h2 class="dua-header">વુઝૂકે બાદકી દુઆ</h2>
             </div>
-            <div class="dua-content" style="text-align: center; line-height: 2.2;">
-                અલ્લાહુમ્મજઅલ્ની મિનત્તવ્વાબીન વજઅલ્ની મિનલ મુતતહિહરીન<br>
-                અશ્હદુ અલ્લા ઈલાહ ઈલ્લલ્લાહુ વઅશ્હદુ અન્ન મુહંમદન અબ્દુહૂ વ રસૂલૂહ.
+            <div class="dua-content">
+                <div class="sacred-text-box centered">
+                    અલ્લાહુમ્મજઅલ્ની મિનત્તવ્વાબીન વજઅલ્ની મિનલ મુતતહિહરીન<br>
+                    અશ્હદુ અલ્લા ઈલાહ ઈલ્લલ્લાહુ વઅશ્હદુ અન્ન મુહંમદન અબ્દુહૂ વ રસૂલૂહ.
+                </div>
             </div>
-        </div>
+        </section>
 
         <!-- Card 6: Nullifiers -->
-        <div class="dua-card">
+        <section class="dua-card warning-card">
             <div class="dua-header-wrapper">
-                <div class="dua-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div class="dua-icon-3d" aria-hidden="true">
+                    <!-- 3D Coded Faceted Warning Shield -->
+                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="c6Shield" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fb923c"/>
+                                <stop offset="50%" stop-color="#dc2626"/>
+                                <stop offset="100%" stop-color="#7f1d1d"/>
+                            </linearGradient>
+                            <linearGradient id="c6Rim" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fef08a"/>
+                                <stop offset="100%" stop-color="#d97706"/>
+                            </linearGradient>
+                            <filter id="c6Sh" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="2.5" flood-color="#7f1d1d" flood-opacity="0.34"/>
+                            </filter>
+                        </defs>
+                        <g filter="url(#c6Sh)">
+                            <!-- 3D Beveled Shield -->
+                            <path d="M32 7L52 15V31C52 44.5 43.2 53.6 32 58C20.8 53.6 12 44.5 12 31V15L32 7Z" fill="url(#c6Shield)" stroke="url(#c6Rim)" stroke-width="2.4"/>
+                            <!-- Glossy Top Highlight -->
+                            <path d="M32 10.5L15.5 17.2V28C22 23 36 18 48.5 17.2L32 10.5Z" fill="#ffffff" opacity="0.22"/>
+                            <!-- Raised Exclamation Mark -->
+                            <rect x="29.3" y="20" width="5.4" height="17.5" rx="2.7" fill="#fffbeb"/>
+                            <circle cx="32" cy="44" r="3.2" fill="#fffbeb"/>
+                        </g>
+                    </svg>
+                </div>
                 <h2 class="dua-header">વુઝૂ તોડનેવાલી ચીઝેં</h2>
             </div>
             <div class="dua-content">
@@ -302,21 +817,21 @@
                     <li>(૯) દુઃખતી આંખમેં સે દર્દ સાથ પાની નિકલના.</li>
                 </ul>
             </div>
-        </div>
+        </section>
 
         <!-- Footer -->
-        <div style="text-align: center; margin-top: 40px; padding: 20px 0; border-top: 2px dashed var(--primary-light); color: var(--text-muted); font-size: 1.05rem; font-weight: 500;">
-            DEVELOPED BY - <span style="color: var(--primary); font-weight: 700; letter-spacing: 0.5px;">Pathan Mahirkhan</span>
-        </div>
+        <footer class="site-footer">
+            DEVELOPED BY - <span>PATHAN MAHIRKHAN</span>
+        </footer>
 
     </div>
 
-    <!-- Dropdown Menu Logic -->
+    <!-- Original Safe Script Preserved -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const toggleBtn = document.getElementById('menuToggleBtn');
             const menuContainer = document.getElementById('menuItemsContainer');
-            if(toggleBtn && menuContainer) {
+            if (toggleBtn && menuContainer) {
                 toggleBtn.addEventListener('click', () => {
                     menuContainer.classList.toggle('show');
                 });
