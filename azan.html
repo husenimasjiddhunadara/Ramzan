@@ -1,103 +1,23 @@
 <!DOCTYPE html>
-<html lang="gu">
+<html lang="gu" data-theme="emerald">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>અઝાન (Azan) — Islamic Graphic Poster</title>
-  <!-- Google Fonts: Amiri & Scheherazade New for authentic Arabic script, Noto Sans Gujarati for Gujarati, Cinzel for ornamental credit, Inter for UI -->
+
+  <!-- Google Fonts:
+       - Arabic Calligraphy: Scheherazade New (400, 700) & Amiri (400, 700)
+       - Gujarati Calligraphic Heading: Shrikhand (400)
+       - Gujarati Transliteration & Numerals: Rasa (600)
+       - Gujarati Translations: Noto Serif Gujarati (400, 500)
+       - Developer Credit & UI: Cinzel (600, 700) & Inter (400, 500, 600) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&family=Noto+Serif+Gujarati:wght@400;500&family=Rasa:wght@600&family=Scheherazade+New:wght@400;700&family=Shrikhand&display=swap" rel="stylesheet" />
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS & LUXURY THEME PALETTES
-       ========================================================================== */
-    :root {
-      /* Dynamic typography & layout controls */
-      --arabic-size: 23px;
-      --arabic-font: 'Scheherazade New', 'Amiri', serif;
-      --gujarati-font: 'Noto Sans Gujarati', sans-serif;
-      --credit-font: 'Cinzel', 'Inter', serif;
-      --ui-font: 'Inter', system-ui, -apple-system, sans-serif;
-
-      /* Default Theme: Royal Emerald & Gold */
-      --bg-page: #063b2c;
-      --bg-card: rgba(255, 255, 255, 0.04);
-      --bg-card-border: rgba(212, 175, 55, 0.28);
-      --bg-arch: rgba(4, 38, 28, 0.72);
-      --accent: #d4af37;
-      --accent-bright: #f2d57e;
-      --accent-muted: rgba(212, 175, 55, 0.45);
-      --watermark-color: #d4af37;
-      --watermark-opacity: 0.055;
-      --text-arabic: #fffdf5;
-      --text-pronunciation: #f5e6be;
-      --text-translation: #dce8e2;
-      --text-title-gu: #f8e7b5;
-      --text-badge: #063b2c;
-      --shadow-poster: 0 28px 70px rgba(0, 0, 0, 0.55);
-    }
-
-    /* Theme 2: Ivory & Antique Gold */
-    [data-theme="ivory"] {
-      --bg-page: #fdfaf2;
-      --bg-card: rgba(184, 134, 11, 0.045);
-      --bg-card-border: rgba(184, 134, 11, 0.30);
-      --bg-arch: rgba(6, 59, 44, 0.05);
-      --accent: #b8860b;
-      --accent-bright: #063b2c;
-      --accent-muted: rgba(184, 134, 11, 0.45);
-      --watermark-color: #b8860b;
-      --watermark-opacity: 0.065;
-      --text-arabic: #063b2c;
-      --text-pronunciation: #1a2e26;
-      --text-translation: #3b4742;
-      --text-title-gu: #063b2c;
-      --text-badge: #fdfaf2;
-      --shadow-poster: 0 24px 60px rgba(30, 24, 10, 0.18);
-    }
-
-    /* Theme 3: Midnight Navy & Gold */
-    [data-theme="navy"] {
-      --bg-page: #0b192c;
-      --bg-card: rgba(229, 193, 88, 0.045);
-      --bg-card-border: rgba(229, 193, 88, 0.28);
-      --bg-arch: rgba(7, 17, 32, 0.72);
-      --accent: #e5c158;
-      --accent-bright: #f9e39e;
-      --accent-muted: rgba(229, 193, 88, 0.42);
-      --watermark-color: #e5c158;
-      --watermark-opacity: 0.05;
-      --text-arabic: #fdfaf0;
-      --text-pronunciation: #f4e2b0;
-      --text-translation: #cbd7e6;
-      --text-title-gu: #f7e4ab;
-      --text-badge: #0b192c;
-      --shadow-poster: 0 28px 70px rgba(0, 0, 0, 0.6);
-    }
-
-    /* Theme 4: Classic White Print (Ink-Saving) */
-    [data-theme="white"] {
-      --bg-page: #ffffff;
-      --bg-card: #ffffff;
-      --bg-card-border: rgba(184, 134, 11, 0.35);
-      --bg-arch: rgba(6, 78, 59, 0.035);
-      --accent: #b8860b;
-      --accent-bright: #064e3b;
-      --accent-muted: rgba(6, 78, 59, 0.32);
-      --watermark-color: #064e3b;
-      --watermark-opacity: 0.035;
-      --text-arabic: #064e3b;
-      --text-pronunciation: #111827;
-      --text-translation: #374151;
-      --text-title-gu: #064e3b;
-      --text-badge: #ffffff;
-      --shadow-poster: 0 20px 55px rgba(0, 0, 0, 0.14);
-    }
-
-    /* ==========================================================================
-       2. GLOBAL RESET & WORKSPACE STAGE
+       1. GLOBAL RESET & BOX-SIZING
        ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -105,777 +25,1192 @@
       padding: 0;
     }
 
+    /* ==========================================================================
+       2. DESIGN TOKENS & 4 LUXURY ISLAMIC THEMES
+       ========================================================================== */
+    :root {
+      --arabic-size: 26px;
+      --arabic-font: 'Scheherazade New', 'Amiri', 'Traditional Arabic', serif;
+      --gu-heading-font: 'Shrikhand', 'Rasa', 'Noto Serif Gujarati', serif;
+      --gu-translit-font: 'Rasa', 'Noto Serif Gujarati', serif;
+      --gu-meaning-font: 'Noto Serif Gujarati', 'Rasa', serif;
+      --credit-font: 'Cinzel', Georgia, serif;
+      --ui-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+      /* Theme 1 (Default): Royal Emerald & Gold */
+      --stage-bg: radial-gradient(circle at top, #0c3327 0%, #03140f 100%);
+      --poster-bg: linear-gradient(165deg, #063b2c 0%, #052f23 52%, #04241b 100%);
+      --accent: #d4af37;
+      --accent-bright: #f2d574;
+      --accent-soft: rgba(212, 175, 55, 0.42);
+      --accent-faint: rgba(212, 175, 55, 0.16);
+      --watermark-color: #f2d574;
+      --watermark-opacity: 0.05;
+      --arch-fill: rgba(3, 28, 21, 0.65);
+      --verse-bg: rgba(255, 255, 255, 0.035);
+      --verse-border: rgba(212, 175, 55, 0.24);
+      --fajr-bg: linear-gradient(180deg, rgba(212, 175, 55, 0.14) 0%, rgba(212, 175, 55, 0.06) 100%);
+      --fajr-border: rgba(212, 175, 55, 0.65);
+      --fajr-pill-bg: #d4af37;
+      --fajr-pill-text: #04241b;
+      --text-arabic: #fdfbf2;
+      --text-translit: #f4e2ac;
+      --text-meaning: #e4ede8;
+      --text-title-gu: #fdfbf2;
+      --title-shadow: 0 3px 14px rgba(0, 0, 0, 0.42), 0 0 18px rgba(212, 175, 55, 0.24);
+      --badge-text: #04241b;
+      --credit-bg: linear-gradient(90deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.22) 50%, rgba(212, 175, 55, 0.08) 100%);
+      --credit-text: #f2d574;
+      --poster-shadow: 0 26px 68px rgba(0, 0, 0, 0.52);
+    }
+
+    /* Theme 2: Ivory & Antique Gold */
+    [data-theme="ivory"] {
+      --stage-bg: radial-gradient(circle at top, #312920 0%, #19140f 100%);
+      --poster-bg: linear-gradient(165deg, #fdf9ee 0%, #fbf6e8 55%, #f5ecd6 100%);
+      --accent: #b8860b;
+      --accent-bright: #8c6405;
+      --accent-soft: rgba(184, 134, 11, 0.42);
+      --accent-faint: rgba(184, 134, 11, 0.14);
+      --watermark-color: #b8860b;
+      --watermark-opacity: 0.065;
+      --arch-fill: rgba(184, 134, 11, 0.08);
+      --verse-bg: rgba(184, 134, 11, 0.045);
+      --verse-border: rgba(184, 134, 11, 0.26);
+      --fajr-bg: linear-gradient(180deg, rgba(184, 134, 11, 0.14) 0%, rgba(184, 134, 11, 0.06) 100%);
+      --fajr-border: rgba(184, 134, 11, 0.65);
+      --fajr-pill-bg: #b8860b;
+      --fajr-pill-text: #fbf6e8;
+      --text-arabic: #2c241b;
+      --text-translit: #3c2e1e;
+      --text-meaning: #4e4031;
+      --text-title-gu: #2c241b;
+      --title-shadow: 0 2px 10px rgba(184, 134, 11, 0.22);
+      --badge-text: #fbf6e8;
+      --credit-bg: linear-gradient(90deg, rgba(184, 134, 11, 0.06) 0%, rgba(184, 134, 11, 0.16) 50%, rgba(184, 134, 11, 0.06) 100%);
+      --credit-text: #745204;
+      --poster-shadow: 0 22px 58px rgba(0, 0, 0, 0.34);
+    }
+
+    /* Theme 3: Midnight Navy & Gold */
+    [data-theme="navy"] {
+      --stage-bg: radial-gradient(circle at top, #132240 0%, #050a16 100%);
+      --poster-bg: linear-gradient(165deg, #0b162c 0%, #091224 55%, #060d1c 100%);
+      --accent: #e0b84c;
+      --accent-bright: #fae094;
+      --accent-soft: rgba(224, 184, 76, 0.44);
+      --accent-faint: rgba(224, 184, 76, 0.16);
+      --watermark-color: #e0b84c;
+      --watermark-opacity: 0.055;
+      --arch-fill: rgba(6, 13, 28, 0.72);
+      --verse-bg: rgba(224, 184, 76, 0.045);
+      --verse-border: rgba(224, 184, 76, 0.25);
+      --fajr-bg: linear-gradient(180deg, rgba(224, 184, 76, 0.16) 0%, rgba(224, 184, 76, 0.06) 100%);
+      --fajr-border: rgba(224, 184, 76, 0.68);
+      --fajr-pill-bg: #e0b84c;
+      --fajr-pill-text: #060d1c;
+      --text-arabic: #f8f5ec;
+      --text-translit: #f5df9c;
+      --text-meaning: #dce4f0;
+      --text-title-gu: #f8f5ec;
+      --title-shadow: 0 3px 14px rgba(0, 0, 0, 0.5), 0 0 18px rgba(224, 184, 76, 0.24);
+      --badge-text: #060d1c;
+      --credit-bg: linear-gradient(90deg, rgba(224, 184, 76, 0.08) 0%, rgba(224, 184, 76, 0.22) 50%, rgba(224, 184, 76, 0.08) 100%);
+      --credit-text: #fae094;
+      --poster-shadow: 0 26px 68px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Theme 4: Classic White */
+    [data-theme="white"] {
+      --stage-bg: radial-gradient(circle at top, #282c2a 0%, #141716 100%);
+      --poster-bg: #ffffff;
+      --accent: #a67c00;
+      --accent-bright: #805f00;
+      --accent-soft: rgba(166, 124, 0, 0.36);
+      --accent-faint: rgba(166, 124, 0, 0.12);
+      --watermark-color: #a67c00;
+      --watermark-opacity: 0.045;
+      --arch-fill: rgba(166, 124, 0, 0.055);
+      --verse-bg: #fdfcf8;
+      --verse-border: rgba(166, 124, 0, 0.26);
+      --fajr-bg: linear-gradient(180deg, rgba(166, 124, 0, 0.10) 0%, rgba(166, 124, 0, 0.04) 100%);
+      --fajr-border: rgba(166, 124, 0, 0.62);
+      --fajr-pill-bg: #a67c00;
+      --fajr-pill-text: #ffffff;
+      --text-arabic: #1a1a1a;
+      --text-translit: #1f2937;
+      --text-meaning: #374151;
+      --text-title-gu: #1a1a1a;
+      --title-shadow: 0 2px 8px rgba(166, 124, 0, 0.16);
+      --badge-text: #ffffff;
+      --credit-bg: linear-gradient(90deg, rgba(166, 124, 0, 0.05) 0%, rgba(166, 124, 0, 0.14) 50%, rgba(166, 124, 0, 0.05) 100%);
+      --credit-text: #6e5200;
+      --poster-shadow: 0 22px 58px rgba(0, 0, 0, 0.28);
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --arabic-size: 22px;
+      }
+    }
+
+    /* ==========================================================================
+       3. BASE PAGE LAYOUT
+       ========================================================================== */
     html {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     body {
       font-family: var(--ui-font);
-      background: radial-gradient(circle at top, #1b242c 0%, #0e1318 100%);
+      background: var(--stage-bg);
       min-height: 100vh;
       color: #f3f4f6;
+      padding: 14px 12px 48px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 16px 12px 48px;
-      overflow-x: hidden;
+      transition: background 0.3s ease;
     }
 
     /* ==========================================================================
-       3. FLOATING DESIGNER CONTROL BAR (HIDDEN ON PRINT)
+       4. STRICT BIDI & GUJARATI / ARABIC TYPOGRAPHY FOUNDATION
+       ========================================================================== */
+    [lang="ar"] {
+      direction: rtl;
+      unicode-bidi: isolate;
+      line-height: 2.0;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    [lang="gu"] {
+      direction: ltr;
+      unicode-bidi: isolate;
+      letter-spacing: 0 !important;
+      word-spacing: 0.12em;
+      line-height: 1.75;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-kerning: normal;
+      font-feature-settings: "kern" 1, "liga" 1;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    /* ==========================================================================
+       5. CLEAN RESPONSIVE TOP CONTROL TOOLBAR
        ========================================================================== */
     .control-bar {
       position: sticky;
-      top: 12px;
+      top: 10px;
       z-index: 100;
       width: 100%;
-      max-width: 920px;
-      background: rgba(17, 24, 31, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(212, 175, 55, 0.32);
-      border-radius: 16px;
-      padding: 12px 16px;
-      margin-bottom: 24px;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
+      max-width: 794px;
+      margin: 0 auto 20px;
+      background: rgba(12, 18, 22, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.36);
+      border-radius: 14px;
+      padding: 10px 14px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.42);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .control-group {
+    .toolbar-group {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .control-label {
+    .toolbar-label {
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #d4af37;
+      color: #f2d574;
       margin-right: 2px;
     }
 
-    /* Theme Swatch Buttons */
-    .theme-switcher {
+    .theme-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
 
-    .theme-btn {
+    .theme-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 6px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
       background: rgba(255, 255, 255, 0.06);
       color: #e5e7eb;
+      font-family: var(--ui-font);
       font-size: 12px;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
-    .theme-btn:hover {
+    .theme-pill:hover {
       background: rgba(255, 255, 255, 0.14);
-      border-color: rgba(212, 175, 55, 0.55);
+      border-color: rgba(242, 213, 116, 0.55);
     }
 
-    .theme-btn.active {
-      background: rgba(212, 175, 55, 0.18);
-      border-color: #d4af37;
-      color: #fef3c7;
-      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.45);
+    .theme-pill.active {
+      background: rgba(212, 175, 55, 0.22);
+      border-color: #f2d574;
+      color: #fffbeb;
+      box-shadow: 0 0 0 1px rgba(242, 213, 116, 0.38);
     }
 
     .swatch {
-      width: 12px;
-      height: 12px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
       border: 1.5px solid #d4af37;
       flex-shrink: 0;
     }
 
-    /* Font Slider & Script Toggle */
-    .slider-wrap {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.06);
-      padding: 5px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .slider-wrap input[type="range"] {
-      width: 88px;
-      accent-color: #d4af37;
-      cursor: pointer;
-    }
-
-    .size-badge {
-      font-size: 11px;
-      font-weight: 600;
-      color: #fef3c7;
-      min-width: 34px;
-      text-align: right;
-    }
-
-    .script-select {
-      background: rgba(255, 255, 255, 0.07);
-      color: #f3f4f6;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 10px;
-      padding: 6px 8px;
-      font-size: 12px;
+    .font-select {
       font-family: var(--ui-font);
+      background: rgba(255, 255, 255, 0.08);
+      color: #f9fafb;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 500;
       cursor: pointer;
       outline: none;
     }
 
-    .script-select option {
+    .font-select option {
       background: #111827;
-      color: #f3f4f6;
+      color: #f9fafb;
+    }
+
+    .slider-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .slider-box input[type="range"] {
+      width: 86px;
+      accent-color: #d4af37;
+      cursor: pointer;
+    }
+
+    .size-readout {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #f2d574;
+      min-width: 34px;
+      text-align: right;
     }
 
     /* ==========================================================================
-       4. A4 POSTER CANVAS (210mm x 297mm)
+       6. POSTER CARD — NATURAL FLUID HEIGHT, ZERO OVERFLOW CLIPPING
        ========================================================================== */
     .poster-stage {
       width: 100%;
-      display: flex;
-      justify-content: center;
     }
 
-    .poster-sheet {
+    .poster-card {
       position: relative;
-      width: 210mm;
-      min-height: 297mm;
-      max-width: 100%;
-      background-color: var(--bg-page);
-      box-shadow: var(--shadow-poster);
-      border-radius: 4px;
-      overflow: hidden;
-      padding: 10mm 11mm;
-      display: flex;
-      flex-direction: column;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      width: 100%;
+      max-width: 794px;
+      height: auto;
+      margin: 0 auto;
+      background: var(--poster-bg);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: var(--poster-shadow);
+      transition: background 0.3s ease;
     }
 
-    /* Seamless Islamic Geometric Watermark Layer */
-    .watermark-layer {
+    /* Dedicated Background Layer (Contains Girih Pattern & Glow Safely) */
+    .poster-bg-layer {
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .girih-watermark {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
-      z-index: 0;
       color: var(--watermark-color);
       opacity: var(--watermark-opacity);
     }
 
-    /* Subtle Radial Vignette Glow for Depth */
-    .ambient-glow {
+    .poster-glow {
       position: absolute;
       inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background: radial-gradient(ellipse at 50% 16%, rgba(212, 175, 55, 0.11) 0%, transparent 62%);
+      background: radial-gradient(ellipse at 50% 10%, rgba(212, 175, 55, 0.14) 0%, transparent 58%);
     }
 
-    /* Double Ornamental Border Frame */
-    .outer-frame {
+    /* Double-Bordered Ornate Islamic Frame */
+    .frame-outer {
       position: relative;
-      z-index: 2;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      border: 2.2px solid var(--accent);
-      border-radius: 6px;
-      padding: 4.5px;
+      z-index: 1;
+      border: 2.5px solid var(--accent);
+      border-radius: 8px;
+      padding: 6px;
     }
 
-    .inner-frame {
+    .frame-inner {
       position: relative;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--accent-muted);
-      border-radius: 4px;
-      padding: 10px 18px 12px;
-      justify-content: space-between;
+      border: 1px solid var(--accent-soft);
+      border-radius: 5px;
     }
 
-    /* Ornamental Corner Flourishes */
+    /* 4 Corner Arabesque SVG Flourishes — Strictly in Outer Corners */
     .corner-ornament {
       position: absolute;
-      width: 44px;
-      height: 44px;
+      width: 68px;
+      height: 68px;
       color: var(--accent);
       pointer-events: none;
-      z-index: 4;
+      z-index: 1;
     }
 
-    .corner-tl { top: 2px; left: 2px; }
-    .corner-tr { top: 2px; right: 2px; transform: scaleX(-1); }
-    .corner-bl { bottom: 2px; left: 2px; transform: scaleY(-1); }
-    .corner-br { bottom: 2px; right: 2px; transform: scale(-1, -1); }
+    .corner-tl { top: 4px; left: 4px; }
+    .corner-tr { top: 4px; right: 4px; transform: scaleX(-1); }
+    .corner-bl { bottom: 4px; left: 4px; transform: scaleY(-1); }
+    .corner-br { bottom: 4px; right: 4px; transform: scale(-1, -1); }
+
+    /* Inner Content Wrapper — Always Above Ornaments with Generous Padding */
+    .poster-content {
+      position: relative;
+      z-index: 2;
+      padding: 44px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 20px;
+    }
 
     /* ==========================================================================
-       7. PERMANENT ORNAMENTAL ISLAMIC CREDIT FOOTER BADGE
+       7. MIHRAB ARCH HEADER SECTION (NORMAL FLOW, ZERO OVERLAP)
        ========================================================================== */
-    .poster-footer {
+    .poster-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .mihrab-card {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      padding: 36px 28px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .mihrab-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      color: var(--accent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .mihrab-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .crescent-star-icon {
+      width: 30px;
+      height: 30px;
+      color: var(--accent-bright);
+      display: block;
+    }
+
+    .header-arabic {
+      font-family: 'Amiri', 'Scheherazade New', serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--accent);
+    }
+
+    .header-gujarati {
+      font-family: var(--gu-heading-font);
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--text-title-gu);
+      text-shadow: var(--title-shadow);
+    }
+
+    /* Golden Ornamental Divider Below Header */
+    .header-divider {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
-      margin-top: 8px;
-      padding-top: 6px;
-      position: relative;
-      z-index: 3;
-    }
-
-    .footer-flourish {
-      flex: 1;
-      max-width: 115px;
-      height: 14px;
+      margin-top: 16px;
       color: var(--accent);
-      opacity: 0.82;
     }
 
-    .credit-ribbon {
+    .divider-line {
+      flex: 1;
+      height: 1.5px;
+    }
+
+    .divider-line.left {
+      background: linear-gradient(90deg, transparent 0%, var(--accent-soft) 50%, var(--accent) 100%);
+    }
+
+    .divider-line.right {
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-soft) 50%, transparent 100%);
+    }
+
+    /* ==========================================================================
+       8. VERSES CONTAINER & VERTICAL FLEXBOX VERSE BLOCKS
+       ========================================================================== */
+    .verses-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .verse-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+      width: 100%;
+      background: var(--verse-bg);
+      border: 1px solid var(--verse-border);
+      border-radius: 12px;
+      padding: 14px 20px 18px;
+    }
+
+    /* Centered 8-Pointed Rub el Hizb Star Badge Inside Horizontal Golden Line */
+    .verse-badge-bar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .badge-line {
+      flex: 1;
+      max-width: 140px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-soft));
+    }
+
+    .badge-line.right {
+      background: linear-gradient(90deg, var(--accent-soft), transparent);
+    }
+
+    .rub-el-hizb-badge {
+      position: relative;
+      width: 34px;
+      height: 34px;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 5px 18px;
-      border-radius: 999px;
-      background: var(--bg-arch);
-      border: 1px solid var(--accent-muted);
-      box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.14);
-      position: relative;
-    }
-
-    .credit-star {
-      width: 11px;
-      height: 11px;
+      justify-content: center;
       color: var(--accent);
       flex-shrink: 0;
     }
 
-    .credit-text {
-      font-family: var(--credit-font);
-      font-size: 11px;
+    .rub-el-hizb-badge svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .rub-el-hizb-num {
+      position: relative;
+      z-index: 1;
+      font-family: var(--gu-translit-font);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--badge-text);
+      line-height: 1;
+    }
+
+    /* Verse Typography */
+    .arabic-text {
+      font-family: var(--arabic-font);
+      font-size: var(--arabic-size);
       font-weight: 700;
-      letter-spacing: 0.13em;
-      color: var(--accent-bright);
-      white-space: nowrap;
-      line-height: 1.2;
+      line-height: 2.0;
+      color: var(--text-arabic);
+      width: 100%;
+      word-spacing: 0.08em;
+    }
+
+    .gu-translit {
+      font-family: var(--gu-translit-font);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-translit);
+      width: 100%;
+    }
+
+    .gu-meaning {
+      font-family: var(--gu-meaning-font);
+      font-size: 14.5px;
+      font-weight: 400;
+      color: var(--text-meaning);
+      width: 100%;
     }
 
     /* ==========================================================================
-       8. RESPONSIVE MOBILE ADAPTATION (NO HORIZONTAL SCROLL)
+       9. HIGHLIGHTED FAJR-ONLY NOTE CARD (NORMAL FLOW, ZERO BORDER OVERLAP)
        ========================================================================== */
-    @media (max-width: 820px) {
+    .fajr-note-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--fajr-bg);
+      border: 1.5px solid var(--fajr-border);
+      border-radius: 14px;
+      padding: 16px 20px 20px;
+      box-shadow: inset 0 0 0 1px var(--accent-faint);
+    }
+
+    .fajr-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: var(--fajr-pill-bg);
+      color: var(--fajr-pill-text);
+      font-family: var(--gu-translit-font);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .fajr-pill-icon {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    /* ==========================================================================
+       10. ORNAMENTAL DEVELOPER CREDIT FOOTER
+       ========================================================================== */
+    .credit-footer {
+      width: 100%;
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--accent);
+    }
+
+    .credit-flourish {
+      width: 52px;
+      height: 18px;
+      color: var(--accent);
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .credit-flourish.flipped {
+      transform: scaleX(-1);
+    }
+
+    .credit-cartouche {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 9px 22px;
+      border-radius: 999px;
+      background: var(--credit-bg);
+      border: 1.5px solid var(--accent);
+      box-shadow: inset 0 0 0 2px var(--accent-faint);
+      max-width: 100%;
+    }
+
+    .credit-star {
+      width: 14px;
+      height: 14px;
+      color: var(--accent);
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .credit-text {
+      font-family: var(--credit-font);
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--credit-text);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       11. RESPONSIVE MOBILE RULES (320px – 640px)
+       ========================================================================== */
+    @media (max-width: 640px) {
       body {
-        padding: 10px 8px 32px;
+        padding: 10px 8px 36px;
       }
 
       .control-bar {
         position: relative;
         top: 0;
         padding: 10px 12px;
-        gap: 10px;
+        margin-bottom: 14px;
       }
 
-      .poster-sheet {
-        width: 100%;
-        min-height: auto;
-        padding: 12px;
+      .poster-card {
+        padding: 10px;
       }
 
-      .inner-frame {
-        padding: 10px 10px 12px;
-      }
-
-      .verse-card {
-        grid-template-columns: 30px 1fr;
-        padding: 8px 10px;
-        gap: 8px;
-      }
-
-      .verse-badge {
-        width: 28px;
-        height: 28px;
-      }
-
-      .verse-accent-end {
-        display: none;
+      .frame-outer {
+        padding: 4px;
       }
 
       .corner-ornament {
-        width: 32px;
-        height: 32px;
+        width: 48px;
+        height: 48px;
       }
 
-      .poster-footer {
-        gap: 6px;
+      .poster-content {
+        padding: 28px 18px;
+        gap: 16px;
       }
 
-      .footer-flourish {
-        max-width: 44px;
+      .mihrab-card {
+        padding: 28px 18px 18px;
       }
 
-      .credit-ribbon {
-        padding: 4px 12px;
-        gap: 6px;
+      .header-arabic {
+        font-size: 25px;
+      }
+
+      .header-gujarati {
+        font-size: 36px;
+      }
+
+      .verse-block {
+        padding: 12px 14px 16px;
+      }
+
+      .gu-translit {
+        font-size: 16.5px;
+      }
+
+      .gu-meaning {
+        font-size: 13.8px;
+      }
+
+      .fajr-note-card {
+        padding: 14px 14px 18px;
+      }
+
+      .fajr-pill-badge {
+        font-size: 13.5px;
+        padding: 6px 12px;
+      }
+
+      .credit-flourish {
+        display: none;
+      }
+
+      .credit-cartouche {
+        padding: 8px 14px;
+        gap: 7px;
       }
 
       .credit-text {
-        font-size: 9.5px;
-        letter-spacing: 0.08em;
+        font-size: 10.5px;
+        letter-spacing: 0.07em;
       }
     }
 
     /* ==========================================================================
-       9. EXACT A4 PORTRAIT PRINT STYLING
+       12. CLEAN PRINT STYLES (HIDES TOOLBAR, PRESERVES COLORS & LAYOUT)
        ========================================================================== */
-/* ... existing code ... -->
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body {
+        background: none !important;
+        padding: 0 !important;
+      }
+
+      .control-bar {
+        display: none !important;
+      }
+
+      .poster-card {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        max-width: 100% !important;
+        padding: 10px !important;
+      }
+
+      .poster-content {
+        padding: 26px 30px !important;
+        gap: 12px !important;
+      }
+
+      .verses-container {
+        gap: 10px !important;
+      }
+
+      .verse-block,
+      .fajr-note-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
   <!-- ========================================================================
-       MINIMAL FLOATING DESIGNER CONTROL BAR
+       TOP CONTROL TOOLBAR (4 LUXURY THEMES, ARABIC FONT, ARABIC SIZE SLIDER)
        ======================================================================== -->
-  <aside class="control-bar" aria-label="Poster Designer Controls">
-    <!-- 1. Luxury Theme Switcher -->
-    <div class="control-group">
-      <span class="control-label">Theme</span>
-      <div class="theme-switcher" role="group" aria-label="Color Theme">
-        <button type="button" class="theme-btn active" data-theme-target="emerald" title="Royal Emerald & Gold">
-          <span class="swatch" style="background:#063b2c;"></span>Royal Emerald &amp; Gold
+  <aside class="control-bar" aria-label="Poster Appearance Controls">
+    <div class="toolbar-group">
+      <span class="toolbar-label">Theme</span>
+      <div class="theme-pills" role="group" aria-label="Color Theme Selector">
+        <button type="button" class="theme-pill active" data-theme-value="emerald">
+          <span class="swatch" style="background:#063b2c; border-color:#d4af37;"></span>Royal Emerald &amp; Gold
         </button>
-        <button type="button" class="theme-btn" data-theme-target="ivory" title="Ivory & Antique Gold">
-          <span class="swatch" style="background:#fdfaf2; border-color:#b8860b;"></span>Ivory &amp; Antique Gold
+        <button type="button" class="theme-pill" data-theme-value="ivory">
+          <span class="swatch" style="background:#fbf6e8; border-color:#b8860b;"></span>Ivory &amp; Antique Gold
         </button>
-        <button type="button" class="theme-btn" data-theme-target="navy" title="Midnight Navy & Gold">
-          <span class="swatch" style="background:#0b192c; border-color:#e5c158;"></span>Midnight Navy &amp; Gold
+        <button type="button" class="theme-pill" data-theme-value="navy">
+          <span class="swatch" style="background:#0b162c; border-color:#e0b84c;"></span>Midnight Navy &amp; Gold
         </button>
-        <button type="button" class="theme-btn" data-theme-target="white" title="Classic White">
-          <span class="swatch" style="background:#ffffff; border-color:#064e3b;"></span>Classic White
+        <button type="button" class="theme-pill" data-theme-value="white">
+          <span class="swatch" style="background:#ffffff; border-color:#a67c00;"></span>Classic White
         </button>
       </div>
     </div>
 
-    <!-- 2. Arabic Font Size & Script Selector -->
-    <div class="control-group">
-      <span class="control-label">Arabic</span>
-      <select id="arabicFontSelect" class="script-select" aria-label="Arabic Font Family">
-        <option value="'Scheherazade New', 'Amiri', serif" selected>Scheherazade New</option>
-        <option value="'Amiri', 'Scheherazade New', serif">Amiri</option>
+    <div class="toolbar-group">
+      <span class="toolbar-label">Arabic</span>
+      <select id="arabicFontSelect" class="font-select" aria-label="Arabic Calligraphy Font">
+        <option value="'Scheherazade New', 'Amiri', 'Traditional Arabic', serif" selected>Scheherazade New</option>
+        <option value="'Amiri', 'Scheherazade New', 'Traditional Arabic', serif">Amiri</option>
       </select>
-      <div class="slider-wrap">
-        <input type="range" id="arabicSizeSlider" min="18" max="30" step="1" value="23" aria-label="Arabic Font Size" />
-        <span class="size-badge" id="arabicSizeValue">23px</span>
+
+      <div class="slider-box">
+        <input type="range" id="arabicSizeSlider" min="18" max="34" step="1" value="26" aria-label="Arabic Font Size" />
+        <span class="size-readout" id="arabicSizeReadout">26px</span>
       </div>
     </div>
   </aside>
 
   <!-- ========================================================================
-       A4 MUSEUM-GRADE ISLAMIC POSTER SHEET
+       ISLAMIC GRAPHIC DESIGN POSTER CARD (100% STATIC HTML RENDERING)
        ======================================================================== -->
   <main class="poster-stage">
-    <article class="poster-sheet" id="posterSheet" data-theme="emerald">
+    <article class="poster-card" id="posterCard">
 
-      <!-- Seamless Islamic Geometric Watermark SVG Pattern -->
-      <svg class="watermark-layer" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <pattern id="islamicGirih" width="72" height="72" patternUnits="userSpaceOnUse">
-            <!-- 8-pointed Rub el Hizb star tessellation -->
-            <g fill="none" stroke="currentColor" stroke-width="0.85">
-              <rect x="20" y="20" width="32" height="32" />
-              <rect x="20" y="20" width="32" height="32" transform="rotate(45 36 36)" />
-              <circle cx="36" cy="36" r="7" />
-              <path d="M36 0 L36 13.5 M36 58.5 L36 72 M0 36 L13.5 36 M58.5 36 L72 36" />
-              <path d="M0 0 L15 15 M72 0 L57 15 M0 72 L15 57 M72 72 L57 57" />
-            </g>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#islamicGirih)" />
-      </svg>
+      <!-- Subtle Geometric Girih Watermark & Radial Glow -->
+      <div class="poster-bg-layer" aria-hidden="true">
+        <svg class="girih-watermark" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="girihPattern" width="80" height="80" patternUnits="userSpaceOnUse">
+              <g fill="none" stroke="currentColor" stroke-width="0.9">
+                <rect x="24" y="24" width="32" height="32" />
+                <rect x="24" y="24" width="32" height="32" transform="rotate(45 40 40)" />
+                <circle cx="40" cy="40" r="7" />
+                <path d="M40 0 L40 16 M40 64 L40 80 M0 40 L16 40 M64 40 L80 40" />
+                <path d="M0 0 L17 17 M80 0 L63 17 M0 80 L17 63 M80 80 L63 63" />
+              </g>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#girihPattern)" />
+        </svg>
+        <div class="poster-glow"></div>
+      </div>
 
-      <!-- Soft Ambient Gold Glow -->
-      <div class="ambient-glow" aria-hidden="true"></div>
+      <!-- Double-Bordered Ornate Islamic Frame -->
+      <div class="frame-outer">
+        <div class="frame-inner">
 
-      <!-- Double Ornamental Islamic Frame -->
-      <div class="outer-frame">
-        <div class="inner-frame">
-
-          <!-- 4 Ornamental Corner Arabesque Flourishes -->
-          <svg class="corner-ornament corner-tl" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M4 58 L4 12 C4 7.5 7.5 4 12 4 L58 4" stroke="currentColor" stroke-width="2" />
-            <path d="M10 52 L10 16 C10 12.7 12.7 10 16 10 L52 10" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
-            <path d="M10 10 C18 10 24 16 24 24 C16 24 10 18 10 10 Z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.2" />
-            <path d="M24 10 C28 10 32 12 34 16 M10 24 C10 28 12 32 16 34" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-            <circle cx="17" cy="17" r="2.2" fill="currentColor" />
-            <polygon points="40,4 43,7 40,10 37,7" fill="currentColor" />
-            <polygon points="4,40 7,43 10,40 7,37" fill="currentColor" />
+          <!-- 4 Outer Corner Arabesque SVG Flourishes (Never Touching Text) -->
+          <svg class="corner-ornament corner-tl" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 62 L4 12 C4 7.6 7.6 4 12 4 L62 4" stroke="currentColor" stroke-width="2" />
+            <path d="M10 54 L10 16 C10 12.7 12.7 10 16 10 L54 10" stroke="currentColor" stroke-width="1" stroke-dasharray="2.5 2.5" />
+            <path d="M10 10 C20 10 26 16 26 26 C16 26 10 20 10 10 Z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="18" cy="18" r="2.2" fill="currentColor" />
+            <polygon points="44,4 47,7 44,10 41,7" fill="currentColor" />
+            <polygon points="4,44 7,47 10,44 7,41" fill="currentColor" />
           </svg>
-          <svg class="corner-ornament corner-tr" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M4 58 L4 12 C4 7.5 7.5 4 12 4 L58 4" stroke="currentColor" stroke-width="2" />
-            <path d="M10 52 L10 16 C10 12.7 12.7 10 16 10 L52 10" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
-            <path d="M10 10 C18 10 24 16 24 24 C16 24 10 18 10 10 Z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.2" />
-            <path d="M24 10 C28 10 32 12 34 16 M10 24 C10 28 12 32 16 34" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-            <circle cx="17" cy="17" r="2.2" fill="currentColor" />
-            <polygon points="40,4 43,7 40,10 37,7" fill="currentColor" />
-            <polygon points="4,40 7,43 10,40 7,37" fill="currentColor" />
+          <svg class="corner-ornament corner-tr" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 62 L4 12 C4 7.6 7.6 4 12 4 L62 4" stroke="currentColor" stroke-width="2" />
+            <path d="M10 54 L10 16 C10 12.7 12.7 10 16 10 L54 10" stroke="currentColor" stroke-width="1" stroke-dasharray="2.5 2.5" />
+            <path d="M10 10 C20 10 26 16 26 26 C16 26 10 20 10 10 Z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="18" cy="18" r="2.2" fill="currentColor" />
+            <polygon points="44,4 47,7 44,10 41,7" fill="currentColor" />
+            <polygon points="4,44 7,47 10,44 7,41" fill="currentColor" />
           </svg>
-          <svg class="corner-ornament corner-bl" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M4 58 L4 12 C4 7.5 7.5 4 12 4 L58 4" stroke="currentColor" stroke-width="2" />
-            <path d="M10 52 L10 16 C10 12.7 12.7 10 16 10 L52 10" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
-            <path d="M10 10 C18 10 24 16 24 24 C16 24 10 18 10 10 Z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.2" />
-            <path d="M24 10 C28 10 32 12 34 16 M10 24 C10 28 12 32 16 34" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-            <circle cx="17" cy="17" r="2.2" fill="currentColor" />
-            <polygon points="40,4 43,7 40,10 37,7" fill="currentColor" />
-            <polygon points="4,40 7,43 10,40 7,37" fill="currentColor" />
+          <svg class="corner-ornament corner-bl" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 62 L4 12 C4 7.6 7.6 4 12 4 L62 4" stroke="currentColor" stroke-width="2" />
+            <path d="M10 54 L10 16 C10 12.7 12.7 10 16 10 L54 10" stroke="currentColor" stroke-width="1" stroke-dasharray="2.5 2.5" />
+            <path d="M10 10 C20 10 26 16 26 26 C16 26 10 20 10 10 Z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="18" cy="18" r="2.2" fill="currentColor" />
+            <polygon points="44,4 47,7 44,10 41,7" fill="currentColor" />
+            <polygon points="4,44 7,47 10,44 7,41" fill="currentColor" />
           </svg>
-          <svg class="corner-ornament corner-br" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M4 58 L4 12 C4 7.5 7.5 4 12 4 L58 4" stroke="currentColor" stroke-width="2" />
-            <path d="M10 52 L10 16 C10 12.7 12.7 10 16 10 L52 10" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
-            <path d="M10 10 C18 10 24 16 24 24 C16 24 10 18 10 10 Z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.2" />
-            <path d="M24 10 C28 10 32 12 34 16 M10 24 C10 28 12 32 16 34" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-            <circle cx="17" cy="17" r="2.2" fill="currentColor" />
-            <polygon points="40,4 43,7 40,10 37,7" fill="currentColor" />
-            <polygon points="4,40 7,43 10,40 7,37" fill="currentColor" />
+          <svg class="corner-ornament corner-br" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 62 L4 12 C4 7.6 7.6 4 12 4 L62 4" stroke="currentColor" stroke-width="2" />
+            <path d="M10 54 L10 16 C10 12.7 12.7 10 16 10 L54 10" stroke="currentColor" stroke-width="1" stroke-dasharray="2.5 2.5" />
+            <path d="M10 10 C20 10 26 16 26 26 C16 26 10 20 10 10 Z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="1.2" />
+            <circle cx="18" cy="18" r="2.2" fill="currentColor" />
+            <polygon points="44,4 47,7 44,10 41,7" fill="currentColor" />
+            <polygon points="4,44 7,47 10,44 7,41" fill="currentColor" />
           </svg>
 
-          <!-- ================================================================
-               MIHRAB ARCH HEADER WITH CRESCENT & STAR
-               ================================================================ -->
-          <header class="poster-header">
-            <div class="mihrab-container">
-              <!-- Pointed Islamic Mihrab Arch SVG -->
-              <svg class="mihrab-svg" viewBox="0 0 340 116" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <!-- Outer Arch Fill & Stroke -->
-                <path d="M12 112 L12 66 C12 34 88 22 170 4 C252 22 328 34 328 66 L328 112 Z" fill="var(--bg-arch)" stroke="currentColor" stroke-width="1.8" />
-                <!-- Inner Delicate Arch Stroke -->
-                <path d="M20 108 L20 68 C20 40 92 28 170 12 C248 28 320 40 320 68 L320 108 Z" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.55" />
-                <!-- Arch Crown Finial -->
-                <polygon points="170,0 174,5 170,10 166,5" fill="currentColor" />
-              </svg>
+          <!-- Main Inner Content Wrapper (z-index: 2, Generous Padding) -->
+          <div class="poster-content">
 
-              <!-- Crescent & Star Accent -->
-              <svg class="header-crescent" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M18.8 5.2A10.6 10.6 0 1 0 26.8 20.6 8.4 8.4 0 1 1 18.8 5.2Z" fill="currentColor" />
-                <polygon points="22.5,8.5 23.6,11.1 26.4,11.3 24.2,13.1 24.9,15.8 22.5,14.3 20.1,15.8 20.8,13.1 18.6,11.3 21.4,11.1" fill="currentColor" />
-              </svg>
-
-              <!-- Arabic Calligraphy Title Badge -->
-              <div class="header-arabic-badge" dir="rtl" lang="ar">الْأَذَانُ</div>
-
-              <!-- Gujarati Title -->
-              <h1 class="header-title-gu" lang="gu">અઝાન</h1>
-            </div>
-
-            <!-- Decorative Full-Width Header Divider -->
-            <div class="ornate-divider" aria-hidden="true">
-              <span class="line"></span>
-              <svg width="26" height="14" viewBox="0 0 26 14" fill="none">
-                <polygon points="13,1 18,7 13,13 8,7" stroke="currentColor" stroke-width="1.2" fill="currentColor" fill-opacity="0.22" />
-                <circle cx="13" cy="7" r="2" fill="currentColor" />
-                <circle cx="3" cy="7" r="1.4" fill="currentColor" />
-                <circle cx="23" cy="7" r="1.4" fill="currentColor" />
-              </svg>
-              <span class="line right"></span>
-            </div>
-          </header>
-
-          <!-- ================================================================
-               7 STRUCTURED VERSE CARDS (100% EXACT ARABIC & GUJARATI TEXT)
-               ================================================================ -->
-          <section class="verses-stack" aria-label="Azan Verses">
-
-            <!-- VERSE 1 -->
-            <div class="verse-card">
-              <div class="verse-badge" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none">
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
+            <!-- ==============================================================
+                 1. MIHRAB ARCH HEADER
+                 ============================================================== -->
+            <header class="poster-header">
+              <div class="mihrab-card">
+                <!-- Pointed Islamic Mihrab Arch Frame -->
+                <svg class="mihrab-svg" viewBox="0 0 380 180" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M10 176 L10 92 C10 46 95 28 190 8 C285 28 370 46 370 92 L370 176 Z" fill="var(--arch-fill)" stroke="currentColor" stroke-width="1.8" />
+                  <path d="M18 170 L18 94 C18 53 100 36 190 18 C280 36 362 53 362 94 L362 170 Z" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.6" />
+                  <polygon points="190,1 195,8 190,15 185,8" fill="currentColor" />
                 </svg>
-                <span class="verse-num">1</span>
+
+                <div class="mihrab-inner">
+                  <!-- Golden Crescent Moon & 8-Pointed Star -->
+                  <svg class="crescent-star-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M20.5 5.5A12 12 0 1 0 29.5 23A9.5 9.5 0 1 1 20.5 5.5Z" fill="currentColor" />
+                    <g transform="translate(24.5, 13)">
+                      <rect x="-3.2" y="-3.2" width="6.4" height="6.4" fill="currentColor" />
+                      <rect x="-3.2" y="-3.2" width="6.4" height="6.4" fill="currentColor" transform="rotate(45)" />
+                    </g>
+                  </svg>
+
+                  <!-- Arabic Title -->
+                  <div class="header-arabic" dir="rtl" lang="ar">الْأَذَانُ</div>
+
+                  <!-- Calligraphic Gujarati Heading (Shrikhand) -->
+                  <h1 class="header-gujarati" dir="ltr" lang="gu">અઝાન</h1>
+                </div>
               </div>
-              <div class="verse-body">
+
+              <!-- Ornamental Golden Header Divider -->
+              <div class="header-divider" aria-hidden="true">
+                <span class="divider-line left"></span>
+                <svg width="36" height="16" viewBox="0 0 36 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="18,1 24,8 18,15 12,8" stroke="currentColor" stroke-width="1.3" fill="currentColor" fill-opacity="0.22" />
+                  <circle cx="18" cy="8" r="2.2" fill="currentColor" />
+                  <circle cx="5" cy="8" r="1.6" fill="currentColor" />
+                  <circle cx="31" cy="8" r="1.6" fill="currentColor" />
+                </svg>
+                <span class="divider-line right"></span>
+              </div>
+            </header>
+
+            <!-- ==============================================================
+                 2. 7 VERIFIED AZAN VERSES + FAJR-ONLY NOTE CARD
+                 ============================================================== -->
+            <section class="verses-container" aria-label="Azan Verses">
+
+              <!-- Verse ૧ -->
+              <div class="verse-block">
+                <div class="verse-badge-bar" aria-hidden="true">
+                  <span class="badge-line"></span>
+                  <span class="rub-el-hizb-badge">
+                    <svg viewBox="0 0 40 40" fill="none">
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
+                    </svg>
+                    <span class="rub-el-hizb-num" dir="ltr" lang="gu">૧</span>
+                  </span>
+                  <span class="badge-line right"></span>
+                </div>
                 <p class="arabic-text" dir="rtl" lang="ar">اَللّٰهُ اَكْبَرُ ، اَللّٰهُ اَكْبَرُ ، اَللّٰهُ اَكْبَرُ ، اَللّٰهُ اَكْبَرُ</p>
-                <p class="gu-pronunciation" lang="gu">અલ્લાહુ અકબર, અલ્લાહુ અકબર, અલ્લાહુ અકબર, અલ્લાહુ અકબર</p>
-                <p class="gu-translation" lang="gu">અલ્લાહ સૌથી મોટો છે, અલ્લાહ સૌથી મોટો છે, અલ્લાહ સૌથી મોટો છે, અલ્લાહ સૌથી મોટો છે.</p>
+                <p class="gu-translit" dir="ltr" lang="gu">અલ્લાહુ અકબર, અલ્લાહુ અકબર, અલ્લાહુ અકબર, અલ્લાહુ અકબર</p>
+                <p class="gu-meaning" dir="ltr" lang="gu">અલ્લાહ સબસે બડા હૈ, અલ્લાહ સબસે બડા હૈ, અલ્લાહ સબસે બડા હૈ, અલ્લાહ સબસે બડા હૈ.</p>
               </div>
-              <div class="verse-accent-end" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <polygon points="7,1 13,7 7,13 1,7" stroke="currentColor" stroke-width="1.1" />
-                  <circle cx="7" cy="7" r="1.6" fill="currentColor" />
-                </svg>
-              </div>
-            </div>
 
-            <div class="verse-divider" aria-hidden="true">
-              <span class="bar"></span>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><polygon points="5,0 10,5 5,10 0,5" /></svg>
-              <span class="bar"></span>
-            </div>
-
-            <!-- VERSE 2 -->
-            <div class="verse-card">
-              <div class="verse-badge" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none">
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
-                </svg>
-                <span class="verse-num">2</span>
-              </div>
-              <div class="verse-body">
+              <!-- Verse ૨ -->
+              <div class="verse-block">
+                <div class="verse-badge-bar" aria-hidden="true">
+                  <span class="badge-line"></span>
+                  <span class="rub-el-hizb-badge">
+                    <svg viewBox="0 0 40 40" fill="none">
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
+                    </svg>
+                    <span class="rub-el-hizb-num" dir="ltr" lang="gu">૨</span>
+                  </span>
+                  <span class="badge-line right"></span>
+                </div>
                 <p class="arabic-text" dir="rtl" lang="ar">اَشْهَدُ اَنْ لَّا اِلٰهَ اِلَّا اللّٰهُ</p>
-                <p class="gu-pronunciation" lang="gu">અશ્હદુ અંલ્લા ઈલાહ ઈલ્લલ્લાહ (બે વખત)</p>
-                <p class="gu-translation" lang="gu">હું ગવાહી આપું છું કે અલ્લાહ સિવાય કોઈ માબૂદ નથી.</p>
+                <p class="gu-translit" dir="ltr" lang="gu">અશ્હદુ અલ્લા ઇલાહ ઇલ્લલ્લાહ (દો મર્તબા)</p>
+                <p class="gu-meaning" dir="ltr" lang="gu">મૈં ગવાહી દેતા હૂં કિ અલ્લાહ કે સિવા કોઈ માબૂદ નહીં.</p>
               </div>
-              <div class="verse-accent-end" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <polygon points="7,1 13,7 7,13 1,7" stroke="currentColor" stroke-width="1.1" />
-                  <circle cx="7" cy="7" r="1.6" fill="currentColor" />
-                </svg>
-              </div>
-            </div>
 
-            <div class="verse-divider" aria-hidden="true">
-              <span class="bar"></span>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><polygon points="5,0 10,5 5,10 0,5" /></svg>
-              <span class="bar"></span>
-            </div>
-
-            <!-- VERSE 3 -->
-            <div class="verse-card">
-              <div class="verse-badge" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none">
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
-                </svg>
-                <span class="verse-num">3</span>
-              </div>
-              <div class="verse-body">
+              <!-- Verse ૩ -->
+              <div class="verse-block">
+                <div class="verse-badge-bar" aria-hidden="true">
+                  <span class="badge-line"></span>
+                  <span class="rub-el-hizb-badge">
+                    <svg viewBox="0 0 40 40" fill="none">
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
+                    </svg>
+                    <span class="rub-el-hizb-num" dir="ltr" lang="gu">૩</span>
+                  </span>
+                  <span class="badge-line right"></span>
+                </div>
                 <p class="arabic-text" dir="rtl" lang="ar">اَشْهَدُ اَنَّ مُحَمَّدًا رَّسُوْلُ اللّٰهِ</p>
-                <p class="gu-pronunciation" lang="gu">અશ્હદુ અન્ન મુહમ્મદર્રસૂલુલ્લાહ (બે વખત)</p>
-                <p class="gu-translation" lang="gu">હું ગવાહી આપું છું કે મુહમ્મદ (સલ.) અલ્લાહના રસૂલ છે.</p>
+                <p class="gu-translit" dir="ltr" lang="gu">અશ્હદુ અન્ન મુહમ્મદર્રસૂલુલ્લાહ (દો મર્તબા)</p>
+                <p class="gu-meaning" dir="ltr" lang="gu">મૈં ગવાહી દેતા હૂં કિ મુહમ્મદ (સલ.) અલ્લાહ કે રસૂલ હૈં.</p>
               </div>
-              <div class="verse-accent-end" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <polygon points="7,1 13,7 7,13 1,7" stroke="currentColor" stroke-width="1.1" />
-                  <circle cx="7" cy="7" r="1.6" fill="currentColor" />
-                </svg>
-              </div>
-            </div>
 
-            <div class="verse-divider" aria-hidden="true">
-              <span class="bar"></span>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><polygon points="5,0 10,5 5,10 0,5" /></svg>
-              <span class="bar"></span>
-            </div>
-
-            <!-- VERSE 4 -->
-            <div class="verse-card">
-              <div class="verse-badge" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none">
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
-                </svg>
-                <span class="verse-num">4</span>
-              </div>
-              <div class="verse-body">
+              <!-- Verse ૪ -->
+              <div class="verse-block">
+                <div class="verse-badge-bar" aria-hidden="true">
+                  <span class="badge-line"></span>
+                  <span class="rub-el-hizb-badge">
+                    <svg viewBox="0 0 40 40" fill="none">
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
+                    </svg>
+                    <span class="rub-el-hizb-num" dir="ltr" lang="gu">૪</span>
+                  </span>
+                  <span class="badge-line right"></span>
+                </div>
                 <p class="arabic-text" dir="rtl" lang="ar">حَيَّ عَلَى الصَّلٰوةِ ، حَيَّ عَلَى الصَّلٰوةِ</p>
-                <p class="gu-pronunciation" lang="gu">હય્ય અલસ્સલાહ , હય્ય અલસ્સલાહ</p>
-                <p class="gu-translation" lang="gu">આવો નમાઝ માટે , આવો નમાઝ માટે</p>
+                <p class="gu-translit" dir="ltr" lang="gu">હય્ય અલસ્સલાહ, હય્ય અલસ્સલાહ</p>
+                <p class="gu-meaning" dir="ltr" lang="gu">આઓ નમાઝ કી તરફ, આઓ નમાઝ કી તરફ</p>
               </div>
-              <div class="verse-accent-end" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <polygon points="7,1 13,7 7,13 1,7" stroke="currentColor" stroke-width="1.1" />
-                  <circle cx="7" cy="7" r="1.6" fill="currentColor" />
-                </svg>
-              </div>
-            </div>
 
-            <div class="verse-divider" aria-hidden="true">
-              <span class="bar"></span>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><polygon points="5,0 10,5 5,10 0,5" /></svg>
-              <span class="bar"></span>
-            </div>
-
-            <!-- VERSE 5 -->
-            <div class="verse-card">
-              <div class="verse-badge" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none">
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
-                </svg>
-                <span class="verse-num">5</span>
-              </div>
-              <div class="verse-body">
+              <!-- Verse ૫ -->
+              <div class="verse-block">
+                <div class="verse-badge-bar" aria-hidden="true">
+                  <span class="badge-line"></span>
+                  <span class="rub-el-hizb-badge">
+                    <svg viewBox="0 0 40 40" fill="none">
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
+                    </svg>
+                    <span class="rub-el-hizb-num" dir="ltr" lang="gu">૫</span>
+                  </span>
+                  <span class="badge-line right"></span>
+                </div>
                 <p class="arabic-text" dir="rtl" lang="ar">حَيَّ عَلَى الْفَلَاحِ ، حَيَّ عَلَى الْفَلَاحِ</p>
-                <p class="gu-pronunciation" lang="gu">હય્ય અલલ્ ફલાહ – હય્ય અલલ્ ફલાહ</p>
-                <p class="gu-translation" lang="gu">આવો કામ્યાબી તરફ, આવો કામ્યાબી તરફ</p>
+                <p class="gu-translit" dir="ltr" lang="gu">હય્ય અલલ્ ફલાહ – હય્ય અલલ્ ફલાહ</p>
+                <p class="gu-meaning" dir="ltr" lang="gu">આઓ કામયાબી કી તરફ, આઓ કામયાબી કી તરફ</p>
               </div>
-              <div class="verse-accent-end" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <polygon points="7,1 13,7 7,13 1,7" stroke="currentColor" stroke-width="1.1" />
-                  <circle cx="7" cy="7" r="1.6" fill="currentColor" />
-                </svg>
-              </div>
-            </div>
 
-            <div class="verse-divider" aria-hidden="true">
-              <span class="bar"></span>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><polygon points="5,0 10,5 5,10 0,5" /></svg>
-              <span class="bar"></span>
-            </div>
-
-            <!-- VERSE 6 -->
-            <div class="verse-card">
-              <div class="verse-badge" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none">
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
-                </svg>
-                <span class="verse-num">6</span>
+              <!-- Highlighted Fajr-Only Note Card (Unnumbered, Normal Flow) -->
+              <div class="fajr-note-card" role="note" aria-label="Fajr Azan Special Addition">
+                <div class="fajr-pill-badge">
+                  <!-- Small Crescent Moon SVG -->
+                  <svg class="fajr-pill-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M14.5 3.5A8.5 8.5 0 1 0 20.8 15.8A6.7 6.7 0 1 1 14.5 3.5Z" fill="currentColor" />
+                  </svg>
+                  <span dir="ltr" lang="gu">ખાસ નોટ: સિર્ફ ફજર કી અઝાન કે લિયે</span>
+                  <!-- Small 8-Pointed Star SVG -->
+                  <svg class="fajr-pill-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="6" y="6" width="12" height="12" rx="1" fill="currentColor" />
+                    <rect x="6" y="6" width="12" height="12" rx="1" fill="currentColor" transform="rotate(45 12 12)" />
+                  </svg>
+                </div>
+                <p class="arabic-text" dir="rtl" lang="ar">الصَّلَاةُ خَيْرٌ مِنَ النَّوْمِ</p>
+                <p class="gu-translit" dir="ltr" lang="gu">અસ્સલાતુ ખૈરુમ મિનન્નૌમ (દો મર્તબા)</p>
+                <p class="gu-meaning" dir="ltr" lang="gu">નમાઝ નીંદ સે બહેતર હૈ.</p>
               </div>
-              <div class="verse-body">
+
+              <!-- Verse ૬ -->
+              <div class="verse-block">
+                <div class="verse-badge-bar" aria-hidden="true">
+                  <span class="badge-line"></span>
+                  <span class="rub-el-hizb-badge">
+                    <svg viewBox="0 0 40 40" fill="none">
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
+                    </svg>
+                    <span class="rub-el-hizb-num" dir="ltr" lang="gu">૬</span>
+                  </span>
+                  <span class="badge-line right"></span>
+                </div>
                 <p class="arabic-text" dir="rtl" lang="ar">اَللّٰهُ اَكْبَرُ ، اَللّٰهُ اَكْبَرُ</p>
-                <p class="gu-pronunciation" lang="gu">અલ્લાહુ અકબર, અલ્લાહુ અકબર</p>
-                <p class="gu-translation" lang="gu">અલ્લાહ સૌથી મોટો છે, અલ્લાહ સૌથી મોટો છે.</p>
+                <p class="gu-translit" dir="ltr" lang="gu">અલ્લાહુ અકબર, અલ્લાહુ અકબર</p>
+                <p class="gu-meaning" dir="ltr" lang="gu">અલ્લાહ સબસે બડા હૈ, અલ્લાહ સબસે બડા હૈ</p>
               </div>
-              <div class="verse-accent-end" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <polygon points="7,1 13,7 7,13 1,7" stroke="currentColor" stroke-width="1.1" />
-                  <circle cx="7" cy="7" r="1.6" fill="currentColor" />
-                </svg>
-              </div>
-            </div>
 
-            <div class="verse-divider" aria-hidden="true">
-              <span class="bar"></span>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><polygon points="5,0 10,5 5,10 0,5" /></svg>
-              <span class="bar"></span>
-            </div>
-
-            <!-- VERSE 7 -->
-            <div class="verse-card">
-              <div class="verse-badge" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none">
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
-                  <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
-                </svg>
-                <span class="verse-num">7</span>
-              </div>
-              <div class="verse-body">
+              <!-- Verse ૭ -->
+              <div class="verse-block">
+                <div class="verse-badge-bar" aria-hidden="true">
+                  <span class="badge-line"></span>
+                  <span class="rub-el-hizb-badge">
+                    <svg viewBox="0 0 40 40" fill="none">
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" />
+                      <rect x="8" y="8" width="24" height="24" rx="2" fill="currentColor" transform="rotate(45 20 20)" />
+                    </svg>
+                    <span class="rub-el-hizb-num" dir="ltr" lang="gu">૭</span>
+                  </span>
+                  <span class="badge-line right"></span>
+                </div>
                 <p class="arabic-text" dir="rtl" lang="ar">لَا اِلٰهَ اِلَّا اللّٰهُ</p>
-                <p class="gu-pronunciation" lang="gu">લા ઈલાહ ઈલ્લલ્લાહ</p>
-                <p class="gu-translation" lang="gu">અલ્લાહ સિવાય કોઈ ઈબાદતના લાયક નથી.</p>
+                <p class="gu-translit" dir="ltr" lang="gu">લા ઇલાહ ઇલ્લલ્લાહ</p>
+                <p class="gu-meaning" dir="ltr" lang="gu">અલ્લાહ કે સિવા કોઈ ઇબાદત કે લાયક નહીં.</p>
               </div>
-              <div class="verse-accent-end" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <polygon points="7,1 13,7 7,13 1,7" stroke="currentColor" stroke-width="1.1" />
-                  <circle cx="7" cy="7" r="1.6" fill="currentColor" />
+
+            </section>
+
+            <!-- ==============================================================
+                 3. ORNAMENTAL DEVELOPER CREDIT FOOTER
+                 ============================================================== -->
+            <footer class="credit-footer" aria-label="Developer Credit">
+              <svg class="credit-flourish" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 10 L42 10" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.7" />
+                <path d="M24 10 C30 3 38 3 44 10 C38 17 30 17 24 10 Z" fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="1.1" />
+                <circle cx="52" cy="10" r="2.2" fill="currentColor" />
+              </svg>
+
+              <div class="credit-cartouche">
+                <svg class="credit-star" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="5" y="5" width="14" height="14" rx="1" fill="currentColor" />
+                  <rect x="5" y="5" width="14" height="14" rx="1" fill="currentColor" transform="rotate(45 12 12)" />
+                </svg>
+                <span class="credit-text">Developed By - PATHAN MAHIRKHAN</span>
+                <svg class="credit-star" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="5" y="5" width="14" height="14" rx="1" fill="currentColor" />
+                  <rect x="5" y="5" width="14" height="14" rx="1" fill="currentColor" transform="rotate(45 12 12)" />
                 </svg>
               </div>
-            </div>
 
-          </section>
-
-          <!-- ================================================================
-               PERMANENT ORNAMENTAL ISLAMIC CREDIT FOOTER BADGE
-               ================================================================ -->
-          <footer class="poster-footer" aria-label="Designer Credit">
-            <!-- Left Golden Arabesque Flourish -->
-            <svg class="footer-flourish" viewBox="0 0 120 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M2 8 H92" stroke="currentColor" stroke-width="1" stroke-opacity="0.55" />
-              <path d="M62 8 C72 2, 82 2, 92 8 C82 14, 72 14, 62 8 Z" stroke="currentColor" stroke-width="1" fill="currentColor" fill-opacity="0.16" />
-              <polygon points="104,3 109,8 104,13 99,8" fill="currentColor" />
-              <circle cx="116" cy="8" r="1.6" fill="currentColor" />
-            </svg>
-
-            <!-- Framed Ornamental Credit Pill -->
-            <div class="credit-ribbon">
-              <svg class="credit-star" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                <rect x="3.5" y="3.5" width="9" height="9" rx="0.8" />
-                <rect x="3.5" y="3.5" width="9" height="9" rx="0.8" transform="rotate(45 8 8)" />
+              <svg class="credit-flourish flipped" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2 10 L42 10" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.7" />
+                <path d="M24 10 C30 3 38 3 44 10 C38 17 30 17 24 10 Z" fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="1.1" />
+                <circle cx="52" cy="10" r="2.2" fill="currentColor" />
               </svg>
-              <span class="credit-text">Developed By - PATHAN MAHIRKHAN</span>
-              <svg class="credit-star" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                <rect x="3.5" y="3.5" width="9" height="9" rx="0.8" />
-                <rect x="3.5" y="3.5" width="9" height="9" rx="0.8" transform="rotate(45 8 8)" />
-              </svg>
-            </div>
+            </footer>
 
-            <!-- Right Golden Arabesque Flourish (Mirrored) -->
-            <svg class="footer-flourish" viewBox="0 0 120 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform: scaleX(-1);">
-              <path d="M2 8 H92" stroke="currentColor" stroke-width="1" stroke-opacity="0.55" />
-              <path d="M62 8 C72 2, 82 2, 92 8 C82 14, 72 14, 62 8 Z" stroke="currentColor" stroke-width="1" fill="currentColor" fill-opacity="0.16" />
-              <polygon points="104,3 109,8 104,13 99,8" fill="currentColor" />
-              <circle cx="116" cy="8" r="1.6" fill="currentColor" />
-            </svg>
-          </footer>
-
+          </div>
         </div>
       </div>
     </article>
   </main>
 
   <!-- ========================================================================
-       VANILLA JAVASCRIPT: THEME & TYPOGRAPHY CONTROLS
+       LIGHTWEIGHT VANILLA JS FOR THEME, ARABIC FONT & SIZE SLIDER
        ======================================================================== -->
   <script>
     (function () {
       'use strict';
 
       try {
-        const posterSheet = document.getElementById('posterSheet');
-        const themeButtons = document.querySelectorAll('.theme-btn');
-        const arabicSizeSlider = document.getElementById('arabicSizeSlider');
-        const arabicSizeValue = document.getElementById('arabicSizeValue');
-        const arabicFontSelect = document.getElementById('arabicFontSelect');
+        var rootEl = document.documentElement;
+        var themePills = document.querySelectorAll('.theme-pill');
+        var fontSelect = document.getElementById('arabicFontSelect');
+        var sizeSlider = document.getElementById('arabicSizeSlider');
+        var sizeReadout = document.getElementById('arabicSizeReadout');
 
-        /* 1. Luxury Theme Switcher */
-        themeButtons.forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            const selectedTheme = btn.getAttribute('data-theme-target');
-            if (!selectedTheme || !posterSheet) return;
+        // Sync initial slider value with responsive default (22px mobile / 26px desktop)
+        var initialSize = window.innerWidth <= 640 ? 22 : 26;
+        if (sizeSlider && sizeReadout) {
+          sizeSlider.value = String(initialSize);
+          sizeReadout.textContent = initialSize + 'px';
+          rootEl.style.setProperty('--arabic-size', initialSize + 'px');
+        }
 
-            posterSheet.setAttribute('data-theme', selectedTheme);
+        // 1. Theme Pill Switcher
+        for (var i = 0; i < themePills.length; i++) {
+          themePills[i].addEventListener('click', function () {
+            var selectedTheme = this.getAttribute('data-theme-value');
+            if (!selectedTheme) return;
 
-            themeButtons.forEach(function (b) {
-              b.classList.remove('active');
-            });
-            btn.classList.add('active');
-          });
-        });
+            rootEl.setAttribute('data-theme', selectedTheme);
 
-        /* 2. Live Arabic Font Size Control */
-        if (arabicSizeSlider && arabicSizeValue && posterSheet) {
-          arabicSizeSlider.addEventListener('input', function () {
-            const sizePx = arabicSizeSlider.value + 'px';
-            posterSheet.style.setProperty('--arabic-size', sizePx);
-            arabicSizeValue.textContent = sizePx;
+            for (var j = 0; j < themePills.length; j++) {
+              themePills[j].classList.remove('active');
+            }
+            this.classList.add('active');
           });
         }
 
-        /* 3. Arabic Script Font Selector */
-        if (arabicFontSelect && posterSheet) {
-          arabicFontSelect.addEventListener('change', function () {
-            posterSheet.style.setProperty('--arabic-font', arabicFontSelect.value);
+        // 2. Arabic Font Selector
+        if (fontSelect) {
+          fontSelect.addEventListener('change', function () {
+            rootEl.style.setProperty('--arabic-font', this.value);
+          });
+        }
+
+        // 3. Arabic Font Size Range Slider (18px to 34px)
+        if (sizeSlider && sizeReadout) {
+          sizeSlider.addEventListener('input', function () {
+            var pxValue = this.value + 'px';
+            rootEl.style.setProperty('--arabic-size', pxValue);
+            sizeReadout.textContent = pxValue;
           });
         }
       } catch (err) {
-        console.error('Poster control initialization error:', err);
+        console.error('Poster control error:', err);
       }
     })();
   </script>
