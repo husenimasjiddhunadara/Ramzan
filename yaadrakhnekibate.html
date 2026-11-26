@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="gu" data-theme="theme-1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>કુછ યાદ રખને કી બાતેં - અહલે સુન્નત વલ જમાઅત</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Rasa:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* 5 Luxury Golden Themes */
+    :root,
+    [data-theme="theme-1"] {
+      --primary-dark: #1d1405;
+      --primary: #362509;
+      --primary-mid: #52390f;
+      --gold: #d4af37;
+      --gold-bright: #f5de93;
+      --gold-deep: #9e791e;
+      --gold-soft: rgba(212, 175, 55, 0.22);
+      --gold-border: rgba(212, 175, 55, 0.55);
+      --mehrab-fill: rgba(20, 13, 3, 0.72);
+      --bg: #fbf6e9;
+      --surface: #ffffff;
+      --surface-tint: #fdf9ee;
+      --text: #261d0e;
+      --muted: #6e5a35;
+      --border: #e5d29d;
+      --card-title: #4a330a;
+      --shadow: rgba(94, 68, 16, 0.1);
+    }
+
+    [data-theme="theme-2"] {
+      --primary-dark: #042118;
+      --primary: #093b2c;
+      --primary-mid: #115742;
+      --gold: #d4af37;
+      --gold-bright: #f4dd90;
+      --gold-deep: #a37f21;
+      --gold-soft: rgba(212, 175, 55, 0.2);
+      --gold-border: rgba(212, 175, 55, 0.52);
+      --mehrab-fill: rgba(3, 26, 19, 0.72);
+      --bg: #f7f3e7;
+      --surface: #ffffff;
+      --surface-tint: #fcf9ef;
+      --text: #192420;
+      --muted: #56665f;
+      --border: #e2d4ad;
+      --card-title: #073326;
+      --shadow: rgba(4, 33, 24, 0.09);
+    }
+
+    [data-theme="theme-3"] {
+      --primary-dark: #071226;
+      --primary: #0e2345;
+      --primary-mid: #19386b;
+      --gold: #dab554;
+      --gold-bright: #f6e1a0;
+      --gold-deep: #a68328;
+      --gold-soft: rgba(218, 181, 84, 0.2);
+      --gold-border: rgba(218, 181, 84, 0.52);
+      --mehrab-fill: rgba(5, 14, 31, 0.74);
+      --bg: #f4f5f9;
+      --surface: #ffffff;
+      --surface-tint: #f9fafe;
+      --text: #152033;
+      --muted: #536178;
+      --border: #d9dfc9;
+      --card-title: #0d2244;
+      --shadow: rgba(7, 18, 38, 0.09);
+    }
+
+    [data-theme="theme-4"] {
+      --primary-dark: #260610;
+      --primary: #450c1d;
+      --primary-mid: #66152d;
+      --gold: #d9b052;
+      --gold-bright: #f6df9f;
+      --gold-deep: #a37d24;
+      --gold-soft: rgba(217, 176, 82, 0.2);
+      --gold-border: rgba(217, 176, 82, 0.52);
+      --mehrab-fill: rgba(31, 5, 13, 0.74);
+      --bg: #fbf4f2;
+      --surface: #ffffff;
+      --surface-tint: #fef9f6;
+      --text: #2a151b;
+      --muted: #6f525a;
+      --border: #e8d2c5;
+      --card-title: #440b1c;
+      --shadow: rgba(38, 6, 16, 0.09);
+    }
+
+    [data-theme="theme-5"] {
+      --primary-dark: #08090c;
+      --primary: #13151b;
+      --primary-mid: #20242e;
+      --gold: #e0b84c;
+      --gold-bright: #f7e199;
+      --gold-deep: #b08926;
+      --gold-soft: rgba(224, 184, 76, 0.2);
+      --gold-border: rgba(224, 184, 76, 0.55);
+      --mehrab-fill: rgba(10, 11, 15, 0.8);
+      --bg: #0d0f13;
+      --surface: #161920;
+      --surface-tint: #1d212b;
+      --text: #efe8d8;
+      --muted: #b5a88d;
+      --border: #3d3320;
+      --card-title: #f3d783;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans Gujarati', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Royal Islamic Header with Mehrab Architecture */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 18%, rgba(212, 175, 55, 0.22) 0%, transparent 58%),
+        linear-gradient(165deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-mid) 100%);
+      color: #fffdf7;
+      text-align: center;
+      padding: 20px 16px 46px;
+      border-bottom: 4px solid var(--gold);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-islamic-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      color: var(--gold);
+      opacity: 0.18;
+      z-index: 0;
+    }
+
+    /* Top Theme Switcher */
+    .theme-bar {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .theme-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.42);
+      border: 1px solid var(--gold-border);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+    }
+
+    .theme-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .theme-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid rgba(245, 222, 147, 0.55);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      outline: none;
+    }
+
+    .theme-dot:hover {
+      transform: scale(1.15);
+      border-color: var(--gold-bright);
+    }
+
+    .theme-dot.active {
+      transform: scale(1.18);
+      border-color: #ffffff;
+      box-shadow: 0 0 0 2px var(--gold), 0 0 12px rgba(245, 222, 147, 0.8);
+    }
+
+    .dot-1 { background: radial-gradient(circle at 30% 30%, #e5be54, #4a330a 75%); }
+    .dot-2 { background: radial-gradient(circle at 30% 30%, #1c8566, #042118 75%); }
+    .dot-3 { background: radial-gradient(circle at 30% 30%, #2a599c, #071226 75%); }
+    .dot-4 { background: radial-gradient(circle at 30% 30%, #992244, #260610 75%); }
+    .dot-5 { background: radial-gradient(circle at 30% 30%, #4b505c, #08090c 75%); }
+
+    /* Professional Mehrab Arch Container */
+    .mehrab-shell {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      margin: 0 auto;
+      filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.35));
+    }
+
+    .mehrab-crown-wrap {
+      position: relative;
+      width: 100%;
+      line-height: 0;
+    }
+
+    .mehrab-crown-svg {
+      display: block;
+      width: 100%;
+      height: 112px;
+      color: var(--gold);
+    }
+
+    .mehrab-emblem {
+      position: absolute;
+      left: 50%;
+      bottom: 8px;
+      transform: translateX(-50%);
+      color: var(--gold-bright);
+      pointer-events: none;
+    }
+
+    .mehrab-body {
+      position: relative;
+      margin-top: -1px;
+      background: var(--mehrab-fill);
+      border-left: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+      padding: 10px 26px 34px;
+      box-shadow: inset 0 0 0 6px rgba(212, 175, 55, 0.08);
+    }
+
+    /* Inner Double-Gold Mehrab Pillar Line */
+    .mehrab-body::before {
+      content: "";
+      position: absolute;
+      inset: 0 8px 8px 8px;
+      border-left: 1px solid var(--gold-border);
+      border-right: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-family: 'Rasa', serif;
+      font-size: clamp(2.15rem, 6vw, 3.85rem);
+      font-weight: 700;
+      line-height: 1.6;
+      color: #fff9ea;
+      padding: 6px 6px;
+      margin-bottom: 4px;
+      text-shadow: 0 3px 16px rgba(0, 0, 0, 0.45), 0 0 24px rgba(212, 175, 55, 0.25);
+      overflow: visible;
+    }
+
+    .subtitle {
+      font-family: 'Rasa', serif;
+      font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+      font-weight: 600;
+      color: var(--gold-bright);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 0 auto 20px;
+      max-width: 280px;
+    }
+
+    .ornament-line {
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .ornament-diamond {
+      width: 10px;
+      height: 10px;
+      background: var(--gold-bright);
+      transform: rotate(45deg);
+      box-shadow: 0 0 10px var(--gold);
+    }
+
+    .dev-credit {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.75rem, 2vw, 0.92rem);
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff9eb;
+      border: 1.5px solid var(--gold);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.26), rgba(0, 0, 0, 0.45));
+      padding: 9px 24px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 28px 16px 68px;
+    }
+
+    /* Vibhag Cards ONLY Directly Below Header */
+    .vibhag-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 13px;
+      margin-bottom: 30px;
+    }
+
+    .vibhag-card {
+      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-tint) 100%);
+      border: 1.5px solid var(--border);
+      border-radius: 15px;
+      padding: 14px 16px;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      box-shadow: 0 6px 16px var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vibhag-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold), var(--gold-deep));
+    }
+
+    .vibhag-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold);
+      box-shadow: 0 10px 22px var(--shadow);
+    }
+
+    .vibhag-card.active {
+      background: linear-gradient(140deg, var(--primary-mid) 0%, var(--primary) 55%, var(--primary-dark) 100%);
+      border-color: var(--gold);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    }
+
+    .vibhag-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    [data-theme="theme-5"] .vibhag-icon {
+      color: var(--gold-bright);
+    }
+
+    .vibhag-card.active .vibhag-icon {
+      background: rgba(212, 175, 55, 0.22);
+      border-color: var(--gold);
+      color: var(--gold-bright);
+    }
+
+    .vibhag-info {
+      min-width: 0;
+    }
+
+    .vibhag-name {
+      display: block;
+      font-family: 'Rasa', serif;
+      font-size: 1.24rem;
+      font-weight: 700;
+      color: var(--card-title);
+      line-height: 1.4;
+      margin-bottom: 1px;
+    }
+
+    .vibhag-count {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .vibhag-card.active .vibhag-name {
+      color: #fffaf0;
+    }
+
+    .vibhag-card.active .vibhag-count {
+      color: var(--gold-bright);
+    }
+
+    /* 1 to 100 Sequential List */
+    .cards-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 14px;
+      padding: 20px 24px;
+      box-shadow: 0 6px 18px var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold);
+      box-shadow: 0 12px 24px var(--shadow);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      height: 42px;
+      padding: 0 10px;
+      border-radius: 10px;
+      background: linear-gradient(145deg, var(--gold-bright) 0%, var(--gold) 55%, var(--gold-deep) 100%);
+      color: #1c1203;
+      font-family: 'Rasa', serif;
+      font-size: 1.22rem;
+      font-weight: 700;
+      border: 1px solid var(--gold-deep);
+      box-shadow: 0 3px 10px rgba(212, 175, 55, 0.35);
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-family: 'Rasa', serif;
+      font-size: clamp(1.36rem, 3vw, 1.68rem);
+      font-weight: 700;
+      color: var(--card-title);
+      line-height: 1.48;
+      padding-top: 2px;
+    }
+
+    .card-body {
+      font-size: 1.03rem;
+      color: var(--text);
+      line-height: 1.92;
+      text-align: left;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fffaf0;
+      text-align: center;
+      padding: 30px 16px;
+      border-top: 4px solid var(--gold);
+    }
+
+    .footer-credit {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.84rem, 2.2vw, 1.02rem);
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+    }
+
+    /* Scroll to Top */
+    .top-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 20px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: var(--primary-dark);
+      color: var(--gold-bright);
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      z-index: 50;
+      transition: transform 0.2s ease;
+    }
+
+    .top-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .top-btn.show {
+      display: flex;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 16px 12px 34px;
+      }
+      .mehrab-crown-svg {
+        height: 82px;
+      }
+      .mehrab-body {
+        padding: 8px 16px 26px;
+      }
+      .vibhag-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .vibhag-card {
+        padding: 11px 11px;
+        gap: 9px;
+      }
+      .vibhag-icon {
+        width: 34px;
+        height: 34px;
+      }
+      .vibhag-name {
+        font-size: 1.05rem;
+      }
+      .card {
+        padding: 16px 15px;
+      }
+      .card-body {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <!-- Seamless Islamic Geometric Pattern Background -->
+    <svg class="hero-islamic-bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="islamicPattern" width="96" height="96" patternUnits="userSpaceOnUse">
+          <g fill="none" stroke="currentColor" stroke-width="1">
+            <polygon points="48,6 60,36 90,48 60,60 48,90 36,60 6,48 36,36" />
+            <polygon points="48,18 57,39 78,48 57,57 48,78 39,57 18,48 39,39" />
+            <rect x="26" y="26" width="44" height="44" transform="rotate(45 48 48)" />
+            <circle cx="48" cy="48" r="9" />
+            <circle cx="0" cy="0" r="14" />
+            <circle cx="96" cy="0" r="14" />
+            <circle cx="0" cy="96" r="14" />
+            <circle cx="96" cy="96" r="14" />
+          </g>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#islamicPattern)" />
+    </svg>
+
+    <!-- 5 Luxury Themes (THEME Label + Circles Only) -->
+    <div class="theme-bar">
+      <div class="theme-pill">
+        <span class="theme-label">THEME</span>
+        <div class="theme-dots" role="group" aria-label="Theme">
+          <button type="button" class="theme-dot dot-1 active" data-theme-val="theme-1" aria-label="Theme 1"></button>
+          <button type="button" class="theme-dot dot-2" data-theme-val="theme-2" aria-label="Theme 2"></button>
+          <button type="button" class="theme-dot dot-3" data-theme-val="theme-3" aria-label="Theme 3"></button>
+          <button type="button" class="theme-dot dot-4" data-theme-val="theme-4" aria-label="Theme 4"></button>
+          <button type="button" class="theme-dot dot-5" data-theme-val="theme-5" aria-label="Theme 5"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Authentic Professional Mehrab Arch Frame -->
+    <div class="mehrab-shell">
+      <div class="mehrab-crown-wrap">
+        <svg class="mehrab-crown-svg" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer Pointed Islamic Ogee Mehrab Arch Fill -->
+          <path d="M 1 120 C 1 82, 46 66, 130 56 C 245 42, 345 36, 400 6 C 455 36, 555 42, 670 56 C 754 66, 799 82, 799 120 Z" fill="var(--mehrab-fill)" />
+          <!-- Outer Gold Mehrab Stroke -->
+          <path d="M 1 120 C 1 82, 46 66, 130 56 C 245 42, 345 36, 400 6 C 455 36, 555 42, 670 56 C 754 66, 799 82, 799 120" fill="none" stroke="currentColor" stroke-width="2.4" vector-effect="non-scaling-stroke" />
+          <!-- Inner Filigree Gold Mehrab Stroke -->
+          <path d="M 9 120 C 9 88, 52 73, 136 63 C 248 50, 348 44, 400 16 C 452 44, 552 50, 664 63 C 748 73, 791 88, 791 120" fill="none" stroke="currentColor" stroke-opacity="0.58" stroke-width="1.2" vector-effect="non-scaling-stroke" />
+          <!-- Subtle Scalloped Gold Accent inside Arch -->
+          <path d="M 22 120 C 22 94, 64 81, 145 72 C 254 59, 351 53, 400 28 C 449 53, 546 59, 655 72 C 736 81, 778 94, 778 120" fill="none" stroke="currentColor" stroke-opacity="0.26" stroke-width="1" stroke-dasharray="5 5" vector-effect="non-scaling-stroke" />
+        </svg>
+
+        <!-- Crescent & Star Finial inside Mehrab Peak -->
+        <div class="mehrab-emblem" aria-hidden="true">
+          <svg width="50" height="50" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="32,4 39,21 56,14 49,31 60,32 49,33 56,50 39,43 32,60 25,43 8,50 15,33 4,32 15,31 8,14 25,21" stroke="currentColor" stroke-width="1.6" fill="rgba(212,175,55,0.16)" />
+            <path d="M36.5 23.5A10 10 0 1 0 36.5 40.5A8 8 0 1 1 36.5 23.5Z" fill="currentColor" />
+            <circle cx="38.5" cy="32" r="2.2" fill="currentColor" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="mehrab-body">
+        <h1>કુછ યાદ રખને કી બાતેં</h1>
+        <div class="subtitle">( અહલે સુન્નત વલ જમાઅત કે મુતાબિક )</div>
+
+        <div class="ornament-divider" aria-hidden="true">
+          <span class="ornament-line"></span>
+          <span class="ornament-diamond"></span>
+          <span class="ornament-line"></span>
+        </div>
+
+        <div class="dev-credit">DEVELOPED BY - PATHAN MAHIRKHAN</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Vibhag Cards ONLY Directly Below Header -->
+    <section id="vibhagGrid" class="vibhag-grid" aria-label="તમામ હિસ્સે"></section>
+
+    <!-- Sequential 1 to 100 Content List -->
+    <section id="cardsList" class="cards-list"></section>
+  </main>
+
+  <footer>
+    <div class="footer-credit">DEVELOPED BY - PATHAN MAHIRKHAN</div>
+  </footer>
+
+  <button id="topBtn" class="top-btn" type="button" aria-label="ઉપર જાએં">&#8593;</button>
+
+  <script>
+    const categories = [
+      {
+        id: "all",
+        name: "તમામ હિસ્સે",
+        icon: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>'
+      },
+      {
+        id: "aqaid",
+        name: "અકાઈદ ઔર ઈમાન",
+        icon: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L14.8 8.5L22 9.3L16.5 14L18.2 21L12 17.3L5.8 21L7.5 14L2 9.3L9.2 8.5L12 2Z"/></svg>'
+      },
+      {
+        id: "shakhsiyat",
+        name: "અંબિયા ઔર સહાબા",
+        icon: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3C7.5 7 5 10.5 5 14.5V20H19V14.5C19 10.5 16.5 7 12 3Z"/><path d="M9 20V15C9 13.3 10.3 12 12 12C13.7 12 15 13.3 15 15V20"/></svg>'
+      },
+      {
+        id: "akhirat",
+        name: "આખિરત ઔર કયામત",
+        icon: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>'
+      },
+      {
+        id: "tarikh",
+        name: "સીરત ઔર તારીખ",
+        icon: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
+      },
+      {
+        id: "fiqh",
+        name: "કુરાન, હદીસ ઔર ફિકહ",
+        icon: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v17h5.5A2.5 2.5 0 0 1 20 22V5.5Z"/></svg>'
+      },
+      {
+        id: "ibadat",
+        name: "ઇબાદાત ઔર મુઆમલાત",
+        icon: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V11l7-7 7 7v10"/><path d="M9 21v-6a3 3 0 0 1 6 0v6"/></svg>'
+      },
+      {
+        id: "akhlaq",
+        name: "અખ્લાક ઔર તસવ્વુફ",
+        icon: '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9-9.2A5.3 5.3 0 0 1 12 6.5a5.3 5.3 0 0 1 9 5.3C19 16.5 12 21 12 21Z"/></svg>'
+      }
+    ];
+
+    const items = [
+      { id: 1, guNum: "૧", cat: "aqaid", title: "વહી", desc: "અલ્લાહ તઆલા કે વો અહકામ ઔર પૈગામ જો હઝરત જિબ્રઈલ (અલૈહિસ્સલામ) કે ઝરીએ સે, યા બિલા-વાસ્તા (બગૈર કિસી વાસ્તે કે, જૈસે બરાહે-રાસ્ત કલામ યા સચ્ચે ખ્વાબ કે ઝરીએ) અંબિયા ઔર રસૂલોં (અલૈહિમુસ્સલામ) પર નાઝિલ ફરમાએ ગએ હોં, ઉસકો વહી કહતે હૈં. (વહી-એ-શરઈ સિર્ફ અંબિયા કે સાથ ખાસ હૈ ઔર હુઝૂર સલ્લલ્લાહુ અલૈહિ વસલ્લમ પર હમેશા કે લિયે ખત્મ હો ચુકી હૈ)." },
+      { id: 2, guNum: "૨", cat: "shakhsiyat", title: "રસૂલ", desc: "મશહૂર કૌલ કે મુતાબિક ઉસ પૈગમ્બર (ઇન્સાન ઔર મર્દ) કો કહતે હૈં જિન્હેં અલ્લાહ તઆલા ને નઈ શરીઅત (યા નઈ કિતાબ) અતા ફરમાકર મખ્લૂક કી હિદાયત કે લિયે ભેજા હો. (તહકીક કે મુતાબિક નબી ઔર રસૂલ દોનોં એક હી મઅના મેં ભી ઇસ્તેમાલ હોતે હૈં)." },
+      { id: 3, guNum: "૩", cat: "shakhsiyat", title: "નબી", desc: "હર ઉસ બરગુઝીદા, મઅસૂમ (ગુનાહોં સે પાક) ઇન્સાન (મર્દ) કો કહતે હૈં જિસે અલ્લાહ તઆલા ને વહી દેકર બંદોં કી હિદાયત કે લિયે ભેજા હો—ચાહે ઉન્હેં નઈ શરીઅત દી ગઈ હો યા વો પહેલી શરીઅત કી તબ્લીગ ફરમાતે હોં. (હુઝૂર સલ્લલ્લાહુ અલૈહિ વસલ્લમ અલ્લાહ કે આખિરી નબી હૈં; આપકે બાદ કોઈ નયા નબી નહીં આ સકતા)." },
+      { id: 4, guNum: "૪", cat: "shakhsiyat", title: "ખલીફા", desc: "હુઝૂર અક્રમ (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કે વિસાલ-એ-ઝાહિરી (પર્દા ફરમાને) કે બાદ દીન ઔર ઉમ્મત કા નિઝામ સંભાલને કે લિયે જો શખ્સ આપકા નાઈબ (કાઈમ-મકામ) બના, ઉસકો ખલીફા કહતે હૈં. (ખુલફા-એ-રાશિદીન મેં હઝરત અબૂ બક્ર, હઝરત ઉમર, હઝરત ઉસ્માન, હઝરત અલી ઔર ૬ માહ હઝરત ઇમામ હસન રદિયલ્લાહુ અન્હુમ શામિલ હૈં)." },
+      { id: 5, guNum: "૫", cat: "shakhsiyat", title: "સહાબી", desc: "જિસ શખ્સ ને હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કી ઝાહિરી હયાત મેં ઈમાન કી હાલત મેં આપસે મુલાકાત (યા ઝિયારત) કી હો ઔર ઈમાન હી કી હાલત મેં ઉસકા ઇન્તિકાલ હુઆ હો, ઉસકો સહાબી કહતે હૈં." },
+      { id: 6, guNum: "૬", cat: "shakhsiyat", title: "તાબઈ", desc: "જિસ શખ્સ ને ઈમાન કી હાલત મેં કિસી સહાબી સે મુલાકાત (યા ઝિયારત) કી હો—લેકિન ઈમાન કી હાલત મેં હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) સે મુલાકાત ન કી હો—ઔર ઈમાન કી હાલત મેં ઉસકા ઇન્તિકાલ હુઆ હો, ઉસકો તાબઈ કહતે હૈં." },
+      { id: 7, guNum: "૭", cat: "shakhsiyat", title: "તબ્એ તાબઈ", desc: "જિસ શખ્સ ને ઈમાન કી હાલત મેં કિસી તાબઈ સે મુલાકાત (યા ઝિયારત) કી હો—લેકિન ઈમાન કી હાલત મેં કિસી સહાબી સે મુલાકાત ન કી હો—ઔર ઈમાન કી હાલત મેં ઉસકા ઇન્તિકાલ હુઆ હો, ઉસકો તબ્એ તાબઈ કહતે હૈં." },
+      { id: 8, guNum: "૮", cat: "shakhsiyat", title: "મુહાજિર", desc: "જો શખ્સ અલ્લાહ તઆલા કી રિઝા ઔર દીન કી હિફાઝત કે લિયે અપના વતન છોડકર ચલા જાએ, ઉસકો મુહાજિર કહતે હૈં. ઇસ્લામી તારીખ મેં ખાસ તૌર પર ઉન સહાબા-એ-કિરામ (રદિયલ્લાહુ અન્હુમ) કો મુહાજિર કહતે હૈં જિન્હોંને મક્કા શરીફ સે મદીના શરીફ કી તરફ હિજરત કી." },
+      { id: 9, guNum: "૯", cat: "shakhsiyat", title: "અન્સાર", desc: "મદીના મુનવ્વરા કે ઉન મુબારક સહાબા-એ-કિરામ (રદિયલ્લાહુ અન્હુમ) કો અન્સાર કહતે હૈં જિન્હોંને હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) ઔર મુહાજિરીન કી મદદ કી ઔર ઉન્હેં અપને ઘરોં મેં પનાહ દી." },
+      { id: 10, guNum: "૧૦", cat: "shakhsiyat", title: "વલી", desc: "સહીહ અકીદે વાલા વો મુસલમાન જિસે અલ્લાહ તઆલા કા ખાસ કુર્બ (નઝદીકી) ઔર દોસ્તી હાસિલ હો—ચાહે વો સીધે અલ્લાહ કે ફઝ્લ ઔર અતા (વહબી, જૈસે પૈદાઈશી વલી) સે મિલી હો યા ફરાઈઝ કી પાબંદી, ખૂબ ઇબાદત, ગુનાહોં સે બચને ઔર હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કી પૂરી ઇતાઅત (કસ્બી) કે ઝરીએ મિલી હો—ઉસે વલી કહતે હૈં. (યાદ રખેં કે વલી મઅસૂમ નહીં હોતે, બલ્કિ અલ્લાહ કે ફઝ્લ સે મહફૂઝ હોતે હૈં)." },
+      { id: 11, guNum: "૧૧", cat: "aqaid", title: "મુઅમિન", desc: "જો શખ્સ તમામ ઝરૂરિયાત-એ-દીન (અલ્લાહ કી વહદાનિયત, હુઝૂર સલ્લલ્લાહુ અલૈહિ વસલ્લમ કી રિસાલત ઔર દીન કી તમામ બુનિયાદી બાતોં) કો દિલ સે સચ્ચા માને ઔર બગૈર કિસી ઉઝ્ર (મજબૂરી) કે ઝબાન સે ઉસકા ઇકરાર કરે, ઉસકો મુઅમિન કહતે હૈં. (નેક અઅમાલ કરને સે ઈમાન કે નૂર, કૈફિયત ઔર કમાલ મેં ઇઝાફા હોતા હૈ)." },
+      { id: 12, guNum: "૧૨", cat: "aqaid", title: "કાફિર", desc: "ઝરૂરિયાત-એ-દીન (જિન બાતોં પર ઈમાન લાના ઝરૂરી હૈ) મેં સે કિસી એક બાત કા ભી ઇન્કાર કરને વાલે, ઉસમેં શક (શુબહા) કરને વાલે યા ઉસકી તૌહીન (ગુસ્તાખી) કરને વાલે શખ્સ કો કાફિર કહતે હૈં." },
+      { id: 13, guNum: "૧૩", cat: "aqaid", title: "મુશરિક", desc: "અલ્લાહ તઆલા કી ઝાત, ઉસકી સિફાત-એ-ખાસ્સા (ઝાતી તૌર પર કિસી કો અલ્લાહ કે બરાબર માનના) યા મુસ્તહિક-એ-ઇબાદત હોને મેં કિસી દૂસરે કો શરીક ઠહરાને વાલે કો મુશરિક કહતે હૈં." },
+      { id: 14, guNum: "૧૪", cat: "aqaid", title: "ફાસિક", desc: "વો મુસલમાન જો કોઈ ગુનાહે કબીરા (બડા ગુનાહ) કરે, યા કિસી ગુનાહે સગીરા (છોટે ગુનાહ) પર હમેશગી (આદત) રખે, જબ તક સચ્ચી તૌબા ન કર લે." },
+      { id: 15, guNum: "૧૫", cat: "aqaid", title: "ઝિન્દીક", desc: "વો શખ્સ જો ઝાહિરી તૌર પર કલિમા પઢતા ઔર ખુદ કો મુસલમાન કહતા હો, મગર અંદર સે કુફ્ર કે અકીદે રખતા હો ઔર ઇસ્લામ કે નામ પર ઝરૂરિયાત-એ-દીન કી ગલત તાવીલ કરકે કુફ્રિયા બાતેં ફૈલાતા હો." },
+      { id: 16, guNum: "૧૬", cat: "akhirat", title: "કિરામન કાતિબીન", desc: "હર ઇન્સાન કે સાથ અલ્લાહ તઆલા કે મુકર્રર કિયે હુએ દો ફરિશ્તે રહતે હૈં—દાઈં તરફ કા ફરિશ્તા નેક કામ લિખતા હૈ ઔર બાઈં તરફ કા ફરિશ્તા બુરે કામ લિખતા હૈ. ઉન ફરિશ્તોં કો કિરામન કાતિબીન કહતે હૈં." },
+      { id: 17, guNum: "૧૭", cat: "akhirat", title: "મુન્કર નકીર", desc: "અંબિયા (અલૈહિમુસ્સલામ) ઔર નાબાલિગ મઅસૂમ બચ્ચોં કે અલાવા જબ કિસી મુકલ્લફ ઇન્સાન કા ઇન્તિકાલ હોતા હૈ—દફન કિયા જાએ તો કબ્ર મેં ઔર દફન ન કિયા જાએ તો જિસ હાલ મેં હો વહીં—ઉસકે પાસ દો ફરિશ્તે આતે હૈં ઔર તીન સવાલ કરતે હૈં: (૧) તેરા રબ કૌન હૈ? (૨) તેરા દીન ક્યા હૈ? (૩) ઔર હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કી તરફ ઇશારા કરકે પૂછતે હૈં કે ઇન હસ્તી કે બારે મેં તૂ ક્યા કહતા થા? યે સવાલ કરને વાલે ફરિશ્તોં કો મુન્કર નકીર કહતે હૈં." },
+      { id: 18, guNum: "૧૮", cat: "aqaid", title: "જિન્ન", desc: "અલ્લાહ તઆલા ને એક મખ્લૂક કો બગૈર ધુએં વાલી આગ સે પૈદા ફરમાકર હમારી આમ નઝરોં સે પોશીદા (છુપાકર) રખા હૈ, ઉન્હેં જિન્ન કહતે હૈં. (ઇન્સાનોં કી તરહ જિન્નાત મેં ભી મુસલમાન ઔર કાફિર હોતે હૈં, ઔર વો ભી શરીઅત કે પાબંદ હૈં)." },
+      { id: 19, guNum: "૧૯", cat: "aqaid", title: "ઇબ્લીસ", desc: "યાની સબસે બડા શૈતાન, જો જિન્નાત કી કૌમ સે થા. ઉસને હઝરત આદમ (અલૈહિસ્સલામ) કો સજદા-એ-તાઝીમી કરને કે અલ્લાહ તઆલા કે હુક્મ કા તકબ્બુર (ગુરૂર) સે ઇન્કાર કિયા, જિસકી વજહ સે વો કાફિર ઔર મરદૂદ હુઆ. ઉસકી ઔલાદ કો શયાતીન કહતે હૈં ઔર ઇબ્લીસ ઉન સબકા સરદાર હૈ." },
+      { id: 20, guNum: "૨૦", cat: "tarikh", title: "હિજરત", desc: "હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) અલ્લાહ તઆલા કે હુક્મ સે મક્કા શરીફ છોડકર મદીના શરીફ તશરીફ લે ગએ, ઉસ મુબારક સફર કો હિજરત કહતે હૈં." },
+      { id: 21, guNum: "૨૧", cat: "tarikh", title: "હિજરી સન", desc: "હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કી હિજરત કે સાલ સે જો ઇસ્લામી તારીખ શુરૂ હુઈ હૈ, ઉસકો સન હિજરી કહતે હૈં." },
+      { id: 22, guNum: "૨૨", cat: "tarikh", title: "ઇસવી સન", desc: "હઝરત ઈસા (અલૈહિસ્સલામ) કી પૈદાઈશ સે જો તારીખ શુરૂ હુઈ હૈ, ઉસકો સન ઇસવી કહતે હૈં." },
+      { id: 23, guNum: "૨૩", cat: "tarikh", title: "ગઝવહ", desc: "જિસ જંગ યા મુહિમ મેં હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) ખુદ સહાબા-એ-કિરામ કે સાથ શરીક રહે હોં—ચાહે લડાઈ હુઈ હો યા ન હુઈ હો—ઉસકો ગઝવહ કહતે હૈં." },
+      { id: 24, guNum: "૨૪", cat: "tarikh", title: "સરિયહ", desc: "જિસ મુહિમ યા લડાઈ કે લિયે હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) ને કિસી સહાબી કી સરદારી મેં લશ્કર ભેજા હો ઔર આપ ખુદ ઉસમેં શરીક ન હુએ હોં, ઉસકો સરિયહ કહતે હૈં." },
+      { id: 25, guNum: "૨૫", cat: "aqaid", title: "મુઅજિઝા", desc: "દાવા-એ-નુબુવ્વત કે બાદ પૈગમ્બર કી સચ્ચાઈ ઝાહિર કરને કે લિયે અલ્લાહ તઆલા ઉનકે હાથોં પર ઐસી ખિલાફ-એ-આદત (કુદરત કે આમ કાનૂન સે હટકર) બાતેં ઝાહિર ફરમાતા હૈ જિસકા મુકાબલા કોઈ મુન્કિર નહીં કર સકતા; ઐસી બાતોં કો મુઅજિઝા (જમા: મુઅજિઝાત) કહતે હૈં. (દાવા-એ-નુબુવ્વત સે પહેલે ઝાહિર હો તો ઉસે 'ઇરહાસ' કહતે હૈં)." },
+      { id: 26, guNum: "૨૬", cat: "aqaid", title: "કરામત", desc: "અલ્લાહ તઆલા કી અતા સે, બગૈર દાવા-એ-નુબુવ્વત કે, કિસી સહીહુલ-અકીદા વલી કે હાથોં પર કોઈ ખિલાફ-એ-આદત બાત ઝાહિર હો તો ઉસકો કરામત કહતે હૈં. (આમ મુસલમાન કે હાથોં પર ઝાહિર હો તો ઉસે 'મઊનત' કહતે હૈં)." },
+      { id: 27, guNum: "૨૭", cat: "aqaid", title: "ઇસ્તિદરાજ", desc: "કિસી કાફિર, ફાસિક યા બે-દીન શખ્સ કે હાથોં પર ઉસકી મર્ઝી કે મુતાબિક કોઈ ખિલાફ-એ-આદત બાત ઝાહિર હો—જો અલ્લાહ કી તરફ સે ઉસકે લિયે ઢીલ ઔર આઝમાઈશ હોતી હૈ—તો ઉસે ઇસ્તિદરાજ કહતે હૈં. (ઔર અગર ઉસકી મર્ઝી કે ખિલાફ ઝાહિર હો તો ઉસે 'ઇહાનત' કહતે હૈં)." },
+      { id: 28, guNum: "૨૮", cat: "aqaid", title: "તૌહીદ", desc: "અલ્લાહ તઆલા કો ઉસકી ઝાત, સિફાત-એ-ખાસ્સા ઔર મુસ્તહિક-એ-ઇબાદત હોને મેં અકેલા, યક્તા ઔર લા-શરીક માનને કો તૌહીદ કહતે હૈં." },
+      { id: 29, guNum: "૨૯", cat: "shakhsiyat", title: "અહલે બૈત", desc: "હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કે મુકદ્દસ ઘર વાલોં કો અહલે બૈત કહતે હૈં. ઇસમેં આપકી પાક બીવિયાં (અઝવાજ-એ-મુતહ્હરાત) ઔર ખાસ તૌર પર હઝરત અલી, હઝરત ફાતિમા, હઝરત હસન ઔર હઝરત હુસૈન (રદિયલ્લાહુ અન્હુમ) ઔર ઉનકી પાક ઔલાદ શામિલ હૈં." },
+      { id: 30, guNum: "૩૦", cat: "aqaid", title: "અહલે સુન્નત વલ જમાઅત", desc: "વો હક જમાઅત (સવાદ-એ-આઝમ) જો હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કી સુન્નત ઔર સહાબા-એ-કિરામ (રદિયલ્લાહુ અન્હુમ) કે સહીહ રાસ્તે ઔર અકીદે પર કાઈમ હો, ઉન્હેં અહલે સુન્નત વલ જમાઅત (યાની સુન્ની) કહતે હૈં." },
+      { id: 31, guNum: "૩૧", cat: "aqaid", title: "ફરિશ્તે", desc: "અલ્લાહ તઆલા કી નૂરાની ઔર મઅસૂમ (ગુનાહોં સે પાક) મખ્લૂક, જિન્હેં નૂર સે પૈદા કિયા ગયા હૈ. યે ન મર્દ હોતે હૈં ન ઔરત, ન ખાતે-પીતે હૈં, બલ્કિ હમેશા અલ્લાહ કી ઇબાદત ઔર હુક્મ કી તામીલ મેં લગે રહતે હૈં." },
+      { id: 32, guNum: "૩૨", cat: "aqaid", title: "મુનાફિક", desc: "વો શખ્સ જો ઝબાન સે ઇસ્લામ કા ઇકરાર ઔર દાવા કરે, મગર અપને દિલ મેં કુફ્ર છુપાકર રખે, ઉસકો મુનાફિક (નિફાક-એ-ઇઅતિકાદી) કહતે હૈં; યે અસલી મુનાફિક કાફિર હૈ." },
+      { id: 33, guNum: "૩૩", cat: "aqaid", title: "મુર્તદ", desc: "જો શખ્સ મુસલમાન હોને કે બાદ—મઆઝલ્લાહ—બગૈર કિસી ઇકરાહ (જાન કી જબરદસ્તી) કે ઇસ્લામ છોડ દે, યા કિસી ઝરૂરી-એ-દીન કા ઇન્કાર કરે, યા કોઈ કુફ્રિયા કૌલ યા ફેઅલ ઇખ્તિયાર કરે, ઉસકો મુર્તદ કહતે હૈં." },
+      { id: 34, guNum: "૩૪", cat: "akhirat", title: "શફાઅત", desc: "કયામત કે દિન અલ્લાહ તઆલા કે ઇઝ્ન (ઇજાઝત) સે હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ)—જિનકે સાથ શફાઅત-એ-કુબ્રા ખાસ હૈ—ઔર આપકે સદકે સે દીગર અંબિયા, ઔલિયા, શુહદા ઔર ઉલમા કા ગુનાહગાર મુસલમાનોં (સિર્ફ અહલે ઈમાન) કી બખ્શિશ ઔર દર્જાત કી બુલંદી કે લિયે સિફારિશ ફરમાના શફાઅત કહલાતા હૈ." },
+      { id: 35, guNum: "૩૫", cat: "akhirat", title: "બર્ઝખ", desc: "મૌત સે લેકર કયામત કે દિન દોબારા ઝિંદા કિયે જાને તક કા જો દરમિયાની ઝમાના ઔર આલમ (કબ્ર કા આલમ) હૈ, ઉસે બર્ઝખ કહતે હૈં." },
+      { id: 36, guNum: "૩૬", cat: "akhirat", title: "પુલ સિરાત", desc: "જહન્નમ કી પીઠ પર બના હુઆ વો પુલ જો બાલ સે ઝ્યાદા બારીક ઔર તલવાર સે ઝ્યાદા તેઝ હૈ; જન્નત મેં જાને કા યેહી એક રાસ્તા હૈ. નેક મુસલમાન અપને અઅમાલ કે મુતાબિક આસાની સે પાર હો જાએંગે ઔર જિનકે નસીબ મેં અઝાબ હોગા વો જહન્નમ મેં ગિર જાએંગે." },
+      { id: 37, guNum: "૩૭", cat: "akhirat", title: "હૌઝ-એ-કૌસર", desc: "મૈદાન-એ-મહશર મેં અલ્લાહ તઆલા કી તરફ સે હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કો અતા કિયા હુઆ વો અઝીમ હૌઝ, જિસકા પાની દૂધ સે ઝ્યાદા સફેદ, શહદ સે ઝ્યાદા મીઠા ઔર મુશ્ક સે ઝ્યાદા ખુશ્બૂદાર હોગા; જો એક બાર પી લેગા ઉસે ફિર કભી પ્યાસ ન લગેગી." },
+      { id: 38, guNum: "૩૮", cat: "tarikh", title: "મેઅરાજ", desc: "હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કા રાત કે એક થોડે સે હિસ્સે મેં જાગતી હાલત (બ-હાલત-એ-બેદારી) મેં, જિસ્મ ઔર રૂહ દોનોં કે સાથ મક્કા શરીફ (મસ્જિદ-એ-હરામ) સે બૈતુલ મકદિસ (મસ્જિદ-એ-અક્સા) ઔર વહાં સે સાતોં આસમાનોં કે ઉપર, સિદરતુલ-મુન્તહા ઔર અર્શ-એ-આઝમ સે આગે જહાં તક અલ્લાહ ને ચાહા તશરીફ લે જાના, ઔર અપને સર કી આંખોં સે—બિલા કૈફ-ઓ-મકાન (બગૈર કિસી શક્લ, જગહ યા જિહત કે)—અલ્લાહ તઆલા કા દીદાર ફરમાના મેઅરાજ કહલાતા હૈ." },
+      { id: 39, guNum: "૩૯", cat: "tarikh", title: "શહીદ", desc: "જો મુસલમાન અલ્લાહ કી રાહ મેં જિહાદ કરતે હુએ યા ઝુલ્મ (મઝલૂમિયત) કી હાલત મેં કત્લ કિયા જાએ (શરીઅત કી શર્તોં કે મુતાબિક વો શહીદ-એ-હકીકી હૈ), યા ઉન દીગર અસ્બાબ (જૈસે તાઊન, ડૂબના, જલના, પેટ કી બીમારી વગૈરહ) સે વફાત પાએ જિન્હેં હદીસ મેં શહાદત ફરમાયા ગયા હૈ (શહીદ-એ-હુક્મી), ઉસે શહીદ કહતે હૈં." },
+      { id: 40, guNum: "૪૦", cat: "akhlaq", title: "તકવા", desc: "અલ્લાહ તઆલા કે ખૌફ ઔર અઝમત કી વજહ સે હર ગુનાહ ઔર મના કી હુઈ ચીઝ સે બચના ઔર અલ્લાહ વ રસૂલ (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કે અહકામ પર અમલ કરના તકવા કહલાતા હૈ." },
+      { id: 41, guNum: "૪૧", cat: "fiqh", title: "હદીસ", desc: "હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કે કૌલ (ફરમાન), ફેઅલ (અમલ) ઔર તકરીર (કિસી સહાબી કે કૌલ યા અમલ પર આપને ખામોશી ઇખ્તિયાર ફરમાઈ હો ઔર મના ન ફરમાયા હો) કો હદીસ કહતે હૈં." },
+      { id: 42, guNum: "૪૨", cat: "fiqh", title: "ફર્ઝ", desc: "વો ઝરૂરી હુક્મ જો દલીલ-એ-કતઈ (કુરાન યા હદીસ-એ-મુતવાતિર) સે સાબિત હો. ઇસકા કરને વાલા બડે સવાબ કા મુસ્તહિક ઔર બગૈર ઉઝ્ર છોડને વાલા ફાસિક ઔર અઝાબ કા મુસ્તહિક હૈ. જો ફર્ઝ દલીલ-એ-કતઈ બિલા-શુબહા સે સાબિત હો (ફર્ઝ-એ-કતઈ / ઇઅતિકાદી), ઉસકા ઇન્કાર કરને વાલા કાફિર હૈ." },
+      { id: 43, guNum: "૪૩", cat: "fiqh", title: "વાજિબ", desc: "વો ઝરૂરી હુક્મ જો દલીલ-એ-ઝન્ની (જૈસે ખબર-એ-વાહિદ) સે સાબિત હો. ઇસકા કરને વાલા સવાબ કા મુસ્તહિક હૈ; એક બાર બગૈર ઉઝ્ર છોડને વાલા ગુનાહગાર ઔર છોડને કી આદત બનાને વાલા ફાસિક હૈ, મગર ઇસકા ઇન્કાર કરને વાલા કાફિર નહીં (બલ્કિ ફાસિક/ગુમરાહ) હોતા." },
+      { id: 44, guNum: "૪૪", cat: "fiqh", title: "સુન્નત", desc: "હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) ઔર ખુલફા-એ-રાશિદીન (રદિયલ્લાહુ અન્હુમ) કે મુબારક દીની તરીકે કો સુન્નત કહતે હૈં. જિસ અમલ પર આપને હમેશગી ફરમાઈ હો ઔર બગૈર ઉઝ્ર ન છોડા હો ઉસે સુન્નત-એ-મુઅક્કદા કહતે હૈં (એક બાર છોડના બુરા ઔર છોડને કી આદત બનાના ગુનાહ/ફિસ્ક હૈ), ઔર જિસે કભી કિયા હો ઔર કભી છોડ ભી દિયા હો ઉસે સુન્નત-એ-ગૈર મુઅક્કદા કહતે હૈં (કરને પર સવાબ હૈ ઔર ન કરને પર ગુનાહ નહીં)." },
+      { id: 45, guNum: "૪૫", cat: "fiqh", title: "મુસ્તહબ (ઔર નફ્લ)", desc: "વો નેક કામ જિસકે કરને પર સવાબ મિલતા હૈ, લેકિન ન કરને પર કોઈ ગુનાહ યા મલામત નહીં હોતી, ઉસે મુસ્તહબ યા નફ્લ (મંદૂબ) કહતે હૈં." },
+      { id: 46, guNum: "૪૬", cat: "fiqh", title: "મુબાહ", desc: "વો કામ જિસકે કરને મેં ન સવાબ હૈ ઔર ન છોડને મેં કોઈ ગુનાહ (જૈસે આમ ખાના-પીના યા ચલના-ફિરના); અલબત્તા સચ્ચી ઔર અચ્છી નિયત સે કિયા જાએ તો ઉસ પર ભી સવાબ મિલતા હૈ." },
+      { id: 47, guNum: "૪૭", cat: "fiqh", title: "હરામ", desc: "વો કામ જિસકી મુમાનિઅત (મનાહી) દલીલ-એ-કતઈ સે સાબિત હો. ઇસસે બચના ફર્ઝ હૈ; ઇસકા કરને વાલા સખ્ત ગુનાહગાર ઔર અઝાબ કા મુસ્તહિક હૈ, ઔર હરામ-એ-કતઈ (જો બિલા-શુબહા સાબિત હો) કો હલાલ માનને વાલા કાફિર હૈ." },
+      { id: 48, guNum: "૪૮", cat: "fiqh", title: "મકરૂહ-એ-તહરીમી", desc: "વો ના-પસંદીદા કામ જો હરામ કે કરીબ હો (ઔર દલીલ-એ-ઝન્ની સે મના હો). ઇસસે બચના વાજિબ હૈ; એક બાર કરને વાલા ગુનાહગાર ઔર આદત બનાને વાલા ફાસિક હૈ, મગર ઇસે હલાલ સમજને વાલા કાફિર નહીં (બલ્કિ ફાસિક/ગુમરાહ) હોતા." },
+      { id: 49, guNum: "૪૯", cat: "fiqh", title: "મકરૂહ-એ-તન્ઝીહી", desc: "વો ના-પસંદીદા કામ જિસકા ન કરના બેહતર હૈ ઔર ઉસસે બચને પર સવાબ મિલતા હૈ, લેકિન કર લેને પર કોઈ ગુનાહ યા અઝાબ નહીં હોતા." },
+      { id: 50, guNum: "૫૦", cat: "fiqh", title: "બિદઅત", desc: "દીન મેં કોઈ ઐસી નઈ બાત જો હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કે ઝાહિરી ઝમાને મેં ઉસ તરહ મૌજૂદ ન થી. અકીદે મેં કોઈ નઈ બાત (બિદઅત-એ-ઇઅતિકાદિયા) હમેશા હરામ ઔર ગુમરાહી (કભી કુફ્ર) હોતી હૈ. અલબત્તા અઅમાલ ઔર તરીકોં મેં (બિદઅત-એ-અમલિયા) ઇસકી દો કિસ્મેં હૈં: (૧) બિદઅત-એ-હસના: વો અચ્છા નયા કામ જો કુરાન-ઓ-સુન્નત કે ખિલાફ ન હો ઔર કિસી સુન્નત કો ન મિટાતા હો (જૈસે દીની મદારિસ, કુરાન પર ઝેર-ઝબર, ઇસ્લામી કિતાબોં કી છપાઈ)—યે જાઈઝ ઔર બાઈસ-એ-સવાબ હૈ. (૨) બિદઅત-એ-સય્યિઅહ: વો બુરા નયા કામ જો કુરાન-ઓ-સુન્નત કે ખિલાફ હો યા કિસી સુન્નત કો મિટાતા હો—યે નાજાઈઝ ઔર ગુમરાહી હૈ." },
+      { id: 51, guNum: "૫૧", cat: "aqaid", title: "તકદીર", desc: "અલ્લાહ તઆલા કે ઇલ્મ-એ-અઝલી મેં હર અચ્છી ઔર બુરી ચીઝ કા પહેલે સે લિખા ઔર મુકર્રર હોના તકદીર કહલાતા હૈ. હર ચીઝ કા ખાલિક અલ્લાહ તઆલા હૈ, લેકિન અલ્લાહ ને ઇન્સાન કો ઇરાદા ઔર ઇખ્તિયાર (કસ્બ) દિયા હૈ જિસકી બિના પર સવાબ ઔર અઝાબ હોતા હૈ; અલ્લાહ નેકી સે રાઝી ઔર બુરાઈ સે નારાઝ હોતા હૈ." },
+      { id: 52, guNum: "૫૨", cat: "aqaid", title: "મઅસૂમ", desc: "ગુનાહોં સે બિલકુલ પાક ઔર મહફૂઝ હોના. અહલે સુન્નત કે અકીદે કે મુતાબિક ઇસ્મત (મઅસૂમ હોના) સિર્ફ અંબિયા (અલૈહિમુસ્સલામ) ઔર ફરિશ્તોં કે સાથ ખાસ હૈ; સહાબા-એ-કિરામ ઔર ઔલિયા-એ-કિરામ મઅસૂમ નહીં બલ્કિ અલ્લાહ કે ફઝ્લ સે મહફૂઝ હોતે હૈં." },
+      { id: 53, guNum: "૫૩", cat: "aqaid", title: "ખત્મે નુબુવ્વત", desc: "હુઝૂર અક્રમ (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) અલ્લાહ તઆલા કે આખિરી નબી હૈં, આપકે બાદ કોઈ નયા નબી નહીં આ સકતા. (હઝરત ઈસા અલૈહિસ્સલામ પહેલે સે નબી હૈં ઔર કયામત કે કરીબ હુઝૂર સલ્લલ્લાહુ અલૈહિ વસલ્લમ કે ઉમ્મતી બનકર આપકી શરીઅત પર અમલ કરને કે લિયે તશરીફ લાએંગે; ઇસસે ખત્મે નુબુવ્વત પર કોઈ ફર્ક નહીં પડતા)." },
+      { id: 54, guNum: "૫૪", cat: "aqaid", title: "હયાતુન-નબી", desc: "અહલે સુન્નત કા મુત્તફિકા અકીદા હૈ કે તમામ અંબિયા-એ-કિરામ (અલૈહિમુસ્સલામ) અપની કબ્રોં મેં ઉસી તરહ હકીકી, જિસ્માની ઔર દુનિયાવી હયાત સે ઝિંદા હૈં—ઉન્હેં સિર્ફ એક આન કે લિયે મૌત આઈ ઔર ફિર ઉન્હેં ઝિંદા ફરમા દિયા ગયા; વો નમાઝ પઢતે હૈં ઔર ઉન્હેં રિઝ્ક દિયા જાતા હૈ." },
+      { id: 55, guNum: "૫૫", cat: "aqaid", title: "ઇલ્મ-એ-ગૈબ-એ-અતાઈ", desc: "ઝાતી ઇલ્મ-એ-ગૈબ (બગૈર કિસી કે બતાએ ખુદ જાનના) સિર્ફ અલ્લાહ તઆલા કે સાથ ખાસ હૈ; અલબત્તા અલ્લાહ તઆલા કી અતા સે હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) ઔર બ-કદ્રે-મર્તબા દીગર અંબિયા કો ગૈબ કા ઇલ્મ દિયા ગયા હૈ, જિસે ઇલ્મ-એ-ગૈબ-એ-અતાઈ કહતે હૈં." },
+      { id: 56, guNum: "૫૬", cat: "aqaid", title: "વસીલા (તવસ્સુલ)", desc: "દુઆ કરતે વક્ત અલ્લાહ તઆલા કી બારગાહ મેં ઉસકે મકબૂલ બંદોં (અંબિયા, સહાબા, ઔલિયા) યા અપને નેક અઅમાલ કા વાસ્તા પેશ કરના વસીલા કહલાતા હૈ. અસલ દેને વાલા અલ્લાહ હી હૈ ઔર વસીલા પેશ કરના જાઈઝ ઔર દુઆ કી કુબૂલિયત કા ઝરિયા હૈ." },
+      { id: 57, guNum: "૫૭", cat: "akhirat", title: "ઈસાલ-એ-સવાબ", desc: "કોઈ નેક અમલ (તિલાવત-એ-કુરાન, ઝિક્ર, દુરૂદ, સદકા, ખૈરાત વગૈરહ) કરકે ઉસકા સવાબ ઝિંદા યા ફૌત-શુદા મુસલમાનોં (ખાસ તૌર પર અંબિયા, ઔલિયા ઔર અપને મર્હૂમીન) કી રૂહોં કો બખ્શના ઈસાલ-એ-સવાબ કહલાતા હૈ. ઇસકા સવાબ ઉન્હેં પહુંચતા હૈ ઔર બખ્શને વાલે કે સવાબ મેં કોઈ કમી નહીં હોતી. (યાદ રખેં: સિર્ફ મુસલમાનોં કો હી ઈસાલ-એ-સવાબ કિયા જા સકતા હૈ)." },
+      { id: 58, guNum: "૫૮", cat: "akhirat", title: "મીઝાન-એ-અઅમાલ", desc: "કયામત કે દિન ઇન્સાનોં કે અઅમાલ (નેકી ઔર બુરાઈ) તોલને કા હકીકી તરાઝૂ, જિસકે દો પલ્લે ઔર એક ઝબાન હોગી." },
+      { id: 59, guNum: "૫૯", cat: "akhirat", title: "મહશર (હશ્ર)", desc: "કયામત કે દિન તમામ ઇન્સાનોં, જિન્નોં ઔર મખ્લૂક કા હિસાબ-કિતાબ કે લિયે દોબારા ઝિંદા હોકર એક મૈદાન મેં જમા હોના મહશર કહલાતા હૈ." },
+      { id: 60, guNum: "૬૦", cat: "akhirat", title: "સૂર", desc: "એક ખાસ કિસ્મ કા નરસિંઘા જિસે હઝરત ઇસ્રાફીલ (અલૈહિસ્સલામ) અલ્લાહ તઆલા કે હુક્મ સે ફૂંકેંગે—પહેલી મર્તબા ફૂંકને સે કયામત કાઈમ હોગી ઔર સબ ફના હો જાએંગે, ઔર આખિરી મર્તબા ફૂંકને સે તમામ મખ્લૂક દોબારા ઝિંદા હો જાએગી." },
+      { id: 61, guNum: "૬૧", cat: "akhirat", title: "દજ્જાલ", desc: "કયામત કી બડી નિશાનિયોં મેં સે એક કાના (એક આંખ વાલા) ઔર ઝૂઠા ફિત્ના-ગર શખ્સ જો ખુદાઈ કા દાવા કરેગા ઔર મક્કા-મદીના કે અલાવા પૂરી દુનિયા મેં ફિત્ના ફૈલાએગા; આખિરકાર હઝરત ઈસા (અલૈહિસ્સલામ) ઉસે બાબ-એ-લુદ્દ કે મકામ પર કત્લ ફરમાએંગે." },
+      { id: 62, guNum: "૬૨", cat: "akhirat", title: "ઇમામ મહદી (રદિયલ્લાહુ અન્હુ)", desc: "કયામત કે કરીબ અહલે બૈત (હઝરત ફાતિમા રદિયલ્લાહુ અન્હા કી ઔલાદ) મેં સે ઝાહિર હોને વાલે એક બરહક ઔર આદિલ ખલીફા, જિનકા નામ મુહમ્મદ ઔર વાલિદ કા નામ અબ્દુલ્લાહ હોગા. વો દુનિયા કો અદ્લ-ઓ-ઇન્સાફ સે ભર દેંગે ઔર હઝરત ઈસા (અલૈહિસ્સલામ) ઉનકે પીછે નમાઝ પઢેંગે." },
+      { id: 63, guNum: "૬૩", cat: "akhirat", title: "યાજૂજ-માજૂજ", desc: "હઝરત નૂહ (અલૈહિસ્સલામ) કે બેટે યાફસ કી ઔલાદ મેં સે દો બડી સરકશ ઔર ફસાદી કૌમેં જો હઝરત ઝુલકર્નૈન કી બનાઈ હુઈ દીવાર કે પીછે કૈદ હૈં; કયામત કે કરીબ હઝરત ઈસા (અલૈહિસ્સલામ) કે ઝમાને મેં નિકલેંગી ઔર ઉનકી દુઆ સે હલાક હો જાએંગી." },
+      { id: 64, guNum: "૬૪", cat: "akhirat", title: "દબ્બતુલ અર્ઝ", desc: "કયામત કી બડી નિશાનિયોં મેં સે એક અજીબ જાનવર જો મક્કા શરીફ મેં કોહ-એ-સફા સે નિકલેગા ઔર ઇન્સાનોં સે બાત કરેગા; વો મુઅમિન ઔર કાફિર કે ચહરે પર ખાસ નિશાન લગા દેગા જિસસે હર કોઈ પહેચાના જાએગા." },
+      { id: 65, guNum: "૬૫", cat: "shakhsiyat", title: "અશરએ મુબશ્શરા", desc: "વો દસ ખુશ-નસીબ સહાબા-એ-કિરામ (રદિયલ્લાહુ અન્હુમ) જિન્હેં હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) ને એક હી મજ્લિસ મેં દુનિયા હી મેં જન્નતી હોને કી બશારત દી: (૧) હઝરત અબૂ બક્ર સિદ્દીક, (૨) હઝરત ઉમર ફારૂક, (૩) હઝરત ઉસ્માન ગની, (૪) હઝરત અલી મુર્તઝા, (૫) હઝરત તલ્હા, (૬) હઝરત ઝુબૈર, (૭) હઝરત અબ્દુર્રહમાન બિન ઔફ, (૮) હઝરત સઅદ બિન અબી વક્કાસ, (૯) હઝરત સઈદ બિન ઝૈદ, ઔર (૧૦) હઝરત અબૂ ઉબૈદા બિન જર્રાહ (રદિયલ્લાહુ અન્હુમ)." },
+      { id: 66, guNum: "૬૬", cat: "fiqh", title: "કુરાન-એ-મજીદ", desc: "અલ્લાહ તઆલા કા વો આખિરી ઔર ગૈર-મખ્લૂક કલામ જો હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) પર અરબી ઝબાન મેં નાઝિલ હુઆ ઔર કયામત તક હર તરહ કી તબ્દીલી ઔર કમી-ઝ્યાદતી સે મહફૂઝ હૈ." },
+      { id: 67, guNum: "૬૭", cat: "fiqh", title: "તફસીર", desc: "કુરાન-એ-મજીદ કી આયતોં કે સહીહ મઅના, શાન-એ-નુઝૂલ ઔર અહકામ કો હદીસ, અકવાલ-એ-સહાબા ઔર શરીઅત કે ઉસૂલોં કે મુતાબિક બયાન કરને કે ઇલ્મ કો તફસીર કહતે હૈં. (બગૈર ઇલ્મ અપની મર્ઝી સે કુરાન કા મતલબ નિકાલના હરામ હૈ)." },
+      { id: 68, guNum: "૬૮", cat: "fiqh", title: "હદીસ-એ-કુદસી", desc: "વો હદીસ જિસકે મઅના અલ્લાહ તઆલા કી તરફ સે હોં ઔર અલ્ફાઝ હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કી તરફ સે (જિસે આપ \"અલ્લાહ તઆલા ફરમાતા હૈ\" કહકર બયાન ફરમાએં), મગર ઇસકી નમાઝ મેં તિલાવત નહીં હોતી." },
+      { id: 69, guNum: "૬૯", cat: "fiqh", title: "ઇજ્મા", desc: "હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) કે વિસાલ કે બાદ કિસી ભી ઝમાને કે તમામ મુજ્તહિદીન-એ-ઉમ્મત કા કિસી શરઈ મસઅલે પર મુત્તફિક (એક રાય) હો જાના ઇજ્મા કહલાતા હૈ. યે શરીઅત કી તીસરી બડી દલીલ હૈ." },
+      { id: 70, guNum: "૭૦", cat: "fiqh", title: "કિયાસ", desc: "કિસી નએ મસઅલે કા હુક્મ કુરાન, હદીસ ઔર ઇજ્મા મેં મૌજૂદ મિલતે-જુલતે હુક્મ (મુશ્તરિક ઇલ્લત) કી બુનિયાદ પર નિકાલના કિયાસ કહલાતા હૈ. યે શરીઅત કી ચૌથી દલીલ હૈ." },
+      { id: 71, guNum: "૭૧", cat: "fiqh", title: "ફિકહ", desc: "કુરાન, હદીસ, ઇજ્મા ઔર કિયાસ કી રોશની મેં દીન કે અમલી અહકામ (નમાઝ, રોઝા, નિકાહ, તિજારત વગૈરહ) કો દલાઈલ કે સાથ જાનને કે ઇલ્મ કો ફિકહ કહતે હૈં." },
+      { id: 72, guNum: "૭૨", cat: "fiqh", title: "મુજ્તહિદ", desc: "વો આલા દર્જે કા આલિમ જો કુરાન-ઓ-હદીસ ઔર દીની ઉલૂમ મેં ઇતની મહારત રખતા હો કે બરાહે-રાસ્ત શરઈ દલાઈલ સે મસાઈલ નિકાલ સકે." },
+      { id: 73, guNum: "૭૩", cat: "fiqh", title: "તકલીદ", desc: "ગૈર-મુજ્તહિદ (આમ મુસલમાન યા આલિમ) કા ફિકહી (અમલી) મસાઈલ મેં ચાર બરહક ઇમામોં (ઇમામ અબૂ હનીફા, ઇમામ માલિક, ઇમામ શાફિઈ, ઇમામ અહમદ બિન હમ્બલ રહિમહુમુલ્લાહ) મેં સે કિસી એક ઇમામ કે બતાએ હુએ શરઈ તરીકે પર અમલ કરના તકલીદ કહલાતા હૈ. (અહલે સુન્નત કે નઝદીક ગૈર-મુજ્તહિદ પર તકલીદ-એ-શખ્સી વાજિબ હૈ, જબકિ અકાઈદ મેં ચારોં ઇમામ મુત્તફિક હૈં)." },
+      { id: 74, guNum: "૭૪", cat: "fiqh", title: "અઇમ્મા-એ-અર્બઅહ", desc: "અહલે સુન્નત વલ જમાઅત કે વો ચાર બરહક ફિકહી ઇમામ જિનકે મઝાહિબ દુનિયા મેં રાયજ હૈં: (૧) હઝરત ઇમામ-એ-આઝમ અબૂ હનીફા, (૨) હઝરત ઇમામ માલિક, (૩) હઝરત ઇમામ શાફિઈ, ઔર (૪) હઝરત ઇમામ અહમદ બિન હમ્બલ (રહિમહુમુલ્લાહ). યે ચારોં હક પર હૈં." },
+      { id: 75, guNum: "૭૫", cat: "fiqh", title: "ફતવા", desc: "કિસી શરઈ સવાલ યા મસઅલે કે બારે મેં મુફ્તી (શરીઅત કે માહિર આલિમ) કા કુરાન, હદીસ ઔર ફિકહ કી રોશની મેં શરઈ હુક્મ બયાન કરના ફતવા કહલાતા હૈ." },
+      { id: 76, guNum: "૭૬", cat: "ibadat", title: "તહારત", desc: "બદન, કપડે ઔર જગહ કા ઝાહિરી નજાસત (નાપાકી) ઔર હુક્મી નાપાકી (બે-વુઝૂ યા ગુસ્લ કી હાજત) સે પાક હોના તહારત કહલાતા હૈ." },
+      { id: 77, guNum: "૭૭", cat: "ibadat", title: "તયમ્મુમ", desc: "પાની ન મિલને યા બીમારી વગૈરહ કે શરઈ ઉઝ્ર કી વજહ સે પાક મિટ્ટી (યા મિટ્ટી કી જિન્સ જૈસે પત્થર, રેત વગૈરહ) સે વુઝૂ યા ગુસ્લ કે બદલે પાકીઝગી હાસિલ કરને કે શરઈ તરીકે કો તયમ્મુમ કહતે હૈં." },
+      { id: 78, guNum: "૭૮", cat: "ibadat", title: "મસહ", desc: "વુઝૂ મેં સિર પર, યા શરઈ શર્તોં કે સાથ ચમડે કે મોઝોં (ખુફ્ફૈન) યા ઝખ્મ કી પટ્ટી પર ગીલા હાથ ફેરને કો મસહ કહતે હૈં. (હનફી ફિકહ મેં આમ સૂતી યા નાયલોન કે મોઝોં પર મસહ જાઈઝ નહીં)." },
+      { id: 79, guNum: "૭૯", cat: "ibadat", title: "અદા ઔર કઝા", desc: "કિસી ફર્ઝ યા વાજિબ ઇબાદત (જૈસે નમાઝ યા રોઝા) કો ઉસકે મુકર્રર શરઈ વક્ત કે અંદર પૂરા કરના 'અદા' કહલાતા હૈ, ઔર વક્ત નિકલ જાને કે બાદ પૂરા કરના 'કઝા' કહલાતા હૈ." },
+      { id: 80, guNum: "૮૦", cat: "ibadat", title: "નમાઝ-એ-જમાઅત", desc: "ઇમામ કે પીછે મિલકર નમાઝ પઢના. ફિકહ-એ-હનફી કે મુતાબિક આકિલ, બાલિગ, આઝાદ ઔર કાદિર મર્દ પર બગૈર શરઈ ઉઝ્ર પાંચોં વક્ત કી ફર્ઝ નમાઝ મસ્જિદ મેં બ-જમાઅત પઢના વાજિબ હૈ." },
+      { id: 81, guNum: "૮૧", cat: "ibadat", title: "ઇઅતિકાફ", desc: "ઇબાદત કી નિયત સે મર્દ કા મસ્જિદ મેં (ઔર ઔરત કા અપને ઘર કી મસ્જિદ-એ-બૈત મેં) ઠહરના ઇઅતિકાફ કહલાતા હૈ. રમઝાન કે આખિરી અશરે કા ઇઅતિકાફ સુન્નત-એ-મુઅક્કદા અલલ-કિફાયા હૈ." },
+      { id: 82, guNum: "૮૨", cat: "ibadat", title: "ઝકાત ઔર નિસાબ", desc: "સાહિબ-એ-નિસાબ (જિસકે પાસ કર્ઝ ઔર હાજત-એ-અસ્લિયા સે ઝાઈદ સિર્ફ સાઢે સાત તોલા સોના, યા સાઢે બાવન તોલા ચાંદી, યા ઉસકી કીમત કે બરાબર નકદ/તિજારતી માલ પર એક કમરી સાલ ગુઝર જાએ) પર સાલ મેં ઢાઈ ફીસદ (૨.૫%) માલ કિસી શરઈ મુસ્તહિક ગૈર-હાશમી મુસલમાન ફકીર કો માલિક બનાકર દેના ફર્ઝ હૈ; માલ કી ઇસ મુકર્રર હદ કો નિસાબ કહતે હૈં." },
+      { id: 83, guNum: "૮૩", cat: "ibadat", title: "સદકએ ફિત્ર", desc: "ઈદુલ-ફિત્ર કે દિન સુબહ સાદિક કે વક્ત સાહિબ-એ-નિસાબ મુસલમાન પર અપની ઔર અપની નાબાલિગ ઔલાદ કી તરફ સે વાજિબ હોને વાલા સદકા (જિસકી મુકર્રર મિકદાર આધા સાઅ ગેહૂં યા ઉસકી કીમત હૈ)." },
+      { id: 84, guNum: "૮૪", cat: "ibadat", title: "ઉશ્ર", desc: "ઝમીન કી પૈદાવાર (ફસલ) પર લગને વાલી શરઈ ઝકાત—જો બારિશ યા કુદરતી પાની સે ઉગને વાલી ફસલ કા દસવાં હિસ્સા (૧/૧૦) ઔર મહેનત યા મશીન કે પાની સે ઉગને વાલી ફસલ કા બીસવાં હિસ્સા (૧/૨૦) હોતી હૈ." },
+      { id: 85, guNum: "૮૫", cat: "ibadat", title: "હજ ઔર ઉમરા", desc: "ઝુલ-હિજ્જા કે મુકર્રર દિનોં મેં એહરામ બાંધકર અરફાત મેં ઠહરના ઔર કાઅબા શરીફ કા તવાફ વગૈરહ કરના 'હજ' હૈ (જો સાહિબ-એ-ઇસ્તિતાઅત પર ઉમ્ર મેં એક બાર ફર્ઝ હૈ); ઔર સાલ મેં કભી ભી (૯ સે ૧૩ ઝુલ-હિજ્જા કે પાંચ મકરૂહ દિનોં કે અલાવા) એહરામ બાંધકર તવાફ ઔર સઅઈ કરના 'ઉમરા' હૈ (જો ઉમ્ર મેં એક બાર સુન્નત-એ-મુઅક્કદા હૈ)." },
+      { id: 86, guNum: "૮૬", cat: "ibadat", title: "કુર્બાની (ઉઝહિયા)", desc: "૧૦ ઝુલ-હિજ્જા સે ૧૨ ઝુલ-હિજ્જા કે ગુરૂબ-એ-આફ્તાબ તક અલ્લાહ તઆલા કી રિઝા કે લિયે ખાસ જાનવર (ઊંટ, ગાય/ભૈંસ, બકરા/દુમ્બા) કો શરઈ તરીકે સે ઝિબહ કરના; યે હર આકિલ, બાલિગ, મુકીમ ઔર સાહિબ-એ-નિસાબ મુસલમાન પર વાજિબ હૈ." },
+      { id: 87, guNum: "૮૭", cat: "ibadat", title: "અકીકા", desc: "બચ્ચે કી પૈદાઈશ પર અલ્લાહ તઆલા કા શુક્ર અદા કરને કે લિયે (બેહતર હૈ સાતવેં દિન) જાનવર ઝિબહ કરના—લડકે કી તરફ સે દો બકરે ઔર લડકી કી તરફ સે એક બકરા; ફિકહ-એ-હનફી મેં યે મુસ્તહબ (સુન્નત) હૈ." },
+      { id: 88, guNum: "૮૮", cat: "ibadat", title: "મહર", desc: "નિકાહ કે વક્ત શૌહર કી તરફ સે બીવી કો દિયા જાને વાલા વો લાઝિમી માલ યા હક જો શરીઅત ને ઔરત કી ઇઝ્ઝત કે લિયે મુકર્રર કિયા હૈ (ફિકહ-એ-હનફી મેં કમ સે કમ ૧૦ દિરહમ ચાંદી યા ઉસકી કીમત હૈ)." },
+      { id: 89, guNum: "૮૯", cat: "ibadat", title: "ઇદ્દત", desc: "શૌહર કે ઇન્તિકાલ યા તલાક કે બાદ ઔરત પર ગુઝારના વાજિબ હોને વાલા વો મુકર્રર શરઈ વક્ત જિસકે દૌરાન વો દૂસરા નિકાહ નહીં કર સકતી (ઇન્તિકાલ કી ઇદ્દત ૪ માહ ૧૦ દિન, તલાક કી ૩ પૂરે હૈઝ યા અગર હૈઝ ન આતા હો તો ૩ માહ, ઔર હામિલા કી બચ્ચે કી પૈદાઈશ તક હોતી હૈ)." },
+      { id: 90, guNum: "૯૦", cat: "akhlaq", title: "ઇખ્લાસ", desc: "હર નેક અમલ ઔર ઇબાદત કો દિખાવે (રિયા) ઔર દુનિયાવી ગર્ઝ સે પાક રખકર સિર્ફ અલ્લાહ તઆલા કી રિઝા કે લિયે કરના ઇખ્લાસ કહલાતા હૈ." },
+      { id: 91, guNum: "૯૧", cat: "akhlaq", title: "તવક્કુલ", desc: "જાઈઝ અસ્બાબ (કોશિશ) ઇખ્તિયાર કરને કે બાદ અસ્બાબ કે બજાએ પૂરા ભરોસા સિર્ફ અલ્લાહ તઆલા કી ઝાત પર રખના તવક્કુલ કહલાતા હૈ." },
+      { id: 92, guNum: "૯૨", cat: "akhlaq", title: "સબ્ર ઔર શુક્ર", desc: "મુસીબત મેં શિકવા-શિકાયત છોડકર અલ્લાહ કી રિઝા પર રાઝી રહના, ઇબાદત પર જમે રહના ઔર ગુનાહોં સે રૂકે રહના 'સબ્ર' હૈ; ઔર અલ્લાહ કી નેઅમતોં કો ઉસકા ફઝ્લ માનકર ઉનકા ઇસ્તેમાલ અલ્લાહ કી ઇતાઅત મેં કરના 'શુક્ર' હૈ." },
+      { id: 93, guNum: "૯૩", cat: "akhlaq", title: "તૌબા", desc: "કિસી ગુનાહ પર દિલ સે શર્મિંદા હોના, ઉસે ફૌરન છોડ દેના ઔર આઈંદા ન કરને કા પક્કા ઇરાદા કરના તૌબા કહલાતા હૈ. (અગર કોઈ ઇબાદત કઝા હુઈ હો તો ઉસકી કઝા કરના, ઔર કિસી બંદે કા હક દબાયા હો તો ઉસે વાપસ કરના યા માફ કરાના ભી શર્ત હૈ)." },
+      { id: 94, guNum: "૯૪", cat: "akhlaq", title: "ગૌસ, કુત્બ ઔર અબ્દાલ", desc: "ઔલિયા-એ-કિરામ (રહિમહુમુલ્લાહ) કે ખાસ રૂહાની દર્જાત ઔર ઓહદે હૈં જિન્હેં અલ્લાહ તઆલા અપની હિકમત સે દુનિયા કે રૂહાની નિઝામ ઔર મખ્લૂક કી ભલાઈ કા ઝરિયા બનાતા હૈ; અપને ઝમાને કે સબસે બડે વલી કો ગૌસ (યા કુત્બુલ-અક્તાબ) કહતે હૈં." },
+      { id: 95, guNum: "૯૫", cat: "akhlaq", title: "બૈઅત (પીર-ઓ-મુરીદ)", desc: "કિસી કામિલ પીર (મુર્શિદ) કે હાથ પર ગુનાહોં સે તૌબા કરના ઔર શરીઅત પર ચલને કા અહદ કરના બૈઅત કહલાતા હૈ. અહલે સુન્નત કે નઝદીક પીર બનને કે લિયે ચાર શર્તેં ઝરૂરી હૈં: (૧) સુન્ની સહીહુલ-અકીદા હો, (૨) ઝરૂરી ઇલ્મ-એ-દીન જાનતા હો, (૩) ફાસિક-એ-મુઅલિન (ખુલેઆમ ગુનાહ કરને વાલા) ન હો, ઔર (૪) ઉસકા સિલસિલા હુઝૂર (સલ્લલ્લાહુ અલૈહિ વસલ્લમ) તક મુત્તસિલ (જુડા હુઆ) હો." },
+      { id: 96, guNum: "૯૬", cat: "akhlaq", title: "રિયાકારી", desc: "ઇબાદત યા નેક કામ અલ્લાહ કી રિઝા કે બજાએ લોગોં કો દિખાને ઔર અપની વાહ-વાહી કરાને કે લિયે કરના રિયાકારી કહલાતા હૈ; યે હરામ હૈ ઔર હદીસ મેં ઇસે 'શિર્ક-એ-અસ્ગર' (છોટા શિર્ક) ફરમાયા ગયા હૈ." },
+      { id: 97, guNum: "૯૭", cat: "akhlaq", title: "ગીબત ઔર બુહતાન", desc: "કિસી મુસલમાન કી પીઠ પીછે ઉસકી ઐસી બુરાઈ બયાન કરના જો ઉસમેં મૌજૂદ હો ઔર ઉસે સુનકર બુરા લગે, ઉસે 'ગીબત' કહતે હૈં; ઔર અગર વો બુરાઈ ઉસમેં ન હો તો ઉસે 'બુહતાન (તોહમત)' કહતે હૈં. દોનોં સખ્ત હરામ ઔર ગુનાહે કબીરા હૈં." },
+      { id: 98, guNum: "૯૮", cat: "akhlaq", title: "હસદ ઔર રશ્ક", desc: "કિસી કી નેઅમત દેખકર યે તમન્ના કરના કે ઉસસે વો નેઅમત છિન જાએ, ઉસે 'હસદ' કહતે હૈં (યે હરામ હૈ); ઔર યે તમન્ના કરના કે ઉસકી નેઅમત બાકી રહે ઔર મુઝે ભી વૈસી મિલ જાએ, ઉસે 'રશ્ક' કહતે હૈં (યે જાઈઝ હૈ, ઔર દીની મામલે મેં અચ્છા હૈ)." },
+      { id: 99, guNum: "૯૯", cat: "akhlaq", title: "સૂદ (રિબા)", desc: "કર્ઝ યા તિજારત મેં બગૈર કિસી શરઈ ઇવઝ (બદલે) કે લિયા યા દિયા જાને વાલા ઝાઈદ નફા સૂદ કહલાતા હૈ; સૂદ લેના, દેના, લિખના ઔર ઉસ પર ગવાહ બનના સબ હરામ-એ-કતઈ ઔર ગુનાહે કબીરા હૈ." },
+      { id: 100, guNum: "૧૦૦", cat: "akhlaq", title: "હુકૂકુલ્લાહ ઔર હુકૂકુલ-ઇબાદ", desc: "વો ફરાઈઝ ઔર હક જિનકા તાલ્લુક સિર્ફ અલ્લાહ તઆલા સે હૈ (જૈસે નમાઝ, રોઝા) ઉન્હેં 'હુકૂકુલ્લાહ' કહતે હૈં (જિન્હેં અલ્લાહ ચાહે તો તૌબા યા અપને ફઝ્લ સે માફ ફરમા દે), ઔર વો હક જિનકા તાલ્લુક બંદોં સે હૈ (જૈસે વાલિદૈન કા હક, કર્ઝ, કિસી કા દિલ દુખાના યા માલ ખાના) ઉન્હેં 'હુકૂકુલ-ઇબાદ' કહતે હૈં (યે જબ તક ઉસ બંદે સે માફ ન કરાએ જાએં, માફ નહીં હોતે)." }
+    ];
+
+    const guDigits = ["૦", "૧", "૨", "૩", "૪", "૫", "૬", "૭", "૮", "૯"];
+    function toGuNum(num) {
+      return String(num).replace(/\d/g, (d) => guDigits[Number(d)]);
+    }
+
+    let activeCategory = "all";
+    const vibhagGrid = document.getElementById("vibhagGrid");
+    const cardsList = document.getElementById("cardsList");
+    const topBtn = document.getElementById("topBtn");
+    const themeDots = document.querySelectorAll(".theme-dot");
+
+    function applyTheme(themeName) {
+      document.documentElement.setAttribute("data-theme", themeName);
+      themeDots.forEach((dot) => {
+        dot.classList.toggle("active", dot.dataset.themeVal === themeName);
+      });
+      try {
+        localStorage.setItem("islamicSiteThemeV2", themeName);
+      } catch (e) {}
+    }
+
+    themeDots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        applyTheme(dot.dataset.themeVal);
+      });
+    });
+
+    try {
+      const savedTheme = localStorage.getItem("islamicSiteThemeV2");
+      if (savedTheme && /^theme-[1-5]$/.test(savedTheme)) {
+        applyTheme(savedTheme);
+      }
+    } catch (e) {}
+
+    function getCategoryCount(catId) {
+      if (catId === "all") return items.length;
+      return items.filter((item) => item.cat === catId).length;
+    }
+
+    function renderVibhagCards() {
+      vibhagGrid.innerHTML = "";
+      const fragment = document.createDocumentFragment();
+
+      categories.forEach((cat) => {
+        const count = getCategoryCount(cat.id);
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "vibhag-card" + (activeCategory === cat.id ? " active" : "");
+
+        btn.innerHTML = `
+          <span class="vibhag-icon" aria-hidden="true">${cat.icon}</span>
+          <span class="vibhag-info">
+            <span class="vibhag-name">${cat.name}</span>
+            <span class="vibhag-count">${toGuNum(count)} બાતેં</span>
+          </span>
+        `;
+
+        btn.addEventListener("click", () => {
+          activeCategory = cat.id;
+          renderVibhagCards();
+          renderItems();
+        });
+
+        fragment.appendChild(btn);
+      });
+
+      vibhagGrid.appendChild(fragment);
+    }
+
+    function renderItems() {
+      cardsList.innerHTML = "";
+      const fragment = document.createDocumentFragment();
+
+      const filteredItems = activeCategory === "all"
+        ? items
+        : items.filter((item) => item.cat === activeCategory);
+
+      filteredItems.forEach((item) => {
+        const card = document.createElement("article");
+        card.className = "card";
+
+        const header = document.createElement("div");
+        header.className = "card-header";
+
+        const badge = document.createElement("span");
+        badge.className = "num-badge";
+        badge.textContent = item.guNum;
+
+        const title = document.createElement("h2");
+        title.className = "card-title";
+        title.textContent = item.title;
+
+        const body = document.createElement("p");
+        body.className = "card-body";
+        body.textContent = item.desc;
+
+        header.appendChild(badge);
+        header.appendChild(title);
+        card.appendChild(header);
+        card.appendChild(body);
+        fragment.appendChild(card);
+      });
+
+      cardsList.appendChild(fragment);
+    }
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        topBtn.classList.add("show");
+      } else {
+        topBtn.classList.remove("show");
+      }
+    });
+
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    renderVibhagCards();
+    renderItems();
+  </script>
+</body>
+</html>
