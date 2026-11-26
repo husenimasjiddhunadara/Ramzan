@@ -3,175 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#2d1e07" id="metaThemeColor" />
+  <meta name="theme-color" content="#041912" id="metaThemeColor" />
   <title>કુછ યાદ રખને કી બાતેં - અહલે સુન્નત વલ જમાઅત</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Rasa:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@500;600;700&family=Baloo+Bhai+2:wght@600;700;800&family=Cinzel:wght@600;700&family=Shrikhand&display=swap" rel="stylesheet" />
   <style>
     /* =========================================================
-       5 NEXT-GEN LUXURY ISLAMIC THEMES
+       5 LUXURY ISLAMIC THEMES (DEFAULT: GOLD & DARK EMERALD)
        ========================================================= */
     :root,
     [data-theme="theme-1"] {
-      --font-scale: 1;
-      --primary-dark: #160e03;
-      --primary: #2d1e07;
-      --primary-mid: #4b330c;
-      --gold: #d6af3b;
-      --gold-bright: #fce69f;
-      --gold-deep: #966f17;
-      --gold-soft: rgba(214, 175, 59, 0.15);
-      --gold-border: rgba(214, 175, 59, 0.48);
-      --gold-glow: rgba(214, 175, 59, 0.34);
-      --mehrab-fill: rgba(22, 14, 3, 0.84);
-      --mehrab-fill-deep: rgba(14, 8, 2, 0.94);
-      --bg: #faf4e6;
-      --bg-accent: #f1e5ca;
-      --surface: #fffdf8;
-      --surface-elevated: #ffffff;
-      --surface-tint: #fbf5e7;
-      --glass-dock: rgba(255, 252, 244, 0.86);
-      --glass-dark: rgba(22, 14, 3, 0.92);
-      --glass-highlight: rgba(255, 255, 255, 0.88);
-      --text: #241a0b;
-      --muted: #6c5733;
-      --border: rgba(196, 163, 92, 0.42);
-      --card-title: #3c2807;
-      --mark-bg: rgba(214, 175, 59, 0.34);
-      --mark-text: #1c1203;
-      --shadow: rgba(66, 46, 10, 0.08);
-      --shadow-hover: rgba(66, 46, 10, 0.16);
-      --pattern-color: rgba(168, 127, 34, 0.06);
-      --danger-soft: rgba(214, 65, 65, 0.12);
+      --hero-top: #020d09;
+      --hero-mid: #041c14;
+      --hero-bot: #072c1f;
+      --bg: #03130e;
+      --bg-end: #051b14;
+      --surface: #082219;
+      --surface-2: #0c2c21;
+      --dock-bg: #072017;
+      --mehrab-bg-top: rgba(3, 21, 15, 0.78);
+      --mehrab-bg-bot: rgba(7, 32, 23, 0.96);
+      --gold: #d4af37;
+      --gold-bright: #f7e3a1;
+      --gold-deep: #967316;
+      --gold-soft: rgba(212, 175, 55, 0.13);
+      --gold-soft-strong: rgba(212, 175, 55, 0.24);
+      --border: rgba(212, 175, 55, 0.24);
+      --border-strong: rgba(212, 175, 55, 0.58);
+      --text: #f3ede0;
+      --muted: #aab6ae;
+      --heading: #f6e19d;
+      --on-gold: #140e02;
+      --mark-bg: rgba(212, 175, 55, 0.34);
+      --mark-text: #fffbe8;
+      --shadow: rgba(0, 0, 0, 0.42);
+      --shadow-lg: rgba(0, 0, 0, 0.58);
     }
 
+    /* Theme 2: Madinah Emerald & Warm Ivory */
     [data-theme="theme-2"] {
-      --primary-dark: #031a13;
-      --primary: #073326;
-      --primary-mid: #0f523e;
-      --gold: #d6b03d;
-      --gold-bright: #fae49c;
-      --gold-deep: #9c771c;
-      --gold-soft: rgba(214, 176, 61, 0.15);
-      --gold-border: rgba(214, 176, 61, 0.48);
-      --gold-glow: rgba(214, 176, 61, 0.32);
-      --mehrab-fill: rgba(3, 26, 19, 0.84);
-      --mehrab-fill-deep: rgba(2, 17, 12, 0.94);
-      --bg: #f3f1e7;
-      --bg-accent: #e5ede7;
-      --surface: #fcfdfb;
-      --surface-elevated: #ffffff;
-      --surface-tint: #f3f8f5;
-      --glass-dock: rgba(248, 252, 249, 0.88);
-      --glass-dark: rgba(4, 24, 18, 0.92);
-      --glass-highlight: rgba(255, 255, 255, 0.88);
-      --text: #15221d;
-      --muted: #4b6158;
-      --border: rgba(173, 162, 120, 0.45);
-      --card-title: #073326;
-      --mark-bg: rgba(214, 176, 61, 0.34);
-      --mark-text: #062118;
-      --shadow: rgba(4, 33, 24, 0.08);
-      --shadow-hover: rgba(4, 33, 24, 0.16);
-      --pattern-color: rgba(11, 79, 59, 0.055);
+      --hero-top: #031710;
+      --hero-mid: #062b1f;
+      --hero-bot: #0a4230;
+      --bg: #f6f2e7;
+      --bg-end: #ebe4d2;
+      --surface: #ffffff;
+      --surface-2: #faf6eb;
+      --dock-bg: #fffdf8;
+      --mehrab-bg-top: rgba(3, 25, 18, 0.78);
+      --mehrab-bg-bot: rgba(6, 40, 29, 0.94);
+      --gold: #c89f28;
+      --gold-bright: #f7e3a1;
+      --gold-deep: #8f6b10;
+      --gold-soft: rgba(200, 159, 40, 0.12);
+      --gold-soft-strong: rgba(200, 159, 40, 0.22);
+      --border: rgba(164, 134, 52, 0.3);
+      --border-strong: rgba(164, 134, 52, 0.65);
+      --text: #16261f;
+      --muted: #4f645a;
+      --heading: #063122;
+      --on-gold: #140e02;
+      --mark-bg: rgba(212, 175, 55, 0.35);
+      --mark-text: #062319;
+      --shadow: rgba(6, 36, 26, 0.08);
+      --shadow-lg: rgba(6, 36, 26, 0.16);
     }
 
+    /* Theme 3: Royal Sapphire & Gold */
     [data-theme="theme-3"] {
-      --primary-dark: #050f22;
-      --primary: #0d2142;
-      --primary-mid: #17376b;
-      --gold: #dcb653;
-      --gold-bright: #fae6a8;
-      --gold-deep: #9f7c23;
-      --gold-soft: rgba(220, 182, 83, 0.15);
-      --gold-border: rgba(220, 182, 83, 0.48);
-      --gold-glow: rgba(220, 182, 83, 0.32);
-      --mehrab-fill: rgba(6, 15, 34, 0.84);
-      --mehrab-fill-deep: rgba(4, 10, 24, 0.94);
-      --bg: #f1f3f8;
-      --bg-accent: #e4eaf5;
-      --surface: #fbfcff;
-      --surface-elevated: #ffffff;
-      --surface-tint: #f2f5fc;
-      --glass-dock: rgba(247, 250, 255, 0.88);
-      --glass-dark: rgba(6, 16, 35, 0.92);
-      --glass-highlight: rgba(255, 255, 255, 0.9);
-      --text: #131f33;
-      --muted: #4d5e7a;
-      --border: rgba(162, 174, 198, 0.48);
-      --card-title: #0c2144;
-      --mark-bg: rgba(220, 182, 83, 0.35);
-      --mark-text: #08152b;
-      --shadow: rgba(7, 18, 38, 0.08);
-      --shadow-hover: rgba(7, 18, 38, 0.16);
-      --pattern-color: rgba(17, 45, 92, 0.05);
+      --hero-top: #030916;
+      --hero-mid: #08162e;
+      --hero-bot: #0f274f;
+      --bg: #050d1c;
+      --bg-end: #08152b;
+      --surface: #0b1b36;
+      --surface-2: #112649;
+      --dock-bg: #0a1932;
+      --mehrab-bg-top: rgba(5, 15, 34, 0.78);
+      --mehrab-bg-bot: rgba(10, 25, 50, 0.96);
+      --gold: #d4af37;
+      --gold-bright: #f7e3a1;
+      --gold-deep: #967316;
+      --gold-soft: rgba(212, 175, 55, 0.13);
+      --gold-soft-strong: rgba(212, 175, 55, 0.24);
+      --border: rgba(212, 175, 55, 0.24);
+      --border-strong: rgba(212, 175, 55, 0.56);
+      --text: #edf2f9;
+      --muted: #a1b2cc;
+      --heading: #f6e19d;
+      --on-gold: #140e02;
+      --mark-bg: rgba(212, 175, 55, 0.34);
+      --mark-text: #fffbe8;
+      --shadow: rgba(0, 0, 0, 0.44);
+      --shadow-lg: rgba(0, 0, 0, 0.6);
     }
 
+    /* Theme 4: Shahi Ruby & Gold */
     [data-theme="theme-4"] {
-      --primary-dark: #21050e;
-      --primary: #400a1b;
-      --primary-mid: #63132b;
-      --gold: #dcb252;
-      --gold-bright: #fae3a4;
-      --gold-deep: #9c761f;
-      --gold-soft: rgba(220, 178, 82, 0.15);
-      --gold-border: rgba(220, 178, 82, 0.48);
-      --gold-glow: rgba(220, 178, 82, 0.32);
-      --mehrab-fill: rgba(31, 5, 13, 0.84);
-      --mehrab-fill-deep: rgba(22, 3, 9, 0.94);
-      --bg: #faf2f0;
-      --bg-accent: #f2e1dd;
-      --surface: #fffbfa;
-      --surface-elevated: #ffffff;
-      --surface-tint: #fcf3f1;
-      --glass-dock: rgba(255, 250, 248, 0.88);
-      --glass-dark: rgba(30, 5, 13, 0.92);
-      --glass-highlight: rgba(255, 255, 255, 0.9);
-      --text: #291319;
-      --muted: #6c4c55;
-      --border: rgba(208, 170, 158, 0.5);
-      --card-title: #450b1d;
-      --mark-bg: rgba(220, 178, 82, 0.35);
-      --mark-text: #260710;
-      --shadow: rgba(38, 6, 16, 0.08);
-      --shadow-hover: rgba(38, 6, 16, 0.16);
-      --pattern-color: rgba(102, 21, 45, 0.05);
+      --hero-top: #140308;
+      --hero-mid: #2a0713;
+      --hero-bot: #450d20;
+      --bg: #15040a;
+      --bg-end: #200710;
+      --surface: #270a14;
+      --surface-2: #350f1c;
+      --dock-bg: #240912;
+      --mehrab-bg-top: rgba(26, 4, 12, 0.78);
+      --mehrab-bg-bot: rgba(36, 9, 18, 0.96);
+      --gold: #d4af37;
+      --gold-bright: #f7e3a1;
+      --gold-deep: #967316;
+      --gold-soft: rgba(212, 175, 55, 0.14);
+      --gold-soft-strong: rgba(212, 175, 55, 0.24);
+      --border: rgba(212, 175, 55, 0.26);
+      --border-strong: rgba(212, 175, 55, 0.58);
+      --text: #f7ecef;
+      --muted: #c8acb4;
+      --heading: #f6e19d;
+      --on-gold: #140e02;
+      --mark-bg: rgba(212, 175, 55, 0.34);
+      --mark-text: #fffbe8;
+      --shadow: rgba(0, 0, 0, 0.46);
+      --shadow-lg: rgba(0, 0, 0, 0.62);
     }
 
+    /* Theme 5: Obsidian Night & Gold */
     [data-theme="theme-5"] {
-      --primary-dark: #06070a;
-      --primary: #10131a;
-      --primary-mid: #1c222e;
-      --gold: #e4bd52;
-      --gold-bright: #fce8a6;
-      --gold-deep: #b08926;
-      --gold-soft: rgba(228, 189, 82, 0.16);
-      --gold-border: rgba(228, 189, 82, 0.44);
-      --gold-glow: rgba(228, 189, 82, 0.3);
-      --mehrab-fill: rgba(11, 13, 18, 0.88);
-      --mehrab-fill-deep: rgba(7, 8, 12, 0.96);
-      --bg: #0b0d12;
-      --bg-accent: #121620;
-      --surface: #151923;
-      --surface-elevated: #1b202d;
-      --surface-tint: #191e2a;
-      --glass-dock: rgba(19, 23, 33, 0.88);
-      --glass-dark: rgba(10, 12, 18, 0.95);
-      --glass-highlight: rgba(255, 236, 179, 0.09);
-      --text: #efe7d6;
-      --muted: #b8aa8d;
-      --border: rgba(228, 189, 82, 0.24);
-      --card-title: #f6dc8b;
-      --mark-bg: rgba(228, 189, 82, 0.32);
-      --mark-text: #fff9e6;
-      --shadow: rgba(0, 0, 0, 0.46);
-      --shadow-hover: rgba(0, 0, 0, 0.68);
-      --pattern-color: rgba(228, 189, 82, 0.05);
+      --hero-top: #040507;
+      --hero-mid: #0c0f15;
+      --hero-bot: #151a24;
+      --bg: #080a0e;
+      --bg-end: #0e1118;
+      --surface: #131720;
+      --surface-2: #1a202d;
+      --dock-bg: #11151d;
+      --mehrab-bg-top: rgba(10, 12, 18, 0.8);
+      --mehrab-bg-bot: rgba(17, 21, 29, 0.96);
+      --gold: #d4af37;
+      --gold-bright: #f7e3a1;
+      --gold-deep: #967316;
+      --gold-soft: rgba(212, 175, 55, 0.13);
+      --gold-soft-strong: rgba(212, 175, 55, 0.24);
+      --border: rgba(212, 175, 55, 0.22);
+      --border-strong: rgba(212, 175, 55, 0.54);
+      --text: #efe9dc;
+      --muted: #a69e8e;
+      --heading: #f6e19d;
+      --on-gold: #140e02;
+      --mark-bg: rgba(212, 175, 55, 0.32);
+      --mark-text: #fffbe8;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --shadow-lg: rgba(0, 0, 0, 0.66);
     }
 
     /* =========================================================
-       RESET, BASE & SCROLLBAR
+       BASE RESET & STYLISH BOLD GUJARATI TYPOGRAPHY
        ========================================================= */
     *,
     *::before,
@@ -188,57 +175,17 @@
     }
 
     body {
-      font-family: 'Noto Sans Gujarati', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at 12% 16%, var(--gold-soft) 0%, transparent 40%),
-        radial-gradient(circle at 88% 68%, var(--gold-soft) 0%, transparent 44%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg-accent) 100%);
+      font-family: 'Anek Gujarati', 'Baloo Bhai 2', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 500;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-end) 100%);
       color: var(--text);
       line-height: 1.88;
       min-height: 100vh;
-      min-height: 100dvh;
       overflow-x: clip;
-      position: relative;
-      transition: background-color 0.3s ease, color 0.3s ease;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       -webkit-tap-highlight-color: transparent;
-    }
-
-    /* Ambient Islamic Lattice Overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.72;
-      background-image:
-        radial-gradient(circle at 50% 50%, var(--pattern-color) 1.4px, transparent 1.5px),
-        linear-gradient(45deg, transparent 48.5%, var(--pattern-color) 49.5%, var(--pattern-color) 50.5%, transparent 51.5%),
-        linear-gradient(-45deg, transparent 48.5%, var(--pattern-color) 49.5%, var(--pattern-color) 50.5%, transparent 51.5%);
-      background-size: 46px 46px;
-    }
-
-    ::selection {
-      background: var(--gold);
-      color: #160e03;
-    }
-
-    ::-webkit-scrollbar {
-      width: 9px;
-      height: 9px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, var(--gold), var(--gold-deep));
-      border-radius: 999px;
-      border: 2px solid var(--bg);
+      transition: background 0.28s ease, color 0.28s ease;
     }
 
     button,
@@ -252,158 +199,61 @@
       outline-offset: 2px;
     }
 
-    /* =========================================================
-       TOP READING PROGRESS BAR
-       ========================================================= */
-    .read-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3.5px;
-      z-index: 120;
-      pointer-events: none;
-      background: rgba(0, 0, 0, 0.14);
-    }
-
-    .read-progress-fill {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-bright));
-      box-shadow: 0 0 10px var(--gold-glow);
-      transform-origin: left center;
-      transform: scaleX(0);
-      will-change: transform;
+    ::selection {
+      background: var(--gold);
+      color: var(--on-gold);
     }
 
     /* =========================================================
-       KEYFRAME ANIMATIONS
-       ========================================================= */
-    @keyframes ambientGlow {
-      0%, 100% { opacity: 0.72; transform: translateX(-50%) scale(1); }
-      50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
-    }
-
-    @keyframes emblemRadiate {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0);
-        filter: drop-shadow(0 0 8px var(--gold-glow));
-      }
-      50% {
-        transform: translateX(-50%) translateY(-2.5px);
-        filter: drop-shadow(0 0 18px var(--gold-bright));
-      }
-    }
-
-    @keyframes lanternSway {
-      0%, 100% { transform: rotate(-1.6deg); }
-      50% { transform: rotate(1.6deg); }
-    }
-
-    @keyframes lanternPulse {
-      0%, 100% { opacity: 0.72; }
-      50% { opacity: 1; }
-    }
-
-    @keyframes shimmerSweep {
-      0% { transform: translateX(-150%) skewX(-22deg); }
-      100% { transform: translateX(270%) skewX(-22deg); }
-    }
-
-    /* =========================================================
-       ROYAL ISLAMIC HERO & ARCHITECTURAL MEHRAB
+       INTERACTIVE HALF-MEHRAB ROYAL ISLAMIC HEADER
        ========================================================= */
     .hero {
+      --mx: 50%;
+      --my: 38%;
       position: relative;
-      z-index: 2;
       overflow: hidden;
       background:
-        radial-gradient(ellipse 75% 55% at 50% 6%, rgba(252, 230, 159, 0.22) 0%, transparent 65%),
-        radial-gradient(circle at 12% 85%, rgba(214, 175, 59, 0.13) 0%, transparent 45%),
-        radial-gradient(circle at 88% 85%, rgba(214, 175, 59, 0.13) 0%, transparent 45%),
-        linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 48%, var(--primary-mid) 100%);
+        radial-gradient(circle 420px at var(--mx) var(--my), rgba(247, 227, 161, 0.16) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212, 175, 55, 0.2) 0%, transparent 68%),
+        linear-gradient(170deg, var(--hero-top) 0%, var(--hero-mid) 52%, var(--hero-bot) 100%);
       color: #fffdf7;
       text-align: center;
-      padding:
-        calc(20px + env(safe-area-inset-top))
-        max(16px, env(safe-area-inset-right))
-        68px
-        max(16px, env(safe-area-inset-left));
-      border-bottom: 3px solid var(--gold);
-      box-shadow:
-        0 18px 46px rgba(0, 0, 0, 0.34),
-        inset 0 -1px 0 rgba(252, 230, 159, 0.42);
+      padding: calc(16px + env(safe-area-inset-top)) 14px 0;
+      border-bottom: 1.5px solid var(--gold);
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -60px;
-      left: 50%;
-      width: min(760px, 110vw);
-      height: 360px;
-      background: radial-gradient(ellipse at center, rgba(252, 230, 159, 0.2) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-      animation: ambientGlow 7s ease-in-out infinite;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 4px;
-      background: linear-gradient(90deg, transparent 0%, var(--gold-deep) 18%, var(--gold-bright) 50%, var(--gold-deep) 82%, transparent 100%);
-      opacity: 0.92;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .hero-islamic-bg {
+    .hero-lattice {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
       color: var(--gold);
-      opacity: 0.19;
-      z-index: 0;
-      -webkit-mask-image: radial-gradient(ellipse 88% 85% at 50% 45%, #000 38%, rgba(0, 0, 0, 0.25) 100%);
-      mask-image: radial-gradient(ellipse 88% 85% at 50% 45%, #000 38%, rgba(0, 0, 0, 0.25) 100%);
+      opacity: 0.13;
+      -webkit-mask-image: radial-gradient(ellipse 88% 90% at 50% 35%, #000 35%, rgba(0, 0, 0, 0.12) 100%);
+      mask-image: radial-gradient(ellipse 88% 90% at 50% 35%, #000 35%, rgba(0, 0, 0, 0.12) 100%);
     }
 
-    /* =========================================================
-       TOP UTILITY BAR (THEME SWITCHER + FONT SIZE CONTROLS)
-       ========================================================= */
-    .hero-utility-bar {
+    .hero-inner {
       position: relative;
-      z-index: 4;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin: 0 auto 22px;
-      max-width: 860px;
+      z-index: 2;
+      max-width: 980px;
+      margin: 0 auto;
     }
 
-    .theme-pill,
-    .font-pill {
+    /* ONLY Theme Label + 5 Circles Above Heading */
+    .theme-bar {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 11px;
-      padding: 7px 16px;
+      margin: 0 auto 16px;
+      padding: 6px 15px;
       border-radius: 999px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(0, 0, 0, 0.46));
-      backdrop-filter: blur(14px) saturate(150%);
-      -webkit-backdrop-filter: blur(14px) saturate(150%);
-      border: 1px solid var(--gold-border);
-      box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 245, 210, 0.28);
-      max-width: 100%;
+      background: rgba(0, 0, 0, 0.34);
+      border: 1px solid rgba(212, 175, 55, 0.44);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .theme-label {
@@ -414,7 +264,6 @@
       color: var(--gold-bright);
       text-transform: uppercase;
       user-select: none;
-      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
     }
 
     .theme-dots {
@@ -424,28 +273,26 @@
     }
 
     .theme-dot {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      border: 2px solid rgba(252, 230, 159, 0.58);
+      border: 2px solid rgba(247, 227, 161, 0.56);
       cursor: pointer;
       position: relative;
       touch-action: manipulation;
-      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, border-color 0.22s ease;
-      box-shadow:
-        0 3px 8px rgba(0, 0, 0, 0.38),
-        inset 0 2px 3px rgba(255, 255, 255, 0.38);
+      transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: inset 0 1.5px 3px rgba(255, 255, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.38);
     }
 
     .theme-dot::after {
       content: "";
       position: absolute;
-      inset: -7px -4px;
+      inset: -8px -5px;
       border-radius: 50%;
     }
 
     .theme-dot:hover {
-      transform: translateY(-2px) scale(1.12);
+      transform: scale(1.14);
       border-color: var(--gold-bright);
     }
 
@@ -454,390 +301,197 @@
     }
 
     .theme-dot.active {
-      transform: scale(1.15);
+      transform: scale(1.16);
       border-color: #ffffff;
-      box-shadow:
-        0 0 0 2px var(--gold),
-        0 0 14px rgba(252, 230, 159, 0.88),
-        inset 0 2px 3px rgba(255, 255, 255, 0.45);
+      box-shadow: 0 0 0 2px var(--gold), 0 0 12px rgba(247, 227, 161, 0.7);
     }
 
-    .dot-1 { background: radial-gradient(circle at 30% 30%, #f5d26c, #573b0b 75%); }
-    .dot-2 { background: radial-gradient(circle at 30% 30%, #249c77, #042118 75%); }
-    .dot-3 { background: radial-gradient(circle at 30% 30%, #366ec0, #071226 75%); }
-    .dot-4 { background: radial-gradient(circle at 30% 30%, #b52a53, #260610 75%); }
-    .dot-5 { background: radial-gradient(circle at 30% 30%, #5c6373, #08090c 75%); }
+    .dot-1 { background: linear-gradient(135deg, #f3d573 0%, #d4af37 42%, #052e20 100%); }
+    .dot-2 { background: linear-gradient(135deg, #f8f4e8 0%, #1b7c5c 58%, #042117 100%); }
+    .dot-3 { background: linear-gradient(135deg, #3c75c9 0%, #091b3b 78%); }
+    .dot-4 { background: linear-gradient(135deg, #bc335b 0%, #2a0712 78%); }
+    .dot-5 { background: linear-gradient(135deg, #5d6678 0%, #090b10 78%); }
 
-    .font-pill {
-      gap: 6px;
-      padding: 5px 10px;
-    }
-
-    .font-btn {
-      min-width: 30px;
-      height: 28px;
-      padding: 0 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(252, 230, 159, 0.32);
-      background: rgba(255, 255, 255, 0.08);
-      color: #fffbf0;
-      font-size: 0.78rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-      touch-action: manipulation;
-    }
-
-    .font-btn:hover {
-      background: rgba(214, 175, 59, 0.26);
-      border-color: var(--gold-bright);
-    }
-
-    .font-btn:active {
-      transform: scale(0.93);
-    }
-
-    .font-scale-indicator {
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: var(--gold-bright);
-      min-width: 40px;
-      text-align: center;
-      user-select: none;
-    }
-
-    /* =========================================================
-       ROYAL 3D GOLDEN MEHRAB ARCHITECTURE (ZERO TEXT OVERLAP)
-       ========================================================= */
-    .mehrab-shell {
+    /* Half Mehrab Architecture (Open at Bottom -> Connects Directly to Cards) */
+    .half-mehrab {
       position: relative;
-      z-index: 2;
-      max-width: 860px;
-      margin: 0 auto;
-      filter: drop-shadow(0 24px 44px rgba(0, 0, 0, 0.46));
+      width: 100%;
     }
 
-    .mehrab-crown-wrap {
+    .mehrab-arch-wrap {
       position: relative;
       width: 100%;
       line-height: 0;
-      z-index: 2;
     }
 
-    .mehrab-crown-svg {
+    .mehrab-arch-svg {
       display: block;
       width: 100%;
-      height: clamp(78px, 16vw, 148px);
+      height: clamp(68px, 14vw, 134px);
       overflow: visible;
-      color: var(--gold);
     }
 
-    .mehrab-emblem {
+    .mehrab-finial {
       position: absolute;
       left: 50%;
-      bottom: clamp(4px, 1.4vw, 10px);
+      bottom: clamp(4px, 1.3vw, 10px);
       transform: translateX(-50%);
-      color: var(--gold-bright);
+      width: clamp(36px, 7.5vw, 54px);
+      height: clamp(36px, 7.5vw, 54px);
       pointer-events: none;
-      z-index: 4;
-      animation: emblemRadiate 5s ease-in-out infinite;
+      filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.35));
     }
 
-    .mehrab-emblem svg {
-      display: block;
-      width: clamp(40px, 8.5vw, 64px);
-      height: clamp(40px, 8.5vw, 64px);
-    }
-
-    /* Lanterns mathematically guaranteed clear of inner text padding */
-    .mehrab-lantern {
-      position: absolute;
-      top: -10px;
-      width: clamp(18px, 4vw, 32px);
-      height: clamp(50px, 10vw, 88px);
-      pointer-events: none;
-      z-index: 3;
-      transform-origin: top center;
-      animation: lanternSway 6.2s ease-in-out infinite;
-      filter: drop-shadow(0 5px 12px rgba(214, 175, 59, 0.34));
-    }
-
-    .mehrab-lantern-left {
-      left: clamp(8px, 2.5vw, 28px);
-    }
-
-    .mehrab-lantern-right {
-      right: clamp(8px, 2.5vw, 28px);
-      animation-delay: -3.1s;
-    }
-
-    .lantern-flame-glow {
-      animation: lanternPulse 3.6s ease-in-out infinite;
-    }
-
-    .mehrab-capital {
-      position: absolute;
-      top: -8px;
-      width: clamp(16px, 3vw, 24px);
-      height: clamp(12px, 2.2vw, 18px);
-      pointer-events: none;
-      z-index: 4;
-    }
-
-    .mehrab-capital-left { left: -5px; }
-    .mehrab-capital-right { right: -5px; transform: scaleX(-1); }
-
-    .mehrab-body {
+    .mehrab-portal {
       position: relative;
-      z-index: 1;
-      margin-top: -2px;
-      background: linear-gradient(180deg, var(--mehrab-fill) 0%, var(--mehrab-fill-deep) 100%);
-      border-left: 2.5px solid var(--gold);
-      border-right: 2.5px solid var(--gold);
-      border-bottom: 3px solid var(--gold);
-      border-bottom-left-radius: 24px;
-      border-bottom-right-radius: 24px;
-      /* Horizontal padding is strictly greater than lantern offset + width at every screen size */
-      padding: clamp(14px, 3vw, 20px) clamp(34px, 9vw, 76px) clamp(24px, 4.5vw, 40px);
-      box-shadow:
-        inset 0 0 0 7px rgba(214, 175, 59, 0.06),
-        inset 0 -30px 48px rgba(214, 175, 59, 0.1),
-        inset 12px 0 24px -12px rgba(252, 230, 159, 0.2),
-        inset -12px 0 24px -12px rgba(252, 230, 159, 0.2);
-    }
-
-    .mehrab-body::before {
-      content: "";
-      position: absolute;
-      inset: 0 9px 9px 9px;
-      border-left: 1px solid var(--gold-border);
-      border-right: 1px solid var(--gold-border);
-      border-bottom: 1px solid var(--gold-border);
-      border-bottom-left-radius: 16px;
-      border-bottom-right-radius: 16px;
-      pointer-events: none;
-    }
-
-    .mehrab-body::after {
-      content: "";
-      position: absolute;
-      inset: 0;
+      margin-top: -1px;
       background:
-        radial-gradient(ellipse 66% 52% at 50% 0%, rgba(252, 230, 159, 0.12) 0%, transparent 72%),
-        linear-gradient(90deg, rgba(214, 175, 59, 0.08) 0%, transparent 7%, transparent 93%, rgba(214, 175, 59, 0.08) 100%);
-      border-bottom-left-radius: 22px;
-      border-bottom-right-radius: 22px;
-      pointer-events: none;
+        radial-gradient(ellipse 75% 65% at var(--mx) 15%, rgba(247, 227, 161, 0.13) 0%, transparent 68%),
+        linear-gradient(180deg, var(--mehrab-bg-top) 0%, var(--mehrab-bg-bot) 100%);
+      border-left: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
+      padding: clamp(12px, 2.5vw, 18px) clamp(18px, 5vw, 48px) clamp(26px, 4.5vw, 38px);
+      transition: background 0.25s ease;
     }
 
-    .mehrab-corner {
+    .mehrab-portal::before {
+      content: "";
       position: absolute;
-      bottom: 12px;
-      width: clamp(20px, 4vw, 32px);
-      height: clamp(20px, 4vw, 32px);
-      color: var(--gold);
-      opacity: 0.7;
+      top: 0;
+      bottom: 0;
+      left: 8px;
+      right: 8px;
+      border-left: 1px solid rgba(212, 175, 55, 0.34);
+      border-right: 1px solid rgba(212, 175, 55, 0.34);
       pointer-events: none;
+    }
+
+    .hero-title {
+      position: relative;
       z-index: 2;
-    }
-
-    .mehrab-corner-left { left: 13px; }
-    .mehrab-corner-right { right: 13px; transform: scaleX(-1); }
-
-    .hero h1 {
-      position: relative;
-      z-index: 3;
-      font-family: 'Rasa', 'Noto Sans Gujarati', serif;
-      font-size: clamp(1.72rem, 5.6vw, 3.8rem);
-      font-weight: 700;
-      line-height: 1.54;
-      letter-spacing: 0.3px;
-      color: #fffbf0;
-      padding: 6px 4px 2px;
+      font-family: 'Shrikhand', 'Baloo Bhai 2', serif;
+      font-size: clamp(1.85rem, 6.2vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.52;
+      letter-spacing: 0.4px;
+      padding: 6px 10px 4px;
       margin-bottom: 4px;
+      background: linear-gradient(180deg, #fff8dc 0%, #f1d372 52%, #cfa52c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       text-wrap: balance;
       overflow-wrap: break-word;
-      text-shadow:
-        0 2px 4px rgba(0, 0, 0, 0.72),
-        0 6px 18px rgba(0, 0, 0, 0.48),
-        0 0 26px rgba(214, 175, 59, 0.4);
+      filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
     }
 
-    .subtitle {
+    .hero-subtitle {
       position: relative;
-      z-index: 3;
-      font-family: 'Rasa', 'Noto Sans Gujarati', serif;
-      font-size: clamp(0.98rem, 2.8vw, 1.56rem);
-      font-weight: 600;
-      color: var(--gold-bright);
-      line-height: 1.6;
-      margin-bottom: 18px;
+      z-index: 2;
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: clamp(1.04rem, 3vw, 1.48rem);
+      font-weight: 700;
+      color: #f6ebd1;
+      line-height: 1.58;
+      letter-spacing: 0.25px;
+      margin-bottom: 16px;
       text-wrap: balance;
-      overflow-wrap: break-word;
-      text-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.58),
-        0 0 14px rgba(214, 175, 59, 0.25);
     }
 
-    .ornament-divider {
+    .hero-divider {
       position: relative;
-      z-index: 3;
+      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      margin: 0 auto 20px;
-      max-width: min(320px, 78%);
+      gap: 10px;
+      margin: 0 auto 16px;
+      max-width: 240px;
     }
 
-    .ornament-line {
+    .hero-divider span:first-child,
+    .hero-divider span:last-child {
       flex: 1;
-      height: 1.5px;
-      background: linear-gradient(90deg, transparent 0%, var(--gold-deep) 20%, var(--gold-bright) 85%, #fff8dc 100%);
-      opacity: 0.92;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
     }
 
-    .ornament-line:last-child {
-      background: linear-gradient(270deg, transparent 0%, var(--gold-deep) 20%, var(--gold-bright) 85%, #fff8dc 100%);
+    .hero-divider span:last-child {
+      background: linear-gradient(270deg, transparent, var(--gold));
     }
 
-    .ornament-diamond {
-      width: 11px;
-      height: 11px;
-      flex-shrink: 0;
-      background: linear-gradient(135deg, #fffbe6, var(--gold-bright), var(--gold));
+    .hero-diamond {
+      width: 8px;
+      height: 8px;
+      background: var(--gold-bright);
       transform: rotate(45deg);
-      box-shadow:
-        0 0 14px var(--gold-bright),
-        0 0 0 3px rgba(214, 175, 59, 0.25);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
     }
 
     .dev-credit {
       position: relative;
-      z-index: 3;
+      z-index: 2;
       display: inline-block;
-      max-width: 100%;
-      overflow: hidden;
       font-family: 'Cinzel', serif;
-      font-size: clamp(0.62rem, 2vw, 0.88rem);
+      font-size: clamp(0.62rem, 1.9vw, 0.8rem);
       font-weight: 700;
-      letter-spacing: clamp(0.9px, 0.4vw, 2.2px);
-      line-height: 1.45;
-      color: #fffbf0;
-      border: 1.5px solid var(--gold);
-      background: linear-gradient(135deg, rgba(214, 175, 59, 0.28), rgba(0, 0, 0, 0.5));
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 8px clamp(14px, 4vw, 26px);
+      letter-spacing: clamp(1px, 0.4vw, 2.2px);
+      color: var(--gold-bright);
+      padding: 7px clamp(14px, 3.8vw, 24px);
       border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      background: rgba(212, 175, 55, 0.14);
       text-transform: uppercase;
-      text-wrap: balance;
-      box-shadow:
-        0 8px 22px rgba(0, 0, 0, 0.36),
-        inset 0 1px 0 rgba(255, 246, 214, 0.4);
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
-    .dev-credit::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 42%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 248, 220, 0.3), transparent);
-      animation: shimmerSweep 5.5s ease-in-out infinite;
-      pointer-events: none;
+    .dev-credit:hover {
+      background: rgba(212, 175, 55, 0.24);
+      border-color: var(--gold-bright);
     }
 
     /* =========================================================
-       MAIN CONTAINER
+       MAIN CONTAINER & ATTACHED MEHRAB-BASE CATEGORY CARDS
        ========================================================= */
-    .container {
+    .main-container {
+      max-width: 1008px;
+      margin: 0 auto;
+      padding: 0 14px 64px;
+    }
+
+    /* Starts Exactly Where Half Mehrab Ends */
+    .vibhag-dock {
       position: relative;
       z-index: 3;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 max(16px, env(safe-area-inset-right)) 72px max(16px, env(safe-area-inset-left));
-    }
-
-    /* =========================================================
-       FLOATING GLASSMORPHISM VIBHAG CATEGORY DOCK
-       (Zero Absolute Overlap - Clean Flexbox Structure)
-       ========================================================= */
-    .vibhag-section {
-      scroll-margin-top: 20px;
-    }
-
-    .vibhag-grid {
+      max-width: 980px;
+      margin: -1px auto 22px;
+      padding: 14px;
+      background: var(--dock-bg);
+      border: 2px solid var(--gold);
+      border-top: 2px solid var(--gold);
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 22px;
+      box-shadow: 0 18px 40px var(--shadow);
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 13px;
-      margin: -34px auto 24px;
-      padding: 15px;
-      border-radius: 24px;
-      background: var(--glass-dock);
-      backdrop-filter: blur(18px) saturate(155%);
-      -webkit-backdrop-filter: blur(18px) saturate(155%);
-      border: 1px solid var(--border);
-      box-shadow:
-        0 20px 44px var(--shadow),
-        0 2px 10px rgba(0, 0, 0, 0.04),
-        inset 0 1px 0 var(--glass-highlight);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
     }
 
     .vibhag-card {
       position: relative;
-      background: linear-gradient(155deg, var(--surface-elevated) 0%, var(--surface-tint) 100%);
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 17px;
-      padding: 14px 14px 15px;
+      border-radius: 15px;
+      padding: 12px 11px 13px;
       cursor: pointer;
       text-align: left;
       display: flex;
       flex-direction: column;
-      align-items: stretch;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       min-width: 0;
       touch-action: manipulation;
-      box-shadow:
-        0 4px 14px var(--shadow),
-        inset 0 1px 0 var(--glass-highlight);
-      transition:
-        transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
-        border-color 0.22s ease,
-        box-shadow 0.22s ease,
-        background 0.22s ease;
-    }
-
-    .vibhag-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 16px;
-      right: 16px;
-      height: 3px;
-      border-radius: 0 0 4px 4px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0.72;
-      transition: left 0.22s ease, right 0.22s ease, opacity 0.22s ease;
-    }
-
-    .vibhag-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--gold);
-      box-shadow:
-        0 12px 26px var(--shadow-hover),
-        0 0 0 1px var(--gold-soft);
-    }
-
-    .vibhag-card:hover::before {
-      left: 8px;
-      right: 8px;
-      opacity: 1;
+      transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
 
     .vibhag-card:active {
@@ -845,21 +499,9 @@
     }
 
     .vibhag-card.active {
-      background: linear-gradient(140deg, var(--primary-mid) 0%, var(--primary) 54%, var(--primary-dark) 100%);
+      background: linear-gradient(145deg, var(--hero-bot), var(--hero-mid));
       border-color: var(--gold);
-      box-shadow:
-        0 14px 28px rgba(0, 0, 0, 0.26),
-        0 0 0 1px rgba(252, 230, 159, 0.35),
-        inset 0 1px 0 rgba(255, 245, 210, 0.25);
-    }
-
-    .vibhag-card.active::before {
-      left: 0;
-      right: 0;
-      height: 3.5px;
-      border-radius: 17px 17px 0 0;
-      background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold-deep));
-      opacity: 1;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(247, 227, 161, 0.25);
     }
 
     .vibhag-top {
@@ -867,88 +509,74 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      width: 100%;
     }
 
     .vibhag-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: linear-gradient(145deg, var(--gold-soft), rgba(214, 175, 59, 0.05));
-      border: 1px solid var(--gold-border);
-      color: var(--gold-deep);
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--gold-soft);
+      border: 1px solid var(--border);
+      color: var(--gold);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease;
-    }
-
-    [data-theme="theme-5"] .vibhag-icon {
-      color: var(--gold-bright);
     }
 
     .vibhag-card.active .vibhag-icon {
-      background: linear-gradient(145deg, rgba(252, 230, 159, 0.24), rgba(214, 175, 59, 0.12));
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
       border-color: var(--gold-bright);
-      color: var(--gold-bright);
+      color: var(--on-gold);
     }
 
     .vibhag-count {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 0.78rem;
       font-weight: 700;
-      line-height: 1.35;
-      padding: 3px 9px;
+      padding: 2px 9px;
       border-radius: 999px;
       background: var(--gold-soft);
-      color: var(--card-title);
-      border: 1px solid var(--gold-border);
+      border: 1px solid var(--border);
+      color: var(--heading);
       white-space: nowrap;
-      flex-shrink: 0;
     }
 
     .vibhag-card.active .vibhag-count {
-      background: rgba(252, 230, 159, 0.2);
+      background: rgba(247, 227, 161, 0.18);
+      border-color: rgba(247, 227, 161, 0.48);
       color: var(--gold-bright);
-      border-color: rgba(252, 230, 159, 0.48);
     }
 
     .vibhag-name {
-      display: block;
-      font-family: 'Rasa', 'Noto Sans Gujarati', serif;
-      font-size: 1.15rem;
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 1.08rem;
       font-weight: 700;
-      color: var(--card-title);
-      line-height: 1.44;
-      padding-top: 1px;
+      color: var(--heading);
+      line-height: 1.4;
+      letter-spacing: 0.15px;
       overflow-wrap: break-word;
-      width: 100%;
     }
 
     .vibhag-card.active .vibhag-name {
-      color: #fffbf0;
-      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+      color: #fffaf0;
     }
 
     /* =========================================================
-       COMMAND TOOLBAR (SEARCH + BOOKMARK FILTER + ACTIVE META)
+       CLEAN SEARCH & SAVED FILTER ROW
        ========================================================= */
-    .toolbar-wrap {
-      max-width: 960px;
-      margin: 0 auto 22px;
+    .toolbar {
+      max-width: 980px;
+      margin: 0 auto 18px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      scroll-margin-top: 16px;
+      gap: 11px;
     }
 
     .search-row {
       display: flex;
       align-items: stretch;
-      gap: 10px;
+      gap: 9px;
     }
 
     .search-box {
@@ -961,557 +589,433 @@
 
     .search-icon {
       position: absolute;
-      left: 16px;
-      color: var(--muted);
+      left: 14px;
+      color: var(--gold);
       pointer-events: none;
       display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .search-input {
       width: 100%;
-      min-height: 50px;
-      padding: 11px 44px 11px 46px;
-      border-radius: 16px;
+      height: 48px;
+      padding: 0 40px 0 43px;
+      border-radius: 14px;
       border: 1.5px solid var(--border);
-      background: var(--surface-elevated);
+      background: var(--surface);
       color: var(--text);
+      font-family: 'Anek Gujarati', sans-serif;
       font-size: 0.98rem;
-      line-height: 1.5;
+      font-weight: 600;
       box-shadow: 0 6px 18px var(--shadow);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .search-input::placeholder {
       color: var(--muted);
-      opacity: 0.85;
+      font-weight: 500;
     }
 
     .search-input:focus {
       border-color: var(--gold);
-      box-shadow: 0 8px 24px var(--shadow-hover), 0 0 0 3px var(--gold-soft);
+      box-shadow: 0 0 0 3px var(--gold-soft);
       outline: none;
     }
 
     .search-clear {
       position: absolute;
-      right: 10px;
-      width: 32px;
-      height: 32px;
+      right: 9px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       border: none;
       background: var(--gold-soft);
-      color: var(--card-title);
-      font-size: 1.1rem;
-      line-height: 1;
+      color: var(--heading);
+      font-size: 1.15rem;
       cursor: pointer;
       display: none;
       align-items: center;
       justify-content: center;
-      touch-action: manipulation;
-      transition: background 0.2s ease, transform 0.15s ease;
     }
 
     .search-clear.visible {
       display: inline-flex;
     }
 
-    .search-clear:hover {
-      background: var(--gold);
-      color: #1c1203;
-    }
-
-    .saved-filter-btn {
+    .saved-btn {
+      height: 48px;
+      padding: 0 13px;
+      border-radius: 14px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--heading);
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      min-height: 50px;
-      padding: 0 18px;
-      border-radius: 16px;
-      border: 1.5px solid var(--border);
-      background: var(--surface-elevated);
-      color: var(--card-title);
-      font-size: 0.92rem;
-      font-weight: 700;
+      gap: 7px;
       cursor: pointer;
       flex-shrink: 0;
       box-shadow: 0 6px 18px var(--shadow);
       touch-action: manipulation;
-      transition: all 0.22s ease;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
 
-    .saved-filter-btn:hover {
+    .saved-btn.active {
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
       border-color: var(--gold);
-      transform: translateY(-1px);
+      color: var(--on-gold);
     }
 
-    .saved-filter-btn.active {
-      background: linear-gradient(135deg, var(--primary-mid), var(--primary-dark));
-      border-color: var(--gold);
-      color: var(--gold-bright);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
+    .saved-label {
+      display: none;
     }
 
     .saved-badge {
+      min-width: 22px;
+      height: 22px;
+      padding: 0 6px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 24px;
-      height: 22px;
-      padding: 0 7px;
-      border-radius: 999px;
-      font-size: 0.76rem;
-      font-weight: 700;
       background: var(--gold-soft);
-      color: var(--card-title);
-      border: 1px solid var(--gold-border);
+      border: 1px solid var(--border);
     }
 
-    .saved-filter-btn.active .saved-badge {
-      background: rgba(252, 230, 159, 0.22);
-      color: var(--gold-bright);
+    .saved-btn.active .saved-badge {
+      background: rgba(0, 0, 0, 0.16);
+      border-color: transparent;
     }
 
-    .results-meta {
+    .meta-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      padding: 4px 4px 0;
+      padding: 2px 2px 0;
     }
 
-    .results-title-wrap {
+    .meta-left {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       flex-wrap: wrap;
     }
 
-    .results-heading {
-      font-family: 'Rasa', 'Noto Sans Gujarati', serif;
-      font-size: 1.24rem;
-      font-weight: 700;
-      color: var(--card-title);
-      line-height: 1.45;
-    }
-
-    .results-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 11px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      background: var(--gold-soft);
-      color: var(--card-title);
-      border: 1px solid var(--gold-border);
+    .meta-heading {
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 1.32rem;
+      font-weight: 800;
+      color: var(--heading);
       line-height: 1.4;
+      letter-spacing: 0.2px;
     }
 
-    .reset-link-btn {
-      border: 1px solid var(--gold-border);
-      background: transparent;
-      color: var(--card-title);
+    .meta-pill {
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
       font-size: 0.82rem;
-      font-weight: 600;
-      padding: 5px 12px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      border: 1px solid var(--border);
+      color: var(--gold);
+    }
+
+    .reset-btn {
+      display: none;
+      border: 1px solid var(--border-strong);
+      background: var(--gold-soft);
+      color: var(--heading);
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 5px 13px;
       border-radius: 999px;
       cursor: pointer;
-      display: none;
-      align-items: center;
-      gap: 5px;
-      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
-    .reset-link-btn.visible {
+    .reset-btn.visible {
       display: inline-flex;
-    }
-
-    .reset-link-btn:hover {
-      background: var(--gold-soft);
-      border-color: var(--gold);
     }
 
     /* =========================================================
-       1 TO 100 SEQUENTIAL LUXURY CONTENT CARDS
+       1 TO 100 CONTENT CARDS
        ========================================================= */
     .cards-list {
+      max-width: 980px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
-      max-width: 960px;
-      margin: 0 auto;
+      gap: 14px;
     }
 
     .card {
       position: relative;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-left: 4px solid var(--gold);
-      border-radius: 20px;
-      padding: 22px 26px 18px;
-      box-shadow:
-        0 6px 20px var(--shadow),
-        inset 0 1px 0 var(--glass-highlight);
-      transition:
-        transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
-        border-color 0.24s ease,
-        box-shadow 0.24s ease;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 140px;
-      height: 140px;
-      border-top-right-radius: 20px;
-      background: radial-gradient(circle at 100% 0%, var(--gold-soft) 0%, transparent 72%);
-      pointer-events: none;
-      opacity: 0.65;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: var(--gold);
-      box-shadow:
-        0 14px 32px var(--shadow-hover),
-        0 0 0 1px var(--gold-soft);
+      border-left: 3.5px solid var(--gold);
+      border-radius: 18px;
+      padding: 18px 16px 15px;
+      box-shadow: 0 8px 22px var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card-header {
-      position: relative;
-      z-index: 1;
       display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 13px;
-      padding-bottom: 12px;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 12px;
+      padding-bottom: 11px;
       border-bottom: 1px solid var(--border);
     }
 
     .num-badge {
-      display: inline-flex;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 44px;
-      height: 44px;
-      padding: 0 10px;
-      border-radius: 13px;
-      background: linear-gradient(145deg, var(--gold-bright) 0%, var(--gold) 52%, var(--gold-deep) 100%);
-      color: #1c1203;
-      font-family: 'Rasa', 'Noto Sans Gujarati', serif;
-      font-size: 1.24rem;
-      font-weight: 700;
+    }
+
+    .num-badge::before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: 6px;
+      background: linear-gradient(145deg, var(--gold-bright), var(--gold), var(--gold-deep));
+      transform: rotate(45deg);
+      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.26);
+    }
+
+    .num-badge span {
+      position: relative;
+      z-index: 1;
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--on-gold);
       line-height: 1;
-      border: 1px solid rgba(255, 245, 212, 0.72);
-      box-shadow:
-        0 5px 14px var(--gold-glow),
-        inset 0 1px 1px rgba(255, 255, 255, 0.75);
-      flex-shrink: 0;
-      margin-top: 2px;
     }
 
     .card-title {
-      font-family: 'Rasa', 'Noto Sans Gujarati', serif;
-      font-size: calc(clamp(1.32rem, 3vw, 1.74rem) * var(--font-scale));
-      font-weight: 700;
-      color: var(--card-title);
-      line-height: 1.5;
-      padding-top: 2px;
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: clamp(1.32rem, 4.8vw, 1.72rem);
+      font-weight: 800;
+      color: var(--heading);
+      line-height: 1.44;
+      letter-spacing: 0.2px;
       flex: 1;
       min-width: 0;
       overflow-wrap: break-word;
     }
 
     .card-body {
-      position: relative;
-      z-index: 1;
-      font-size: calc(1.03rem * var(--font-scale));
+      font-family: 'Anek Gujarati', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 500;
       color: var(--text);
-      line-height: 1.98;
-      letter-spacing: 0.1px;
-      text-align: left;
+      line-height: 1.92;
+      letter-spacing: 0.15px;
       overflow-wrap: break-word;
-      hyphens: none;
     }
 
     .card mark {
       background: var(--mark-bg);
       color: var(--mark-text);
-      padding: 0 3px;
+      padding: 1px 4px;
       border-radius: 4px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .card-footer {
-      position: relative;
-      z-index: 1;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      margin-top: 15px;
-      padding-top: 12px;
+      gap: 9px;
+      margin-top: 14px;
+      padding-top: 11px;
       border-top: 1px dashed var(--border);
     }
 
-    .card-cat-chip {
+    .card-cat {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
       color: var(--muted);
-      background: var(--surface-tint);
+      background: var(--surface-2);
       border: 1px solid var(--border);
       padding: 4px 11px;
       border-radius: 999px;
-      line-height: 1.45;
-      max-width: 100%;
     }
 
-    .card-cat-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
+    .card-cat::before {
+      content: "";
+      width: 5px;
+      height: 5px;
       background: var(--gold);
-      flex-shrink: 0;
+      transform: rotate(45deg);
     }
 
     .card-actions {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
-    .card-action-btn {
+    .action-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 5px;
       min-height: 34px;
-      padding: 4px 11px;
-      border-radius: 999px;
+      padding: 4px 12px;
+      border-radius: 10px;
       border: 1px solid var(--border);
-      background: var(--surface-elevated);
+      background: var(--surface-2);
       color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 600;
-      line-height: 1.3;
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
       cursor: pointer;
       touch-action: manipulation;
-      transition: all 0.2s ease;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
     }
 
-    .card-action-btn:hover {
+    .action-btn:hover {
       border-color: var(--gold);
-      color: var(--card-title);
+      color: var(--heading);
       background: var(--gold-soft);
     }
 
-    .card-action-btn:active {
-      transform: scale(0.94);
-    }
-
-    .card-action-btn.saved {
-      background: linear-gradient(135deg, var(--primary-mid), var(--primary-dark));
+    .action-btn.saved {
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
       border-color: var(--gold);
-      color: var(--gold-bright);
+      color: var(--on-gold);
     }
 
-    .card-action-btn.saved svg {
-      fill: var(--gold-bright);
+    .action-btn.saved svg {
+      fill: var(--on-gold);
     }
 
-    /* Empty State */
     .empty-state {
       text-align: center;
-      padding: 48px 22px;
-      border-radius: 22px;
+      padding: 42px 20px;
+      border-radius: 18px;
       background: var(--surface);
-      border: 1.5px dashed var(--gold-border);
-      box-shadow: 0 8px 24px var(--shadow);
-    }
-
-    .empty-icon {
-      width: 56px;
-      height: 56px;
-      margin: 0 auto 14px;
-      border-radius: 16px;
-      background: var(--gold-soft);
-      border: 1px solid var(--gold-border);
-      color: var(--gold-deep);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    [data-theme="theme-5"] .empty-icon {
-      color: var(--gold-bright);
+      border: 1.5px dashed var(--border-strong);
     }
 
     .empty-title {
-      font-family: 'Rasa', 'Noto Sans Gujarati', serif;
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: var(--card-title);
-      line-height: 1.5;
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--heading);
       margin-bottom: 6px;
     }
 
     .empty-desc {
-      font-size: 0.96rem;
+      font-size: 0.98rem;
+      font-weight: 500;
       color: var(--muted);
-      margin-bottom: 18px;
-      line-height: 1.75;
+      margin-bottom: 16px;
     }
 
     .empty-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
       padding: 10px 22px;
       border-radius: 999px;
-      border: 1.5px solid var(--gold);
-      background: linear-gradient(135deg, var(--primary-mid), var(--primary-dark));
-      color: var(--gold-bright);
-      font-size: 0.92rem;
-      font-weight: 700;
+      border: 1px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      color: var(--on-gold);
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
       cursor: pointer;
-      touch-action: manipulation;
     }
 
     /* =========================================================
-       ROYAL FOOTER
+       FOOTER, TOP BUTTON & TOAST
        ========================================================= */
     footer {
-      position: relative;
-      z-index: 2;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse 65% 80% at 50% 0%, rgba(214, 175, 59, 0.16) 0%, transparent 70%),
-        linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: #fffaf0;
+      background: linear-gradient(180deg, var(--hero-mid) 0%, var(--hero-top) 100%);
+      border-top: 1.5px solid var(--gold);
       text-align: center;
-      padding:
-        34px
-        max(16px, env(safe-area-inset-right))
-        calc(36px + env(safe-area-inset-bottom))
-        max(16px, env(safe-area-inset-left));
-      border-top: 3px solid var(--gold);
-      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.18);
-    }
-
-    footer::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, transparent 0%, var(--gold-deep) 20%, var(--gold-bright) 50%, var(--gold-deep) 80%, transparent 100%);
-      pointer-events: none;
+      padding: 28px 16px calc(30px + env(safe-area-inset-bottom));
     }
 
     .footer-credit {
       display: inline-block;
-      max-width: 100%;
       font-family: 'Cinzel', serif;
-      font-size: clamp(0.68rem, 2.2vw, 0.94rem);
+      font-size: clamp(0.68rem, 2.1vw, 0.86rem);
       font-weight: 700;
-      letter-spacing: clamp(1px, 0.45vw, 2.4px);
-      line-height: 1.5;
+      letter-spacing: 2.2px;
       color: var(--gold-bright);
       text-transform: uppercase;
-      padding: 10px clamp(16px, 4vw, 26px);
+      padding: 8px 20px;
       border-radius: 999px;
-      border: 1px solid var(--gold-border);
+      border: 1px solid rgba(212, 175, 55, 0.44);
       background: rgba(0, 0, 0, 0.28);
-      text-wrap: balance;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.24);
     }
 
-    /* =========================================================
-       FLOATING SCROLL-TO-TOP BUTTON
-       ========================================================= */
     .top-btn {
       position: fixed;
-      right: max(18px, env(safe-area-inset-right));
-      bottom: calc(22px + env(safe-area-inset-bottom));
-      width: 50px;
-      height: 50px;
-      border-radius: 16px;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
       border: 1.5px solid var(--gold);
-      background: linear-gradient(145deg, var(--primary-mid), var(--primary-dark));
-      color: var(--gold-bright);
-      font-size: 1.3rem;
-      line-height: 1;
+      background: var(--surface);
+      color: var(--gold);
+      font-size: 1.2rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow:
-        0 12px 28px rgba(0, 0, 0, 0.36),
-        0 0 0 2px rgba(214, 175, 59, 0.18),
-        inset 0 1px 0 rgba(255, 245, 210, 0.3);
-      z-index: 80;
+      box-shadow: 0 10px 28px var(--shadow-lg);
+      z-index: 60;
       opacity: 0;
       visibility: hidden;
-      pointer-events: none;
-      transform: translateY(16px) scale(0.85);
-      touch-action: manipulation;
-      transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease,
-        transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(12px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
     }
 
     .top-btn.show {
       opacity: 1;
       visibility: visible;
-      pointer-events: auto;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
 
-    .top-btn:hover {
-      transform: translateY(-3px) scale(1.05);
-    }
-
-    .top-btn:active {
-      transform: scale(0.93);
-    }
-
-    /* =========================================================
-       TOAST NOTIFICATION
-       ========================================================= */
     .toast {
       position: fixed;
       left: 50%;
-      bottom: calc(26px + env(safe-area-inset-bottom));
-      transform: translateX(-50%) translateY(20px);
-      z-index: 140;
-      padding: 10px 20px;
+      bottom: calc(24px + env(safe-area-inset-bottom));
+      transform: translateX(-50%) translateY(16px);
+      z-index: 90;
+      padding: 9px 18px;
       border-radius: 999px;
-      background: var(--glass-dark);
+      background: var(--hero-top);
       color: var(--gold-bright);
       border: 1px solid var(--gold);
-      font-size: 0.88rem;
-      font-weight: 600;
-      line-height: 1.4;
-      max-width: calc(100vw - 32px);
-      text-align: center;
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.42);
+      font-family: 'Baloo Bhai 2', 'Anek Gujarati', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.46);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.24s ease, transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     .toast.show {
@@ -1520,486 +1024,73 @@
     }
 
     /* =========================================================
-       MOBILE NATIVE FLOATING BOTTOM APP DOCK & SETTINGS SHEET
-       (Hidden on Desktop > 768px)
+       RESPONSIVE BREAKPOINTS
        ========================================================= */
-    .mobile-dock {
-      display: none;
-    }
-
-    .sheet-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.56);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      z-index: 125;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.25s ease, visibility 0.25s ease;
-    }
-
-    .sheet-backdrop.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .settings-sheet {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 130;
-      max-width: 520px;
-      margin: 0 auto;
-      background: var(--surface-elevated);
-      color: var(--text);
-      border-top: 2px solid var(--gold);
-      border-left: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      border-top-left-radius: 26px;
-      border-top-right-radius: 26px;
-      padding: 12px 20px calc(24px + env(safe-area-inset-bottom));
-      box-shadow: 0 -16px 46px rgba(0, 0, 0, 0.38);
-      transform: translateY(105%);
-      visibility: hidden;
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.3s ease;
-    }
-
-    .settings-sheet.open {
-      transform: translateY(0);
-      visibility: visible;
-    }
-
-    .sheet-handle {
-      width: 44px;
-      height: 4.5px;
-      border-radius: 999px;
-      background: var(--gold-border);
-      margin: 0 auto 14px;
-    }
-
-    .sheet-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .sheet-title {
-      font-family: 'Rasa', 'Noto Sans Gujarati', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--card-title);
-      line-height: 1.4;
-    }
-
-    .sheet-close {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--surface-tint);
-      color: var(--card-title);
-      font-size: 1.25rem;
-      line-height: 1;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .sheet-group {
-      margin-bottom: 20px;
-    }
-
-    .sheet-group:last-child {
-      margin-bottom: 0;
-    }
-
-    .sheet-label {
-      display: block;
-      font-size: 0.86rem;
-      font-weight: 700;
-      color: var(--muted);
-      margin-bottom: 11px;
-    }
-
-    .sheet-theme-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .sheet-theme-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 7px;
-      padding: 10px 4px;
-      border-radius: 15px;
-      border: 1.5px solid var(--border);
-      background: var(--surface-tint);
-      color: var(--text);
-      font-size: 0.72rem;
-      font-weight: 700;
-      cursor: pointer;
-      touch-action: manipulation;
-      transition: border-color 0.2s ease, transform 0.15s ease, background 0.2s ease;
-    }
-
-    .sheet-theme-btn.active {
-      border-color: var(--gold);
-      background: var(--gold-soft);
-      color: var(--card-title);
-      box-shadow: 0 0 0 1px var(--gold);
-    }
-
-    .sheet-theme-swatch {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 2px solid rgba(252, 230, 159, 0.8);
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28);
-    }
-
-    .sheet-font-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 16px;
-      background: var(--surface-tint);
-      border: 1px solid var(--border);
-    }
-
-    .sheet-font-btn {
-      flex: 1;
-      min-height: 42px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface-elevated);
-      color: var(--card-title);
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      touch-action: manipulation;
-    }
-
-    .sheet-font-btn:active {
-      transform: scale(0.96);
-    }
-
-    .sheet-font-val {
-      min-width: 60px;
-      text-align: center;
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--card-title);
-    }
-
-    /* =========================================================
-       TABLET REFINEMENT (<= 960px)
-       ========================================================= */
-    @media (max-width: 960px) {
-      .vibhag-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 11px;
-        padding: 13px;
+    @media (min-width: 640px) {
+      .saved-label {
+        display: inline;
       }
 
       .card {
-        padding: 20px 20px 16px;
+        padding: 22px 24px 18px;
       }
     }
 
-    /* =========================================================
-       MOBILE-FIT NATIVE APP UI/UX (<= 768px)
-       ========================================================= */
-    @media (max-width: 768px) {
+    @media (min-width: 820px) {
       .hero {
-        padding: calc(14px + env(safe-area-inset-top)) 12px 54px;
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 30px;
-        border-bottom-width: 2.5px;
+        padding: 22px 24px 0;
       }
 
-      .hero-utility-bar {
-        margin-bottom: 16px;
-        gap: 8px;
+      .main-container {
+        padding: 0 24px 72px;
       }
 
-      .theme-pill {
-        padding: 6px 13px;
-        gap: 10px;
-      }
-
-      .font-pill {
-        display: none;
-      }
-
-      .container {
-        padding: 0 12px 36px;
-      }
-
-      .vibhag-grid {
-        margin: -30px auto 18px;
-        padding: 11px;
-        gap: 10px;
-        border-radius: 22px;
+      .vibhag-dock {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        padding: 16px;
       }
 
       .vibhag-card {
-        padding: 12px 11px 13px;
-        gap: 10px;
-        border-radius: 16px;
+        padding: 14px 14px 15px;
       }
 
       .vibhag-card:hover {
-        transform: none;
-      }
-
-      .vibhag-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 11px;
-      }
-
-      .vibhag-icon svg {
-        width: 18px;
-        height: 18px;
-      }
-
-      .vibhag-count {
-        font-size: 0.7rem;
-        padding: 2px 8px;
-      }
-
-      .vibhag-name {
-        font-size: 1.04rem;
-        line-height: 1.38;
-      }
-
-      .search-row {
-        gap: 8px;
-      }
-
-      .search-input {
-        min-height: 46px;
-        font-size: 0.94rem;
-        border-radius: 14px;
-        padding: 10px 40px 10px 42px;
-      }
-
-      .search-icon {
-        left: 13px;
-      }
-
-      .saved-filter-btn {
-        min-height: 46px;
-        padding: 0 12px;
-        border-radius: 14px;
-        font-size: 0.84rem;
-      }
-
-      .saved-filter-label {
-        display: none;
-      }
-
-      .cards-list {
-        gap: 13px;
-      }
-
-      .card {
-        padding: 17px 16px 14px;
-        border-radius: 18px;
+        transform: translateY(-3px);
+        border-color: var(--gold);
+        box-shadow: 0 12px 24px var(--shadow-lg);
       }
 
       .card:hover {
-        transform: none;
-      }
-
-      .card-header {
-        gap: 12px;
-        margin-bottom: 11px;
-        padding-bottom: 10px;
-      }
-
-      .num-badge {
-        min-width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        font-size: 1.15rem;
-      }
-
-      .card-title {
-        font-size: calc(clamp(1.24rem, 4.8vw, 1.48rem) * var(--font-scale));
+        transform: translateY(-2px);
+        border-color: var(--border-strong);
+        box-shadow: 0 14px 32px var(--shadow-lg);
       }
 
       .card-body {
-        font-size: calc(0.99rem * var(--font-scale));
-        line-height: 1.94;
-      }
-
-      .card-footer {
-        gap: 8px;
-        margin-top: 13px;
-        padding-top: 10px;
-      }
-
-      .card-cat-chip {
-        font-size: 0.74rem;
-        padding: 3px 10px;
-      }
-
-      .card-action-btn {
-        min-height: 34px;
-        padding: 4px 10px;
-        font-size: 0.75rem;
-      }
-
-      /* Native Mobile Floating Bottom Navigation Dock */
-      .mobile-dock {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        position: fixed;
-        left: 12px;
-        right: 12px;
-        bottom: calc(10px + env(safe-area-inset-bottom));
-        z-index: 100;
-        max-width: 440px;
-        margin: 0 auto;
-        min-height: 60px;
-        padding: 6px 8px;
-        border-radius: 22px;
-        background: var(--glass-dark);
-        backdrop-filter: blur(20px) saturate(170%);
-        -webkit-backdrop-filter: blur(20px) saturate(170%);
-        border: 1.5px solid var(--gold-border);
-        box-shadow:
-          0 14px 36px rgba(0, 0, 0, 0.46),
-          inset 0 1px 0 rgba(255, 245, 210, 0.24);
-      }
-
-      .dock-btn {
-        position: relative;
-        flex: 1;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 3px;
-        padding: 6px 4px;
-        border: none;
-        border-radius: 15px;
-        background: transparent;
-        color: rgba(255, 248, 228, 0.8);
-        font-size: 0.68rem;
-        font-weight: 600;
-        line-height: 1.25;
-        cursor: pointer;
-        touch-action: manipulation;
-        transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
-      }
-
-      .dock-btn:active {
-        transform: scale(0.92);
-      }
-
-      .dock-btn.active {
-        background: rgba(214, 175, 59, 0.22);
-        color: var(--gold-bright);
-      }
-
-      .dock-badge {
-        position: absolute;
-        top: 2px;
-        right: calc(50% - 20px);
-        min-width: 17px;
-        height: 17px;
-        padding: 0 4px;
-        border-radius: 999px;
-        background: var(--gold);
-        color: #1c1203;
-        font-size: 0.65rem;
-        font-weight: 700;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-      }
-
-      .dock-badge.visible {
-        display: inline-flex;
-      }
-
-      /* Full Clearance Above Mobile Dock */
-      footer {
-        padding: 30px 14px calc(98px + env(safe-area-inset-bottom));
-        border-top-left-radius: 26px;
-        border-top-right-radius: 26px;
-      }
-
-      .top-btn {
-        width: 48px;
-        height: 48px;
-        right: 14px;
-        bottom: calc(82px + env(safe-area-inset-bottom));
-        z-index: 95;
-      }
-
-      .toast {
-        bottom: calc(84px + env(safe-area-inset-bottom));
+        font-size: 1.08rem;
       }
     }
 
-    /* Ultra-Compact Phones (320px - 375px) */
-    @media (max-width: 375px) {
-      .vibhag-grid {
+    @media (max-width: 360px) {
+      .vibhag-dock {
         gap: 8px;
-        padding: 9px;
+        padding: 10px;
       }
 
       .vibhag-card {
         padding: 10px 9px 11px;
       }
 
-      .vibhag-icon {
-        width: 32px;
-        height: 32px;
-      }
-
       .vibhag-name {
-        font-size: 0.95rem;
-      }
-
-      .vibhag-count {
-        font-size: 0.66rem;
-        padding: 2px 6px;
-      }
-
-      .card {
-        padding: 15px 13px 13px;
-      }
-
-      .theme-label {
-        display: none;
+        font-size: 0.96rem;
       }
     }
 
-    /* Accessibility: Respect Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
@@ -2008,206 +1099,102 @@
 </head>
 <body>
 
-  <!-- Reading Progress Bar -->
-  <div class="read-progress" aria-hidden="true">
-    <div id="readProgressFill" class="read-progress-fill"></div>
-  </div>
-
+  <!-- Interactive Half-Mehrab Islamic Header -->
   <header class="hero" id="top">
-    <!-- Seamless Islamic Geometric Pattern Background -->
-    <svg class="hero-islamic-bg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <svg class="hero-lattice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <pattern id="islamicPattern" width="96" height="96" patternUnits="userSpaceOnUse">
-          <g fill="none" stroke="currentColor" stroke-width="1">
-            <polygon points="48,6 60,36 90,48 60,60 48,90 36,60 6,48 36,36" />
-            <polygon points="48,18 57,39 78,48 57,57 48,78 39,57 18,48 39,39" />
-            <rect x="26" y="26" width="44" height="44" transform="rotate(45 48 48)" />
-            <circle cx="48" cy="48" r="9" />
-            <circle cx="0" cy="0" r="14" />
-            <circle cx="96" cy="0" r="14" />
-            <circle cx="0" cy="96" r="14" />
-            <circle cx="96" cy="96" r="14" />
+        <pattern id="islamicStarGrid" width="90" height="90" patternUnits="userSpaceOnUse">
+          <g fill="none" stroke="currentColor" stroke-width="0.9">
+            <polygon points="45,6 56,34 84,45 56,56 45,84 34,56 6,45 34,34" />
+            <rect x="25" y="25" width="40" height="40" transform="rotate(45 45 45)" />
+            <circle cx="45" cy="45" r="7" />
           </g>
         </pattern>
       </defs>
-      <rect width="100%" height="100%" fill="url(#islamicPattern)" />
+      <rect width="100%" height="100%" fill="url(#islamicStarGrid)" />
     </svg>
 
-    <!-- Top Utility Bar: 5 Luxury Themes + Desktop Font Size Control -->
-    <div class="hero-utility-bar">
-      <div class="theme-pill">
+    <div class="hero-inner">
+      <!-- Only THEME + 5 Circle Dots Above Heading -->
+      <div class="theme-bar" role="group" aria-label="થીમ પસંદ કરેં">
         <span class="theme-label">THEME</span>
-        <div class="theme-dots" role="group" aria-label="થીમ પસંદ કરો">
-          <button type="button" class="theme-dot dot-1 active" data-theme-val="theme-1" title="રોયલ ગોલ્ડ" aria-label="રોયલ ગોલ્ડ થીમ"></button>
+        <div class="theme-dots">
+          <button type="button" class="theme-dot dot-1 active" data-theme-val="theme-1" title="શાહી ગોલ્ડ" aria-label="શાહી ગોલ્ડ થીમ"></button>
           <button type="button" class="theme-dot dot-2" data-theme-val="theme-2" title="મદીના એમરાલ્ડ" aria-label="મદીના એમરાલ્ડ થીમ"></button>
-          <button type="button" class="theme-dot dot-3" data-theme-val="theme-3" title="રોયલ નીલમ" aria-label="રોયલ નીલમ થીમ"></button>
+          <button type="button" class="theme-dot dot-3" data-theme-val="theme-3" title="શાહી નીલમ" aria-label="શાહી નીલમ થીમ"></button>
           <button type="button" class="theme-dot dot-4" data-theme-val="theme-4" title="શાહી રૂબી" aria-label="શાહી રૂબી થીમ"></button>
           <button type="button" class="theme-dot dot-5" data-theme-val="theme-5" title="ડાર્ક નાઇટ" aria-label="ડાર્ક નાઇટ થીમ"></button>
         </div>
       </div>
 
-      <div class="font-pill" role="group" aria-label="અક્ષરની સાઇઝ">
-        <button type="button" class="font-btn" id="fontDecDesktop" aria-label="અક્ષર નાના કરો">A-</button>
-        <span class="font-scale-indicator" id="fontValDesktop">૧૦૦%</span>
-        <button type="button" class="font-btn" id="fontIncDesktop" aria-label="અક્ષર મોટા કરો">A+</button>
-      </div>
-    </div>
-
-    <!-- Royal Next-Gen 24K Golden Mehrab Arch Frame -->
-    <div class="mehrab-shell">
-      <div class="mehrab-crown-wrap">
-        <svg class="mehrab-crown-svg" viewBox="0 0 800 156" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="royalGoldStroke" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#9e7419" />
-              <stop offset="22%" stop-color="#e5be4f" />
-              <stop offset="50%" stop-color="#fff3be" />
-              <stop offset="78%" stop-color="#e5be4f" />
-              <stop offset="100%" stop-color="#9e7419" />
-            </linearGradient>
-            <linearGradient id="royalGoldSoft" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#fce69f" stop-opacity="0.72" />
-              <stop offset="50%" stop-color="#d6af3b" stop-opacity="0.45" />
-              <stop offset="100%" stop-color="#fce69f" stop-opacity="0.72" />
-            </linearGradient>
-            <radialGradient id="mehrabInnerAura" cx="50%" cy="28%" r="60%">
-              <stop offset="0%" stop-color="#fce69f" stop-opacity="0.22" />
-              <stop offset="55%" stop-color="#d6af3b" stop-opacity="0.06" />
-              <stop offset="100%" stop-color="#d6af3b" stop-opacity="0" />
-            </radialGradient>
-          </defs>
-          <path d="M 1 156 C 1 112, 34 84, 118 70 C 232 52, 336 44, 400 8 C 464 44, 568 52, 682 70 C 766 84, 799 112, 799 156 Z" fill="var(--mehrab-fill)" />
-          <path d="M 1 156 C 1 112, 34 84, 118 70 C 232 52, 336 44, 400 8 C 464 44, 568 52, 682 70 C 766 84, 799 112, 799 156 Z" fill="url(#mehrabInnerAura)" />
-          <path d="M 1 156 C 1 112, 34 84, 118 70 C 232 52, 336 44, 400 8 C 464 44, 568 52, 682 70 C 766 84, 799 112, 799 156" fill="none" stroke="#fce69f" stroke-opacity="0.22" stroke-width="7" vector-effect="non-scaling-stroke" />
-          <path d="M 1 156 C 1 112, 34 84, 118 70 C 232 52, 336 44, 400 8 C 464 44, 568 52, 682 70 C 766 84, 799 112, 799 156" fill="none" stroke="url(#royalGoldStroke)" stroke-width="2.8" vector-effect="non-scaling-stroke" />
-          <path d="M 11 156 C 11 118, 42 92, 124 79 C 236 61, 338 53, 400 19 C 462 53, 564 61, 676 79 C 758 92, 789 118, 789 156" fill="none" stroke="url(#royalGoldSoft)" stroke-width="1.3" vector-effect="non-scaling-stroke" />
-          <path d="M 22 156 C 22 124, 54 101, 134 89 C 242 72, 342 64, 400 32 C 458 64, 558 72, 666 89 C 746 101, 778 124, 778 156" fill="none" stroke="url(#royalGoldStroke)" stroke-opacity="0.48" stroke-width="1.2" stroke-dasharray="3 6" vector-effect="non-scaling-stroke" />
-        </svg>
-
-        <!-- Rub el Hizb & Crescent Finial Medallion -->
-        <div class="mehrab-emblem" aria-hidden="true">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Half Mehrab Arch Flowing Directly Into Category Cards -->
+      <div class="half-mehrab">
+        <div class="mehrab-arch-wrap">
+          <svg class="mehrab-arch-svg" viewBox="0 0 980 140" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="emblemGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fff7cf" />
-                <stop offset="48%" stop-color="#e5bd4b" />
-                <stop offset="100%" stop-color="#9e7418" />
+              <linearGradient id="mehrabGoldLine" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#967316" />
+                <stop offset="22%" stop-color="#d4af37" />
+                <stop offset="50%" stop-color="#fff4c4" />
+                <stop offset="78%" stop-color="#d4af37" />
+                <stop offset="100%" stop-color="#967316" />
               </linearGradient>
-              <radialGradient id="emblemGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#fce69f" stop-opacity="0.34" />
-                <stop offset="100%" stop-color="#d6af3b" stop-opacity="0" />
-              </radialGradient>
+              <linearGradient id="mehrabGoldInner" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#d4af37" stop-opacity="0.35" />
+                <stop offset="50%" stop-color="#f7e3a1" stop-opacity="0.7" />
+                <stop offset="100%" stop-color="#d4af37" stop-opacity="0.35" />
+              </linearGradient>
             </defs>
-            <circle cx="40" cy="40" r="36" fill="url(#emblemGlow)" />
-            <rect x="20" y="20" width="40" height="40" rx="2" stroke="url(#emblemGold)" stroke-width="1.6" fill="rgba(214, 175, 59, 0.14)" />
-            <rect x="20" y="20" width="40" height="40" rx="2" transform="rotate(45 40 40)" stroke="url(#emblemGold)" stroke-width="1.6" fill="rgba(214, 175, 59, 0.14)" />
-            <circle cx="40" cy="40" r="19" stroke="url(#emblemGold)" stroke-width="1.2" fill="rgba(16, 10, 2, 0.58)" />
-            <path d="M44.5 29.8A11.2 11.2 0 1 0 44.5 50.2A8.8 8.8 0 1 1 44.5 29.8Z" fill="url(#emblemGold)" />
-            <polygon points="46,35.5 47.4,38.8 51,39.1 48.2,41.4 49.1,44.8 46,43 42.9,44.8 43.8,41.4 41,39.1 44.6,38.8" fill="#fff6cc" />
+            <path d="M 1 140 C 1 98, 42 74, 152 62 C 292 46, 418 38, 490 8 C 562 38, 688 46, 828 62 C 938 74, 979 98, 979 140 Z" fill="var(--mehrab-bg-top)" />
+            <path d="M 1 140 C 1 98, 42 74, 152 62 C 292 46, 418 38, 490 8 C 562 38, 688 46, 828 62 C 938 74, 979 98, 979 140" fill="none" stroke="url(#mehrabGoldLine)" stroke-width="2.4" vector-effect="non-scaling-stroke" />
+            <path d="M 10 140 C 10 105, 50 82, 158 71 C 296 55, 420 47, 490 19 C 560 47, 684 55, 822 71 C 930 82, 970 105, 970 140" fill="none" stroke="url(#mehrabGoldInner)" stroke-width="1.15" vector-effect="non-scaling-stroke" />
+          </svg>
+
+          <!-- Crescent & Rub el Hizb Crown Finial -->
+          <svg class="mehrab-finial" viewBox="0 0 80 80" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="finialGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff7d1" />
+                <stop offset="50%" stop-color="#d4af37" />
+                <stop offset="100%" stop-color="#967316" />
+              </linearGradient>
+            </defs>
+            <rect x="20" y="20" width="40" height="40" rx="2" stroke="url(#finialGold)" stroke-width="1.5" fill="rgba(212, 175, 55, 0.14)" />
+            <rect x="20" y="20" width="40" height="40" rx="2" transform="rotate(45 40 40)" stroke="url(#finialGold)" stroke-width="1.5" fill="rgba(212, 175, 55, 0.14)" />
+            <circle cx="40" cy="40" r="18" stroke="url(#finialGold)" stroke-width="1.1" fill="rgba(3, 18, 13, 0.78)" />
+            <path d="M44.5 30A10.8 10.8 0 1 0 44.5 50A8.5 8.5 0 1 1 44.5 30Z" fill="url(#finialGold)" />
+            <polygon points="46,35.8 47.3,38.9 50.8,39.2 48.1,41.4 48.9,44.7 46,43 43.1,44.7 43.9,41.4 41.2,39.2 44.7,38.9" fill="#fff6cc" />
           </svg>
         </div>
-      </div>
 
-      <div class="mehrab-body">
-        <!-- Column Capitals -->
-        <svg class="mehrab-capital mehrab-capital-left" viewBox="0 0 28 20" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 4H26L22 10H6L2 4Z" fill="#d6af3b" stroke="#fff2b8" stroke-width="1" />
-          <rect x="5" y="10" width="14" height="4" rx="1.5" fill="#9e7419" stroke="#fce69f" stroke-width="0.9" />
-          <circle cx="12" cy="17" r="2.2" fill="#fce69f" />
-        </svg>
-        <svg class="mehrab-capital mehrab-capital-right" viewBox="0 0 28 20" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 4H26L22 10H6L2 4Z" fill="#d6af3b" stroke="#fff2b8" stroke-width="1" />
-          <rect x="5" y="10" width="14" height="4" rx="1.5" fill="#9e7419" stroke="#fce69f" stroke-width="0.9" />
-          <circle cx="12" cy="17" r="2.2" fill="#fce69f" />
-        </svg>
+        <div class="mehrab-portal">
+          <h1 class="hero-title">કુછ યાદ રખને કી બાતેં</h1>
+          <div class="hero-subtitle">( અહલે સુન્નત વલ જમાઅત કે મુતાબિક )</div>
 
-        <!-- Hanging Golden Mosque Lanterns -->
-        <svg class="mehrab-lantern mehrab-lantern-left" viewBox="0 0 40 110" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="lanternGoldL" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#9e7419" />
-              <stop offset="50%" stop-color="#fff0b3" />
-              <stop offset="100%" stop-color="#9e7419" />
-            </linearGradient>
-            <radialGradient id="lanternLightL" cx="50%" cy="55%" r="50%">
-              <stop offset="0%" stop-color="#fff8d6" stop-opacity="0.95" />
-              <stop offset="55%" stop-color="#f2c44c" stop-opacity="0.45" />
-              <stop offset="100%" stop-color="#d6af3b" stop-opacity="0" />
-            </radialGradient>
-          </defs>
-          <line x1="20" y1="0" x2="20" y2="30" stroke="url(#lanternGoldL)" stroke-width="1.6" />
-          <circle cx="20" cy="33" r="3" stroke="url(#lanternGoldL)" stroke-width="1.4" />
-          <path d="M20 36 C14 42, 11 45, 9 48 H31 C29 45, 26 42, 20 36 Z" fill="url(#lanternGoldL)" />
-          <circle class="lantern-flame-glow" cx="20" cy="64" r="17" fill="url(#lanternLightL)" />
-          <path d="M10 49 H30 L27 79 H13 L10 49 Z" fill="rgba(252, 230, 159, 0.22)" stroke="url(#lanternGoldL)" stroke-width="1.6" />
-          <path d="M15 49 L16.5 79 M25 49 L23.5 79" stroke="url(#lanternGoldL)" stroke-width="1" stroke-opacity="0.75" />
-          <path d="M20 56 C17.5 60, 17.5 67, 20 71 C22.5 67, 22.5 60, 20 56 Z" fill="#fff9db" />
-          <path d="M11 79 H29 L24 86 H16 L11 79 Z" fill="url(#lanternGoldL)" />
-          <path d="M20 86 L23 93 L20 100 L17 93 Z" fill="url(#lanternGoldL)" />
-        </svg>
+          <div class="hero-divider" aria-hidden="true">
+            <span></span>
+            <span class="hero-diamond"></span>
+            <span></span>
+          </div>
 
-        <svg class="mehrab-lantern mehrab-lantern-right" viewBox="0 0 40 110" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="lanternGoldR" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#9e7419" />
-              <stop offset="50%" stop-color="#fff0b3" />
-              <stop offset="100%" stop-color="#9e7419" />
-            </linearGradient>
-            <radialGradient id="lanternLightR" cx="50%" cy="55%" r="50%">
-              <stop offset="0%" stop-color="#fff8d6" stop-opacity="0.95" />
-              <stop offset="55%" stop-color="#f2c44c" stop-opacity="0.45" />
-              <stop offset="100%" stop-color="#d6af3b" stop-opacity="0" />
-            </radialGradient>
-          </defs>
-          <line x1="20" y1="0" x2="20" y2="30" stroke="url(#lanternGoldR)" stroke-width="1.6" />
-          <circle cx="20" cy="33" r="3" stroke="url(#lanternGoldR)" stroke-width="1.4" />
-          <path d="M20 36 C14 42, 11 45, 9 48 H31 C29 45, 26 42, 20 36 Z" fill="url(#lanternGoldR)" />
-          <circle class="lantern-flame-glow" cx="20" cy="64" r="17" fill="url(#lanternLightR)" />
-          <path d="M10 49 H30 L27 79 H13 L10 49 Z" fill="rgba(252, 230, 159, 0.22)" stroke="url(#lanternGoldR)" stroke-width="1.6" />
-          <path d="M15 49 L16.5 79 M25 49 L23.5 79" stroke="url(#lanternGoldR)" stroke-width="1" stroke-opacity="0.75" />
-          <path d="M20 56 C17.5 60, 17.5 67, 20 71 C22.5 67, 22.5 60, 20 56 Z" fill="#fff9db" />
-          <path d="M11 79 H29 L24 86 H16 L11 79 Z" fill="url(#lanternGoldR)" />
-          <path d="M20 86 L23 93 L20 100 L17 93 Z" fill="url(#lanternGoldR)" />
-        </svg>
-
-        <!-- Bottom Golden Corner Filigree -->
-        <svg class="mehrab-corner mehrab-corner-left" viewBox="0 0 36 36" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 3 V25 C3 29.5 6.5 33 11 33 H33" stroke="currentColor" stroke-width="1.6" />
-          <path d="M9 14 V24 C9 26 10.5 27 12.5 27 H22" stroke="currentColor" stroke-width="1.1" stroke-opacity="0.75" />
-          <circle cx="14" cy="22" r="2.2" fill="currentColor" />
-        </svg>
-        <svg class="mehrab-corner mehrab-corner-right" viewBox="0 0 36 36" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 3 V25 C3 29.5 6.5 33 11 33 H33" stroke="currentColor" stroke-width="1.6" />
-          <path d="M9 14 V24 C9 26 10.5 27 12.5 27 H22" stroke="currentColor" stroke-width="1.1" stroke-opacity="0.75" />
-          <circle cx="14" cy="22" r="2.2" fill="currentColor" />
-        </svg>
-
-        <h1>કુછ યાદ રખને કી બાતેં</h1>
-        <div class="subtitle">( અહલે સુન્નત વલ જમાઅત કે મુતાબિક )</div>
-
-        <div class="ornament-divider" aria-hidden="true">
-          <span class="ornament-line"></span>
-          <span class="ornament-diamond"></span>
-          <span class="ornament-line"></span>
+          <div class="dev-credit">DEVELOPED BY - PATHAN MAHIRKHAN</div>
         </div>
-
-        <div class="dev-credit">DEVELOPED BY - PATHAN MAHIRKHAN</div>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <!-- Vibhag Categories Grid -->
-    <section id="vibhagSection" class="vibhag-section" aria-label="તમામ હિસ્સે">
-      <div id="vibhagGrid" class="vibhag-grid"></div>
+  <main class="main-container">
+    <!-- Vibhag Category Cards Attached Directly to Half-Mehrab Base -->
+    <section aria-label="તમામ હિસ્સે">
+      <div id="vibhagGrid" class="vibhag-dock"></div>
     </section>
 
-    <!-- Smart Search & Saved Filter Toolbar -->
-    <section id="toolbarWrap" class="toolbar-wrap" aria-label="શોધો અને ફિલ્ટર">
+    <!-- Search & Saved Filter -->
+    <section class="toolbar" aria-label="તલાશ ઔર ફિલ્ટર">
       <div class="search-row">
         <div class="search-box">
           <span class="search-icon" aria-hidden="true">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
@@ -2216,28 +1203,28 @@
             type="search"
             id="searchInput"
             class="search-input"
-            placeholder="શોધો... (જેમ કે: વહી, નમાઝ, ૫૦ અથવા 50)"
+            placeholder="તલાશ કરેં... (જૈસે: વહી, નમાઝ, ૫૦ યા 50)"
             autocomplete="off"
-            aria-label="વિષય અથવા નંબર શોધો"
+            aria-label="મૌઝૂ યા નંબર તલાશ કરેં"
           />
-          <button type="button" id="searchClearBtn" class="search-clear" aria-label="શોધ સાફ કરો">&times;</button>
+          <button type="button" id="searchClearBtn" class="search-clear" aria-label="તલાશ સાફ કરેં">&times;</button>
         </div>
 
-        <button type="button" id="savedFilterBtn" class="saved-filter-btn" aria-pressed="false" title="પસંદીદા બાતેં">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <button type="button" id="savedFilterBtn" class="saved-btn" aria-pressed="false" title="પસંદીદા બાતેં">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
           </svg>
-          <span class="saved-filter-label">પસંદીદા</span>
+          <span class="saved-label">પસંદીદા</span>
           <span id="savedCountBadge" class="saved-badge">૦</span>
         </button>
       </div>
 
-      <div class="results-meta">
-        <div class="results-title-wrap">
-          <h2 id="resultsHeading" class="results-heading">તમામ હિસ્સે</h2>
-          <span id="resultsPill" class="results-pill">૧૦૦ બાતેં</span>
+      <div class="meta-row">
+        <div class="meta-left">
+          <h2 id="resultsHeading" class="meta-heading">તમામ હિસ્સે</h2>
+          <span id="resultsPill" class="meta-pill">૧૦૦ બાતેં</span>
         </div>
-        <button type="button" id="resetFilterBtn" class="reset-link-btn">બધું ફરી બતાવો</button>
+        <button type="button" id="resetFilterBtn" class="reset-btn">સબ દોબારા દિખાએં</button>
       </div>
     </section>
 
@@ -2249,143 +1236,58 @@
     <div class="footer-credit">DEVELOPED BY - PATHAN MAHIRKHAN</div>
   </footer>
 
-  <!-- Scroll-to-Top Button -->
-  <button id="topBtn" class="top-btn" type="button" aria-label="ઉપર જાઓ">&#8593;</button>
-
-  <!-- Toast Feedback -->
+  <button id="topBtn" class="top-btn" type="button" aria-label="ઊપર જાએં">&#8593;</button>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-  <!-- Native Mobile Bottom App Dock -->
-  <nav class="mobile-dock" aria-label="ઝડપી નેવિગેશન">
-    <button type="button" class="dock-btn active" id="dockVibhag">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
-        <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
-        <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
-        <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
-      </svg>
-      <span>વિભાગ</span>
-    </button>
-
-    <button type="button" class="dock-btn" id="dockSearch">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
-      <span>શોધો</span>
-    </button>
-
-    <button type="button" class="dock-btn" id="dockSaved">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-      </svg>
-      <span>પસંદીદા</span>
-      <span id="dockSavedBadge" class="dock-badge">૦</span>
-    </button>
-
-    <button type="button" class="dock-btn" id="dockSettings">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="3"></circle>
-        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.6.85 1 1.51 1H21a2 2 0 1 1 0 4h-.09c-.66 0-1.25.4-1.51 1z"></path>
-      </svg>
-      <span>થીમ / સાઇઝ</span>
-    </button>
-  </nav>
-
-  <!-- Native Bottom Sheet for Theme & Reading Comfort -->
-  <div id="sheetBackdrop" class="sheet-backdrop" aria-hidden="true"></div>
-  <aside id="settingsSheet" class="settings-sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
-    <div class="sheet-handle" aria-hidden="true"></div>
-    <div class="sheet-head">
-      <h3 id="sheetTitle" class="sheet-title">થીમ અને વાંચન સેટિંગ્સ</h3>
-      <button type="button" id="sheetCloseBtn" class="sheet-close" aria-label="બંધ કરો">&times;</button>
-    </div>
-
-    <div class="sheet-group">
-      <span class="sheet-label">૫ રોયલ ઇસ્લામિક થીમ</span>
-      <div class="sheet-theme-grid">
-        <button type="button" class="sheet-theme-btn active" data-theme-val="theme-1">
-          <span class="sheet-theme-swatch dot-1"></span>
-          <span>ગોલ્ડ</span>
-        </button>
-        <button type="button" class="sheet-theme-btn" data-theme-val="theme-2">
-          <span class="sheet-theme-swatch dot-2"></span>
-          <span>એમરાલ્ડ</span>
-        </button>
-        <button type="button" class="sheet-theme-btn" data-theme-val="theme-3">
-          <span class="sheet-theme-swatch dot-3"></span>
-          <span>નીલમ</span>
-        </button>
-        <button type="button" class="sheet-theme-btn" data-theme-val="theme-4">
-          <span class="sheet-theme-swatch dot-4"></span>
-          <span>રૂબી</span>
-        </button>
-        <button type="button" class="sheet-theme-btn" data-theme-val="theme-5">
-          <span class="sheet-theme-swatch dot-5"></span>
-          <span>ડાર્ક</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="sheet-group">
-      <span class="sheet-label">અક્ષરની સાઇઝ (વાંચવાની સરળતા માટે)</span>
-      <div class="sheet-font-row">
-        <button type="button" class="sheet-font-btn" id="fontDecSheet">A- નાના</button>
-        <span class="sheet-font-val" id="fontValSheet">૧૦૦%</span>
-        <button type="button" class="sheet-font-btn" id="fontIncSheet">A+ મોટા</button>
-      </div>
-    </div>
-  </aside>
 
   <script>
     const themeMetaColors = {
-      "theme-1": "#2d1e07",
-      "theme-2": "#073326",
-      "theme-3": "#0d2142",
-      "theme-4": "#400a1b",
-      "theme-5": "#10131a"
+      "theme-1": "#041912",
+      "theme-2": "#062b1f",
+      "theme-3": "#08162e",
+      "theme-4": "#2a0713",
+      "theme-5": "#0c0f15"
     };
 
     const categories = [
       {
         id: "all",
         name: "તમામ હિસ્સે",
-        icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>'
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>'
       },
       {
         id: "aqaid",
         name: "અકાઈદ ઔર ઈમાન",
-        icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L14.8 8.5L22 9.3L16.5 14L18.2 21L12 17.3L5.8 21L7.5 14L2 9.3L9.2 8.5L12 2Z"/></svg>'
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L14.8 8.5L22 9.3L16.5 14L18.2 21L12 17.3L5.8 21L7.5 14L2 9.3L9.2 8.5L12 2Z"/></svg>'
       },
       {
         id: "shakhsiyat",
         name: "અંબિયા ઔર સહાબા",
-        icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3C7.5 7 5 10.5 5 14.5V20H19V14.5C19 10.5 16.5 7 12 3Z"/><path d="M9 20V15C9 13.3 10.3 12 12 12C13.7 12 15 13.3 15 15V20"/></svg>'
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3C7.5 7 5 10.5 5 14.5V20H19V14.5C19 10.5 16.5 7 12 3Z"/><path d="M9 20V15C9 13.3 10.3 12 12 12C13.7 12 15 13.3 15 15V20"/></svg>'
       },
       {
         id: "akhirat",
         name: "આખિરત ઔર કયામત",
-        icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>'
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>'
       },
       {
         id: "tarikh",
         name: "સીરત ઔર તારીખ",
-        icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
       },
       {
         id: "fiqh",
         name: "કુરાન, હદીસ ઔર ફિકહ",
-        icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v17h5.5A2.5 2.5 0 0 1 20 22V5.5Z"/></svg>'
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v17h5.5A2.5 2.5 0 0 1 20 22V5.5Z"/></svg>'
       },
       {
         id: "ibadat",
         name: "ઇબાદાત ઔર મુઆમલાત",
-        icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V11l7-7 7 7v10"/><path d="M9 21v-6a3 3 0 0 1 6 0v6"/></svg>'
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V11l7-7 7 7v10"/><path d="M9 21v-6a3 3 0 0 1 6 0v6"/></svg>'
       },
       {
         id: "akhlaq",
         name: "અખ્લાક ઔર તસવ્વુફ",
-        icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9-9.2A5.3 5.3 0 0 1 12 6.5a5.3 5.3 0 0 1 9 5.3C19 16.5 12 21 12 21Z"/></svg>'
+        icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9-9.2A5.3 5.3 0 0 1 12 6.5a5.3 5.3 0 0 1 9 5.3C19 16.5 12 21 12 21Z"/></svg>'
       }
     ];
 
@@ -2469,12 +1371,12 @@
       { id: 75, guNum: "૭૫", cat: "fiqh", title: "ફતવા", desc: "કિસી શરઈ સવાલ યા મસઅલે કે બારે મેં મુફ્તી (શરીઅત કે માહિર આલિમ) કા કુરાન, હદીસ ઔર ફિકહ કી રોશની મેં શરઈ હુક્મ બયાન કરના ફતવા કહલાતા હૈ." },
       { id: 76, guNum: "૭૬", cat: "ibadat", title: "તહારત", desc: "બદન, કપડે ઔર જગહ કા ઝાહિરી નજાસત (નાપાકી) ઔર હુક્મી નાપાકી (બે-વુઝૂ યા ગુસ્લ કી હાજત) સે પાક હોના તહારત કહલાતા હૈ." },
       { id: 77, guNum: "૭૭", cat: "ibadat", title: "તયમ્મુમ", desc: "પાની ન મિલને યા બીમારી વગૈરહ કે શરઈ ઉઝ્ર કી વજહ સે પાક મિટ્ટી (યા મિટ્ટી કી જિન્સ જૈસે પત્થર, રેત વગૈરહ) સે વુઝૂ યા ગુસ્લ કે બદલે પાકીઝગી હાસિલ કરને કે શરઈ તરીકે કો તયમ્મુમ કહતે હૈં." },
-      { id: 78, guNum: "૭૮", cat: "ibadat", title: "મસહ", desc: "વુઝૂ મેં સિર પર, યા શરઈ શર્તોં કે સાથ ચમડે કે મોઝોં (ખુફ્ફૈન) યા ઝખ્મ કી પટ્ટી પર ગીલા હાથ ફેરને કો મસહ કહતે હૈં. (હનફી ફિકહ મેં આમ સૂતી યા નાયલોન કે મોઝોં પર મસહ જાઈઝ નહીં)." },
+      { id: 78, guNum: "૭૮", cat: "ibadat", title: "મસહ", desc: "વુઝૂ મેં સર પર, યા શરઈ શર્તોં કે સાથ ચમડે કે મોઝોં (ખુફ્ફૈન) યા ઝખ્મ કી પટ્ટી પર ગીલા હાથ ફેરને કો મસહ કહતે હૈં. (હનફી ફિકહ મેં આમ સૂતી યા નાયલોન કે મોઝોં પર મસહ જાઈઝ નહીં)." },
       { id: 79, guNum: "૭૯", cat: "ibadat", title: "અદા ઔર કઝા", desc: "કિસી ફર્ઝ યા વાજિબ ઇબાદત (જૈસે નમાઝ યા રોઝા) કો ઉસકે મુકર્રર શરઈ વક્ત કે અંદર પૂરા કરના 'અદા' કહલાતા હૈ, ઔર વક્ત નિકલ જાને કે બાદ પૂરા કરના 'કઝા' કહલાતા હૈ." },
       { id: 80, guNum: "૮૦", cat: "ibadat", title: "નમાઝ-એ-જમાઅત", desc: "ઇમામ કે પીછે મિલકર નમાઝ પઢના. ફિકહ-એ-હનફી કે મુતાબિક આકિલ, બાલિગ, આઝાદ ઔર કાદિર મર્દ પર બગૈર શરઈ ઉઝ્ર પાંચોં વક્ત કી ફર્ઝ નમાઝ મસ્જિદ મેં બ-જમાઅત પઢના વાજિબ હૈ." },
       { id: 81, guNum: "૮૧", cat: "ibadat", title: "ઇઅતિકાફ", desc: "ઇબાદત કી નિયત સે મર્દ કા મસ્જિદ મેં (ઔર ઔરત કા અપને ઘર કી મસ્જિદ-એ-બૈત મેં) ઠહરના ઇઅતિકાફ કહલાતા હૈ. રમઝાન કે આખિરી અશરે કા ઇઅતિકાફ સુન્નત-એ-મુઅક્કદા અલલ-કિફાયા હૈ." },
       { id: 82, guNum: "૮૨", cat: "ibadat", title: "ઝકાત ઔર નિસાબ", desc: "સાહિબ-એ-નિસાબ (જિસકે પાસ કર્ઝ ઔર હાજત-એ-અસ્લિયા સે ઝાઈદ સિર્ફ સાઢે સાત તોલા સોના, યા સાઢે બાવન તોલા ચાંદી, યા ઉસકી કીમત કે બરાબર નકદ/તિજારતી માલ પર એક કમરી સાલ ગુઝર જાએ) પર સાલ મેં ઢાઈ ફીસદ (૨.૫%) માલ કિસી શરઈ મુસ્તહિક ગૈર-હાશમી મુસલમાન ફકીર કો માલિક બનાકર દેના ફર્ઝ હૈ; માલ કી ઇસ મુકર્રર હદ કો નિસાબ કહતે હૈં." },
-      { id: 83, guNum: "૮૩", cat: "ibadat", title: "સદકએ ફિત્ર", desc: "ઈદુલ-ફિત્ર કે દિન સુબહ સાદિક કે વક્ત સાહિબ-એ-નિસાબ મુસલમાન પર અપની ઔર અપની નાબાલિગ ઔલાદ કી તરફ સે વાજિબ હોને વાલા સદકા (જિસકી મુકર્રર મિકદાર આધા સાઅ ગેહૂં યા ઉસકી કીમત હૈ)." },
+      { id: 83, guNum: "૮૩", cat: "ibadat", title: "સદકએ ફિત્ર", desc: "ઈદુલ-ફિત્ર કે દિન સુબહ સાદિક કે વક્ત સાહિબ-એ-નિસાબ મુસલમાન પર અપની ઔર અપની નાબાલિગ ઔલાદ કી તરફ સે વાજિબ હોને વાલા સદકા (જિસકી મુકર્રર મિકદાર આધા સાઅ ગંદુમ (ગેહૂં) યા ઉસકી કીમત હૈ)." },
       { id: 84, guNum: "૮૪", cat: "ibadat", title: "ઉશ્ર", desc: "ઝમીન કી પૈદાવાર (ફસલ) પર લગને વાલી શરઈ ઝકાત—જો બારિશ યા કુદરતી પાની સે ઉગને વાલી ફસલ કા દસવાં હિસ્સા (૧/૧૦) ઔર મહેનત યા મશીન કે પાની સે ઉગને વાલી ફસલ કા બીસવાં હિસ્સા (૧/૨૦) હોતી હૈ." },
       { id: 85, guNum: "૮૫", cat: "ibadat", title: "હજ ઔર ઉમરા", desc: "ઝુલ-હિજ્જા કે મુકર્રર દિનોં મેં એહરામ બાંધકર અરફાત મેં ઠહરના ઔર કાઅબા શરીફ કા તવાફ વગૈરહ કરના 'હજ' હૈ (જો સાહિબ-એ-ઇસ્તિતાઅત પર ઉમ્ર મેં એક બાર ફર્ઝ હૈ); ઔર સાલ મેં કભી ભી (૯ સે ૧૩ ઝુલ-હિજ્જા કે પાંચ મકરૂહ દિનોં કે અલાવા) એહરામ બાંધકર તવાફ ઔર સઅઈ કરના 'ઉમરા' હૈ (જો ઉમ્ર મેં એક બાર સુન્નત-એ-મુઅક્કદા હૈ)." },
       { id: 86, guNum: "૮૬", cat: "ibadat", title: "કુર્બાની (ઉઝહિયા)", desc: "૧૦ ઝુલ-હિજ્જા સે ૧૨ ઝુલ-હિજ્જા કે ગુરૂબ-એ-આફ્તાબ તક અલ્લાહ તઆલા કી રિઝા કે લિયે ખાસ જાનવર (ઊંટ, ગાય/ભૈંસ, બકરા/દુમ્બા) કો શરઈ તરીકે સે ઝિબહ કરના; યે હર આકિલ, બાલિગ, મુકીમ ઔર સાહિબ-એ-નિસાબ મુસલમાન પર વાજિબ હૈ." },
@@ -2503,44 +1405,35 @@
       return String(str).replace(/[૦-૯]/g, (ch) => String(guDigits.indexOf(ch)));
     }
 
-    // State
     let activeCategory = "all";
     let showSavedOnly = false;
     let searchQuery = "";
-    let fontScale = 1;
     let savedIds = new Set();
     let toastTimer = null;
 
-    // Elements
+    const heroEl = document.getElementById("top");
     const vibhagGrid = document.getElementById("vibhagGrid");
-    const vibhagSection = document.getElementById("vibhagSection");
-    const toolbarWrap = document.getElementById("toolbarWrap");
     const cardsList = document.getElementById("cardsList");
     const searchInput = document.getElementById("searchInput");
     const searchClearBtn = document.getElementById("searchClearBtn");
     const savedFilterBtn = document.getElementById("savedFilterBtn");
     const savedCountBadge = document.getElementById("savedCountBadge");
-    const dockSavedBadge = document.getElementById("dockSavedBadge");
     const resultsHeading = document.getElementById("resultsHeading");
     const resultsPill = document.getElementById("resultsPill");
     const resetFilterBtn = document.getElementById("resetFilterBtn");
     const topBtn = document.getElementById("topBtn");
     const toastEl = document.getElementById("toast");
     const metaThemeColor = document.getElementById("metaThemeColor");
-    const readProgressFill = document.getElementById("readProgressFill");
-
     const themeButtons = document.querySelectorAll("[data-theme-val]");
-    const fontValDesktop = document.getElementById("fontValDesktop");
-    const fontValSheet = document.getElementById("fontValSheet");
 
-    // Mobile Dock & Sheet
-    const dockVibhag = document.getElementById("dockVibhag");
-    const dockSearch = document.getElementById("dockSearch");
-    const dockSaved = document.getElementById("dockSaved");
-    const dockSettings = document.getElementById("dockSettings");
-    const sheetBackdrop = document.getElementById("sheetBackdrop");
-    const settingsSheet = document.getElementById("settingsSheet");
-    const sheetCloseBtn = document.getElementById("sheetCloseBtn");
+    // Subtle Interactive Golden Sheen Inside Half-Mehrab Header
+    heroEl.addEventListener("pointermove", (e) => {
+      const rect = heroEl.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      heroEl.style.setProperty("--mx", x.toFixed(1) + "%");
+      heroEl.style.setProperty("--my", y.toFixed(1) + "%");
+    }, { passive: true });
 
     function showToast(msg) {
       toastEl.textContent = msg;
@@ -2548,10 +1441,9 @@
       clearTimeout(toastTimer);
       toastTimer = setTimeout(() => {
         toastEl.classList.remove("show");
-      }, 2200);
+      }, 2000);
     }
 
-    // Theme Management
     function applyTheme(themeName) {
       if (!/^theme-[1-5]$/.test(themeName)) return;
       document.documentElement.setAttribute("data-theme", themeName);
@@ -2569,34 +1461,9 @@
     }
 
     themeButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        applyTheme(btn.dataset.themeVal);
-      });
+      btn.addEventListener("click", () => applyTheme(btn.dataset.themeVal));
     });
 
-    // Font Scale Management
-    function applyFontScale(scale) {
-      const clamped = Math.min(1.25, Math.max(0.88, Math.round(scale * 100) / 100));
-      fontScale = clamped;
-      document.documentElement.style.setProperty("--font-scale", String(fontScale));
-      const pctText = toGuNum(Math.round(fontScale * 100)) + "%";
-      fontValDesktop.textContent = pctText;
-      fontValSheet.textContent = pctText;
-      try {
-        localStorage.setItem("islamicSiteFontScale", String(fontScale));
-      } catch (e) {}
-    }
-
-    function changeFontScale(delta) {
-      applyFontScale(fontScale + delta);
-    }
-
-    document.getElementById("fontDecDesktop").addEventListener("click", () => changeFontScale(-0.06));
-    document.getElementById("fontIncDesktop").addEventListener("click", () => changeFontScale(0.06));
-    document.getElementById("fontDecSheet").addEventListener("click", () => changeFontScale(-0.06));
-    document.getElementById("fontIncSheet").addEventListener("click", () => changeFontScale(0.06));
-
-    // Bookmarks Storage
     function loadSavedIds() {
       try {
         const raw = localStorage.getItem("islamicSiteSavedIds");
@@ -2615,32 +1482,25 @@
       } catch (e) {}
     }
 
-    function updateSavedBadges() {
-      const count = savedIds.size;
-      const guCount = toGuNum(count);
-      savedCountBadge.textContent = guCount;
-      dockSavedBadge.textContent = guCount;
-      dockSavedBadge.classList.toggle("visible", count > 0);
+    function updateSavedUI() {
+      savedCountBadge.textContent = toGuNum(savedIds.size);
       savedFilterBtn.classList.toggle("active", showSavedOnly);
       savedFilterBtn.setAttribute("aria-pressed", String(showSavedOnly));
-      dockSaved.classList.toggle("active", showSavedOnly);
-      dockVibhag.classList.toggle("active", !showSavedOnly);
     }
 
     function toggleSaveItem(id) {
       if (savedIds.has(id)) {
         savedIds.delete(id);
-        showToast("પસંદીદા માંથી હટાવવામાં આવ્યું");
+        showToast("પસંદીદા સે હટા દિયા ગયા");
       } else {
         savedIds.add(id);
-        showToast("પસંદીદા માં સાચવવામાં આવ્યું");
+        showToast("પસંદીદા મેં મહફૂઝ કર લિયા ગયા");
       }
       persistSavedIds();
-      updateSavedBadges();
+      updateSavedUI();
       renderItems();
     }
 
-    // Clipboard & Share Utility
     async function copyTextSafe(text) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         try {
@@ -2668,27 +1528,23 @@
 
     async function handleCopy(item) {
       const copied = await copyTextSafe(formatItemForShare(item));
-      showToast(copied ? "કૉપી થઈ ગયું!" : "કૉપી ન થઈ શક્યું");
+      showToast(copied ? "કૉપી હો ગયા!" : "કૉપી નહીં હો સકા");
     }
 
     async function handleShare(item) {
       const text = formatItemForShare(item);
       if (navigator.share) {
         try {
-          await navigator.share({
-            title: `${item.guNum}. ${item.title}`,
-            text
-          });
+          await navigator.share({ title: `${item.guNum}. ${item.title}`, text });
           return;
         } catch (err) {
           if (err && err.name === "AbortError") return;
         }
       }
       const copied = await copyTextSafe(text);
-      showToast(copied ? "શેર કરવા માટે કૉપી થઈ ગયું!" : "શેર ન થઈ શક્યું");
+      showToast(copied ? "શેર કરને કે લિયે કૉપી હો ગયા!" : "શેર નહીં હો સકા");
     }
 
-    // Safe Text Highlight Helper (No innerHTML XSS)
     function appendHighlightedText(parentEl, text, query) {
       const trimmed = query.trim();
       if (!trimmed) {
@@ -2719,29 +1575,25 @@
       const fragment = document.createDocumentFragment();
 
       categories.forEach((cat) => {
-        const count = getCategoryCount(cat.id);
         const isSelected = !showSavedOnly && activeCategory === cat.id;
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = "vibhag-card" + (isSelected ? " active" : "");
         btn.setAttribute("aria-pressed", String(isSelected));
-
         btn.innerHTML = `
           <span class="vibhag-top">
             <span class="vibhag-icon" aria-hidden="true">${cat.icon}</span>
-            <span class="vibhag-count">${toGuNum(count)} બાતેં</span>
+            <span class="vibhag-count">${toGuNum(getCategoryCount(cat.id))} બાતેં</span>
           </span>
           <span class="vibhag-name">${cat.name}</span>
         `;
-
         btn.addEventListener("click", () => {
           showSavedOnly = false;
           activeCategory = cat.id;
-          updateSavedBadges();
+          updateSavedUI();
           renderVibhagCards();
           renderItems();
         });
-
         fragment.appendChild(btn);
       });
 
@@ -2781,17 +1633,14 @@
     function renderItems() {
       cardsList.innerHTML = "";
       const filteredItems = getFilteredItems();
-
-      // Update Header & Result Meta
       const hasSearch = searchQuery.trim().length > 0;
-      if (showSavedOnly) {
-        resultsHeading.textContent = "પસંદીદા બાતેં";
-      } else {
-        resultsHeading.textContent = categoryNameMap[activeCategory] || "તમામ હિસ્સે";
-      }
+
+      resultsHeading.textContent = showSavedOnly
+        ? "પસંદીદા બાતેં"
+        : (categoryNameMap[activeCategory] || "તમામ હિસ્સે");
 
       resultsPill.textContent = hasSearch
-        ? `${toGuNum(filteredItems.length)} પરિણામ`
+        ? `${toGuNum(filteredItems.length)} નતીજે`
         : `${toGuNum(filteredItems.length)} બાતેં`;
 
       resetFilterBtn.classList.toggle(
@@ -2803,19 +1652,13 @@
         const empty = document.createElement("div");
         empty.className = "empty-state";
         empty.innerHTML = `
-          <div class="empty-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </div>
-          <h3 class="empty-title">${showSavedOnly ? "હજી કોઈ વાત પસંદીદામાં સાચવી નથી" : "કોઈ પરિણામ મળ્યું નથી"}</h3>
+          <h3 class="empty-title">${showSavedOnly ? "અભી કોઈ બાત પસંદીદા મેં મહફૂઝ નહીં કી ગઈ" : "કોઈ નતીજા નહીં મિલા"}</h3>
           <p class="empty-desc">${
             showSavedOnly
-              ? "કોઈ પણ કાર્ડ પર 'સાચવો' બટન દબાવીને તમારી પસંદીદા યાદી બનાવી શકો છો."
-              : "કૃપા કરીને બીજો શબ્દ અથવા નંબર લખીને શોધો."
+              ? "કિસી ભી કાર્ડ પર 'મહફૂઝ કરેં' બટન દબાકર અપની પસંદીદા ફિહરિસ્ત બના સકતે હૈં."
+              : "બરાએ મેહરબાની કોઈ દૂસરા લફ્ઝ યા નંબર લિખકર તલાશ કરેં."
           }</p>
-          <button type="button" class="empty-btn" id="emptyResetBtn">તમામ ૧૦૦ બાતેં બતાવો</button>
+          <button type="button" class="empty-btn" id="emptyResetBtn">તમામ ૧૦૦ બાતેં દિખાએં</button>
         `;
         cardsList.appendChild(empty);
         document.getElementById("emptyResetBtn").addEventListener("click", resetAllFilters);
@@ -2833,9 +1676,11 @@
         const header = document.createElement("div");
         header.className = "card-header";
 
-        const badge = document.createElement("span");
+        const badge = document.createElement("div");
         badge.className = "num-badge";
-        badge.textContent = item.guNum;
+        const badgeText = document.createElement("span");
+        badgeText.textContent = item.guNum;
+        badge.appendChild(badgeText);
 
         const title = document.createElement("h3");
         title.className = "card-title";
@@ -2851,28 +1696,28 @@
         const footer = document.createElement("div");
         footer.className = "card-footer";
 
-        const catChip = document.createElement("span");
-        catChip.className = "card-cat-chip";
-        catChip.innerHTML = `<span class="card-cat-dot" aria-hidden="true"></span><span>${categoryNameMap[item.cat] || ""}</span>`;
+        const catTag = document.createElement("span");
+        catTag.className = "card-cat";
+        catTag.textContent = categoryNameMap[item.cat] || "";
 
         const actions = document.createElement("div");
         actions.className = "card-actions";
 
         const saveBtn = document.createElement("button");
         saveBtn.type = "button";
-        saveBtn.className = "card-action-btn" + (isSaved ? " saved" : "");
+        saveBtn.className = "action-btn" + (isSaved ? " saved" : "");
         saveBtn.setAttribute("aria-pressed", String(isSaved));
         saveBtn.innerHTML = `
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
           </svg>
-          <span>${isSaved ? "સાચવેલ" : "સાચવો"}</span>
+          <span>${isSaved ? "મહફૂઝ" : "મહફૂઝ કરેં"}</span>
         `;
         saveBtn.addEventListener("click", () => toggleSaveItem(item.id));
 
         const copyBtn = document.createElement("button");
         copyBtn.type = "button";
-        copyBtn.className = "card-action-btn";
+        copyBtn.className = "action-btn";
         copyBtn.innerHTML = `
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -2884,7 +1729,7 @@
 
         const shareBtn = document.createElement("button");
         shareBtn.type = "button";
-        shareBtn.className = "card-action-btn";
+        shareBtn.className = "action-btn";
         shareBtn.innerHTML = `
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="18" cy="5" r="3"></circle>
@@ -2901,7 +1746,7 @@
         actions.appendChild(copyBtn);
         actions.appendChild(shareBtn);
 
-        footer.appendChild(catChip);
+        footer.appendChild(catTag);
         footer.appendChild(actions);
 
         card.appendChild(header);
@@ -2919,12 +1764,11 @@
       searchQuery = "";
       searchInput.value = "";
       searchClearBtn.classList.remove("visible");
-      updateSavedBadges();
+      updateSavedUI();
       renderVibhagCards();
       renderItems();
     }
 
-    // Search Input Handler
     searchInput.addEventListener("input", (e) => {
       searchQuery = e.target.value;
       searchClearBtn.classList.toggle("visible", searchQuery.length > 0);
@@ -2939,99 +1783,35 @@
       renderItems();
     });
 
-    // Saved Toggle Handlers
-    function toggleSavedFilter() {
+    savedFilterBtn.addEventListener("click", () => {
       showSavedOnly = !showSavedOnly;
-      updateSavedBadges();
+      updateSavedUI();
       renderVibhagCards();
       renderItems();
-      if (showSavedOnly) {
-        toolbarWrap.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
+    });
 
-    savedFilterBtn.addEventListener("click", toggleSavedFilter);
     resetFilterBtn.addEventListener("click", resetAllFilters);
 
-    // Bottom Sheet Logic
-    function openSheet() {
-      sheetBackdrop.classList.add("open");
-      settingsSheet.classList.add("open");
-      sheetBackdrop.setAttribute("aria-hidden", "false");
-    }
-
-    function closeSheet() {
-      sheetBackdrop.classList.remove("open");
-      settingsSheet.classList.remove("open");
-      sheetBackdrop.setAttribute("aria-hidden", "true");
-    }
-
-    dockSettings.addEventListener("click", openSheet);
-    sheetCloseBtn.addEventListener("click", closeSheet);
-    sheetBackdrop.addEventListener("click", closeSheet);
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeSheet();
-    });
-
-    // Mobile Dock Actions
-    dockVibhag.addEventListener("click", () => {
-      if (showSavedOnly) {
-        showSavedOnly = false;
-        updateSavedBadges();
-        renderVibhagCards();
-        renderItems();
-      }
-      vibhagSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    dockSearch.addEventListener("click", () => {
-      toolbarWrap.scrollIntoView({ behavior: "smooth", block: "start" });
-      setTimeout(() => {
-        searchInput.focus();
-      }, 280);
-    });
-
-    dockSaved.addEventListener("click", toggleSavedFilter);
-
-    // Scroll Progress & Top Button (RAF Throttled for 60fps)
-    let scrollTicking = false;
-    function onScrollUpdate() {
-      scrollTicking = false;
-      const scrollY = window.scrollY || window.pageYOffset;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = maxScroll > 0 ? Math.min(1, Math.max(0, scrollY / maxScroll)) : 0;
-      readProgressFill.style.transform = `scaleX(${progress})`;
-      topBtn.classList.toggle("show", scrollY > 360);
-    }
-
     window.addEventListener("scroll", () => {
-      if (!scrollTicking) {
-        scrollTicking = true;
-        requestAnimationFrame(onScrollUpdate);
-      }
+      const y = window.scrollY || window.pageYOffset;
+      topBtn.classList.toggle("show", y > 360);
     }, { passive: true });
 
     topBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Init Stored Preferences
     try {
       const savedTheme = localStorage.getItem("islamicSiteThemeV3") || localStorage.getItem("islamicSiteThemeV2");
       if (savedTheme && /^theme-[1-5]$/.test(savedTheme)) {
         applyTheme(savedTheme);
       }
-      const savedScale = parseFloat(localStorage.getItem("islamicSiteFontScale"));
-      if (!Number.isNaN(savedScale)) {
-        applyFontScale(savedScale);
-      }
     } catch (e) {}
 
     loadSavedIds();
-    updateSavedBadges();
+    updateSavedUI();
     renderVibhagCards();
     renderItems();
-    onScrollUpdate();
   </script>
 </body>
 </html>
