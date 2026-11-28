@@ -14,6 +14,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* ─── THEME SECTION: THODU NANU ANE MEHRAB THI NICHE ─── */
+        .theme-dock-wrap {
+            margin: clamp(44px, 7.5vw, 98px) auto 8px auto;
+        }
+
+        .theme-dock-capsule {
+            height: 31px;
+            gap: 5px;
+            padding: 3px 6px;
+        }
+
+        .theme-jewel-btn {
+            height: 23px;
+            min-width: 23px;
+            font-size: 0.65rem;
+        }
+
+        .theme-jewel-btn.active {
+            gap: 5px;
+            padding: 2px 9px 2px 3px;
+        }
+
+        .theme-jewel-orb {
+            width: 19px;
+            height: 19px;
+            border-width: 1.5px;
+        }
+
+        .theme-jewel-btn.active .theme-jewel-orb {
+            width: 16px;
+            height: 16px;
+        }
+
+        .header-content {
+            padding-top: 2px;
+        }
+
+        @media (max-width: 360px) {
+            .theme-dock-wrap {
+                margin: 42px auto 6px auto;
+            }
+            .theme-dock-capsule {
+                height: 29px;
+                gap: 4px;
+                padding: 3px 5px;
+            }
+            .theme-jewel-btn {
+                height: 21px;
+                min-width: 21px;
+                font-size: 0.6rem;
+            }
+            .theme-jewel-btn.active {
+                gap: 4px;
+                padding: 2px 7px 2px 2px;
+            }
+            .theme-jewel-orb {
+                width: 17px;
+                height: 17px;
+            }
+            .theme-jewel-btn.active .theme-jewel-orb {
+                width: 15px;
+                height: 15px;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .theme-dock-capsule {
+                height: 33px;
+                gap: 6px;
+                padding: 3px 7px;
+            }
+            .theme-jewel-btn {
+                height: 25px;
+                min-width: 25px;
+                font-size: 0.68rem;
+            }
+            .theme-jewel-btn.active {
+                padding: 2px 10px 2px 3px;
+            }
+            .theme-jewel-orb {
+                width: 20px;
+                height: 20px;
+            }
+            .theme-jewel-btn.active .theme-jewel-orb {
+                width: 17px;
+                height: 17px;
+            }
+        }
         /* ==============================================================
            HUSSAINI MASJID 3D LUXURY ISLAMIC DESIGN SYSTEM (2027)
            Mobile-First Royal Mehrab Header | 5 Luxury Themes | 3D SVGs
