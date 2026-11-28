@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="gu" data-theme="light">
+<html lang="gu" data-theme="light" data-palette="obsidian">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -13,72 +13,483 @@
 
     <style>
         /* =====================================================================
-           1. DESIGN TOKENS — ROYAL EMERALD, GOLD & LIGHT/DARK THEMES
+           1. BASE LAYOUT TOKENS & 5 FULL-WEBSITE THEMES (LIGHT + DARK MODES)
            ===================================================================== */
         :root {
-            --bg-page: #F5F8F6;
-            --bg-surface: #FFFFFF;
-            --bg-glass: rgba(255, 255, 255, 0.92);
-            --bg-subtle: rgba(10, 92, 54, 0.06);
-            --bg-gold-soft: rgba(184, 134, 11, 0.11);
-
-            --primary: #0A5C36;
-            --primary-deep: #043927;
-            --primary-light: #15804E;
-            --gold: #B8860B;
-            --gold-bright: #D4AF37;
-            --champagne: #FFF8E7;
-
-            --text-main: #15241D;
-            --text-reading: #1E293B;
-            --text-muted: #4A6055;
-
-            --border-soft: rgba(10, 92, 54, 0.13);
-            --border-gold: rgba(212, 175, 55, 0.50);
-            --border-done: rgba(10, 92, 54, 0.45);
-
-            --shadow-sm: 0 3px 12px rgba(4, 57, 39, 0.06);
-            --shadow-md: 0 10px 28px rgba(4, 57, 39, 0.12);
-            --shadow-lg: 0 20px 48px rgba(4, 57, 39, 0.24);
-
             --nav-height: 56px;
             --radius-sm: 12px;
             --radius-md: 18px;
             --radius-lg: 24px;
             --radius-pill: 999px;
-
             --reading-scale: 1;
+            --champagne: #FFF8E7;
+
+            /* DEFAULT PALETTE 1: OBSIDIAN GOLD (LIGHT CARDS ON MEHRAB WALL) */
+            --wall-fallback: #141414;
+            --nav-glass: rgba(16, 15, 13, 0.86);
+            --nav-border: rgba(242, 210, 114, 0.28);
+            --nav-text: #FFF6D6;
+            --nav-btn-bg: rgba(255, 248, 231, 0.08);
+            --nav-btn-border: rgba(242, 210, 114, 0.30);
+
+            --bg-surface: rgba(255, 254, 251, 0.96);
+            --bg-inner: #F6F4EE;
+            --bg-subtle: rgba(38, 34, 28, 0.07);
+            --bg-gold-soft: rgba(184, 134, 11, 0.14);
+
+            --primary: #26221C;
+            --primary-deep: #11100E;
+            --primary-light: #473F33;
+            --on-primary: #FFF8E7;
+            --gold: #9E7008;
+            --gold-bright: #D4AF37;
+
+            --text-main: #1C1915;
+            --text-reading: #26231F;
+            --text-muted: #5C5549;
+
+            --border-soft: rgba(38, 34, 28, 0.14);
+            --border-gold: rgba(212, 175, 55, 0.56);
+            --border-done: rgba(184, 134, 11, 0.62);
+
+            --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.30);
+            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.42);
+            --shadow-lg: 0 22px 52px rgba(0, 0, 0, 0.62);
+            --shadow-done: 0 8px 26px rgba(212, 175, 55, 0.24);
+
+            --brand-grad: linear-gradient(135deg, #2E2921, #12100D);
+            --btn-done-bg: linear-gradient(135deg, #2E2921, #14120E);
+            --btn-done-text: #FFE9A8;
+            --complete-bg: linear-gradient(135deg, rgba(28, 24, 18, 0.90), rgba(56, 44, 18, 0.92));
+            --complete-title: #FFE9A8;
+            --complete-sub: rgba(255, 248, 231, 0.86);
+            --overlay-bg: rgba(8, 7, 5, 0.72);
+            --toast-bg: #171410;
+
+            --progress-box-bg: rgba(22, 19, 14, 0.72);
+            --progress-box-border: rgba(242, 210, 114, 0.38);
         }
 
-        [data-theme="dark"] {
-            --bg-page: #06130E;
-            --bg-surface: #0C2119;
-            --bg-glass: rgba(9, 27, 20, 0.93);
-            --bg-subtle: rgba(52, 211, 153, 0.10);
-            --bg-gold-soft: rgba(229, 193, 88, 0.14);
+        [data-theme="dark"][data-palette="obsidian"] {
+            --wall-fallback: #0B0B0B;
+            --nav-glass: rgba(11, 10, 9, 0.90);
+            --nav-border: rgba(242, 210, 114, 0.26);
+            --nav-text: #FFF6D6;
+            --nav-btn-bg: rgba(255, 248, 231, 0.08);
+            --nav-btn-border: rgba(242, 210, 114, 0.28);
+
+            --bg-surface: rgba(22, 20, 17, 0.92);
+            --bg-inner: rgba(12, 11, 9, 0.85);
+            --bg-subtle: rgba(242, 210, 114, 0.11);
+            --bg-gold-soft: rgba(242, 210, 114, 0.16);
+
+            --primary: #F2C95E;
+            --primary-deep: #D4AF37;
+            --primary-light: #FFE394;
+            --on-primary: #141008;
+            --gold: #E5C158;
+            --gold-bright: #F4D77B;
+
+            --text-main: #FAF6EC;
+            --text-reading: #EFE9DC;
+            --text-muted: #BEB4A0;
+
+            --border-soft: rgba(242, 210, 114, 0.20);
+            --border-gold: rgba(242, 210, 114, 0.46);
+            --border-done: rgba(242, 201, 94, 0.60);
+
+            --shadow-sm: 0 6px 22px rgba(0, 0, 0, 0.48);
+            --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.62);
+            --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.78);
+            --shadow-done: 0 8px 26px rgba(212, 175, 55, 0.20);
+
+            --brand-grad: linear-gradient(135deg, #2D271E, #14110D);
+            --btn-done-bg: linear-gradient(135deg, #F4D77B, #D4AF37);
+            --btn-done-text: #141008;
+            --complete-bg: linear-gradient(135deg, rgba(28, 24, 16, 0.92), rgba(62, 48, 18, 0.92));
+            --complete-title: #FFE9A8;
+            --complete-sub: rgba(255, 248, 231, 0.86);
+            --overlay-bg: rgba(4, 4, 3, 0.80);
+            --toast-bg: #1E1A14;
+
+            --progress-box-bg: rgba(18, 16, 12, 0.78);
+            --progress-box-border: rgba(242, 210, 114, 0.36);
+        }
+
+        /* PALETTE 2: ROYAL EMERALD (LIGHT CARDS ON MEHRAB WALL) */
+        [data-theme="light"][data-palette="emerald"] {
+            --wall-fallback: #062E1C;
+            --nav-glass: rgba(4, 36, 22, 0.88);
+            --nav-border: rgba(242, 210, 114, 0.30);
+            --nav-text: #FFF6D6;
+            --nav-btn-bg: rgba(255, 248, 231, 0.09);
+            --nav-btn-border: rgba(242, 210, 114, 0.32);
+
+            --bg-surface: rgba(255, 255, 253, 0.96);
+            --bg-inner: #F2F7F4;
+            --bg-subtle: rgba(10, 92, 54, 0.08);
+            --bg-gold-soft: rgba(184, 134, 11, 0.13);
+
+            --primary: #0A5C36;
+            --primary-deep: #043927;
+            --primary-light: #15804E;
+            --on-primary: #FFFFFF;
+            --gold: #B07E0A;
+            --gold-bright: #D4AF37;
+
+            --text-main: #12241B;
+            --text-reading: #1C2E25;
+            --text-muted: #466154;
+
+            --border-soft: rgba(10, 92, 54, 0.15);
+            --border-gold: rgba(212, 175, 55, 0.56);
+            --border-done: rgba(10, 92, 54, 0.52);
+
+            --shadow-sm: 0 6px 20px rgba(2, 22, 13, 0.34);
+            --shadow-md: 0 12px 32px rgba(2, 22, 13, 0.44);
+            --shadow-lg: 0 22px 52px rgba(1, 14, 8, 0.64);
+            --shadow-done: 0 8px 26px rgba(16, 185, 129, 0.22);
+
+            --brand-grad: linear-gradient(135deg, #0A5C36, #043927);
+            --btn-done-bg: linear-gradient(135deg, #0A5C36, #043927);
+            --btn-done-text: #FFF8E7;
+            --complete-bg: linear-gradient(135deg, rgba(6, 52, 32, 0.92), rgba(22, 74, 42, 0.92));
+            --complete-title: #FFE9A8;
+            --complete-sub: rgba(236, 253, 245, 0.88);
+            --overlay-bg: rgba(2, 16, 10, 0.72);
+            --toast-bg: #043927;
+
+            --progress-box-bg: rgba(4, 38, 23, 0.74);
+            --progress-box-border: rgba(242, 210, 114, 0.40);
+        }
+
+        [data-theme="dark"][data-palette="emerald"] {
+            --wall-fallback: #031B10;
+            --nav-glass: rgba(3, 25, 15, 0.90);
+            --nav-border: rgba(242, 210, 114, 0.28);
+            --nav-text: #FFF6D6;
+            --nav-btn-bg: rgba(255, 248, 231, 0.08);
+            --nav-btn-border: rgba(242, 210, 114, 0.28);
+
+            --bg-surface: rgba(9, 32, 22, 0.92);
+            --bg-inner: rgba(5, 21, 14, 0.86);
+            --bg-subtle: rgba(52, 211, 153, 0.12);
+            --bg-gold-soft: rgba(229, 193, 88, 0.15);
 
             --primary: #34D399;
             --primary-deep: #10B981;
             --primary-light: #6EE7B7;
+            --on-primary: #041911;
             --gold: #E5C158;
             --gold-bright: #F2D272;
-            --champagne: #FFF9EB;
 
             --text-main: #ECFDF5;
-            --text-reading: #E5F4EC;
-            --text-muted: #9AB8A9;
+            --text-reading: #E4F5EC;
+            --text-muted: #9FC2B0;
 
-            --border-soft: rgba(52, 211, 153, 0.17);
-            --border-gold: rgba(229, 193, 88, 0.40);
-            --border-done: rgba(52, 211, 153, 0.52);
+            --border-soft: rgba(52, 211, 153, 0.20);
+            --border-gold: rgba(229, 193, 88, 0.44);
+            --border-done: rgba(52, 211, 153, 0.58);
 
-            --shadow-sm: 0 3px 14px rgba(0, 0, 0, 0.36);
-            --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.50);
-            --shadow-lg: 0 22px 52px rgba(0, 0, 0, 0.68);
+            --shadow-sm: 0 6px 22px rgba(0, 0, 0, 0.46);
+            --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.60);
+            --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.76);
+            --shadow-done: 0 8px 26px rgba(16, 185, 129, 0.22);
+
+            --brand-grad: linear-gradient(135deg, #0B6139, #043322);
+            --btn-done-bg: linear-gradient(135deg, #34D399, #10B981);
+            --btn-done-text: #041911;
+            --complete-bg: linear-gradient(135deg, rgba(6, 46, 29, 0.94), rgba(16, 68, 42, 0.92));
+            --complete-title: #FFE9A8;
+            --complete-sub: rgba(236, 253, 245, 0.88);
+            --overlay-bg: rgba(2, 12, 8, 0.80);
+            --toast-bg: #072C1E;
+
+            --progress-box-bg: rgba(4, 30, 19, 0.78);
+            --progress-box-border: rgba(242, 210, 114, 0.36);
+        }
+
+        /* PALETTE 3: MIDNIGHT SAPPHIRE (LIGHT CARDS ON MEHRAB WALL) */
+        [data-theme="light"][data-palette="sapphire"] {
+            --wall-fallback: #0B1E42;
+            --nav-glass: rgba(8, 22, 50, 0.88);
+            --nav-border: rgba(235, 198, 102, 0.32);
+            --nav-text: #FFF6D6;
+            --nav-btn-bg: rgba(255, 248, 231, 0.09);
+            --nav-btn-border: rgba(235, 198, 102, 0.32);
+
+            --bg-surface: rgba(255, 255, 255, 0.96);
+            --bg-inner: #F2F5FB;
+            --bg-subtle: rgba(20, 59, 122, 0.08);
+            --bg-gold-soft: rgba(180, 132, 24, 0.13);
+
+            --primary: #143B7A;
+            --primary-deep: #0A214A;
+            --primary-light: #2558AB;
+            --on-primary: #FFFFFF;
+            --gold: #A87A14;
+            --gold-bright: #D9B043;
+
+            --text-main: #111D33;
+            --text-reading: #1C2940;
+            --text-muted: #495B78;
+
+            --border-soft: rgba(20, 59, 122, 0.15);
+            --border-gold: rgba(217, 176, 67, 0.56);
+            --border-done: rgba(20, 59, 122, 0.52);
+
+            --shadow-sm: 0 6px 20px rgba(4, 14, 34, 0.36);
+            --shadow-md: 0 12px 32px rgba(4, 14, 34, 0.46);
+            --shadow-lg: 0 22px 52px rgba(2, 9, 24, 0.66);
+            --shadow-done: 0 8px 26px rgba(59, 130, 246, 0.22);
+
+            --brand-grad: linear-gradient(135deg, #164085, #0A2047);
+            --btn-done-bg: linear-gradient(135deg, #164085, #0A2047);
+            --btn-done-text: #FFF8E7;
+            --complete-bg: linear-gradient(135deg, rgba(12, 34, 76, 0.92), rgba(26, 56, 112, 0.92));
+            --complete-title: #FFEFA8;
+            --complete-sub: rgba(239, 246, 255, 0.88);
+            --overlay-bg: rgba(4, 11, 28, 0.74);
+            --toast-bg: #0C244F;
+
+            --progress-box-bg: rgba(10, 27, 62, 0.74);
+            --progress-box-border: rgba(235, 198, 102, 0.40);
+        }
+
+        [data-theme="dark"][data-palette="sapphire"] {
+            --wall-fallback: #050F24;
+            --nav-glass: rgba(6, 16, 38, 0.90);
+            --nav-border: rgba(235, 198, 102, 0.28);
+            --nav-text: #FFF6D6;
+            --nav-btn-bg: rgba(255, 248, 231, 0.08);
+            --nav-btn-border: rgba(235, 198, 102, 0.28);
+
+            --bg-surface: rgba(12, 25, 52, 0.92);
+            --bg-inner: rgba(7, 16, 36, 0.86);
+            --bg-subtle: rgba(96, 165, 250, 0.12);
+            --bg-gold-soft: rgba(235, 198, 102, 0.15);
+
+            --primary: #60A5FA;
+            --primary-deep: #3B82F6;
+            --primary-light: #93C5FD;
+            --on-primary: #041024;
+            --gold: #EBC666;
+            --gold-bright: #F5D782;
+
+            --text-main: #EFF6FF;
+            --text-reading: #E2ECFA;
+            --text-muted: #9CB4D6;
+
+            --border-soft: rgba(96, 165, 250, 0.21);
+            --border-gold: rgba(235, 198, 102, 0.44);
+            --border-done: rgba(96, 165, 250, 0.58);
+
+            --shadow-sm: 0 6px 22px rgba(0, 0, 0, 0.48);
+            --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.62);
+            --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.78);
+            --shadow-done: 0 8px 26px rgba(59, 130, 246, 0.22);
+
+            --brand-grad: linear-gradient(135deg, #1B4894, #0C224A);
+            --btn-done-bg: linear-gradient(135deg, #60A5FA, #3B82F6);
+            --btn-done-text: #041024;
+            --complete-bg: linear-gradient(135deg, rgba(12, 32, 70, 0.94), rgba(22, 52, 102, 0.92));
+            --complete-title: #FFEFA8;
+            --complete-sub: rgba(239, 246, 255, 0.88);
+            --overlay-bg: rgba(3, 8, 20, 0.80);
+            --toast-bg: #0D224A;
+
+            --progress-box-bg: rgba(9, 23, 52, 0.78);
+            --progress-box-border: rgba(235, 198, 102, 0.36);
+        }
+
+        /* PALETTE 4: ROYAL VELVET MAROON (LIGHT CARDS ON MEHRAB WALL) */
+        [data-theme="light"][data-palette="ruby"] {
+            --wall-fallback: #330A15;
+            --nav-glass: rgba(40, 8, 17, 0.88);
+            --nav-border: rgba(240, 188, 74, 0.32);
+            --nav-text: #FFF6D6;
+            --nav-btn-bg: rgba(255, 248, 231, 0.09);
+            --nav-btn-border: rgba(240, 188, 74, 0.32);
+
+            --bg-surface: rgba(255, 254, 254, 0.96);
+            --bg-inner: #FAF2F4;
+            --bg-subtle: rgba(122, 25, 49, 0.08);
+            --bg-gold-soft: rgba(186, 130, 18, 0.13);
+
+            --primary: #7A1931;
+            --primary-deep: #4A0B1B;
+            --primary-light: #A12543;
+            --on-primary: #FFFFFF;
+            --gold: #AC7710;
+            --gold-bright: #DBA932;
+
+            --text-main: #291118;
+            --text-reading: #361C24;
+            --text-muted: #6E4A54;
+
+            --border-soft: rgba(122, 25, 49, 0.16);
+            --border-gold: rgba(219, 169, 50, 0.56);
+            --border-done: rgba(122, 25, 49, 0.52);
+
+            --shadow-sm: 0 6px 20px rgba(26, 4, 10, 0.38);
+            --shadow-md: 0 12px 32px rgba(26, 4, 10, 0.48);
+            --shadow-lg: 0 22px 52px rgba(18, 2, 6, 0.68);
+            --shadow-done: 0 8px 26px rgba(225, 77, 114, 0.22);
+
+            --brand-grad: linear-gradient(135deg, #821B35, #470A1A);
+            --btn-done-bg: linear-gradient(135deg, #821B35, #470A1A);
+            --btn-done-text: #FFF8E7;
+            --complete-bg: linear-gradient(135deg, rgba(66, 12, 26, 0.92), rgba(102, 22, 42, 0.92));
+            --complete-title: #FFE9A8;
+            --complete-sub: rgba(255, 241, 244, 0.88);
+            --overlay-bg: rgba(22, 4, 9, 0.74);
+            --toast-bg: #4A0B1B;
+
+            --progress-box-bg: rgba(48, 10, 21, 0.74);
+            --progress-box-border: rgba(240, 188, 74, 0.40);
+        }
+
+        [data-theme="dark"][data-palette="ruby"] {
+            --wall-fallback: #1A040A;
+            --nav-glass: rgba(28, 6, 12, 0.90);
+            --nav-border: rgba(240, 188, 74, 0.28);
+            --nav-text: #FFF6D6;
+            --nav-btn-bg: rgba(255, 248, 231, 0.08);
+            --nav-btn-border: rgba(240, 188, 74, 0.28);
+
+            --bg-surface: rgba(38, 11, 19, 0.92);
+            --bg-inner: rgba(24, 6, 11, 0.86);
+            --bg-subtle: rgba(244, 114, 146, 0.12);
+            --bg-gold-soft: rgba(240, 188, 74, 0.15);
+
+            --primary: #F47292;
+            --primary-deep: #E14D72;
+            --primary-light: #FDA4B8;
+            --on-primary: #21040B;
+            --gold: #F0BC4A;
+            --gold-bright: #FAD173;
+
+            --text-main: #FFF1F4;
+            --text-reading: #F7E4E9;
+            --text-muted: #CCA0AC;
+
+            --border-soft: rgba(244, 114, 146, 0.22);
+            --border-gold: rgba(240, 188, 74, 0.44);
+            --border-done: rgba(244, 114, 146, 0.58);
+
+            --shadow-sm: 0 6px 22px rgba(0, 0, 0, 0.48);
+            --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.62);
+            --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.78);
+            --shadow-done: 0 8px 26px rgba(225, 77, 114, 0.22);
+
+            --brand-grad: linear-gradient(135deg, #871D38, #4A0B1B);
+            --btn-done-bg: linear-gradient(135deg, #F47292, #E14D72);
+            --btn-done-text: #21040B;
+            --complete-bg: linear-gradient(135deg, rgba(60, 10, 24, 0.94), rgba(94, 20, 39, 0.92));
+            --complete-title: #FFE9A8;
+            --complete-sub: rgba(255, 241, 244, 0.88);
+            --overlay-bg: rgba(16, 3, 6, 0.80);
+            --toast-bg: #3D0B18;
+
+            --progress-box-bg: rgba(42, 8, 18, 0.78);
+            --progress-box-border: rgba(240, 188, 74, 0.36);
+        }
+
+        /* PALETTE 5: IMPERIAL PURPLE (LIGHT CARDS ON MEHRAB WALL) */
+        [data-theme="light"][data-palette="amethyst"] {
+            --wall-fallback: #230E3B;
+            --nav-glass: rgba(28, 10, 48, 0.88);
+            --nav-border: rgba(242, 195, 78, 0.32);
+            --nav-text: #FFF6D6;
+            --nav-btn-bg: rgba(255, 248, 231, 0.09);
+            --nav-btn-border: rgba(242, 195, 78, 0.32);
+
+            --bg-surface: rgba(255, 254, 255, 0.96);
+            --bg-inner: #F6F2FA;
+            --bg-subtle: rgba(84, 33, 128, 0.08);
+            --bg-gold-soft: rgba(186, 134, 20, 0.13);
+
+            --primary: #542180;
+            --primary-deep: #300F4D;
+            --primary-light: #7434AD;
+            --on-primary: #FFFFFF;
+            --gold: #AD7B12;
+            --gold-bright: #DEB03A;
+
+            --text-main: #1F122B;
+            --text-reading: #2B1C3A;
+            --text-muted: #5F4C73;
+
+            --border-soft: rgba(84, 33, 128, 0.16);
+            --border-gold: rgba(222, 176, 58, 0.56);
+            --border-done: rgba(84, 33, 128, 0.52);
+
+            --shadow-sm: 0 6px 20px rgba(18, 6, 33, 0.38);
+            --shadow-md: 0 12px 32px rgba(18, 6, 33, 0.48);
+            --shadow-lg: 0 22px 52px rgba(12, 4, 22, 0.68);
+            --shadow-done: 0 8px 26px rgba(168, 85, 247, 0.22);
+
+            --brand-grad: linear-gradient(135deg, #5C258C, #2F0E4D);
+            --btn-done-bg: linear-gradient(135deg, #5C258C, #2F0E4D);
+            --btn-done-text: #FFF8E7;
+            --complete-bg: linear-gradient(135deg, rgba(46, 16, 76, 0.92), rgba(74, 28, 118, 0.92));
+            --complete-title: #FFEFA8;
+            --complete-sub: rgba(250, 245, 255, 0.88);
+            --overlay-bg: rgba(15, 5, 28, 0.74);
+            --toast-bg: #321052;
+
+            --progress-box-bg: rgba(34, 13, 58, 0.74);
+            --progress-box-border: rgba(242, 195, 78, 0.40);
+        }
+
+        [data-theme="dark"][data-palette="amethyst"] {
+            --wall-fallback: #120621;
+            --nav-glass: rgba(20, 7, 36, 0.90);
+            --nav-border: rgba(242, 195, 78, 0.28);
+            --nav-text: #FFF6D6;
+            --nav-btn-bg: rgba(255, 248, 231, 0.08);
+            --nav-btn-border: rgba(242, 195, 78, 0.28);
+
+            --bg-surface: rgba(29, 13, 48, 0.92);
+            --bg-inner: rgba(18, 7, 32, 0.86);
+            --bg-subtle: rgba(192, 132, 252, 0.12);
+            --bg-gold-soft: rgba(242, 195, 78, 0.15);
+
+            --primary: #C084FC;
+            --primary-deep: #A855F7;
+            --primary-light: #D8B4FE;
+            --on-primary: #170626;
+            --gold: #F2C34E;
+            --gold-bright: #FBD778;
+
+            --text-main: #FAF5FF;
+            --text-reading: #EFE6FA;
+            --text-muted: #BDA6D4;
+
+            --border-soft: rgba(192, 132, 252, 0.22);
+            --border-gold: rgba(242, 195, 78, 0.44);
+            --border-done: rgba(192, 132, 252, 0.58);
+
+            --shadow-sm: 0 6px 22px rgba(0, 0, 0, 0.48);
+            --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.62);
+            --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.78);
+            --shadow-done: 0 8px 26px rgba(168, 85, 247, 0.22);
+
+            --brand-grad: linear-gradient(135deg, #652899, #310F4F);
+            --btn-done-bg: linear-gradient(135deg, #C084FC, #A855F7);
+            --btn-done-text: #170626;
+            --complete-bg: linear-gradient(135deg, rgba(42, 14, 70, 0.94), rgba(68, 24, 110, 0.92));
+            --complete-title: #FFEFA8;
+            --complete-sub: rgba(250, 245, 255, 0.88);
+            --overlay-bg: rgba(10, 3, 20, 0.80);
+            --toast-bg: #290E47;
+
+            --progress-box-bg: rgba(30, 11, 52, 0.78);
+            --progress-box-border: rgba(242, 195, 78, 0.36);
         }
 
         /* =====================================================================
-           2. STRICT MOBILE-FIRST RESET & ZERO HORIZONTAL OVERFLOW
+           2. STRICT MOBILE-FIRST RESET & FULL-PAGE MEHRAB GRID WALLPAPER
            ===================================================================== */
         *, *::before, *::after {
             margin: 0;
@@ -89,28 +500,36 @@
         html, body {
             width: 100%;
             max-width: 100%;
-            overflow-x: hidden;
+            overflow-x: clip;
         }
 
         html {
             scroll-behavior: smooth;
             scroll-padding-top: calc(var(--nav-height) + 14px);
             -webkit-text-size-adjust: 100%;
+            background-color: var(--wall-fallback);
         }
 
         body {
+            position: relative;
             font-family: 'Anek Gujarati', system-ui, -apple-system, 'Noto Sans Gujarati', sans-serif;
-            background-color: var(--bg-page);
-            background-image:
-                radial-gradient(var(--border-gold) 0.7px, transparent 0.7px),
-                radial-gradient(var(--border-soft) 0.7px, transparent 0.7px);
-            background-size: 28px 28px;
-            background-position: 0 0, 14px 14px;
+            background-color: var(--wall-fallback);
             color: var(--text-main);
             line-height: 1.75;
             min-height: 100vh;
-            transition: background-color 0.28s ease, color 0.25s ease;
+            transition: background-color 0.3s ease, color 0.25s ease;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* Fixed Full-Page Mehrab Color & Embossed Islamic Geometric Grid Backdrop */
+        .page-wall-backdrop {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            display: block;
         }
 
         button {
@@ -133,7 +552,7 @@
         }
 
         /* =====================================================================
-           3. COMPACT STICKY 56PX GLASSMORPHIC TOP NAVBAR
+           3. COMPACT STICKY 56PX ROYAL GLASS TOP NAVBAR (BLENDS WITH MEHRAB)
            ===================================================================== */
         .top-nav {
             position: sticky;
@@ -141,19 +560,20 @@
             z-index: 100;
             width: 100%;
             height: var(--nav-height);
-            background: var(--bg-glass);
+            background: var(--nav-glass);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border-soft);
-            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--nav-border);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.32);
+            transition: background-color 0.28s ease, border-color 0.28s ease;
         }
 
         .top-nav-inner {
             width: 100%;
-            max-width: 680px;
+            max-width: 720px;
             height: 100%;
             margin: 0 auto;
-            padding: 0 10px;
+            padding: 0 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -167,21 +587,22 @@
             min-width: 0;
             flex: 1 1 auto;
             text-decoration: none;
-            color: var(--primary);
+            color: var(--nav-text);
         }
 
         .nav-logo-box {
             width: 34px;
             height: 34px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #0A5C36, #043927);
-            border: 1px solid rgba(212, 175, 55, 0.55);
+            background: var(--brand-grad);
+            border: 1px solid var(--border-gold);
             color: #F4D77B;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 3px 10px rgba(4, 57, 39, 0.25);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+            transition: background 0.28s ease, border-color 0.28s ease;
         }
 
         .nav-title {
@@ -193,13 +614,13 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            color: var(--primary);
+            color: var(--nav-text);
         }
 
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
             flex-shrink: 0;
         }
 
@@ -208,20 +629,21 @@
             height: 40px;
             padding: 0 7px;
             border-radius: 10px;
-            border: 1px solid var(--border-soft);
-            background: var(--bg-surface);
-            color: var(--text-main);
+            border: 1px solid var(--nav-btn-border);
+            background: var(--nav-btn-bg);
+            color: var(--nav-text);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             font-size: 0.86rem;
             font-weight: 700;
-            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
         }
 
         .nav-btn:hover {
-            border-color: var(--border-gold);
-            color: var(--primary);
+            background: rgba(242, 210, 114, 0.18);
+            border-color: var(--gold-bright);
+            color: #FFF9DF;
         }
 
         .nav-btn:active {
@@ -229,110 +651,59 @@
         }
 
         /* =====================================================================
-           4. MAIN MOBILE-FIRST CONTAINER (12px SIDE PADDING, MAX 680px)
+           4. FULL-WIDTH SEAMLESS UNCUT 3D GOLDEN MEHRAB HEADER (ZERO BOX!)
            ===================================================================== */
-        .app-main {
-            width: 100%;
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 14px 12px 34px;
-        }
-
-        /* =====================================================================
-           5. ROYAL STYLISH GUJARATI HERO BANNER + ORNAMENTAL ISLAMIC BACKDROP
-           ===================================================================== */
-        .royal-hero {
+        .mehrab-hero-full {
             position: relative;
             width: 100%;
-            border-radius: var(--radius-lg);
-            background: linear-gradient(145deg, #043927 0%, #0A5C36 48%, #053D29 100%);
-            border: 1.5px solid rgba(212, 175, 55, 0.72);
-            box-shadow:
-                0 14px 34px rgba(4, 57, 39, 0.28),
-                inset 0 1px 0 rgba(255, 248, 231, 0.22);
-            padding: 26px 16px 18px;
-            margin-bottom: 14px;
-            overflow: hidden;
-            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            overflow: visible;
             isolation: isolate;
         }
 
-        [data-theme="dark"] .royal-hero {
-            background: linear-gradient(145deg, #03261A 0%, #08492C 50%, #042B1D 100%);
-            border-color: rgba(242, 210, 114, 0.65);
-            box-shadow:
-                0 16px 38px rgba(0, 0, 0, 0.56),
-                inset 0 1px 0 rgba(255, 248, 231, 0.16);
-        }
-
-        /* Subtle golden double-border inner frame */
-        .royal-hero::before {
-            content: "";
-            position: absolute;
-            inset: 7px;
-            border-radius: 18px;
-            border: 1px solid rgba(242, 210, 114, 0.34);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Layered SVG ornamental Islamic backdrop (Mihrab + Rub el Hizb lattice + radial halo) */
-        .hero-backdrop-svg {
-            position: absolute;
-            inset: 0;
+        .mehrab-svg {
+            display: block;
             width: 100%;
-            height: 100%;
+            height: auto;
+            overflow: visible;
             pointer-events: none;
-            z-index: 0;
         }
 
-        /* 4-corner ornate gold filigree flourishes */
-        .hero-filigree {
-            position: absolute;
-            width: 44px;
-            height: 44px;
-            color: #F2D272;
-            opacity: 0.75;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .filigree-tl { top: 10px; left: 10px; }
-        .filigree-tr { top: 10px; right: 10px; transform: scaleX(-1); }
-        .filigree-bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
-        .filigree-br { bottom: 10px; right: 10px; transform: scale(-1, -1); }
-
-        .hero-content {
+        /* Title, Golden Divider & 5 Theme Circles Flow Seamlessly Inside Arch (Zero Clipping!) */
+        .mehrab-title-block {
             position: relative;
             z-index: 3;
+            width: 100%;
+            max-width: 680px;
+            margin: -22% auto 0;
+            padding: 0 14px 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        /* Centered Crescent & 8-point Star Crown Ornament above title */
-        .hero-crown-ornament {
-            display: inline-flex;
-            align-items: center;
             justify-content: center;
-            margin-bottom: 6px;
-            color: #F4D77B;
-            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.45));
+            text-align: center;
         }
 
         /* Royal Gujarati Shrikhand Display Heading — zero matra clipping */
         .royal-heading {
             font-family: 'Shrikhand', 'Anek Gujarati', serif;
-            font-size: clamp(2.1rem, 8.5vw, 3.3rem);
+            font-size: clamp(1.55rem, 6.8vw, 3.25rem);
             font-weight: 400;
-            line-height: 1.45;
-            padding: 6px 4px;
+            line-height: 1.42;
+            display: inline-block;
+            padding: 0.12em 0.12em;
             margin: 0;
-            color: var(--champagne);
             letter-spacing: 0.015em;
-            text-shadow:
-                0 2px 16px rgba(242, 210, 114, 0.48),
-                0 2px 4px rgba(2, 24, 15, 0.55);
+            color: #FFF6C9;
+            background: linear-gradient(180deg, #FFF9DB 0%, #F7C744 52%, #C98410 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.96));
             overflow-wrap: break-word;
             max-width: 100%;
         }
@@ -340,23 +711,112 @@
         /* Diamond-tapered Gold Divider Ribbon below title */
         .hero-ribbon-divider {
             width: 100%;
-            max-width: 240px;
-            margin: 4px auto 14px;
+            max-width: clamp(135px, 42vw, 240px);
+            margin: 2px auto 0;
             display: flex;
             justify-content: center;
-            color: #F2D272;
+            color: #F4D77B;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.88));
         }
 
-        /* Sleek compact reading progress bar inside bottom of Hero card */
-        .hero-progress-box {
+        .hero-ribbon-divider svg {
             width: 100%;
-            background: rgba(3, 27, 18, 0.46);
+            height: auto;
+        }
+
+        /* 5 Minimal Royal Circle Theme Switchers Directly Below Golden Line (Zero Text) */
+        .mehrab-theme-dots {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(9px, 2.5vw, 15px);
+            margin-top: clamp(9px, 2.2vw, 15px);
+            padding: 6px 13px;
+            border-radius: var(--radius-pill);
+            background: rgba(0, 0, 0, 0.42);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(242, 210, 114, 0.30);
-            border-radius: 14px;
-            padding: 10px 12px;
+            border: 1px solid rgba(242, 210, 114, 0.34);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.40);
+        }
+
+        .mehrab-dot {
+            width: clamp(19px, 5vw, 25px);
+            height: clamp(19px, 5vw, 25px);
+            border-radius: 50%;
+            border: 2px solid rgba(255, 242, 186, 0.76);
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.65),
+                inset 0 1px 2px rgba(255, 255, 255, 0.34);
+            transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.2s ease,
+                        border-color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .mehrab-dot:hover {
+            transform: scale(1.16);
+            border-color: #FFF8D6;
+        }
+
+        .mehrab-dot:active {
+            transform: scale(0.92);
+        }
+
+        .mehrab-dot.active {
+            transform: scale(1.22);
+            border-color: #FFF9D6;
+            box-shadow:
+                0 0 0 2.5px rgba(242, 210, 114, 0.88),
+                0 0 14px rgba(242, 210, 114, 0.70),
+                inset 0 1px 2px rgba(255, 255, 255, 0.48);
+        }
+
+        .mehrab-dot[data-mehrab-theme="obsidian"] {
+            background: radial-gradient(circle at 32% 32%, #4A4A4A 0%, #1C1C1C 60%, #090909 100%);
+        }
+
+        .mehrab-dot[data-mehrab-theme="emerald"] {
+            background: radial-gradient(circle at 32% 32%, #1CA866 0%, #0A5C36 60%, #032415 100%);
+        }
+
+        .mehrab-dot[data-mehrab-theme="sapphire"] {
+            background: radial-gradient(circle at 32% 32%, #2F6EC9 0%, #123670 60%, #06132E 100%);
+        }
+
+        .mehrab-dot[data-mehrab-theme="ruby"] {
+            background: radial-gradient(circle at 32% 32%, #B52A4B 0%, #661327 60%, #26050E 100%);
+        }
+
+        .mehrab-dot[data-mehrab-theme="amethyst"] {
+            background: radial-gradient(circle at 32% 32%, #8A46D9 0%, #491D73 60%, #1B0830 100%);
+        }
+
+        /* =====================================================================
+           5. MAIN MOBILE-FIRST READING CONTAINER (12px SIDE PADDING, MAX 680px)
+           ===================================================================== */
+        .app-main {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 10px 12px 36px;
+        }
+
+        /* Sleek Floating Glass Reading Progress Card (Matches Mehrab Wall) */
+        .hero-progress-box {
+            width: 100%;
+            background: var(--progress-box-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--progress-box-border);
+            border-radius: 16px;
+            padding: 12px 14px;
+            margin-bottom: 14px;
+            box-shadow: var(--shadow-sm);
             text-align: left;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .progress-top-row {
@@ -375,18 +835,18 @@
         }
 
         .progress-caption {
-            font-size: 0.86rem;
+            font-size: 0.88rem;
             font-weight: 700;
-            color: rgba(255, 248, 231, 0.90);
+            color: rgba(255, 248, 231, 0.94);
         }
 
         .progress-count-pill {
             display: inline-flex;
             align-items: center;
-            padding: 2px 9px;
+            padding: 2px 10px;
             border-radius: var(--radius-pill);
             background: rgba(242, 210, 114, 0.18);
-            border: 1px solid rgba(242, 210, 114, 0.42);
+            border: 1px solid rgba(242, 210, 114, 0.45);
             color: #FFE9A8;
             font-size: 0.82rem;
             font-weight: 800;
@@ -412,8 +872,8 @@
         }
 
         .hero-reset-btn:hover {
-            background: rgba(220, 38, 38, 0.32);
-            border-color: rgba(252, 165, 165, 0.65);
+            background: rgba(220, 38, 38, 0.36);
+            border-color: rgba(252, 165, 165, 0.68);
         }
 
         .hero-reset-btn:active {
@@ -432,7 +892,7 @@
             width: 0%;
             height: 100%;
             border-radius: var(--radius-pill);
-            background: linear-gradient(90deg, #D4AF37 0%, #FFE48F 100%);
+            background: linear-gradient(90deg, var(--gold-bright) 0%, #FFE48F 100%);
             box-shadow: 0 0 10px rgba(242, 210, 114, 0.55);
             transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
         }
@@ -443,13 +903,14 @@
         .intro-plaque {
             width: 100%;
             background: var(--bg-surface);
-            border: 1px solid var(--border-soft);
+            border: 1px solid var(--border-gold);
             border-left: 4px solid var(--primary);
             border-radius: var(--radius-md);
             padding: 16px 14px;
             margin-bottom: 14px;
             box-shadow: var(--shadow-sm);
             text-align: center;
+            transition: background-color 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
         }
 
         .plaque-badge {
@@ -463,6 +924,7 @@
             font-size: 0.78rem;
             font-weight: 700;
             margin-bottom: 9px;
+            transition: background-color 0.28s ease, color 0.28s ease;
         }
 
         .plaque-main-text {
@@ -472,6 +934,7 @@
             line-height: 1.58;
             margin-bottom: 8px;
             overflow-wrap: break-word;
+            transition: color 0.28s ease;
         }
 
         .plaque-tarjuma {
@@ -479,6 +942,7 @@
             color: var(--text-muted);
             line-height: 1.70;
             overflow-wrap: break-word;
+            transition: color 0.28s ease;
         }
 
         .plaque-tarjuma strong {
@@ -492,13 +956,17 @@
         .complete-banner {
             display: none;
             width: 100%;
-            background: linear-gradient(135deg, rgba(10, 92, 54, 0.11), rgba(212, 175, 55, 0.17));
+            background: var(--complete-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1.5px solid var(--gold-bright);
             border-radius: var(--radius-md);
             padding: 14px;
             margin-bottom: 14px;
+            box-shadow: var(--shadow-sm);
             align-items: center;
             gap: 12px;
+            transition: background 0.28s ease, border-color 0.28s ease;
         }
 
         .complete-banner.visible {
@@ -520,13 +988,13 @@
         .complete-title {
             font-size: 1rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--complete-title);
             line-height: 1.35;
         }
 
         .complete-sub {
             font-size: 0.86rem;
-            color: var(--text-muted);
+            color: var(--complete-sub);
             line-height: 1.48;
             margin-top: 2px;
         }
@@ -549,13 +1017,13 @@
             border-radius: var(--radius-md);
             padding: 16px 14px 14px;
             box-shadow: var(--shadow-sm);
-            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+            transition: background-color 0.28s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
 
         .dua-card.completed {
             border-color: var(--border-done);
             border-top-color: var(--primary);
-            box-shadow: 0 6px 20px rgba(10, 92, 54, 0.11);
+            box-shadow: var(--shadow-done);
         }
 
         .card-head {
@@ -579,13 +1047,13 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            transition: background-color 0.25s ease, color 0.25s ease;
+            transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
         }
 
         .dua-card.completed .card-icon-badge {
-            background: linear-gradient(135deg, #0A5C36, #043927);
+            background: var(--brand-grad);
             color: #F4D77B;
-            border-color: rgba(212, 175, 55, 0.55);
+            border-color: var(--border-gold);
         }
 
         .step-chip {
@@ -613,6 +1081,7 @@
             color: var(--primary);
             line-height: 1.35;
             overflow-wrap: break-word;
+            transition: color 0.28s ease;
         }
 
         .card-body-text {
@@ -623,6 +1092,7 @@
             margin-bottom: 14px;
             overflow-wrap: break-word;
             word-break: break-word;
+            transition: color 0.28s ease;
         }
 
         /* Interactive Card Action Bar */
@@ -663,14 +1133,9 @@
         }
 
         .step-toggle-btn.done {
-            background: linear-gradient(135deg, #0A5C36, #043927);
-            color: #FFF8E7;
+            background: var(--btn-done-bg);
+            color: var(--btn-done-text);
             border-color: transparent;
-        }
-
-        [data-theme="dark"] .step-toggle-btn.done {
-            background: linear-gradient(135deg, #34D399, #10B981);
-            color: #041911;
         }
 
         .rep-dots {
@@ -705,7 +1170,7 @@
             padding: 7px 11px;
             border-radius: 10px;
             border: 1px solid var(--border-soft);
-            background: var(--bg-page);
+            background: var(--bg-inner);
             color: var(--text-muted);
             font-size: 0.80rem;
             font-weight: 700;
@@ -729,7 +1194,7 @@
             height: 40px;
             border-radius: 10px;
             border: 1px solid var(--border-soft);
-            background: var(--bg-page);
+            background: var(--bg-inner);
             color: var(--text-muted);
             display: inline-flex;
             align-items: center;
@@ -765,16 +1230,18 @@
             max-width: 100%;
             padding: 11px 18px;
             border-radius: var(--radius-pill);
-            background: var(--bg-surface);
+            background: var(--progress-box-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1.5px solid var(--border-gold);
             box-shadow: var(--shadow-sm);
-            color: var(--primary);
+            color: #FFF6D6;
             font-size: clamp(0.76rem, 3.3vw, 0.92rem);
             font-weight: 700;
             letter-spacing: 0.03em;
             line-height: 1.3;
             white-space: nowrap;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.28s ease, border-color 0.28s ease;
         }
 
         .dev-badge-pill:hover {
@@ -783,7 +1250,7 @@
         }
 
         .dev-badge-icon {
-            color: var(--gold);
+            color: #F4D77B;
             width: 17px;
             height: 17px;
             flex-shrink: 0;
@@ -796,7 +1263,7 @@
             position: fixed;
             inset: 0;
             z-index: 300;
-            background: rgba(4, 18, 13, 0.58);
+            background: var(--overlay-bg);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             display: flex;
@@ -823,7 +1290,7 @@
             display: flex;
             flex-direction: column;
             transform: translateY(100%);
-            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.28s ease;
             overflow: hidden;
         }
 
@@ -869,7 +1336,7 @@
             padding: 9px 12px;
             border-radius: 12px;
             border: 1px solid var(--border-soft);
-            background: var(--bg-page);
+            background: var(--bg-inner);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -903,12 +1370,8 @@
 
         .sheet-item-btn.done .sheet-num {
             background: var(--primary);
-            color: #FFFFFF;
+            color: var(--on-primary);
             border-color: transparent;
-        }
-
-        [data-theme="dark"] .sheet-item-btn.done .sheet-num {
-            color: #041911;
         }
 
         .sheet-item-text {
@@ -937,11 +1400,7 @@
         .sheet-item-btn.done .sheet-status-icon {
             background: var(--primary);
             border-color: var(--primary);
-            color: #FFFFFF;
-        }
-
-        [data-theme="dark"] .sheet-item-btn.done .sheet-status-icon {
-            color: #041911;
+            color: var(--on-primary);
         }
 
         /* =====================================================================
@@ -951,7 +1410,7 @@
             position: fixed;
             inset: 0;
             z-index: 400;
-            background: rgba(4, 16, 11, 0.76);
+            background: var(--overlay-bg);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             display: flex;
@@ -980,7 +1439,7 @@
             flex-direction: column;
             overflow: hidden;
             transform: scale(0.95);
-            transition: transform 0.24s ease;
+            transition: transform 0.24s ease, background-color 0.28s ease;
         }
 
         .modal-overlay.open .focus-dialog {
@@ -1032,8 +1491,8 @@
             width: 50px;
             height: 50px;
             border-radius: 14px;
-            background: linear-gradient(135deg, #0A5C36, #043927);
-            border: 1px solid rgba(212, 175, 55, 0.55);
+            background: var(--brand-grad);
+            border: 1px solid var(--border-gold);
             color: #F4D77B;
             display: inline-flex;
             align-items: center;
@@ -1112,7 +1571,7 @@
             text-align: center;
             box-shadow: var(--shadow-lg);
             transform: scale(0.95);
-            transition: transform 0.22s ease;
+            transition: transform 0.22s ease, background-color 0.28s ease;
         }
 
         .modal-overlay.open .confirm-box {
@@ -1124,7 +1583,7 @@
             height: 46px;
             margin: 0 auto 12px;
             border-radius: 50%;
-            background: rgba(220, 38, 38, 0.12);
+            background: rgba(220, 38, 38, 0.14);
             color: #DC2626;
             display: inline-flex;
             align-items: center;
@@ -1156,7 +1615,7 @@
             padding: 0 12px;
             border-radius: var(--radius-pill);
             border: 1px solid var(--border-soft);
-            background: var(--bg-page);
+            background: var(--bg-inner);
             color: var(--text-main);
             font-size: 0.90rem;
             font-weight: 700;
@@ -1191,7 +1650,7 @@
         }
 
         .toast-pill {
-            background: #043927;
+            background: var(--toast-bg);
             color: #FFF8E7;
             border: 1px solid var(--gold-bright);
             padding: 10px 16px;
@@ -1229,10 +1688,7 @@
                 padding: 0 10px;
             }
             .app-main {
-                padding: 20px 16px 42px;
-            }
-            .royal-hero {
-                padding: 32px 24px 22px;
+                padding: 14px 16px 44px;
             }
             .intro-plaque,
             .dua-card {
@@ -1244,7 +1700,46 @@
 <body>
 
     <!-- =====================================================================
-         COMPACT 56PX STICKY GLASSMORPHIC TOP BAR
+         FULL-PAGE FIXED MEHRAB WALL COLOR & EMBOSSED ISLAMIC GRID BACKDROP
+         ===================================================================== -->
+    <svg class="page-wall-backdrop" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" aria-hidden="true">
+        <defs>
+            <!-- Full-Page Dynamic Radial Wall Gradient (Matches Mehrab Theme) -->
+            <radialGradient id="pageWallBg" cx="50%" cy="22%" r="78%">
+                <stop offset="0%" stop-color="#2B2B2B"/>
+                <stop offset="52%" stop-color="#191919"/>
+                <stop offset="100%" stop-color="#0B0B0B"/>
+            </radialGradient>
+
+            <!-- Exact Tone-on-Tone Embossed Islamic Geometric Grid Across Entire Page -->
+            <pattern id="pageWallPattern" width="120" height="120" patternUnits="userSpaceOnUse">
+                <!-- Shadow Pass -->
+                <g id="pageWallShadow" transform="translate(1, 1.5)" fill="none" stroke="#080808" stroke-width="2.4" stroke-linejoin="round" opacity="0.72">
+                    <path d="M 0 0 L 120 120 M 120 0 L 0 120 M 60 0 L 60 26 M 60 94 L 60 120 M 0 60 L 26 60 M 94 60 L 120 60 M 60 12 L 108 60 L 60 108 L 12 60 Z
+                             M 94 60 L 76.6 66.9 L 84 84 L 66.9 76.6 L 60 94 L 53.1 76.6 L 36 84 L 43.4 66.9 L 26 60 L 43.4 53.1 L 36 36 L 53.1 43.4 L 60 26 L 66.9 43.4 L 84 36 L 76.6 53.1 Z
+                             M 48 48 H 72 V 72 H 48 Z M 60 43 L 77 60 L 60 77 L 43 60 Z
+                             M 38 0 L 60 22 L 82 0 M 38 120 L 60 98 L 82 120 M 0 38 L 22 60 L 0 82 M 120 38 L 98 60 L 120 82
+                             M 34 0 L 16.6 6.9 L 24 24 L 6.9 16.6 L 0 34 M 86 0 L 103.4 6.9 L 96 24 L 113.1 16.6 L 120 34
+                             M 34 120 L 16.6 113.1 L 24 96 L 6.9 103.4 L 0 86 M 86 120 L 103.4 113.1 L 96 96 L 113.1 103.4 L 120 86"/>
+                </g>
+                <!-- Subtle Highlight Pass -->
+                <g id="pageWallHighlight" fill="none" stroke="#363636" stroke-width="1.6" stroke-linejoin="round" opacity="0.48">
+                    <path d="M 0 0 L 120 120 M 120 0 L 0 120 M 60 0 L 60 26 M 60 94 L 60 120 M 0 60 L 26 60 M 94 60 L 120 60 M 60 12 L 108 60 L 60 108 L 12 60 Z
+                             M 94 60 L 76.6 66.9 L 84 84 L 66.9 76.6 L 60 94 L 53.1 76.6 L 36 84 L 43.4 66.9 L 26 60 L 43.4 53.1 L 36 36 L 53.1 43.4 L 60 26 L 66.9 43.4 L 84 36 L 76.6 53.1 Z
+                             M 48 48 H 72 V 72 H 48 Z M 60 43 L 77 60 L 60 77 L 43 60 Z
+                             M 38 0 L 60 22 L 82 0 M 38 120 L 60 98 L 82 120 M 0 38 L 22 60 L 0 82 M 120 38 L 98 60 L 120 82
+                             M 34 0 L 16.6 6.9 L 24 24 L 6.9 16.6 L 0 34 M 86 0 L 103.4 6.9 L 96 24 L 113.1 16.6 L 120 34
+                             M 34 120 L 16.6 113.1 L 24 96 L 6.9 103.4 L 0 86 M 86 120 L 103.4 113.1 L 96 96 L 113.1 103.4 L 120 86"/>
+                </g>
+            </pattern>
+        </defs>
+
+        <rect width="100%" height="100%" fill="url(#pageWallBg)"/>
+        <rect width="100%" height="100%" fill="url(#pageWallPattern)"/>
+    </svg>
+
+    <!-- =====================================================================
+         COMPACT 56PX STICKY ROYAL GLASS TOP BAR
          ===================================================================== -->
     <header class="top-nav">
         <div class="top-nav-inner">
@@ -1288,138 +1783,229 @@
     </header>
 
     <!-- =====================================================================
+         FULL-WIDTH SEAMLESS UNCUT 3D GOLDEN ISLAMIC MEHRAB HEADER (ZERO BOX)
+         ===================================================================== -->
+    <section class="mehrab-hero-full" id="top" aria-label="ફાતિહા કા તરીકા">
+        <!-- 3D Golden Scalloped Islamic Mehrab SVG (Transparent Over Full-Page Wall, Zero Bottom Cut) -->
+        <svg class="mehrab-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 540" width="100%" height="auto" role="img" aria-label="3D Golden Islamic Scalloped Mehrab Header">
+            <defs>
+                <!-- Recessed Cavity Behind Golden Jali (Dynamic per Website Theme) -->
+                <linearGradient id="spandrelCavity" x1="0" y1="0" x2="0" y2="540" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#14100A"/>
+                    <stop offset="100%" stop-color="#060503"/>
+                </linearGradient>
+
+                <!-- 3D Metallic Gold Rim Gradients (userSpaceOnUse for 100% Browser Compatibility) -->
+                <linearGradient id="goldRimMain" x1="0" y1="0" x2="1440" y2="540" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#AD6D09"/>
+                    <stop offset="18%" stop-color="#F2BF38"/>
+                    <stop offset="36%" stop-color="#FFF0A0"/>
+                    <stop offset="50%" stop-color="#D49215"/>
+                    <stop offset="66%" stop-color="#FFE37A"/>
+                    <stop offset="84%" stop-color="#C98610"/>
+                    <stop offset="100%" stop-color="#875003"/>
+                </linearGradient>
+
+                <linearGradient id="goldRimBevel" x1="0" y1="20" x2="0" y2="500" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FFF7C4"/>
+                    <stop offset="30%" stop-color="#F7C744"/>
+                    <stop offset="70%" stop-color="#D18E14"/>
+                    <stop offset="100%" stop-color="#9E6206"/>
+                </linearGradient>
+
+                <linearGradient id="goldRimExtrude" x1="0" y1="0" x2="0" y2="540" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#704003"/>
+                    <stop offset="55%" stop-color="#3E2001"/>
+                    <stop offset="100%" stop-color="#170B00"/>
+                </linearGradient>
+
+                <!-- Metallic Gold Surface for 120x120 Islamic Jali Tile -->
+                <linearGradient id="goldTileGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FFE17D"/>
+                    <stop offset="35%" stop-color="#E6A31E"/>
+                    <stop offset="65%" stop-color="#FFF2AA"/>
+                    <stop offset="100%" stop-color="#B5720A"/>
+                </linearGradient>
+
+                <!-- Deep 3D Overhanging Shadow Under Scalloped Mehrab (Expanded Bounds = Zero Clipping) -->
+                <filter id="archShadow3D" x="-10%" y="-10%" width="120%" height="165%">
+                    <feDropShadow dx="0" dy="22" stdDeviation="12" flood-color="#000000" flood-opacity="0.95"/>
+                    <feDropShadow dx="0" dy="7" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.88"/>
+                </filter>
+
+                <!-- 3D Laser-Cut Metallic Golden Islamic Jali Lattice -->
+                <pattern id="goldJaliPattern" width="120" height="120" patternUnits="userSpaceOnUse">
+                    <!-- Pass 1: Deep Cavity Cast Shadow -->
+                    <g transform="translate(0, 3.6)" fill="none" stroke="#000000" stroke-width="5.2" stroke-linejoin="round" opacity="0.88">
+                        <path d="M 0 0 L 120 120 M 120 0 L 0 120 M 60 0 L 60 26 M 60 94 L 60 120 M 0 60 L 26 60 M 94 60 L 120 60 M 60 12 L 108 60 L 60 108 L 12 60 Z
+                                 M 94 60 L 76.6 66.9 L 84 84 L 66.9 76.6 L 60 94 L 53.1 76.6 L 36 84 L 43.4 66.9 L 26 60 L 43.4 53.1 L 36 36 L 53.1 43.4 L 60 26 L 66.9 43.4 L 84 36 L 76.6 53.1 Z
+                                 M 48 48 H 72 V 72 H 48 Z M 60 43 L 77 60 L 60 77 L 43 60 Z
+                                 M 38 0 L 60 22 L 82 0 M 48 0 L 60 12 L 72 0
+                                 M 38 120 L 60 98 L 82 120 M 48 120 L 60 108 L 72 120
+                                 M 0 38 L 22 60 L 0 82 M 0 48 L 12 60 L 0 72
+                                 M 120 38 L 98 60 L 120 82 M 120 48 L 108 60 L 120 72
+                                 M 34 0 L 16.6 6.9 L 24 24 L 6.9 16.6 L 0 34 M 0 17 L 17 0 M 12 0 L 12 12 L 0 12
+                                 M 86 0 L 103.4 6.9 L 96 24 L 113.1 16.6 L 120 34 M 120 17 L 103 0 M 108 0 L 108 12 L 120 12
+                                 M 34 120 L 16.6 113.1 L 24 96 L 6.9 103.4 L 0 86 M 0 103 L 17 120 M 12 120 L 12 108 L 0 108
+                                 M 86 120 L 103.4 113.1 L 96 96 L 113.1 103.4 L 120 86 M 120 103 L 103 120 M 108 120 L 108 108 L 120 108"/>
+                    </g>
+
+                    <!-- Pass 2: 3D Extruded Dark Bronze Side Thickness -->
+                    <g transform="translate(0, 1.8)" fill="none" stroke="#522C02" stroke-width="4.2" stroke-linejoin="round">
+                        <path d="M 0 0 L 120 120 M 120 0 L 0 120 M 60 0 L 60 26 M 60 94 L 60 120 M 0 60 L 26 60 M 94 60 L 120 60 M 60 12 L 108 60 L 60 108 L 12 60 Z
+                                 M 94 60 L 76.6 66.9 L 84 84 L 66.9 76.6 L 60 94 L 53.1 76.6 L 36 84 L 43.4 66.9 L 26 60 L 43.4 53.1 L 36 36 L 53.1 43.4 L 60 26 L 66.9 43.4 L 84 36 L 76.6 53.1 Z
+                                 M 48 48 H 72 V 72 H 48 Z M 60 43 L 77 60 L 60 77 L 43 60 Z
+                                 M 38 0 L 60 22 L 82 0 M 48 0 L 60 12 L 72 0
+                                 M 38 120 L 60 98 L 82 120 M 48 120 L 60 108 L 72 120
+                                 M 0 38 L 22 60 L 0 82 M 0 48 L 12 60 L 0 72
+                                 M 120 38 L 98 60 L 120 82 M 120 48 L 108 60 L 120 72
+                                 M 34 0 L 16.6 6.9 L 24 24 L 6.9 16.6 L 0 34 M 0 17 L 17 0 M 12 0 L 12 12 L 0 12
+                                 M 86 0 L 103.4 6.9 L 96 24 L 113.1 16.6 L 120 34 M 120 17 L 103 0 M 108 0 L 108 12 L 120 12
+                                 M 34 120 L 16.6 113.1 L 24 96 L 6.9 103.4 L 0 86 M 0 103 L 17 120 M 12 120 L 12 108 L 0 108
+                                 M 86 120 L 103.4 113.1 L 96 96 L 113.1 103.4 L 120 86 M 120 103 L 103 120 M 108 120 L 108 108 L 120 108"/>
+                    </g>
+
+                    <!-- Pass 3: Main Metallic Gold Cutout Lattice + Inner Floral Rosette -->
+                    <g fill="none" stroke="url(#goldTileGrad)" stroke-width="3.2" stroke-linejoin="round">
+                        <path d="M 0 0 L 120 120 M 120 0 L 0 120 M 60 0 L 60 26 M 60 94 L 60 120 M 0 60 L 26 60 M 94 60 L 120 60 M 60 12 L 108 60 L 60 108 L 12 60 Z
+                                 M 94 60 L 76.6 66.9 L 84 84 L 66.9 76.6 L 60 94 L 53.1 76.6 L 36 84 L 43.4 66.9 L 26 60 L 43.4 53.1 L 36 36 L 53.1 43.4 L 60 26 L 66.9 43.4 L 84 36 L 76.6 53.1 Z
+                                 M 48 48 H 72 V 72 H 48 Z M 60 43 L 77 60 L 60 77 L 43 60 Z
+                                 M 38 0 L 60 22 L 82 0 M 48 0 L 60 12 L 72 0
+                                 M 38 120 L 60 98 L 82 120 M 48 120 L 60 108 L 72 120
+                                 M 0 38 L 22 60 L 0 82 M 0 48 L 12 60 L 0 72
+                                 M 120 38 L 98 60 L 120 82 M 120 48 L 108 60 L 120 72
+                                 M 34 0 L 16.6 6.9 L 24 24 L 6.9 16.6 L 0 34 M 0 17 L 17 0 M 12 0 L 12 12 L 0 12
+                                 M 86 0 L 103.4 6.9 L 96 24 L 113.1 16.6 L 120 34 M 120 17 L 103 0 M 108 0 L 108 12 L 120 12
+                                 M 34 120 L 16.6 113.1 L 24 96 L 6.9 103.4 L 0 86 M 0 103 L 17 120 M 12 120 L 12 108 L 0 108
+                                 M 86 120 L 103.4 113.1 L 96 96 L 113.1 103.4 L 120 86 M 120 103 L 103 120 M 108 120 L 108 108 L 120 108"/>
+                        <!-- Delicate 8-Petal Arabesque Flower Inside Center Star -->
+                        <path stroke-width="1.5" d="M 60 49 Q 63.5 54.5 60 60 Q 56.5 54.5 60 49 Z
+                                                    M 60 71 Q 63.5 65.5 60 60 Q 56.5 65.5 60 71 Z
+                                                    M 49 60 Q 54.5 63.5 60 60 Q 54.5 56.5 49 60 Z
+                                                    M 71 60 Q 65.5 63.5 60 60 Q 65.5 56.5 71 60 Z
+                                                    M 52.2 52.2 Q 57.5 54 60 60 Q 54 57.5 52.2 52.2 Z
+                                                    M 67.8 67.8 Q 62.5 66 60 60 Q 66 62.5 67.8 67.8 Z
+                                                    M 67.8 52.2 Q 66 57.5 60 60 Q 62.5 54 67.8 52.2 Z
+                                                    M 52.2 67.8 Q 54 62.5 60 60 Q 57.5 66 52.2 67.8 Z"/>
+                    </g>
+
+                    <!-- Pass 4: Specular Top Edge Glint -->
+                    <g transform="translate(0, -0.6)" fill="none" stroke="#FFF9CC" stroke-width="0.8" stroke-linejoin="round" opacity="0.72">
+                        <path d="M 94 60 L 76.6 66.9 L 84 84 L 66.9 76.6 L 60 94 L 53.1 76.6 L 36 84 L 43.4 66.9 L 26 60 L 43.4 53.1 L 36 36 L 53.1 43.4 L 60 26 L 66.9 43.4 L 84 36 L 76.6 53.1 Z
+                                 M 60 12 L 108 60 L 60 108 L 12 60 Z
+                                 M 48 48 H 72 V 72 H 48 Z M 60 43 L 77 60 L 60 77 L 43 60 Z"/>
+                    </g>
+                </pattern>
+
+                <!-- Master Symmetrical Scalloped Mehrab Arch Curve -->
+                <path id="scallopedMehrab"
+                      d="M -20 490
+                         A 66 66 0 0 1 55 395
+                         A 70 70 0 0 1 148 308
+                         A 72 72 0 0 1 256 232
+                         A 72 72 0 0 1 374 170
+                         A 72 72 0 0 1 498 124
+                         A 68 68 0 0 1 622 98
+                         C 632 58, 692 64, 720 34
+                         C 748 64, 808 58, 818 98
+                         A 68 68 0 0 1 942 124
+                         A 72 72 0 0 1 1066 170
+                         A 72 72 0 0 1 1184 232
+                         A 72 72 0 0 1 1292 308
+                         A 70 70 0 0 1 1385 395
+                         A 66 66 0 0 1 1460 490"/>
+
+                <!-- Upper Spandrel Clip Area (Above Scalloped Arch) -->
+                <clipPath id="spandrelClip">
+                    <path d="M -30 -20 L -30 490 L -20 490
+                             A 66 66 0 0 1 55 395
+                             A 70 70 0 0 1 148 308
+                             A 72 72 0 0 1 256 232
+                             A 72 72 0 0 1 374 170
+                             A 72 72 0 0 1 498 124
+                             A 68 68 0 0 1 622 98
+                             C 632 58, 692 64, 720 34
+                             C 748 64, 808 58, 818 98
+                             A 68 68 0 0 1 942 124
+                             A 72 72 0 0 1 1066 170
+                             A 72 72 0 0 1 1184 232
+                             A 72 72 0 0 1 1292 308
+                             A 70 70 0 0 1 1385 395
+                             A 66 66 0 0 1 1460 490
+                             L 1470 490 L 1470 -20 Z"/>
+                </clipPath>
+            </defs>
+
+            <!-- 3D Golden Islamic Jali Spandrels + Solid Sculpted Scalloped Rim -->
+            <g id="golden-3d-mehrab" filter="url(#archShadow3D)">
+                <!-- Upper Laser-Cut Golden Jali Panel -->
+                <g clip-path="url(#spandrelClip)">
+                    <rect width="1440" height="540" fill="url(#spandrelCavity)"/>
+                    <rect width="1440" height="540" fill="url(#goldJaliPattern)"/>
+                </g>
+
+                <!-- Solid Bold 3D Metallic Gold Scalloped Rim -->
+                <g fill="none" stroke-linejoin="miter" stroke-miterlimit="6">
+                    <!-- Extruded Dark Bronze Underside -->
+                    <use href="#scallopedMehrab" stroke="url(#goldRimExtrude)" stroke-width="34" transform="translate(0, 5)"/>
+                    <!-- Deep Seam Shadow Separating Rim & Jali -->
+                    <use href="#scallopedMehrab" stroke="#140A00" stroke-width="34" transform="translate(0, -1.5)" opacity="0.7"/>
+                    <!-- Primary Solid Metallic Gold Body -->
+                    <use href="#scallopedMehrab" stroke="url(#goldRimMain)" stroke-width="30"/>
+                    <!-- Raised Beveled Satin Gold Ridge -->
+                    <use href="#scallopedMehrab" stroke="url(#goldRimBevel)" stroke-width="18" transform="translate(0, -1)"/>
+                    <!-- Crisp Top Metallic Highlight -->
+                    <use href="#scallopedMehrab" stroke="#FFF8C9" stroke-width="2.2" transform="translate(0, -3)" opacity="0.85"/>
+                </g>
+            </g>
+        </svg>
+
+        <!-- Royal Gujarati Heading + Golden Line + 5 Circle Website Theme Switchers -->
+        <div class="mehrab-title-block">
+            <h1 class="royal-heading">ફાતિહા કા તરીકા</h1>
+            <div class="hero-ribbon-divider" aria-hidden="true">
+                <svg width="236" height="18" viewBox="0 0 236 18" fill="none">
+                    <path d="M6 9 Q54 7.5 100 9 Q54 10.5 6 9 Z" fill="currentColor" opacity="0.78"/>
+                    <path d="M230 9 Q182 7.5 136 9 Q182 10.5 230 9 Z" fill="currentColor" opacity="0.78"/>
+                    <polygon points="118,2 125,9 118,16 111,9" fill="currentColor"/>
+                    <polygon points="103,5.5 106.5,9 103,12.5 99.5,9" fill="currentColor" opacity="0.85"/>
+                    <polygon points="133,5.5 136.5,9 133,12.5 129.5,9" fill="currentColor" opacity="0.85"/>
+                </svg>
+            </div>
+
+            <!-- 5 Full-Website Theme Circles Only (Zero Text) -->
+            <div class="mehrab-theme-dots" id="mehrabThemeDots" role="radiogroup" aria-label="વેબસાઇટ થીમ">
+                <button type="button" class="mehrab-dot active" data-mehrab-theme="obsidian" role="radio" aria-checked="true" aria-label="Obsidian Gold"></button>
+                <button type="button" class="mehrab-dot" data-mehrab-theme="emerald" role="radio" aria-checked="false" aria-label="Royal Emerald"></button>
+                <button type="button" class="mehrab-dot" data-mehrab-theme="sapphire" role="radio" aria-checked="false" aria-label="Midnight Sapphire"></button>
+                <button type="button" class="mehrab-dot" data-mehrab-theme="ruby" role="radio" aria-checked="false" aria-label="Royal Maroon"></button>
+                <button type="button" class="mehrab-dot" data-mehrab-theme="amethyst" role="radio" aria-checked="false" aria-label="Imperial Purple"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
          MAIN MOBILE-FIRST READING CONTAINER
          ===================================================================== -->
-    <main class="app-main" id="top">
+    <main class="app-main">
 
-        <!-- ROYAL STYLISH GUJARATI HEADING BANNER WITH ORNAMENTAL ISLAMIC BACKDROP -->
-        <section class="royal-hero" aria-label="ફાતિહા કા તરીકા">
-            <!-- Lightweight Layered Inline SVG Islamic Backdrop (Mihrab + Rub el Hizb Lattice + Golden Glow Halo) -->
-            <svg class="hero-backdrop-svg" viewBox="0 0 640 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <defs>
-                    <!-- Repeating 8-point Rub el Hizb Geometric Lattice Watermark -->
-                    <pattern id="rubLatticePattern" width="56" height="56" patternUnits="userSpaceOnUse">
-                        <g fill="none" stroke="#F2D272" stroke-width="0.7" opacity="0.22">
-                            <rect x="16" y="16" width="24" height="24"/>
-                            <rect x="16" y="16" width="24" height="24" transform="rotate(45 28 28)"/>
-                            <circle cx="28" cy="28" r="2.2" fill="#F2D272" stroke="none" opacity="0.45"/>
-                            <path d="M0 28H11 M45 28H56 M28 0V11 M28 45V56" opacity="0.4"/>
-                        </g>
-                    </pattern>
-
-                    <!-- Soft Radial Mask so Lattice Fades Gently Toward Edges -->
-                    <radialGradient id="latticeFadeGrad" cx="50%" cy="44%" r="60%">
-                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
-                        <stop offset="68%" stop-color="#FFFFFF" stop-opacity="0.55"/>
-                        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-                    </radialGradient>
-                    <mask id="latticeFadeMask">
-                        <rect width="640" height="300" fill="url(#latticeFadeGrad)"/>
-                    </mask>
-
-                    <!-- Warm Golden Radial Halo Directly Behind the Heading -->
-                    <radialGradient id="titleGoldHalo" cx="50%" cy="42%" r="42%">
-                        <stop offset="0%" stop-color="#F6D97C" stop-opacity="0.28"/>
-                        <stop offset="52%" stop-color="#D4AF37" stop-opacity="0.10"/>
-                        <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
-                    </radialGradient>
-
-                    <!-- Shimmering Gold Stroke Gradient for Mihrab Arch -->
-                    <linearGradient id="mihrabGoldStroke" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#FFE9A3" stop-opacity="0.65"/>
-                        <stop offset="55%" stop-color="#D4AF37" stop-opacity="0.34"/>
-                        <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.06"/>
-                    </linearGradient>
-                </defs>
-
-                <!-- Geometric Watermark Lattice Layer -->
-                <rect width="640" height="300" fill="url(#rubLatticePattern)" mask="url(#latticeFadeMask)"/>
-
-                <!-- Soft Golden Glow Halo Behind Heading -->
-                <ellipse cx="320" cy="126" rx="255" ry="105" fill="url(#titleGoldHalo)"/>
-
-                <!-- Centered Islamic Pointed Mihrab Arch Silhouette Outline -->
-                <path d="M150 300 V150 C150 88 228 48 320 20 C412 48 490 88 490 150 V300"
-                      fill="none" stroke="url(#mihrabGoldStroke)" stroke-width="1.8"/>
-                <path d="M168 300 V154 C168 98 238 62 320 36 C402 62 472 98 472 154 V300"
-                      fill="none" stroke="url(#mihrabGoldStroke)" stroke-width="1" stroke-dasharray="4 4"/>
-            </svg>
-
-            <!-- 4-Corner Ornate Gold Filigree Flourishes -->
-            <svg class="hero-filigree filigree-tl" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                <path d="M5 42V15C5 9.5 9.5 5 15 5H42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M11 33V17C11 13.7 13.7 11 17 11H33" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-                <path d="M16 16C18.5 16 20 14.5 20 12C17.5 12 16 13.5 16 16Z" fill="currentColor"/>
-                <circle cx="15" cy="15" r="1.8" fill="currentColor"/>
-            </svg>
-            <svg class="hero-filigree filigree-tr" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                <path d="M5 42V15C5 9.5 9.5 5 15 5H42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M11 33V17C11 13.7 13.7 11 17 11H33" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-                <path d="M16 16C18.5 16 20 14.5 20 12C17.5 12 16 13.5 16 16Z" fill="currentColor"/>
-                <circle cx="15" cy="15" r="1.8" fill="currentColor"/>
-            </svg>
-            <svg class="hero-filigree filigree-bl" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                <path d="M5 42V15C5 9.5 9.5 5 15 5H42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M11 33V17C11 13.7 13.7 11 17 11H33" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-                <circle cx="15" cy="15" r="1.8" fill="currentColor"/>
-            </svg>
-            <svg class="hero-filigree filigree-br" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                <path d="M5 42V15C5 9.5 9.5 5 15 5H42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M11 33V17C11 13.7 13.7 11 17 11H33" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-                <circle cx="15" cy="15" r="1.8" fill="currentColor"/>
-            </svg>
-
-            <div class="hero-content">
-                <!-- Centered Crescent & 8-Point Star Crown Ornament Above Heading -->
-                <div class="hero-crown-ornament" aria-hidden="true">
-                    <svg width="78" height="32" viewBox="0 0 78 32" fill="none">
-                        <path d="M4 17H23" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" opacity="0.65"/>
-                        <path d="M55 17H74" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" opacity="0.65"/>
-                        <circle cx="25.5" cy="17" r="1.6" fill="currentColor" opacity="0.8"/>
-                        <circle cx="52.5" cy="17" r="1.6" fill="currentColor" opacity="0.8"/>
-                        <!-- Crescent Moon -->
-                        <path d="M45.5 18.8A8.6 8.6 0 1 1 35.8 5.2a6.9 6.9 0 1 0 9.7 13.6Z" fill="currentColor"/>
-                        <!-- 8-Point Star -->
-                        <g transform="translate(42.5, 11)">
-                            <rect x="-3.1" y="-3.1" width="6.2" height="6.2" fill="currentColor"/>
-                            <rect x="-3.1" y="-3.1" width="6.2" height="6.2" transform="rotate(45)" fill="currentColor"/>
-                        </g>
+        <!-- SLEEK READING PROGRESS BAR -->
+        <section class="hero-progress-box" aria-label="પઢને કી પ્રગતિ">
+            <div class="progress-top-row">
+                <div class="progress-meta">
+                    <span class="progress-caption">પઢને કી પ્રગતિ</span>
+                    <span class="progress-count-pill" id="progressText">૦ / ૧૨</span>
+                </div>
+                <button type="button" class="hero-reset-btn" id="resetAllBtn" aria-label="તમામ પ્રગતિ રીસેટ કરેં">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/>
+                        <path d="M3 3v5h5"/>
                     </svg>
-                </div>
-
-                <!-- Ultra-Stylish Royal Gujarati Display Heading -->
-                <h1 class="royal-heading">ફાતિહા કા તરીકા</h1>
-
-                <!-- Ornamental Diamond-Tapered Gold Divider Ribbon -->
-                <div class="hero-ribbon-divider" aria-hidden="true">
-                    <svg width="236" height="18" viewBox="0 0 236 18" fill="none">
-                        <path d="M6 9 Q54 7.5 100 9 Q54 10.5 6 9 Z" fill="currentColor" opacity="0.72"/>
-                        <path d="M230 9 Q182 7.5 136 9 Q182 10.5 230 9 Z" fill="currentColor" opacity="0.72"/>
-                        <polygon points="118,2 125,9 118,16 111,9" fill="currentColor"/>
-                        <polygon points="103,5.5 106.5,9 103,12.5 99.5,9" fill="currentColor" opacity="0.82"/>
-                        <polygon points="133,5.5 136.5,9 133,12.5 129.5,9" fill="currentColor" opacity="0.82"/>
-                    </svg>
-                </div>
-
-                <!-- Sleek Compact Reading Progress Bar Inside Bottom of Hero Card -->
-                <div class="hero-progress-box">
-                    <div class="progress-top-row">
-                        <div class="progress-meta">
-                            <span class="progress-caption">પઢને કી પ્રગતિ</span>
-                            <span class="progress-count-pill" id="progressText">૦ / ૧૨</span>
-                        </div>
-                        <button type="button" class="hero-reset-btn" id="resetAllBtn" aria-label="તમામ પ્રગતિ રીસેટ કરેં">
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/>
-                                <path d="M3 3v5h5"/>
-                            </svg>
-                            <span>રીસેટ</span>
-                        </button>
-                    </div>
-                    <div class="progress-track" aria-hidden="true">
-                        <div class="progress-fill" id="progressBarFill"></div>
-                    </div>
-                </div>
+                    <span>રીસેટ</span>
+                </button>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill" id="progressBarFill"></div>
             </div>
         </section>
 
@@ -1572,7 +2158,58 @@
             }
 
             /* -----------------------------------------------------------------
-               2. 100% HAND-CODED INLINE SVG ICON LIBRARY
+               2. 5 ROYAL FULL-PAGE WALL & MEHRAB SVG THEME PALETTES
+               ----------------------------------------------------------------- */
+            const MEHRAB_THEMES = {
+                obsidian: {
+                    wallStopsLight: ['#2B2B2B', '#191919', '#0B0B0B'],
+                    wallStopsDark: ['#1E1E1E', '#111111', '#070707'],
+                    wallShadow: '#080808',
+                    wallHighlight: '#3B3B3B',
+                    cavityStops: ['#14100A', '#060503'],
+                    tileStops: ['#FFE17D', '#E6A31E', '#FFF2AA', '#B5720A'],
+                    rimStops: ['#AD6D09', '#F2BF38', '#FFF0A0', '#D49215', '#FFE37A', '#C98610', '#875003']
+                },
+                emerald: {
+                    wallStopsLight: ['#146E46', '#083D26', '#031C11'],
+                    wallStopsDark: ['#0C4A2E', '#052718', '#02120B'],
+                    wallShadow: '#02120B',
+                    wallHighlight: '#249964',
+                    cavityStops: ['#082417', '#020E08'],
+                    tileStops: ['#FFF0A6', '#E8B025', '#FFF7C2', '#B3770B'],
+                    rimStops: ['#B5770A', '#F6C844', '#FFF5B8', '#DC9A18', '#FFE885', '#CE8E12', '#8A5504']
+                },
+                sapphire: {
+                    wallStopsLight: ['#1C407D', '#0F254D', '#050F24'],
+                    wallStopsDark: ['#122B59', '#091836', '#030A1A'],
+                    wallShadow: '#030817',
+                    wallHighlight: '#3669BD',
+                    cavityStops: ['#091733', '#030917'],
+                    tileStops: ['#FFF2C2', '#E2B64D', '#FFF9DF', '#A37920'],
+                    rimStops: ['#9E751E', '#EBC15D', '#FFF7D1', '#CC9D33', '#F9DC8A', '#BA8C27', '#7A560F']
+                },
+                ruby: {
+                    wallStopsLight: ['#6B1B2E', '#3D0C19', '#1A040A'],
+                    wallStopsDark: ['#4A101F', '#290710', '#120206'],
+                    wallShadow: '#120206',
+                    wallHighlight: '#9E324C',
+                    cavityStops: ['#290811', '#120307'],
+                    tileStops: ['#FFE596', '#E5A22E', '#FFF0BD', '#AE6B12'],
+                    rimStops: ['#A8640E', '#F0B943', '#FFF0B0', '#D48E1D', '#FFE087', '#C47F16', '#804905']
+                },
+                amethyst: {
+                    wallStopsLight: ['#4F237A', '#2B1147', '#120621'],
+                    wallStopsDark: ['#361557', '#1D0A33', '#0B0317'],
+                    wallShadow: '#0B0317',
+                    wallHighlight: '#7D42B8',
+                    cavityStops: ['#1F0C36', '#0D0417'],
+                    tileStops: ['#FFEAA3', '#E8AE30', '#FFF5C9', '#B07410'],
+                    rimStops: ['#AB6E0E', '#F2C046', '#FFF4BA', '#D6951C', '#FFE48C', '#C78714', '#824E06']
+                }
+            };
+
+            /* -----------------------------------------------------------------
+               3. 100% HAND-CODED INLINE SVG ICON LIBRARY
                ----------------------------------------------------------------- */
             const SVG_ICONS = {
                 sun: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="4.9" y1="4.9" x2="6.7" y2="6.7"/><line x1="17.3" y1="17.3" x2="19.1" y2="19.1"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="4.9" y1="19.1" x2="6.7" y2="17.3"/><line x1="17.3" y1="6.7" x2="19.1" y2="4.9"/></svg>',
@@ -1599,7 +2236,7 @@
             };
 
             /* -----------------------------------------------------------------
-               3. ALL 12 FATIHA STEPS — 100% VERBATIM PRESERVED TEXT
+               4. ALL 12 FATIHA STEPS — 100% VERBATIM PRESERVED TEXT
                ----------------------------------------------------------------- */
             const FATIHA_STEPS = [
                 {
@@ -1720,7 +2357,7 @@
             ];
 
             /* -----------------------------------------------------------------
-               4. SAFE LOCALSTORAGE STATE MANAGEMENT (IFRAME-SAFE)
+               5. SAFE LOCALSTORAGE STATE MANAGEMENT (IFRAME-SAFE)
                ----------------------------------------------------------------- */
             const STORAGE_KEY = 'fatiha_royal_mobile_v3';
             const MIN_SCALE = 0.85;
@@ -1745,13 +2382,16 @@
             }
 
             function loadState() {
-                const defaults = { theme: 'light', fontScale: 1, counts: {} };
+                const defaults = { theme: 'light', mehrabTheme: 'obsidian', fontScale: 1, counts: {} };
                 try {
                     const raw = safeStorageGet(STORAGE_KEY);
                     if (!raw) return defaults;
                     const parsed = JSON.parse(raw);
                     return {
                         theme: parsed && parsed.theme === 'dark' ? 'dark' : 'light',
+                        mehrabTheme: parsed && parsed.mehrabTheme && MEHRAB_THEMES[parsed.mehrabTheme]
+                            ? parsed.mehrabTheme
+                            : 'obsidian',
                         fontScale: parsed && typeof parsed.fontScale === 'number'
                             ? Math.min(MAX_SCALE, Math.max(MIN_SCALE, parsed.fontScale))
                             : 1,
@@ -1783,7 +2423,73 @@
             }
 
             /* -----------------------------------------------------------------
-               5. TOAST NOTIFICATION & SAFE CLIPBOARD COPY HELPER
+               6. FULL-PAGE WALL + MEHRAB + WEBSITE 5-THEME ENGINE
+               ----------------------------------------------------------------- */
+            const pageWallStopsEls = document.querySelectorAll('#pageWallBg stop');
+            const pageWallShadowEl = document.getElementById('pageWallShadow');
+            const pageWallHighlightEl = document.getElementById('pageWallHighlight');
+
+            const cavityStopsEls = document.querySelectorAll('#spandrelCavity stop');
+            const tileStopsEls = document.querySelectorAll('#goldTileGrad stop');
+            const rimStopsEls = document.querySelectorAll('#goldRimMain stop');
+
+            const mehrabDotsWrap = document.getElementById('mehrabThemeDots');
+            const mehrabDotBtns = document.querySelectorAll('.mehrab-dot');
+
+            function setGradientStops(stopNodes, colors) {
+                stopNodes.forEach((node, index) => {
+                    if (colors[index]) {
+                        node.setAttribute('stop-color', colors[index]);
+                    }
+                });
+            }
+
+            function applyWebsitePalette(themeKey) {
+                const safeKey = MEHRAB_THEMES[themeKey] ? themeKey : 'obsidian';
+                const palette = MEHRAB_THEMES[safeKey];
+
+                /* Apply palette across ALL CSS tokens (Light + Dark modes) */
+                document.documentElement.setAttribute('data-palette', safeKey);
+
+                /* Sync Full-Page Wall Gradient & Embossed Geometric Grid Pattern */
+                const activeWallStops = state.theme === 'dark'
+                    ? palette.wallStopsDark
+                    : palette.wallStopsLight;
+                setGradientStops(pageWallStopsEls, activeWallStops);
+                if (pageWallShadowEl) pageWallShadowEl.setAttribute('stroke', palette.wallShadow);
+                if (pageWallHighlightEl) pageWallHighlightEl.setAttribute('stroke', palette.wallHighlight);
+
+                /* Sync Mehrab 3D Golden Jali & Rim Gradients */
+                setGradientStops(cavityStopsEls, palette.cavityStops);
+                setGradientStops(tileStopsEls, palette.tileStops);
+                setGradientStops(rimStopsEls, palette.rimStops);
+
+                mehrabDotBtns.forEach((btn) => {
+                    const isActive = btn.dataset.mehrabTheme === safeKey;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
+                });
+            }
+
+            if (mehrabDotsWrap) {
+                mehrabDotsWrap.addEventListener('click', (event) => {
+                    const btn = event.target.closest('.mehrab-dot');
+                    if (!btn) return;
+                    const selected = btn.dataset.mehrabTheme;
+                    if (!selected || !MEHRAB_THEMES[selected]) return;
+
+                    state.mehrabTheme = selected;
+                    applyWebsitePalette(selected);
+                    saveState();
+
+                    if (navigator.vibrate) {
+                        try { navigator.vibrate(10); } catch (err) { /* ignore */ }
+                    }
+                });
+            }
+
+            /* -----------------------------------------------------------------
+               7. TOAST NOTIFICATION & SAFE CLIPBOARD COPY HELPER
                ----------------------------------------------------------------- */
             const toastWrap = document.getElementById('toastWrap');
 
@@ -1843,7 +2549,7 @@
             }
 
             /* -----------------------------------------------------------------
-               6. THEME & READING FONT SCALE CONTROLS
+               8. LIGHT/DARK THEME & READING FONT SCALE CONTROLS
                ----------------------------------------------------------------- */
             const themeIconSlot = document.getElementById('themeIconSlot');
 
@@ -1852,6 +2558,7 @@
                 if (themeIconSlot) {
                     themeIconSlot.innerHTML = state.theme === 'dark' ? SVG_ICONS.sun : SVG_ICONS.moon;
                 }
+                applyWebsitePalette(state.mehrabTheme);
             }
 
             function applyFontScale() {
@@ -1884,7 +2591,7 @@
             document.getElementById('focusFontInc').addEventListener('click', () => adjustFont(0.1));
 
             /* -----------------------------------------------------------------
-               7. RENDER 12 CARDS & INTERACTIVE COMPLETION TRACKER
+               9. RENDER 12 CARDS & INTERACTIVE COMPLETION TRACKER
                ----------------------------------------------------------------- */
             const cardsStack = document.getElementById('cardsStack');
             const progressText = document.getElementById('progressText');
@@ -2044,7 +2751,7 @@
             }
 
             /* -----------------------------------------------------------------
-               8. SCROLL BODY LOCK HELPER
+               10. SCROLL BODY LOCK HELPER
                ----------------------------------------------------------------- */
             function updateBodyScrollLock() {
                 const anyOpen =
@@ -2055,7 +2762,7 @@
             }
 
             /* -----------------------------------------------------------------
-               9. QUICK INDEX BOTTOM SHEET (તમામ સૂરતેં ઔર દુઆએં)
+               11. QUICK INDEX BOTTOM SHEET (તમામ સૂરતેં ઔર દુઆએં)
                ----------------------------------------------------------------- */
             const indexSheetOverlay = document.getElementById('indexSheetOverlay');
             const indexSheetList = document.getElementById('indexSheetList');
@@ -2112,7 +2819,7 @@
             });
 
             /* -----------------------------------------------------------------
-               10. FULL-SCREEN FOCUS READER MODAL
+               12. FULL-SCREEN FOCUS READER MODAL
                ----------------------------------------------------------------- */
             const focusOverlay = document.getElementById('focusOverlay');
             const focusStepLabel = document.getElementById('focusStepLabel');
@@ -2185,7 +2892,7 @@
             });
 
             /* -----------------------------------------------------------------
-               11. IN-APP CONFIRMATION MODAL FOR RESETTING PROGRESS
+               13. IN-APP CONFIRMATION MODAL FOR RESETTING PROGRESS
                ----------------------------------------------------------------- */
             const confirmOverlay = document.getElementById('confirmOverlay');
 
@@ -2234,7 +2941,7 @@
             });
 
             /* -----------------------------------------------------------------
-               12. INITIALIZE APPLICATION
+               14. INITIALIZE APPLICATION
                ----------------------------------------------------------------- */
             applyTheme();
             applyFontScale();
