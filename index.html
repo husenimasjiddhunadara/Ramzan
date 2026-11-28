@@ -14,94 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* ─── THEME SECTION: THODU NANU ANE MEHRAB THI NICHE ─── */
-        .theme-dock-wrap {
-            margin: clamp(44px, 7.5vw, 98px) auto 8px auto;
-        }
-
-        .theme-dock-capsule {
-            height: 31px;
-            gap: 5px;
-            padding: 3px 6px;
-        }
-
-        .theme-jewel-btn {
-            height: 23px;
-            min-width: 23px;
-            font-size: 0.65rem;
-        }
-
-        .theme-jewel-btn.active {
-            gap: 5px;
-            padding: 2px 9px 2px 3px;
-        }
-
-        .theme-jewel-orb {
-            width: 19px;
-            height: 19px;
-            border-width: 1.5px;
-        }
-
-        .theme-jewel-btn.active .theme-jewel-orb {
-            width: 16px;
-            height: 16px;
-        }
-
-        .header-content {
-            padding-top: 2px;
-        }
-
-        @media (max-width: 360px) {
-            .theme-dock-wrap {
-                margin: 42px auto 6px auto;
-            }
-            .theme-dock-capsule {
-                height: 29px;
-                gap: 4px;
-                padding: 3px 5px;
-            }
-            .theme-jewel-btn {
-                height: 21px;
-                min-width: 21px;
-                font-size: 0.6rem;
-            }
-            .theme-jewel-btn.active {
-                gap: 4px;
-                padding: 2px 7px 2px 2px;
-            }
-            .theme-jewel-orb {
-                width: 17px;
-                height: 17px;
-            }
-            .theme-jewel-btn.active .theme-jewel-orb {
-                width: 15px;
-                height: 15px;
-            }
-        }
-
-        @media (min-width: 640px) {
-            .theme-dock-capsule {
-                height: 33px;
-                gap: 6px;
-                padding: 3px 7px;
-            }
-            .theme-jewel-btn {
-                height: 25px;
-                min-width: 25px;
-                font-size: 0.68rem;
-            }
-            .theme-jewel-btn.active {
-                padding: 2px 10px 2px 3px;
-            }
-            .theme-jewel-orb {
-                width: 20px;
-                height: 20px;
-            }
-            .theme-jewel-btn.active .theme-jewel-orb {
-                width: 17px;
-                height: 17px;
-            }
-        }
         /* ==============================================================
            HUSSAINI MASJID 3D LUXURY ISLAMIC DESIGN SYSTEM (2027)
            Mobile-First Royal Mehrab Header | 5 Luxury Themes | 3D SVGs
@@ -727,14 +639,17 @@
             50%      { opacity: 0.85; }
         }
 
-        /* ─── 1A. ULTRA-SLEEK SINGLE-ROW LUXURY THEME JEWEL DOCK ─── */
+        /* ─── 1A. COMPACT LUXURY THEME JEWEL DOCK (UNDER MEHRAB ARCH, ABOVE HEADING) ─── */
         .theme-dock-wrap {
             position: relative;
             z-index: 6;
             width: 100%;
             display: flex;
             justify-content: center;
-            margin: 0 auto 16px auto;
+            margin-top: clamp(52px, 9.2vw, 165px);
+            margin-right: auto;
+            margin-bottom: 8px;
+            margin-left: auto;
         }
 
         .theme-dock-capsule {
@@ -742,9 +657,9 @@
             align-items: center;
             justify-content: center;
             flex-wrap: nowrap;
-            gap: 6px;
-            height: 38px;
-            padding: 4px 7px;
+            gap: 5px;
+            height: 30px;
+            padding: 3px 6px;
             border-radius: var(--radius-pill);
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(10, 6, 10, 0.64) 100%);
             border: 1px solid var(--border-accent);
@@ -763,15 +678,15 @@
             align-items: center;
             justify-content: center;
             gap: 0;
-            height: 28px;
-            min-width: 28px;
+            height: 22px;
+            min-width: 22px;
             padding: 2px;
             border-radius: var(--radius-pill);
             border: 1px solid transparent;
             background: transparent;
             color: var(--brand-950);
             font-family: 'Outfit', 'Anek Gujarati', sans-serif;
-            font-size: 0.72rem;
+            font-size: 0.64rem;
             font-weight: 800;
             letter-spacing: 0.15px;
             cursor: pointer;
@@ -781,8 +696,8 @@
 
         /* Active Theme Expanded Sleek Gold Pill */
         .theme-jewel-btn.active {
-            gap: 6px;
-            padding: 2px 11px 2px 3px;
+            gap: 5px;
+            padding: 2px 9px 2px 3px;
             background: linear-gradient(180deg, var(--accent-100) 0%, var(--accent-400) 48%, var(--accent-500) 100%);
             border-color: rgba(255, 253, 240, 0.92);
             box-shadow:
@@ -791,15 +706,15 @@
                 0 3px 10px rgba(0, 0, 0, 0.35);
         }
 
-        /* Gleaming 3D Circular Theme Jewel Dot (24px) */
+        /* Gleaming 3D Circular Theme Jewel Dot (Compact 18px) */
         .theme-jewel-orb {
-            width: 24px;
-            height: 24px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             display: block;
             flex-shrink: 0;
             position: relative;
-            border: 1.75px solid var(--accent-400);
+            border: 1.5px solid var(--accent-400);
             box-shadow:
                 inset 0 2px 3px rgba(255, 255, 255, 0.55),
                 inset 0 -2px 3px rgba(0, 0, 0, 0.45),
@@ -807,9 +722,9 @@
         }
 
         .theme-jewel-btn.active .theme-jewel-orb {
-            width: 20px;
-            height: 20px;
-            border: 1.5px solid #FFFFFF;
+            width: 15px;
+            height: 15px;
+            border: 1.4px solid #FFFFFF;
             box-shadow:
                 inset 0 1.5px 2px rgba(255, 255, 255, 0.65),
                 0 1px 3px rgba(0, 0, 0, 0.32);
@@ -838,7 +753,7 @@
             max-width: 780px;
             margin: 0 auto;
             width: 100%;
-            padding-top: clamp(14px, 4.8vw, 72px);
+            padding-top: 2px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1585,27 +1500,31 @@
             .header-mehrab-svg {
                 min-height: 148px;
             }
+            .theme-dock-wrap {
+                margin-top: 48px;
+                margin-bottom: 6px;
+            }
             .theme-dock-capsule {
-                height: 36px;
+                height: 28px;
                 gap: 4px;
-                padding: 3px 6px;
+                padding: 2px 5px;
             }
             .theme-jewel-btn {
-                height: 26px;
-                min-width: 26px;
-                font-size: 0.66rem;
+                height: 20px;
+                min-width: 20px;
+                font-size: 0.6rem;
             }
             .theme-jewel-btn.active {
-                gap: 5px;
-                padding: 2px 9px 2px 3px;
+                gap: 4px;
+                padding: 2px 8px 2px 2px;
             }
             .theme-jewel-orb {
-                width: 22px;
-                height: 22px;
+                width: 16px;
+                height: 16px;
             }
             .theme-jewel-btn.active .theme-jewel-orb {
-                width: 18px;
-                height: 18px;
+                width: 14px;
+                height: 14px;
             }
             .live-status-container {
                 gap: 9px;
@@ -1644,23 +1563,33 @@
             }
 
             .theme-dock-wrap {
-                margin-bottom: 18px;
+                margin-bottom: 10px;
             }
 
             .theme-dock-capsule {
-                height: 40px;
-                gap: 8px;
-                padding: 4px 9px;
+                height: 32px;
+                gap: 6px;
+                padding: 3px 7px;
             }
 
             .theme-jewel-btn {
-                height: 30px;
-                min-width: 30px;
-                font-size: 0.76rem;
+                height: 24px;
+                min-width: 24px;
+                font-size: 0.68rem;
             }
 
             .theme-jewel-btn.active {
-                padding: 2px 13px 2px 4px;
+                padding: 2px 10px 2px 3px;
+            }
+
+            .theme-jewel-orb {
+                width: 19px;
+                height: 19px;
+            }
+
+            .theme-jewel-btn.active .theme-jewel-orb {
+                width: 16px;
+                height: 16px;
             }
 
             .mandala-tl { width: 150px; height: 150px; top: 32%; left: -46px; opacity: 0.25; }
@@ -2082,7 +2011,7 @@
             <span class="sparkle-dot" style="top: 76%; left: 30%; width: 2.8px; height: 2.8px; animation-delay: 0.9s;"></span>
         </div>
 
-        <!-- Ultra-Sleek Single-Row Frosted-Glass Luxury Theme Capsule (5 Jewel Dots, Active Expands) -->
+        <!-- Compact Single-Row Luxury Theme Capsule (Under Mehrab Arch, Above Main Heading) -->
         <div class="theme-dock-wrap">
             <div class="theme-dock-capsule" role="group" aria-label="Top 5 Luxury Themes">
                 <button type="button" class="theme-jewel-btn active" data-theme-btn="maroon" aria-pressed="true" aria-label="Royal Maroon theme" title="Royal Maroon">
