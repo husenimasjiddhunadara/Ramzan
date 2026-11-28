@@ -16,7 +16,7 @@
     <style>
         /* ==============================================================
            HUSSAINI MASJID 3D LUXURY ISLAMIC DESIGN SYSTEM (2027)
-           Mobile-First Royal Header | 5 Luxury Themes | Studio 3D SVGs
+           Mobile-First Royal Mehrab Header | 5 Luxury Themes | 3D SVGs
            Pure HTML/CSS/Vanilla JS | Zero Hover/Touch Animations
            ============================================================== */
 
@@ -449,15 +449,15 @@
         }
 
         /* ==============================================================
-           1. REDESIGNED MOBILE-FIRST ROYAL HEADER
+           1. MOBILE-FIRST ROYAL HEADER WITH 3D THEME-ADAPTIVE MEHRAB
            ============================================================== */
         header {
             position: relative;
             isolation: isolate;
             background:
-                radial-gradient(ellipse 80% 56% at 50% 12%, var(--glow-top), transparent 64%),
+                radial-gradient(ellipse 80% 56% at 50% 18%, var(--glow-top), transparent 64%),
                 linear-gradient(165deg, var(--brand-950) 0%, var(--brand-900) 36%, var(--brand-800) 72%, var(--brand-700) 100%);
-            padding: 18px 16px 76px 16px;
+            padding: 16px 16px 78px 16px;
             text-align: center;
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
@@ -492,10 +492,10 @@
             background: linear-gradient(90deg, transparent, var(--accent-200), transparent);
             opacity: 0.72;
             pointer-events: none;
-            z-index: 3;
+            z-index: 4;
         }
 
-        /* ─── 6 ROTATING GOLDEN MANDALAS (SEPARATED POSITION + ROTATION LAYERS) ─── */
+        /* ─── 6 ROTATING GOLDEN MANDALAS (REPOSITIONED CLEAR OF TOP MEHRAB) ─── */
         .header-mandala-stage {
             position: absolute;
             inset: 0;
@@ -508,9 +508,28 @@
         .header-vignette {
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 68% 62% at 50% 50%, var(--vignette-core) 0%, rgba(0, 0, 0, 0.25) 58%, transparent 100%);
+            background: radial-gradient(ellipse 68% 60% at 50% 56%, var(--vignette-core) 0%, rgba(0, 0, 0, 0.25) 60%, transparent 100%);
             pointer-events: none;
             z-index: 2;
+        }
+
+        /* 3D Golden Islamic Scalloped Mehrab Layer */
+        .header-mehrab-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .header-mehrab-svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            min-height: 162px;
         }
 
         /* Outer Positioning Wrapper — NEVER rotated directly */
@@ -547,53 +566,53 @@
             filter: brightness(1.18) contrast(1.12);
         }
 
-        /* Mobile-First Mandala Edge Framing (Clean Open Center for Big Heading) */
+        /* Mobile-First Mandala Placement (Tucked on Sides & Bottom Corners Away from Mehrab) */
         .mandala-tl {
-            width: 174px;
-            height: 174px;
-            top: -66px;
-            left: -62px;
-            opacity: 0.44;
-        }
-
-        .mandala-br {
-            width: 186px;
-            height: 186px;
-            bottom: -70px;
-            right: -64px;
-            opacity: 0.48;
+            width: 112px;
+            height: 112px;
+            top: 30%;
+            left: -46px;
+            opacity: 0.24;
         }
 
         .mandala-tr {
             width: 112px;
             height: 112px;
-            top: -36px;
-            right: -34px;
-            opacity: 0.36;
-        }
-
-        .mandala-bl {
-            width: 110px;
-            height: 110px;
-            bottom: -36px;
-            left: -34px;
-            opacity: 0.36;
+            top: 30%;
+            right: -46px;
+            opacity: 0.24;
         }
 
         .mandala-ml {
-            width: 68px;
-            height: 68px;
-            top: 46%;
-            left: -24px;
-            opacity: 0.3;
+            width: 66px;
+            height: 66px;
+            top: 60%;
+            left: -22px;
+            opacity: 0.28;
         }
 
         .mandala-mr {
-            width: 72px;
-            height: 72px;
-            top: 40%;
-            right: -26px;
-            opacity: 0.3;
+            width: 68px;
+            height: 68px;
+            top: 58%;
+            right: -24px;
+            opacity: 0.28;
+        }
+
+        .mandala-bl {
+            width: 144px;
+            height: 144px;
+            bottom: -56px;
+            left: -48px;
+            opacity: 0.38;
+        }
+
+        .mandala-br {
+            width: 168px;
+            height: 168px;
+            bottom: -64px;
+            right: -54px;
+            opacity: 0.42;
         }
 
         /* ─── SUBTLE FLOATING GOLDEN SPARKLE DOTS ─── */
@@ -602,7 +621,7 @@
             inset: 0;
             overflow: hidden;
             pointer-events: none;
-            z-index: 2;
+            z-index: 4;
         }
 
         .sparkle-dot {
@@ -623,11 +642,11 @@
         /* ─── 1A. ULTRA-SLEEK SINGLE-ROW LUXURY THEME JEWEL DOCK ─── */
         .theme-dock-wrap {
             position: relative;
-            z-index: 4;
+            z-index: 6;
             width: 100%;
             display: flex;
             justify-content: center;
-            margin: 0 auto 18px auto;
+            margin: 0 auto 16px auto;
         }
 
         .theme-dock-capsule {
@@ -639,14 +658,14 @@
             height: 38px;
             padding: 4px 7px;
             border-radius: var(--radius-pill);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(10, 6, 10, 0.58) 100%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(10, 6, 10, 0.64) 100%);
             border: 1px solid var(--border-accent);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 0.22),
                 inset 0 -1px 0 rgba(0, 0, 0, 0.35),
-                0 4px 14px rgba(0, 0, 0, 0.34);
+                0 4px 14px rgba(0, 0, 0, 0.38);
             max-width: 100%;
             overflow: hidden;
         }
@@ -676,7 +695,7 @@
         .theme-jewel-btn.active {
             gap: 6px;
             padding: 2px 11px 2px 3px;
-            background: linear-gradient(180deg, #FFF5C8 0%, var(--accent-400) 48%, var(--accent-500) 100%);
+            background: linear-gradient(180deg, var(--accent-100) 0%, var(--accent-400) 48%, var(--accent-500) 100%);
             border-color: rgba(255, 253, 240, 0.92);
             box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 0.92),
@@ -727,29 +746,30 @@
         /* ─── 1B. GRAND, BIG, RAZOR-SHARP GUJARATI HEADING CENTERPIECE ─── */
         .header-content {
             position: relative;
-            z-index: 4;
+            z-index: 5;
             max-width: 780px;
             margin: 0 auto;
             width: 100%;
+            padding-top: clamp(14px, 4.8vw, 72px);
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .royal-3d-heading {
-            font-size: clamp(2.15rem, 8.6vw, 3.85rem);
+            font-size: clamp(2.05rem, 8.2vw, 3.75rem);
             font-weight: 800;
-            line-height: 1.32;
+            line-height: 1.38;
             text-wrap: balance;
             display: inline-block;
             max-width: 100%;
-            padding: 8px 4px;
+            padding: 10px 6px 6px 6px;
             letter-spacing: 0.15px;
-            background: linear-gradient(180deg, #FFF6D1 0%, #F5D67B 36%, #FFFFFF 54%, #E2B84A 100%);
+            background: linear-gradient(180deg, var(--accent-100) 0%, var(--accent-400) 36%, #FFFFFF 54%, var(--accent-500) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.55));
             overflow: visible;
         }
 
@@ -783,14 +803,14 @@
         }
 
         .subtitle {
-            font-size: clamp(1.3rem, 5.2vw, 2.15rem);
+            font-size: clamp(1.26rem, 5vw, 2.1rem);
             color: var(--accent-200);
             font-weight: 700;
             letter-spacing: 0.6px;
             line-height: 1.38;
             padding: 2px 4px;
             margin-bottom: 14px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.48);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
         }
 
         /* ─── 1C. REFINED, PROPORTIONAL, COMPACT BADGES ─── */
@@ -811,7 +831,7 @@
             max-width: 92%;
             padding: 6px 14px;
             border-radius: var(--radius-pill);
-            background: rgba(12, 5, 8, 0.44);
+            background: rgba(12, 5, 8, 0.48);
             border: 1px solid var(--border-accent);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -841,8 +861,8 @@
             max-width: 92%;
             padding: 4px 13px;
             border-radius: var(--radius-pill);
-            background: linear-gradient(180deg, rgba(234, 201, 97, 0.18) 0%, rgba(18, 8, 12, 0.48) 100%);
-            border: 1px solid rgba(234, 201, 97, 0.62);
+            background: linear-gradient(180deg, var(--accent-tint) 0%, rgba(18, 8, 12, 0.52) 100%);
+            border: 1px solid var(--border-accent);
             color: var(--accent-200);
             font-family: 'Outfit', sans-serif;
             font-size: 0.68rem;
@@ -1472,7 +1492,10 @@
            ============================================================== */
         @media (max-width: 360px) {
             header {
-                padding: 16px 12px 72px 12px;
+                padding: 14px 12px 72px 12px;
+            }
+            .header-mehrab-svg {
+                min-height: 148px;
             }
             .theme-dock-capsule {
                 height: 36px;
@@ -1527,13 +1550,13 @@
         /* Tablet (>= 640px) */
         @media (min-width: 640px) {
             header {
-                padding: 22px 24px 90px 24px;
+                padding: 20px 24px 92px 24px;
                 border-bottom-left-radius: 40px;
                 border-bottom-right-radius: 40px;
             }
 
             .theme-dock-wrap {
-                margin-bottom: 22px;
+                margin-bottom: 18px;
             }
 
             .theme-dock-capsule {
@@ -1552,12 +1575,12 @@
                 padding: 2px 13px 2px 4px;
             }
 
-            .mandala-tl { width: 256px; height: 256px; top: -88px; left: -86px; opacity: 0.48; }
-            .mandala-br { width: 274px; height: 274px; bottom: -96px; right: -90px; opacity: 0.5; }
-            .mandala-tr { width: 164px; height: 164px; top: -44px; right: -42px; opacity: 0.4; }
-            .mandala-bl { width: 158px; height: 158px; bottom: -44px; left: -40px; opacity: 0.38; }
-            .mandala-ml { width: 96px; height: 96px; top: 44%; left: 2%; opacity: 0.34; }
-            .mandala-mr { width: 102px; height: 102px; top: 38%; right: 2%; opacity: 0.34; }
+            .mandala-tl { width: 150px; height: 150px; top: 32%; left: -46px; opacity: 0.25; }
+            .mandala-tr { width: 150px; height: 150px; top: 32%; right: -46px; opacity: 0.25; }
+            .mandala-ml { width: 88px; height: 88px; top: 58%; left: 1.5%; opacity: 0.3; }
+            .mandala-mr { width: 92px; height: 92px; top: 56%; right: 1.5%; opacity: 0.3; }
+            .mandala-bl { width: 196px; height: 196px; bottom: -68px; left: -56px; opacity: 0.4; }
+            .mandala-br { width: 224px; height: 224px; bottom: -78px; right: -64px; opacity: 0.44; }
 
             .live-status-container {
                 gap: 16px;
@@ -1619,17 +1642,17 @@
         /* Desktop (>= 860px) */
         @media (min-width: 860px) {
             header {
-                padding: 26px 24px 96px 24px;
+                padding: 24px 24px 104px 24px;
                 border-bottom-left-radius: 48px;
                 border-bottom-right-radius: 48px;
             }
 
-            .mandala-tl { width: 320px; height: 320px; top: -108px; left: -104px; opacity: 0.5; }
-            .mandala-br { width: 340px; height: 340px; bottom: -116px; right: -106px; opacity: 0.52; }
-            .mandala-tr { width: 206px; height: 206px; top: -52px; right: -48px; opacity: 0.42; }
-            .mandala-bl { width: 194px; height: 194px; bottom: -50px; left: -46px; opacity: 0.4; }
-            .mandala-ml { width: 112px; height: 112px; left: 4%; opacity: 0.36; }
-            .mandala-mr { width: 118px; height: 118px; right: 4%; opacity: 0.36; }
+            .mandala-tl { width: 176px; height: 176px; top: 34%; left: -46px; opacity: 0.25; }
+            .mandala-tr { width: 176px; height: 176px; top: 34%; right: -46px; opacity: 0.25; }
+            .mandala-ml { width: 104px; height: 104px; top: 56%; left: 3%; opacity: 0.32; }
+            .mandala-mr { width: 108px; height: 108px; top: 54%; right: 3%; opacity: 0.32; }
+            .mandala-bl { width: 228px; height: 228px; bottom: -82px; left: -62px; opacity: 0.42; }
+            .mandala-br { width: 260px; height: 260px; bottom: -92px; right: -70px; opacity: 0.46; }
 
             .live-status-container {
                 grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1694,7 +1717,6 @@
 
             <!-- Single 45-Degree Ornate Islamic Mandala Sector (Repeated 8x around 360deg) -->
             <g id="mandala-lobe-segment">
-                <!-- 4 Outer Scalloped Lotus Petals with Inner Gold Pearls (32 Petals Total) -->
                 <g transform="rotate(-16.875 200 200)">
                     <path d="M192.2 23 Q200 3.5 207.8 23 Z" fill="none" stroke="url(#royalMandalaGold)" stroke-width="2.2" stroke-linejoin="round"/>
                     <circle cx="200" cy="18.6" r="2.8" fill="url(#royalMandalaGold)"/>
@@ -1712,40 +1734,32 @@
                     <circle cx="200" cy="18.6" r="2.8" fill="url(#royalMandalaGold)"/>
                 </g>
 
-                <!-- Bold Double 8-Lobed Outer Scalloped Arch Ribbon -->
                 <path d="M133.5 45.5 Q200 7.5 266.5 45.5" fill="none" stroke="url(#royalMandalaGold)" stroke-width="4.6" stroke-linecap="round"/>
                 <path d="M138.5 53.5 Q200 20.5 261.5 53.5" fill="none" stroke="url(#royalMandalaGold)" stroke-width="2.3" stroke-linecap="round"/>
 
-                <!-- Ornate Swirling Filigree Scrollwork Band -->
                 <path d="M157 61.5 C164 39.5 185 39.5 190 53 C192 59.5 185 63.5 181 58 C178 54 182 49 186.5 52" fill="none" stroke="url(#royalMandalaGold)" stroke-width="2.2" stroke-linecap="round"/>
                 <path d="M243 61.5 C236 39.5 215 39.5 210 53 C208 59.5 215 63.5 219 58 C222 54 218 49 213.5 52" fill="none" stroke="url(#royalMandalaGold)" stroke-width="2.2" stroke-linecap="round"/>
                 <circle cx="200" cy="42.8" r="3.6" fill="url(#royalMandalaGold)"/>
                 <circle cx="170.5" cy="54" r="2.2" fill="url(#royalMandalaGold)"/>
                 <circle cx="229.5" cy="54" r="2.2" fill="url(#royalMandalaGold)"/>
 
-                <!-- Geometric Zigzag Crown Border -->
                 <path d="M144 82.5 L156 59 L169 78 L184 55 L200 74.5 L216 55 L231 78 L244 59 L256 82.5" fill="none" stroke="url(#royalMandalaGold)" stroke-width="2.5" stroke-linejoin="round"/>
 
-                <!-- Prominent 8-Lobed Floral Arch Ring -->
                 <path d="M145 96.5 Q173 61 200 83 Q227 61 255 96.5" fill="none" stroke="url(#royalMandalaGold)" stroke-width="4.5" stroke-linecap="round"/>
                 <path d="M154 104.5 Q177 75 200 94 Q223 75 246 104.5" fill="none" stroke="url(#royalMandalaGold)" stroke-width="2.2" stroke-linecap="round"/>
 
-                <!-- Concentric Curved Arch Hatching Lines -->
                 <path d="M164 114.5 Q200 97 236 114.5" fill="none" stroke="url(#royalMandalaGold)" stroke-width="1.7" opacity="0.92"/>
                 <path d="M170 124.5 Q200 109 230 124.5" fill="none" stroke="url(#royalMandalaGold)" stroke-width="1.7" opacity="0.92"/>
                 <path d="M176 134.5 Q200 121 224 134.5" fill="none" stroke="url(#royalMandalaGold)" stroke-width="1.7" opacity="0.92"/>
 
-                <!-- Interlocking Inner Geometric Star Tips -->
                 <path d="M174 136 L186 110.5 L200 124 L214 110.5 L226 136" fill="none" stroke="url(#royalMandalaGold)" stroke-width="2" stroke-linejoin="round"/>
 
-                <!-- Radial 8-Pointed Beaded Spoke -->
                 <circle cx="200" cy="110.5" r="3.4" fill="url(#royalMandalaGold)"/>
                 <ellipse cx="200" cy="129" rx="9.2" ry="12.6" fill="none" stroke="url(#royalMandalaGold)" stroke-width="2.4"/>
                 <ellipse cx="200" cy="149.5" rx="7.6" ry="10.4" fill="none" stroke="url(#royalMandalaGold)" stroke-width="2.3"/>
                 <ellipse cx="200" cy="166.5" rx="5.9" ry="8.1" fill="none" stroke="url(#royalMandalaGold)" stroke-width="2.2"/>
                 <line x1="200" y1="116.5" x2="200" y2="174.5" stroke="url(#royalMandalaGold)" stroke-width="1.5" opacity="0.88"/>
 
-                <!-- Central 8-Pointed Star Ray -->
                 <polygon points="200,171 206.5,190 193.5,190" fill="url(#royalMandalaGold)"/>
             </g>
 
@@ -1768,10 +1782,10 @@
     </svg>
 
     <!-- ═════════════════════════════════════════════════════════════════
-         1. REDESIGNED MOBILE-FIRST ROYAL HEADER
+         1. ROYAL MEHRAB HEADER (5-THEME COMPATIBLE + REPOSITIONED MANDALAS)
          ═════════════════════════════════════════════════════════════════ -->
     <header id="royal-header">
-        <!-- 6 Smoothly Rotating Golden Mandalas (Outer Slot + Inner rAF Spinning Layer) -->
+        <!-- 6 Smoothly Rotating Golden Mandalas (Positioned Clear of Top Mehrab) -->
         <div class="header-mandala-stage" aria-hidden="true">
             <div class="mandala-slot mandala-tl">
                 <div class="mandala-spin" data-speed="8.5" data-angle="0">
@@ -1808,15 +1822,175 @@
         <!-- Radial Vignette Behind Center Text so Heading Pops -->
         <div class="header-vignette" aria-hidden="true"></div>
 
+        <!-- 3D Theme-Adaptive Golden Islamic Scalloped Mehrab SVG -->
+        <div class="header-mehrab-layer" aria-hidden="true">
+            <svg class="header-mehrab-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 540" preserveAspectRatio="xMidYMin slice" focusable="false">
+                <defs>
+                    <!-- Recessed Cavity Behind Jali (Adapts to Active Theme Brand Color) -->
+                    <linearGradient id="mehrabSpandrelCavity" x1="0" y1="0" x2="0" y2="540" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#1D0306" style="stop-color: var(--brand-950); stop-opacity: 0.94;"/>
+                        <stop offset="100%" stop-color="#33060B" style="stop-color: var(--brand-900); stop-opacity: 0.88;"/>
+                    </linearGradient>
+
+                    <!-- 3D Metallic Rim Gradients (Adapts to Active Theme Gold / Rose Gold) -->
+                    <linearGradient id="mehrabRimMain" x1="0" y1="0" x2="1440" y2="540" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#6E4F0D" style="stop-color: var(--accent-800);"/>
+                        <stop offset="18%" stop-color="#D4AF37" style="stop-color: var(--accent-500);"/>
+                        <stop offset="36%" stop-color="#FBF0B7" style="stop-color: var(--accent-200);"/>
+                        <stop offset="50%" stop-color="#B38728" style="stop-color: var(--accent-600);"/>
+                        <stop offset="66%" stop-color="#EAC961" style="stop-color: var(--accent-400);"/>
+                        <stop offset="84%" stop-color="#B38728" style="stop-color: var(--accent-600);"/>
+                        <stop offset="100%" stop-color="#6E4F0D" style="stop-color: var(--accent-800);"/>
+                    </linearGradient>
+
+                    <linearGradient id="mehrabRimBevel" x1="0" y1="20" x2="0" y2="500" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#FEF9E2" style="stop-color: var(--accent-100);"/>
+                        <stop offset="30%" stop-color="#EAC961" style="stop-color: var(--accent-400);"/>
+                        <stop offset="70%" stop-color="#B38728" style="stop-color: var(--accent-600);"/>
+                        <stop offset="100%" stop-color="#6E4F0D" style="stop-color: var(--accent-800);"/>
+                    </linearGradient>
+
+                    <linearGradient id="mehrabRimExtrude" x1="0" y1="0" x2="0" y2="540" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#6E4F0D" style="stop-color: var(--accent-800);"/>
+                        <stop offset="55%" stop-color="#1D0306" style="stop-color: var(--brand-950);"/>
+                        <stop offset="100%" stop-color="#0A0404"/>
+                    </linearGradient>
+
+                    <!-- Metallic Surface for 120x120 Islamic Jali Tile -->
+                    <linearGradient id="mehrabTileGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#EAC961" style="stop-color: var(--accent-400);"/>
+                        <stop offset="35%" stop-color="#B38728" style="stop-color: var(--accent-600);"/>
+                        <stop offset="65%" stop-color="#FBF0B7" style="stop-color: var(--accent-200);"/>
+                        <stop offset="100%" stop-color="#6E4F0D" style="stop-color: var(--accent-800);"/>
+                    </linearGradient>
+
+                    <!-- Deep 3D Overhanging Shadow Under Scalloped Mehrab -->
+                    <filter id="mehrabArchShadow" x="-10%" y="-10%" width="120%" height="145%">
+                        <feDropShadow dx="0" dy="18" stdDeviation="10" flood-color="#000000" flood-opacity="0.78"/>
+                        <feDropShadow dx="0" dy="6" stdDeviation="3" flood-color="#000000" flood-opacity="0.7"/>
+                    </filter>
+
+                    <!-- 3D Laser-Cut Theme-Adaptive Islamic Jali Lattice -->
+                    <pattern id="mehrabGoldJali" width="120" height="120" patternUnits="userSpaceOnUse">
+                        <g transform="translate(0, 3.6)" fill="none" stroke="#000000" stroke-width="5.2" stroke-linejoin="round" opacity="0.82">
+                            <path d="M 0 0 L 120 120 M 120 0 L 0 120 M 60 0 L 60 26 M 60 94 L 60 120 M 0 60 L 26 60 M 94 60 L 120 60 M 60 12 L 108 60 L 60 108 L 12 60 Z
+                                     M 94 60 L 76.6 66.9 L 84 84 L 66.9 76.6 L 60 94 L 53.1 76.6 L 36 84 L 43.4 66.9 L 26 60 L 43.4 53.1 L 36 36 L 53.1 43.4 L 60 26 L 66.9 43.4 L 84 36 L 76.6 53.1 Z
+                                     M 48 48 H 72 V 72 H 48 Z M 60 43 L 77 60 L 60 77 L 43 60 Z
+                                     M 38 0 L 60 22 L 82 0 M 48 0 L 60 12 L 72 0
+                                     M 38 120 L 60 98 L 82 120 M 48 120 L 60 108 L 72 120
+                                     M 0 38 L 22 60 L 0 82 M 0 48 L 12 60 L 0 72
+                                     M 120 38 L 98 60 L 120 82 M 120 48 L 108 60 L 120 72
+                                     M 34 0 L 16.6 6.9 L 24 24 L 6.9 16.6 L 0 34 M 0 17 L 17 0 M 12 0 L 12 12 L 0 12
+                                     M 86 0 L 103.4 6.9 L 96 24 L 113.1 16.6 L 120 34 M 120 17 L 103 0 M 108 0 L 108 12 L 120 12
+                                     M 34 120 L 16.6 113.1 L 24 96 L 6.9 103.4 L 0 86 M 0 103 L 17 120 M 12 120 L 12 108 L 0 108
+                                     M 86 120 L 103.4 113.1 L 96 96 L 113.1 103.4 L 120 86 M 120 103 L 103 120 M 108 120 L 108 108 L 120 108"/>
+                        </g>
+                        <g transform="translate(0, 1.8)" fill="none" stroke="#6E4F0D" style="stroke: var(--accent-800);" stroke-width="4.2" stroke-linejoin="round">
+                            <path d="M 0 0 L 120 120 M 120 0 L 0 120 M 60 0 L 60 26 M 60 94 L 60 120 M 0 60 L 26 60 M 94 60 L 120 60 M 60 12 L 108 60 L 60 108 L 12 60 Z
+                                     M 94 60 L 76.6 66.9 L 84 84 L 66.9 76.6 L 60 94 L 53.1 76.6 L 36 84 L 43.4 66.9 L 26 60 L 43.4 53.1 L 36 36 L 53.1 43.4 L 60 26 L 66.9 43.4 L 84 36 L 76.6 53.1 Z
+                                     M 48 48 H 72 V 72 H 48 Z M 60 43 L 77 60 L 60 77 L 43 60 Z
+                                     M 38 0 L 60 22 L 82 0 M 48 0 L 60 12 L 72 0
+                                     M 38 120 L 60 98 L 82 120 M 48 120 L 60 108 L 72 120
+                                     M 0 38 L 22 60 L 0 82 M 0 48 L 12 60 L 0 72
+                                     M 120 38 L 98 60 L 120 82 M 120 48 L 108 60 L 120 72
+                                     M 34 0 L 16.6 6.9 L 24 24 L 6.9 16.6 L 0 34 M 0 17 L 17 0 M 12 0 L 12 12 L 0 12
+                                     M 86 0 L 103.4 6.9 L 96 24 L 113.1 16.6 L 120 34 M 120 17 L 103 0 M 108 0 L 108 12 L 120 12
+                                     M 34 120 L 16.6 113.1 L 24 96 L 6.9 103.4 L 0 86 M 0 103 L 17 120 M 12 120 L 12 108 L 0 108
+                                     M 86 120 L 103.4 113.1 L 96 96 L 113.1 103.4 L 120 86 M 120 103 L 103 120 M 108 120 L 108 108 L 120 108"/>
+                        </g>
+                        <g fill="none" stroke="url(#mehrabTileGrad)" stroke-width="3.2" stroke-linejoin="round">
+                            <path d="M 0 0 L 120 120 M 120 0 L 0 120 M 60 0 L 60 26 M 60 94 L 60 120 M 0 60 L 26 60 M 94 60 L 120 60 M 60 12 L 108 60 L 60 108 L 12 60 Z
+                                     M 94 60 L 76.6 66.9 L 84 84 L 66.9 76.6 L 60 94 L 53.1 76.6 L 36 84 L 43.4 66.9 L 26 60 L 43.4 53.1 L 36 36 L 53.1 43.4 L 60 26 L 66.9 43.4 L 84 36 L 76.6 53.1 Z
+                                     M 48 48 H 72 V 72 H 48 Z M 60 43 L 77 60 L 60 77 L 43 60 Z
+                                     M 38 0 L 60 22 L 82 0 M 48 0 L 60 12 L 72 0
+                                     M 38 120 L 60 98 L 82 120 M 48 120 L 60 108 L 72 120
+                                     M 0 38 L 22 60 L 0 82 M 0 48 L 12 60 L 0 72
+                                     M 120 38 L 98 60 L 120 82 M 120 48 L 108 60 L 120 72
+                                     M 34 0 L 16.6 6.9 L 24 24 L 6.9 16.6 L 0 34 M 0 17 L 17 0 M 12 0 L 12 12 L 0 12
+                                     M 86 0 L 103.4 6.9 L 96 24 L 113.1 16.6 L 120 34 M 120 17 L 103 0 M 108 0 L 108 12 L 120 12
+                                     M 34 120 L 16.6 113.1 L 24 96 L 6.9 103.4 L 0 86 M 0 103 L 17 120 M 12 120 L 12 108 L 0 108
+                                     M 86 120 L 103.4 113.1 L 96 96 L 113.1 103.4 L 120 86 M 120 103 L 103 120 M 108 120 L 108 108 L 120 108"/>
+                            <path stroke-width="1.5" d="M 60 49 Q 63.5 54.5 60 60 Q 56.5 54.5 60 49 Z
+                                                        M 60 71 Q 63.5 65.5 60 60 Q 56.5 65.5 60 71 Z
+                                                        M 49 60 Q 54.5 63.5 60 60 Q 54.5 56.5 49 60 Z
+                                                        M 71 60 Q 65.5 63.5 60 60 Q 65.5 56.5 71 60 Z
+                                                        M 52.2 52.2 Q 57.5 54 60 60 Q 54 57.5 52.2 52.2 Z
+                                                        M 67.8 67.8 Q 62.5 66 60 60 Q 66 62.5 67.8 67.8 Z
+                                                        M 67.8 52.2 Q 66 57.5 60 60 Q 62.5 54 67.8 52.2 Z
+                                                        M 52.2 67.8 Q 54 62.5 60 60 Q 57.5 66 52.2 67.8 Z"/>
+                        </g>
+                        <g transform="translate(0, -0.6)" fill="none" stroke="#FEF9E2" style="stroke: var(--accent-100);" stroke-width="0.8" stroke-linejoin="round" opacity="0.72">
+                            <path d="M 94 60 L 76.6 66.9 L 84 84 L 66.9 76.6 L 60 94 L 53.1 76.6 L 36 84 L 43.4 66.9 L 26 60 L 43.4 53.1 L 36 36 L 53.1 43.4 L 60 26 L 66.9 43.4 L 84 36 L 76.6 53.1 Z
+                                     M 60 12 L 108 60 L 60 108 L 12 60 Z
+                                     M 48 48 H 72 V 72 H 48 Z M 60 43 L 77 60 L 60 77 L 43 60 Z"/>
+                        </g>
+                    </pattern>
+
+                    <!-- Master Symmetrical Scalloped Mehrab Arch Curve -->
+                    <path id="scallopedMehrabPath"
+                          d="M -20 490
+                             A 66 66 0 0 1 55 395
+                             A 70 70 0 0 1 148 308
+                             A 72 72 0 0 1 256 232
+                             A 72 72 0 0 1 374 170
+                             A 72 72 0 0 1 498 124
+                             A 68 68 0 0 1 622 98
+                             C 632 58, 692 64, 720 34
+                             C 748 64, 808 58, 818 98
+                             A 68 68 0 0 1 942 124
+                             A 72 72 0 0 1 1066 170
+                             A 72 72 0 0 1 1184 232
+                             A 72 72 0 0 1 1292 308
+                             A 70 70 0 0 1 1385 395
+                             A 66 66 0 0 1 1460 490"/>
+
+                    <!-- Upper Spandrel Clip Area (Above Scalloped Arch) -->
+                    <clipPath id="mehrabSpandrelClip">
+                        <path d="M -30 -20 L -30 490 L -20 490
+                                 A 66 66 0 0 1 55 395
+                                 A 70 70 0 0 1 148 308
+                                 A 72 72 0 0 1 256 232
+                                 A 72 72 0 0 1 374 170
+                                 A 72 72 0 0 1 498 124
+                                 A 68 68 0 0 1 622 98
+                                 C 632 58, 692 64, 720 34
+                                 C 748 64, 808 58, 818 98
+                                 A 68 68 0 0 1 942 124
+                                 A 72 72 0 0 1 1066 170
+                                 A 72 72 0 0 1 1184 232
+                                 A 72 72 0 0 1 1292 308
+                                 A 70 70 0 0 1 1385 395
+                                 A 66 66 0 0 1 1460 490
+                                 L 1470 490 L 1470 -20 Z"/>
+                    </clipPath>
+                </defs>
+
+                <!-- 3D Golden Islamic Jali Spandrels + Solid Sculpted Scalloped Rim -->
+                <g filter="url(#mehrabArchShadow)">
+                    <g clip-path="url(#mehrabSpandrelClip)">
+                        <rect width="1440" height="540" fill="url(#mehrabSpandrelCavity)"/>
+                        <rect width="1440" height="540" fill="url(#mehrabGoldJali)"/>
+                    </g>
+                    <g fill="none" stroke-linejoin="miter" stroke-miterlimit="6">
+                        <use href="#scallopedMehrabPath" stroke="url(#mehrabRimExtrude)" stroke-width="34" transform="translate(0, 5)"/>
+                        <use href="#scallopedMehrabPath" stroke="#140A00" stroke-width="34" transform="translate(0, -1.5)" opacity="0.65"/>
+                        <use href="#scallopedMehrabPath" stroke="url(#mehrabRimMain)" stroke-width="30"/>
+                        <use href="#scallopedMehrabPath" stroke="url(#mehrabRimBevel)" stroke-width="18" transform="translate(0, -1)"/>
+                        <use href="#scallopedMehrabPath" stroke="#FEF9E2" style="stroke: var(--accent-100);" stroke-width="2.2" transform="translate(0, -3)" opacity="0.85"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
+
         <!-- Subtle Ambient Golden Sparkle Dots -->
         <div class="header-sparkles" aria-hidden="true">
-            <span class="sparkle-dot" style="top: 16%; left: 14%; width: 3.5px; height: 3.5px; animation-delay: 0s;"></span>
-            <span class="sparkle-dot" style="top: 24%; right: 16%; width: 3px; height: 3px; animation-delay: 1.2s;"></span>
+            <span class="sparkle-dot" style="top: 30%; left: 16%; width: 3.5px; height: 3.5px; animation-delay: 0s;"></span>
+            <span class="sparkle-dot" style="top: 34%; right: 16%; width: 3px; height: 3px; animation-delay: 1.2s;"></span>
             <span class="sparkle-dot" style="top: 66%; left: 12%; width: 3px; height: 3px; animation-delay: 2.1s;"></span>
             <span class="sparkle-dot" style="top: 58%; right: 13%; width: 3.5px; height: 3.5px; animation-delay: 0.7s;"></span>
-            <span class="sparkle-dot" style="top: 34%; left: 24%; width: 2.6px; height: 2.6px; animation-delay: 3.1s;"></span>
+            <span class="sparkle-dot" style="top: 42%; left: 26%; width: 2.6px; height: 2.6px; animation-delay: 3.1s;"></span>
             <span class="sparkle-dot" style="top: 72%; right: 24%; width: 3px; height: 3px; animation-delay: 1.8s;"></span>
-            <span class="sparkle-dot" style="top: 20%; right: 32%; width: 2.6px; height: 2.6px; animation-delay: 3.5s;"></span>
+            <span class="sparkle-dot" style="top: 40%; right: 28%; width: 2.6px; height: 2.6px; animation-delay: 3.5s;"></span>
             <span class="sparkle-dot" style="top: 76%; left: 30%; width: 2.8px; height: 2.8px; animation-delay: 0.9s;"></span>
         </div>
 
@@ -1856,9 +2030,9 @@
                 <svg class="royal-divider-star" viewBox="0 0 24 24" fill="none">
                     <defs>
                         <linearGradient id="div-star-gold" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#FFF8D6"/>
-                            <stop offset="50%" stop-color="#F1CB5B"/>
-                            <stop offset="100%" stop-color="#B8871B"/>
+                            <stop offset="0%" stop-color="#FEF9E2" style="stop-color: var(--accent-100);"/>
+                            <stop offset="50%" stop-color="#EAC961" style="stop-color: var(--accent-400);"/>
+                            <stop offset="100%" stop-color="#8E6914" style="stop-color: var(--accent-700);"/>
                         </linearGradient>
                     </defs>
                     <path d="M12 1.5L14.5 7.5L20.5 5.5L17.5 11.2L22.5 14.5L16.2 15.8L16.5 22L12 17.8L7.5 22L7.8 15.8L1.5 14.5L6.5 11.2L3.5 5.5L9.5 7.5L12 1.5Z" fill="url(#div-star-gold)"/>
@@ -1875,9 +2049,9 @@
                     <svg class="location-pin-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <defs>
                             <radialGradient id="b-pin-grad" cx="35%" cy="28%" r="72%">
-                                <stop offset="0%" stop-color="#FFF7CE"/>
-                                <stop offset="48%" stop-color="#EBC24C"/>
-                                <stop offset="100%" stop-color="#9A6B10"/>
+                                <stop offset="0%" stop-color="#FEF9E2" style="stop-color: var(--accent-100);"/>
+                                <stop offset="48%" stop-color="#D4AF37" style="stop-color: var(--accent-500);"/>
+                                <stop offset="100%" stop-color="#6E4F0D" style="stop-color: var(--accent-800);"/>
                             </radialGradient>
                         </defs>
                         <path d="M12 2.5C7.86 2.5 4.5 5.86 4.5 10C4.5 15.2 12 21.5 12 21.5C12 21.5 19.5 15.2 19.5 10C19.5 5.86 16.14 2.5 12 2.5Z" fill="url(#b-pin-grad)"/>
@@ -1889,15 +2063,14 @@
 
                 <div class="dev-badge">
                     <svg class="dev-code-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M8.5 7.5L4 12L8.5 16.5M15.5 7.5L20 12L15.5 16.5M13.6 6.2L10.4 17.8" stroke="#F5D67B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8.5 7.5L4 12L8.5 16.5M15.5 7.5L20 12L15.5 16.5M13.6 6.2L10.4 17.8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <span>Developed By - Pathan Mahirkhan</span>
                 </div>
             </div>
         </div>
     </header>
-
-    <!-- ═════════════════════════════════════════════════════════════════
+<!-- ═════════════════════════════════════════════════════════════════
          2. LIVE STATUS 3D BENTO CARDS WITH STUDIO-RENDERED 3D ICONS
          ═════════════════════════════════════════════════════════════════ -->
     <section class="live-status-container" aria-label="Live Ramadan Status">
@@ -2103,7 +2276,7 @@
     </section>
 
     <!-- ═════════════════════════════════════════════════════════════════
-         3. TACTILE 3D DROPDOWN MENU WITH 10 CUSTOM MINI 3D SVG ICONS
+         3. TACTILE 3D DROPDOWN MENU WITH 12 CUSTOM MINI 3D SVG ICONS
          ═════════════════════════════════════════════════════════════════ -->
     <nav class="custom-dropdown-menu" role="navigation" aria-label="Main navigation">
         <button type="button" class="menu-toggle-btn" id="menuToggleBtn" aria-expanded="false" aria-controls="menuItemsContainer">
@@ -2296,66 +2469,67 @@
                 <span class="link-text">તસ્બીહ કાઉન્ટર</span>
                 <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>
             </a>
-            <!-- 10. અઝાન (3D mosque minaret) -->
+
+            <!-- 10. અઝાન (3D Speaker) -->
             <a href="azan.html" class="dropdown-link" role="menuitem">
                 <span class="menu-3d-socket" aria-hidden="true">
                     <svg class="menu-3d-svg" viewBox="0 0 36 36" fill="none">
-    <defs>
-        <linearGradient id="m11s-gold" x1="10" y1="6" x2="28" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFF7CE"/><stop offset="48%" stop-color="#E8BC40"/><stop offset="100%" stop-color="#8C5F0B"/></linearGradient>
-        <linearGradient id="m11s-ruby" x1="5" y1="12" x2="15" y2="28" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9A2235"/><stop offset="100%" stop-color="#3E0710"/></linearGradient>
-    </defs>
-    <path d="M9.5 22L11.2 29.5C11.5 30.6 12.6 31.2 13.7 30.9L15 30.5L13.5 22H9.5Z" fill="url(#m11s-ruby)"/>
-    <rect x="5" y="13.5" width="8.5" height="9" rx="2.5" fill="url(#m11s-ruby)" stroke="#E8BC40" stroke-width="1.1"/>
-    <path d="M13.5 13.8L24.5 7.5V28.5L13.5 22.2V13.8Z" fill="url(#m11s-gold)"/>
-    <ellipse cx="24.5" cy="18" rx="2.6" ry="10.5" fill="#8C5F0B"/>
-    <ellipse cx="24.2" cy="18" rx="1.6" ry="8.6" fill="#FFF3BC"/>
-    <path d="M28.5 13.5C30.2 15 31 16.5 31 18C31 19.5 30.2 21 28.5 22.5" stroke="url(#m11s-gold)" stroke-width="2" stroke-linecap="round"/>
-    <path d="M30.8 10.5C33.2 12.8 34.2 15.2 34.2 18C34.2 20.8 33.2 23.2 30.8 25.5" stroke="url(#m11s-gold)" stroke-width="1.8" stroke-linecap="round" opacity="0.82"/>
-</svg>
+                        <defs>
+                            <linearGradient id="m11s-gold" x1="10" y1="6" x2="28" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFF7CE"/><stop offset="48%" stop-color="#E8BC40"/><stop offset="100%" stop-color="#8C5F0B"/></linearGradient>
+                            <linearGradient id="m11s-ruby" x1="5" y1="12" x2="15" y2="28" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9A2235"/><stop offset="100%" stop-color="#3E0710"/></linearGradient>
+                        </defs>
+                        <path d="M9.5 22L11.2 29.5C11.5 30.6 12.6 31.2 13.7 30.9L15 30.5L13.5 22H9.5Z" fill="url(#m11s-ruby)"/>
+                        <rect x="5" y="13.5" width="8.5" height="9" rx="2.5" fill="url(#m11s-ruby)" stroke="#E8BC40" stroke-width="1.1"/>
+                        <path d="M13.5 13.8L24.5 7.5V28.5L13.5 22.2V13.8Z" fill="url(#m11s-gold)"/>
+                        <ellipse cx="24.5" cy="18" rx="2.6" ry="10.5" fill="#8C5F0B"/>
+                        <ellipse cx="24.2" cy="18" rx="1.6" ry="8.6" fill="#FFF3BC"/>
+                        <path d="M28.5 13.5C30.2 15 31 16.5 31 18C31 19.5 30.2 21 28.5 22.5" stroke="url(#m11s-gold)" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M30.8 10.5C33.2 12.8 34.2 15.2 34.2 18C34.2 20.8 33.2 23.2 30.8 25.5" stroke="url(#m11s-gold)" stroke-width="1.8" stroke-linecap="round" opacity="0.82"/>
+                    </svg>
                 </span>
                 <span class="link-text">અઝાન</span>
                 <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>
             </a>
- <!-- 11. કુછ યાદ રખને કી બાતેં -->
+
+            <!-- 11. કુછ યાદ રખને કી બાતેં -->
             <a href="yaadrakhnekibate.html" class="dropdown-link" role="menuitem">
                 <span class="menu-3d-socket" aria-hidden="true">
-                   <svg class="menu-3d-svg" viewBox="0 0 36 36" fill="none">
-    <defs>
-        <radialGradient id="m10-gold" cx="32%" cy="28%" r="70%"><stop offset="0%" stop-color="#FFFDF0"/><stop offset="50%" stop-color="#EAC24C"/><stop offset="100%" stop-color="#8F610C"/></radialGradient>
-        <radialGradient id="m10-ruby" cx="32%" cy="28%" r="70%"><stop offset="0%" stop-color="#FF96A4"/><stop offset="50%" stop-color="#B01E33"/><stop offset="100%" stop-color="#4A0712"/></radialGradient>
-    </defs>
-    <rect x="7.5" y="7.5" width="21" height="24" rx="3.5" fill="url(#m10-gold)"/>
-    <rect x="9.5" y="9.5" width="17" height="20" rx="2" fill="#FFF8E5" stroke="#D4A93B" stroke-width="0.6"/>
-    <circle cx="13" cy="15.5" r="1.3" fill="url(#m10-ruby)"/>
-    <rect x="16" y="14.7" width="8" height="1.6" rx="0.8" fill="#B68B2E"/>
-    <circle cx="13" cy="20.2" r="1.3" fill="url(#m10-ruby)"/>
-    <rect x="16" y="19.4" width="8" height="1.6" rx="0.8" fill="#B68B2E"/>
-    <circle cx="13" cy="24.9" r="1.3" fill="url(#m10-ruby)"/>
-    <rect x="16" y="24.1" width="6" height="1.6" rx="0.8" fill="#B68B2E"/>
-    <circle cx="18" cy="7.5" r="3.6" fill="url(#m10-ruby)" stroke="#EAC24C" stroke-width="1"/>
-</svg>
-              </span>
+                    <svg class="menu-3d-svg" viewBox="0 0 36 36" fill="none">
+                        <defs>
+                            <radialGradient id="m11y-gold" cx="32%" cy="28%" r="70%"><stop offset="0%" stop-color="#FFFDF0"/><stop offset="50%" stop-color="#EAC24C"/><stop offset="100%" stop-color="#8F610C"/></radialGradient>
+                            <radialGradient id="m11y-ruby" cx="32%" cy="28%" r="70%"><stop offset="0%" stop-color="#FF96A4"/><stop offset="50%" stop-color="#B01E33"/><stop offset="100%" stop-color="#4A0712"/></radialGradient>
+                        </defs>
+                        <rect x="7.5" y="7.5" width="21" height="24" rx="3.5" fill="url(#m11y-gold)"/>
+                        <rect x="9.5" y="9.5" width="17" height="20" rx="2" fill="#FFF8E5" stroke="#D4A93B" stroke-width="0.6"/>
+                        <circle cx="13" cy="15.5" r="1.3" fill="url(#m11y-ruby)"/>
+                        <rect x="16" y="14.7" width="8" height="1.6" rx="0.8" fill="#B68B2E"/>
+                        <circle cx="13" cy="20.2" r="1.3" fill="url(#m11y-ruby)"/>
+                        <rect x="16" y="19.4" width="8" height="1.6" rx="0.8" fill="#B68B2E"/>
+                        <circle cx="13" cy="24.9" r="1.3" fill="url(#m11y-ruby)"/>
+                        <rect x="16" y="24.1" width="6" height="1.6" rx="0.8" fill="#B68B2E"/>
+                        <circle cx="18" cy="7.5" r="3.6" fill="url(#m11y-ruby)" stroke="#EAC24C" stroke-width="1"/>
+                    </svg>
+                </span>
                 <span class="link-text">કુછ યાદ રખને કી બાતેં</span>
                 <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>
             </a>
 
-            
             <!-- 12. સ્માર્ટ કિબલા ફાઈન્ડર (3D Golden-Banded Kaaba Cube) -->
             <a href="qibla.html" class="dropdown-link" role="menuitem">
                 <span class="menu-3d-socket" aria-hidden="true">
                     <svg class="menu-3d-svg" viewBox="0 0 36 36" fill="none">
                         <defs>
-                            <linearGradient id="m10-top" x1="8" y1="6" x2="28" y2="16" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4B4854"/><stop offset="100%" stop-color="#221F28"/></linearGradient>
-                            <linearGradient id="m10-left" x1="6" y1="12" x2="18" y2="31" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#2D2A34"/><stop offset="100%" stop-color="#110F16"/></linearGradient>
-                            <linearGradient id="m10-right" x1="18" y1="12" x2="30" y2="31" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#1B1821"/><stop offset="100%" stop-color="#09080D"/></linearGradient>
-                            <linearGradient id="m10-gold" x1="6" y1="14" x2="30" y2="20" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFF5C2"/><stop offset="50%" stop-color="#E5B638"/><stop offset="100%" stop-color="#9A6B12"/></linearGradient>
+                            <linearGradient id="m12-top" x1="8" y1="6" x2="28" y2="16" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4B4854"/><stop offset="100%" stop-color="#221F28"/></linearGradient>
+                            <linearGradient id="m12-left" x1="6" y1="12" x2="18" y2="31" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#2D2A34"/><stop offset="100%" stop-color="#110F16"/></linearGradient>
+                            <linearGradient id="m12-right" x1="18" y1="12" x2="30" y2="31" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#1B1821"/><stop offset="100%" stop-color="#09080D"/></linearGradient>
+                            <linearGradient id="m12-gold" x1="6" y1="14" x2="30" y2="20" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FFF5C2"/><stop offset="50%" stop-color="#E5B638"/><stop offset="100%" stop-color="#9A6B12"/></linearGradient>
                         </defs>
-                        <polygon points="18,5.5 30,11.5 18,17.5 6,11.5" fill="url(#m10-top)"/>
-                        <polygon points="6,11.5 18,17.5 18,31.5 6,25.5" fill="url(#m10-left)"/>
-                        <polygon points="30,11.5 18,17.5 18,31.5 30,25.5" fill="url(#m10-right)"/>
-                        <polygon points="6,15.5 18,21.5 18,24 6,18" fill="url(#m10-gold)"/>
+                        <polygon points="18,5.5 30,11.5 18,17.5 6,11.5" fill="url(#m12-top)"/>
+                        <polygon points="6,11.5 18,17.5 18,31.5 6,25.5" fill="url(#m12-left)"/>
+                        <polygon points="30,11.5 18,17.5 18,31.5 30,25.5" fill="url(#m12-right)"/>
+                        <polygon points="6,15.5 18,21.5 18,24 6,18" fill="url(#m12-gold)"/>
                         <polygon points="30,15.5 18,21.5 18,24 30,18" fill="#C99622"/>
-                        <polygon points="22.5,22 26,20.2 26,26.8 22.5,28.5" fill="url(#m10-gold)"/>
+                        <polygon points="22.5,22 26,20.2 26,26.8 22.5,28.5" fill="url(#m12-gold)"/>
                     </svg>
                 </span>
                 <span class="link-text">સ્માર્ટ કિબલા ફાઈન્ડર</span>
@@ -2363,8 +2537,7 @@
             </a>
         </div>
     </nav>
-    
-    
+
     <!-- ═════════════════════════════════════════════════════════════════
          4. ILLUMINATED 3D DUA PLAQUES (SEHRI & IFTAR)
          ═════════════════════════════════════════════════════════════════ -->
@@ -2761,7 +2934,6 @@
                 if (lastTimestamp === null) {
                     lastTimestamp = timestamp;
                 }
-                /* Delta time in seconds (clamped to 0.1s max so tab switches never jump) */
                 var dt = Math.min((timestamp - lastTimestamp) / 1000, 0.1);
                 if (dt < 0) dt = 0;
                 lastTimestamp = timestamp;
@@ -2797,7 +2969,7 @@
                     }
                 };
                 probeImg.onerror = function() {
-                    /* Keep crisp inline golden mandala SVGs intact with zero broken icons */
+                    /* Keep crisp inline golden mandala SVGs intact */
                 };
                 probeImg.src = 'mindle (7).jpg';
             } catch (err) {
